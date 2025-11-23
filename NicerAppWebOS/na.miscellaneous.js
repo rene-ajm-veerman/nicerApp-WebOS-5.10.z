@@ -1158,6 +1158,7 @@ na.m = {
      * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
+        na.site.settings.running_loadContent = true;
         var e = ec.events[eventIdx];
         for (var eventID in e) {
             var ev = e[eventID];

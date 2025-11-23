@@ -1162,8 +1162,8 @@ na.site = {
         ec.isCurrentEventChain_for__na_site_loadContent = true;
         na.m.makeEventsChain_theCurrentOne (lc, ec);
 
-        //na.desktop.settings.visibleDivs = na.desktop.globals.visibleDivs;
-        //na.desktop.resize();
+        na.desktop.settings.visibleDivs = na.desktop.globals.visibleDivs;
+        na.desktop.resize();
 
    // debugger;
         if (!url.match(/\/view\//) && url.indexOf('/')===0) {
@@ -1174,6 +1174,8 @@ na.site = {
             History.pushState (null, '', document.location.origin+'/view/'+url);
         } else debugger;
 
+        debugger;
+        na.site.startUIvisuals();
         event.preventDefault();
     },
 
@@ -1612,7 +1614,6 @@ na.site = {
                                 position : 'relative',
                                 width : '100%', height : '100%'
                             });
-                            na.site.settings.running_loadContent = false;
                             na.desktop.resize (function() {
                                 //na.site.resizeApps(f);
                                 na.site.onresize(); //calls na.site.resizeApps too.
@@ -1842,6 +1843,10 @@ na.site = {
                     var vdc = $('#'+divID2+' .vividDialogContent');
                     if (dat[divID2]) {
                         vdc.html(dat[divID2]).delay(50);
+                        $('.vividButton4, .vividButton, .vividButton_icon_50x50_siteTop, .vividButton_icon_50x50', vdc).each(function(idx,el) {
+                            delete na.site.c.buttons['#'+el.id];
+                        });
+                        na.site.settings.running_loadContent = false;
                         vdc.show();
                         if (na.site.settings.url.match('/wiki/')) {
                             $('#siteContent > .vividDialogContent > div').css({background:'none'});
@@ -2959,6 +2964,7 @@ na.site = {
                     return na.te.settings.current.specificity;
                 }, function () {
                     na.site.loadTheme_do (callback, specificityName, theme, loadBackground);
+                    na.site.settings.running_loadTheme = false;
                 }, 20);
 
             }, doSwitchSpecificities, includeClientOnlyThemes, specificityName, theme, ct, stickToCurrentSpecificity);
@@ -2968,6 +2974,7 @@ na.site = {
                 return true;//na.te.settings.current.specificity;
             }, function () {
                 na.site.loadTheme_do (callback, specificityName, theme, loadBackground);
+                na.site.settings.running_loadTheme = false;
             }, 20);
 
         };
@@ -3115,12 +3122,14 @@ na.site = {
                 if (data=='status : Failed.') {
                     na.m.log (1510, 'na.loadTheme() : FAILED (HTTP SUCCESS, but no theme was found)');
                     na.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName]);
+                    na.site.settings.running_loadTheme = false;
                     if (typeof callback=='function') callback(true);
                     return false;
                 } else if (data==='') {
                     na.m.log (1510, 'na.loadTheme() : FAILED (HTTP SUCCESS, but no data returned at all)');
                     na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName]);
                     na.site.loadTheme_initializeExtras();
+                    na.site.settings.running_loadTheme = false;
                     if (typeof callback=='function') callback(true);
                     return false;
                 }
@@ -3129,6 +3138,7 @@ na.site = {
                 } catch (error) {
                     na.m.log (1510, 'na.loadTheme() : FAILED (could not decode JSON data - '+error.message+')+');
                     na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName]);
+                    na.site.settings.running_loadTheme = false;
                     if (typeof callback=='function') callback(true);
 
                     // only significantly slows down startup for new viewers :

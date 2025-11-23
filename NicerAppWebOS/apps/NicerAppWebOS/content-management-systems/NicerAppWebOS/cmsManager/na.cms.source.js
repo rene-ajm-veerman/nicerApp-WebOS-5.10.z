@@ -223,7 +223,7 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
                     ) return false;
 
                     $('#siteContent .vividTabPage').fadeOut('fast');
-                    na.m.waitForCondition ('cms::changed.jstree() : desktopIdle?', na.m.desktopIdle, function(data) {
+                    na.m.waitForCondition ('cms::changed.jstree() : HTMLidle()?', na.m.HTMLidle, function(data) {
                         var l = data.selected.length, rec = null;
                         for (var i=0; i<l; i++) {
                             var d = data.selected[i], rec2 = data.instance.get_node(d);
@@ -461,7 +461,10 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
                 $('#mediaFolderLabel').val(rec.original.text);
 
                 $('#url0').html('/'+url0+'/');
-                $('#url1_dropdown_selected').html(rec.original.url1);
+                var url1 = rec && rec.original && rec.original.url1
+                    ? rec.original.url1
+                    : 'on';
+                $('#url1_dropdown_selected').html(url1);
                 $('#url1_dropdown_selector option').each(function(idx,optEl) {
                     if ($(optEl).html()==data) $(optEl).addClass('selected');
                 });
@@ -472,7 +475,7 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
                 $('#nb_documentTitle').val(rec.original.pageTitle);
                 $('#nb_mediaFolderLabel').val(rec.original.text);
 
-                $('#nb_url1_dropdown_selected').html(rec.original.url1);
+                $('#nb_url1_dropdown_selected').html(url1);
                 $('#nb_url1_dropdown_selector option').each(function(idx,optEl) {
                     if ($(optEl).html()==data) $(optEl).addClass('selected');
                 });
@@ -1273,11 +1276,11 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
         if (role) arr.cmsText.role = role;
         
         //var url = '/'+user+'/in/'+sel.original.dataID;//na.m.base64_encode_url (JSON.stringify(arr));
-        debugger;
         na.cms.saveEditorContent(sel, function(rec) {
             na.cms.onchange_documentHeaders({}, function() {
-                debugger;
-                var url = '/'+user.replace(/ /g, '-')+'/'+$('#nb_url1_dropdown_selected')[0].innerText+'/'+$('#nb_url2_value').val();
+                var url = '/'+user.replace(/ /g, '-')+'/'+$('#nb_url1_dropdown .vividDropDownBox_selected')[0].innerText+'/'+$('#nb_url2_value').val();
+                delete na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS/cmsManager'];
+                delete na.cms;
                 na.site.loadContent(null, url);
             });
         });

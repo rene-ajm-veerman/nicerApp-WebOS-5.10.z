@@ -10,9 +10,10 @@ na.desktop = na.d = {
 
     initialize (settings) {
         var t = this;
-        t.g = {
+        t.globals = t.g = {
             animationSpeed : 300,//'slow',
             divs : [ '#siteTaskbar', '#siteDateTime', '#siteErrors', '#btnOptions', '#btnLoginLogout', '#btnChangeBackground', '#siteContent', '#siteYoutubePlayer', '#siteYoutubeSearch', '#siteComments', '#siteStatusbar', '#siteToolbarThemeEditor', '#siteToolbarLeft', '#siteToolbarRight', '#siteToolbarTop' ],
+            visibleDivs : [ '#siteTaskbar', '#siteContent' ],
             configs : {
                 'background' : [ ],
                 'all' : [ '#siteContent', '#siteYoutubePlayer', '#siteYoutubeSearch', '#siteStatusbar' ],
