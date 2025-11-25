@@ -19,9 +19,9 @@ A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<b
     <li class="todoList"><div>(2025) Start on .../logic.databases/uDB-2.0.0, to be based on .../logic.databases/generalizedDatabasesAPI-1.0.0
         <a href="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-uDB.png" class="nomod noPushState" target="tl-udb-1"><img src="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-uDB.png" style="width:320px"/></a>
         <a href="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-taskManager.png" class="nomod noPushState" target="tl-udb-1"><img src="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-taskManager.png" style="width:320px"/></a>
-        <ol>
-            <li><div>Add query routines in uDB to translate couchdb index names to index ids.</div></li>
-            <li><div>Add and test MySQL, PostgreSQL and 'filesystemDB' (fsDB) sub-modules to uDB, as well as their interactions with the CouchDB part of uDB.</div></li>
+        <ol class="todoList_l1">
+            <li class="todoList_l1"><div>Add query routines in uDB to translate couchdb index names to index ids.</div></li>
+            <li class="todoList_l1"><div>Add and test MySQL, PostgreSQL and 'filesystemDB' (fsDB) sub-modules to uDB, as well as their interactions with the CouchDB part of uDB.</div></li>
         </ol>
     </div></li>
 

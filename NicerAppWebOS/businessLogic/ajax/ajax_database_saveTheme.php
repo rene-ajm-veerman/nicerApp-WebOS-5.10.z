@@ -4,6 +4,7 @@ require_once ($rootPathNA.'/boot.php');
 global $naIP;
 global $naWebOS;
 
+$useAdminLogin = false; // bugfix when boolean 'true' (NO LONGER NEEDED)
 $debug = false;
 if ($debug) {
     echo 'info : '.__FILE__.' : $debug = true.<br/>'.PHP_EOL;
@@ -28,7 +29,13 @@ $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_reque
 global $naWebOS;
 $cdbDomain = $naWebOS->domainFolderForDB;//str_replace('.','_',$naWebOS->domainFolder);
 
-$cdb = $naWebOS->dbs->findConnection('couchdb')->cdb;
+if ($useAdminLogin) {
+    $db = $naWebOS->dbsAdmin->findConnection('couchdb');
+    $cdb = $db->cdb;
+} else {
+    $db = $naWebOS->dbs->findConnection('couchdb');
+    $cdb = $db->cdb;
+}
 
 $dataSetName = $cdbDomain.'___themes';
 //echo $dataSetName; die();
@@ -223,23 +230,47 @@ if (!isset($_SESSION) || !is_array($_SESSION) || !array_key_exists('selectors',$
         
         global $naWebOS;
         
-        // check permissions
-        $hasPermission = false;
-        $roles = $naWebOS->dbs->findConnection('couchdb')->roles;
-        if ($debug) { echo '<pre>$permissions='; var_dump ($permissions); echo '</pre>'.PHP_EOL.PHP_EOL; };
-        foreach ($permissions as $permissionType => $permissionRec) {
-            if ($permissionType=='write') {
-                foreach ($permissionRec as $accountType => $permissionsList) {
-                    foreach ($permissionsList as $idx321 => $userOrGroupID) {
-                        if ($accountType == 'roles') {
-                            foreach ($roles as $roleIdx => $groupID) {
-                                if ($userOrGroupID==$groupID) {
-                                    $hasPermission = true;
+        if ($useAdminLogin) {
+            $hasPermission = true;
+        } else {
+
+            $username100 =
+                (array_key_exists('cdb_loginName', $_SESSION)
+                    ? $_SESSION['cdb_loginName']
+                    : (array_key_exists('cdb_loginName', $_COOKIE)
+                        ? $_COOKIE['cdb_loginName']
+                        : 'Guest')
+            );
+            $username100 = preg_replace ('/.*___(.*)/', '$1', $username100);
+            //echo '<pre style="color:blue;">'; var_dump ($_SESSION); echo '</pre>'; exit();
+            $username101 = $db->translate_plainUserName_to_couchdbUserName ($username100);
+
+
+            // check permissions
+            $hasPermission = false;
+            if ($useAdminLogin) {
+                $roles = $naWebOS->dbsAdmin->findConnection('couchdb')->roles;
+            } else {
+                $roles = $naWebOS->dbs->findConnection('couchdb')->roles;
+            }
+            if ($debug) {
+                echo '<pre>$roles='; var_dump ($roles); echo '</pre>'.PHP_EOL.PHP_EOL;
+                echo '<pre>$permissions='; var_dump ($permissions); echo '</pre>'.PHP_EOL.PHP_EOL;
+            };
+            foreach ($permissions as $permissionType => $permissionRec) {
+                if ($permissionType=='write') {
+                    foreach ($permissionRec as $accountType => $permissionsList) {
+                        foreach ($permissionsList as $idx321 => $userOrGroupID) {
+                            if ($accountType == 'roles') {
+                                foreach ($roles as $roleIdx => $groupID) {
+                                    if ($userOrGroupID==$groupID) {
+                                        $hasPermission = true;
+                                    }
                                 }
                             }
-                        }
-                        if ($accountType == 'users' && $_COOKIE['cdb_loginName'] == $userOrGroupID) {
-                            $hasPermission = true;
+                            if ($accountType == 'users' && (array_key_exists('cdb_loginName',$_COOKIE)?$_COOKIE['cdb_loginName']:$username101) == $userOrGroupID) {
+                                $hasPermission = true;
+                            }
                         }
                     }
                 }

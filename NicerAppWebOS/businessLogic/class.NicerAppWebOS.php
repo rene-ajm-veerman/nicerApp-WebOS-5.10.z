@@ -1959,7 +1959,7 @@ class NicerAppWebOS {
                 ? $_SESSION['cdb_loginName']
                 : (array_key_exists('cdb_loginName', $_COOKIE)
                     ? $_COOKIE['cdb_loginName']
-                    : '')
+                    : 'Guest')
         );
         $username100 = preg_replace ('/.*___(.*)/', '$1', $username100);
         //echo '<pre style="color:blue;">'; var_dump ($_SESSION); echo '</pre>'; exit();

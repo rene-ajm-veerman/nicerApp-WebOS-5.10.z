@@ -42,7 +42,7 @@ $_SESSION['cdb_pw'] = $_POST['pw'];
 try {
     $cdb_authSession_cookie = $cdb->login($username, $_POST['pw'], Sag::$AUTH_COOKIE);
 } catch (Exception $e) {
-    echo 'status : Failed<br/>'.PHP_EOL;
+    echo 'status : Failed.<br/>'.PHP_EOL;
     echo '$cdbDomain."___".$username='.$username.', $e->getMessage() = '.$e->getMessage();
     exit();
 }

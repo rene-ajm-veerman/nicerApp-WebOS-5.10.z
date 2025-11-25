@@ -628,7 +628,7 @@ function cdb_login($cdb, $cRec, $username) {
                 $cdb_session = $cdb->getSession();
             }
         } catch (Exception $e) {
-           //echo 't34j22<pre>'; var_dump ($cRec); exit();
+                echo 't34j22<pre>'; var_dump ($cRec); exit();
                 $_SESSION['cdb_loginName'] = $cRec['username'];
                 $cdb->login ($cRec['username'], $cRec['password'], Sag::$AUTH_COOKIE);
                 $cdb_session = $cdb->getSession();
