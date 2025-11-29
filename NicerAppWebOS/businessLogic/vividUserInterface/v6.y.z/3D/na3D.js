@@ -2325,14 +2325,17 @@ export class na3D_fileBrowser {
             */
 
                 var mx = -1, my = -1, mz = -1, mpx = 500, mpy = 500, mpz = 1500, msx = 500, msy = 500, msz = 500;
-                var mrx = 5, mry = 5, mrz = 5;
+                var mrx = 33, mry = 33, mrz = 34;
+                var rx = 1, ry = 1, rz = 1;
                 if (prevIt) {
-                    if (prevIt.filepath!==it.filepath) {
-                        var rx = mrx * Math.random(), ry = mry * Math.random(), rz = mrz * Math.random();
+                    if (prevIt.filepath.replace(/folders\//g,'')!==it.filepath.replace(/folders\//g,'')) {
+                        rx += mrx * Math.random();
+                        ry += mry * Math.random();
+                        rz = mrz * Math.random();
                         prevIt = it;
                     };
                 } else {
-                    var rx = 0, ry = 0, rz = 0;
+                    prevIt = it;
                 }
                 if (p) {
                     if (p.columnOffsetValue>0) mx = 1;
@@ -2348,8 +2351,8 @@ export class na3D_fileBrowser {
                         mx * (
                             (
                             p? p.sPos.x
-                                + (rx*msx*p.column)
-                                //+ (mpx*p.columnOffsetValue)
+                                //+ (rx*msx*p.column)
+                                + (rx*mpx*p.columnOffsetValue)
                             :0
                             )
                             + (it.column * mpx)
@@ -2361,8 +2364,8 @@ export class na3D_fileBrowser {
                         my * (
                             (
                                 p ? p.sPos.y
-                                    + (ry*msy*p.row)
-                                    //+ (mpy*p.rowOffsetValue)
+                                    //+ (ry*msy*p.row)
+                                    + (ry*mpy*p.rowOffsetValue)
                                 : 0
                             )
                             + (it.row * mpy)
@@ -2375,11 +2378,11 @@ export class na3D_fileBrowser {
                                     (p.sPos.z)
                                     + (rz*msz*(p.level+1))
                                     + (p.depth*mpz)
-                                    //+ (p.depthOffsetValue*mpz)
+//                                    + (p.depthOffsetValue*mpz)
 
                               : 0
                             )
-                            + (it.level * mpz)
+                            //+ (it.level * mpz)
                             + (it.depth * msz)
                             //+ (it.depthOffsetValue * mpz)
                         )
@@ -2391,11 +2394,11 @@ export class na3D_fileBrowser {
                         mx * (
                             (
                             p? p.sPos.x
-                                + (rx*msx*p.column*2)
-                                //+ (mpx*p.columnOffsetValue)
+                                //+ (rx*msx*p.column)
+                                + (rx*mpx*p.columnOffsetValue)
                             :0
                             )
-                            + (it.column * msx)
+                            + (it.column * mpx)
                             //+ (it.columnOffsetValue * mpx)
                         )
 
@@ -2404,25 +2407,26 @@ export class na3D_fileBrowser {
                         my * (
                             (
                                 p ? p.sPos.y
-                                    + (ry*msy*p.row*2)
-                                    //+ (mpy*p.rowOffsetValue)
+                                    //+ (ry*msy*p.row)
+                                    + (ry*mpy*p.rowOffsetValue)
                                 : 0
                             )
                             + (it.row * mpy)
                             //+ (it.rowOffsetValue * mpy)
                         )
                     //) / divider);
-                    it.sPos.z = //Math.round(
+                    it.sPos.z = // Math.round( (
                         mz * (
                             ( p ?
-                                    (p.sPos.z)
-                                    + (rz*mpz*(p.level+1))
-                                    //+ (p.depth*msz)
-                                    //+ (p.depthOffsetValue*mpz)
+                                (p.sPos.z)
+                                    + (rz*msz*(p.level+1))
+                                    + (p.depth*mpz)
+//                                    + (p.depthOffsetValue*mpz)
+
                               : 0
                             )
-                            + (it.level * mpz)
-                            + (it.depth * mpz)
+                            //+ (it.level * mpz)
+                            + (it.depth * msz)
                             //+ (it.depthOffsetValue * mpz)
                         )
                     //debugger;
@@ -2447,11 +2451,10 @@ export class na3D_fileBrowser {
                 console.log ('onresize_do_phase2()::t750 : '+it.filepath+'/'+it.name, dbg);
             }
 
-            prevIt = it;
         }
 
         var
-        sideLength = 100,
+        sideLength = 300,
         length = sideLength,
         width = sideLength,
         shape = new THREE.Shape();

@@ -34,7 +34,7 @@ export class na3D_fileBrowser {
         t.debug = true;
         
         t.autoRotate = false;
-        t.showLines = true;
+        t.showLines = false;
         t.showFiles = true;
         t.animationDuration = 20;
         t.useCameraControls = true;
@@ -2110,6 +2110,7 @@ export class na3D_fileBrowser {
         // calculate directional offset values
         // from cube/sphere XYZ grouping field
         var pox = {}, poy = {}, poz = {}, pd = {};
+        var prevIt = null;
         //if (t.initialized) //EVUL
 
         na.m.log (1555, fncn+' : Do final position calculations for '+t.items.length+' scene items.');
@@ -2323,24 +2324,32 @@ export class na3D_fileBrowser {
                 };
             */
 
-                var mx = 1, my = 1, mz = 1, mpx = 1000, mpy = 1500, mpz = 2500, msx = 750, msy = 750, msz = 750;
-                var mrx = 200, mry = 200, mrz = 200;
-                var rx = mrx * Math.random(), ry = mry * Math.random(), rz = mrz * Math.random;
-                if (p) {
-                    if (p.columnOffsetValue>0) mx = -1;
-                    if (p.rowOffsetValue>0) my = -1;
-                    if (p.depthOffsetValue>0) mz = -1;
+                var mx = -1, my = -1, mz = -1, mpx = 500, mpy = 500, mpz = 1500, msx = 500, msy = 500, msz = 500;
+                var mrx = 5, mry = 5, mrz = 5;
+                if (prevIt) {
+                    if (prevIt.filepath!==it.filepath) {
+                        var rx = mrx * Math.random(), ry = mry * Math.random(), rz = mrz * Math.random();
+                        prevIt = it;
+                    };
+                } else {
+                    var rx = 1, ry = 1, rz = 1;
                 }
+                if (p) {
+                    if (p.columnOffsetValue>0) mx = 1;
+                    if (p.rowOffsetValue>0) my = 1;
+                    if (p.depthOffsetValue>0) mz = 1;
+                }
+                mx = 1; my = 1; mz = 1;
 
 
                 // calculate folders' and files' x,y,z position in the scene
                 if (!t.showFiles || it.name.substr(it.name.length-4,4)=='.mp3') {
                     it.sPos.x = //Math.round( (
-                        rx + mx * (
+                        mx * (
                             (
                             p? p.sPos.x
-                                + (msx*p.column)
-                                + (mpx*p.columnOffsetValue)
+                                + (rx*msx*p.column)
+                                //+ (mpx*p.columnOffsetValue)
                             :0
                             )
                             + (it.column * mpx)
@@ -2349,11 +2358,11 @@ export class na3D_fileBrowser {
 
                     //) / divider);
                     it.sPos.y = // Math.round( (
-                        ry + my * (
+                        my * (
                             (
                                 p ? p.sPos.y
-                                    + (msy*p.row)
-                                    + (mpy*p.rowOffsetValue)
+                                    + (ry*msy*p.row)
+                                    //+ (mpy*p.rowOffsetValue)
                                 : 0
                             )
                             + (it.row * mpy)
@@ -2361,10 +2370,10 @@ export class na3D_fileBrowser {
                         )
                     //) / divider);
                     it.sPos.z = // Math.round( (
-                        rz + mz * (
+                        mz * (
                             ( p ?
                                     (p.sPos.z)
-                                    + (msz*(p.level+1))
+                                    + (rz*msz*(p.level+1))
                                     + (p.depth*mpz)
                                     //+ (p.depthOffsetValue*mpz)
 
@@ -2379,11 +2388,11 @@ export class na3D_fileBrowser {
 
                 } else if (it.model && p) {
                     it.sPos.x = //Math.round( (
-                        rx + mx * (
+                        mx * (
                             (
                             p? p.sPos.x
-                                + (msx*p.column)
-                                + (mpx*p.columnOffsetValue)
+                                + (rx*msx*p.column*2)
+                                //+ (mpx*p.columnOffsetValue)
                             :0
                             )
                             + (it.column * msx)
@@ -2392,11 +2401,11 @@ export class na3D_fileBrowser {
 
                     //) / divider);
                     it.sPos.y = // Math.round( (
-                        ry + my * (
+                        my * (
                             (
                                 p ? p.sPos.y
-                                    + (msy*p.row)
-                                    + (mpy*p.rowOffsetValue)
+                                    + (ry*msy*p.row*2)
+                                    //+ (mpy*p.rowOffsetValue)
                                 : 0
                             )
                             + (it.row * mpy)
@@ -2404,21 +2413,21 @@ export class na3D_fileBrowser {
                         )
                     //) / divider);
                     it.sPos.z = //Math.round(
-                        rz + mz * (
+                        mz * (
                             ( p ?
                                     (p.sPos.z)
-                                    + (mpz*(p.level+1))
-                                    + (p.depth*msz)
+                                    + (rz*mpz*(p.level+1))
+                                    //+ (p.depth*msz)
                                     //+ (p.depthOffsetValue*mpz)
-                                    + (p.sPos.z)
                               : 0
                             )
                             + (it.level * mpz)
                             + (it.depth * mpz)
                             //+ (it.depthOffsetValue * mpz)
                         )
+                    //debugger;
                     //) / divider;
-                    //console.log ("t555p", it.filepath + "/" + it.name, it.pos);
+                    //console.log ("t555p", it.filepath + "/" + it.name, it.sPos);
                     //if (it.name.match("Relaxation")) debugger;
                 } else if (it.model) {
                     it.sPos.x = it.columnOffsetValue * 1000;
@@ -2437,6 +2446,8 @@ export class na3D_fileBrowser {
                 };
                 console.log ('onresize_do_phase2()::t750 : '+it.filepath+'/'+it.name, dbg);
             }
+
+            prevIt = it;
         }
 
         var
@@ -2461,7 +2472,6 @@ export class na3D_fileBrowser {
         };
 
         na.m.log (1555, fncn+' : Add scene items to scene.');
-        debugger;
         for (var j=0; j<t.items.length; j++) {
             var p7a = t.items[j].idxPath;
             var p7b = p7a.substr(1).split("/");
@@ -2547,7 +2557,6 @@ export class na3D_fileBrowser {
                         } else {
                             var cube = new THREE.Mesh( new THREE.BoxGeometry( t.meshLength, t.meshLength, t.meshLength ), materials2 );
                         }
-                        debugger;
                         if (!t.showFiles || it.name.substr(it.name.length-4,4)!=='.mp3') {
                             cube.it = it;
                             cube.position.x = it.sPos.x;
@@ -2562,7 +2571,6 @@ export class na3D_fileBrowser {
                         }
                     } else {
                         var cube = new THREE.Mesh( new THREE.BoxGeometry( t.meshLength, t.meshLength, t.meshLength ), materials2 );
-                        debugger;
                         cube.it = it;
                         cube.position.x = it.sPos.x;
                         cube.position.y = it.sPos.y;

@@ -498,6 +498,7 @@ na.site = {
 		History.Adapter.bind(window,'statechange', na.site.stateChange); // use HTML5 History API if available:
 
         t.s.c = { booted : true };
+        na.site.initialized = true;
 
         //console.log (this);
         return this;
@@ -1587,11 +1588,11 @@ na.site = {
                                 && !na.site.settings.startingApps;
                             return r;
                         }, function(f) {
-                            na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteToolbarLeft');
-                            na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteToolbarThemeEditor');
-                            na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteContent');
-                            na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteToolbarRight');
-                            na.d.s.visibleDivs.push ('#siteContent');
+                            //na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteToolbarLeft');
+                            //na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteToolbarThemeEditor');
+                            //na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteContent');
+                            //na.d.s.visibleDivs = arrayRemove (na.d.s.visibleDivs,'#siteToolbarRight');
+                            //na.d.s.visibleDivs.push ('#siteContent');
                             na.site.initializeApps(f, function() {
                                 na.site.settings.loadingApps = false;
                             });
