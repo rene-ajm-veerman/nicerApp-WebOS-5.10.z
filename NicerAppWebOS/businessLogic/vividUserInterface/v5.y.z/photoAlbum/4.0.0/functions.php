@@ -8,12 +8,10 @@ function naPhotoAlbum ($basePath=null) {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);    
-
     
-    
-    $baseURL = '/NicerAppWebOS/siteData/'.$naWebOS->domainFolder;
-    $baseDir = $root.'/NicerAppWebOS/siteData/'.$naWebOS->domainFolder;
-    $targetDir = realpath($baseDir.'/'.$basePath);
+    $baseURL = '/siteData/'.$naWebOS->domainFolder;
+    $baseDir = $naWebOS->domainPath.'/siteData/'.$naWebOS->domainFolder;
+    $targetDir = realpath($baseDir.'/'.$basePath['mediaFolder']);
     $thumbDir = $targetDir.'/thumbs';
     
     $files = getFilePathList ($targetDir, false, FILE_FORMATS_photos, null, array('file'));
@@ -25,13 +23,20 @@ function naPhotoAlbum ($basePath=null) {
         'targetDir' => $targetDir,
         'files' => $files
     );
-    //echo '<pre style="color:black;background:white;border-radius:3px;border:1px solid black;">'; var_dump ($dbg); echo '</pre>';
+    echo '<pre style="color:black;background:white;border-radius:3px;border:1px solid black;">'; var_dump ($dbg); echo '</pre>';
+    exit();
+
+
+
+
+
     $r .= '<div style="display:flex;flex-wrap:wrap">';
     foreach ($files as $idx => $filePath) {
+        $filePath = $filePath['webPath'];
         $fileName = str_replace ($targetDir.'/', '', $filePath);
         $thumbPath = $thumbDir.'/'.$fileName;
         $thumbURL = str_replace ($baseDir, $baseURL, $thumbPath);
-        $fileURL = str_replace ($baseDir, $baseURL, $filePath);
+        $fileURL = $targetDir.str_replace ($baseDir, $baseURL, $filePath);
         $dbg = array (
             'fileName' => $fileName,
             'filePath' => $filePath,
@@ -46,14 +51,16 @@ function naPhotoAlbum ($basePath=null) {
         $onclick = '';
         $href = '';
         $arr = array (
-            "misc" => [ "folder" => "/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS" ],
-            "cmsViewMedia" => array (
-                "basePath" => $basePath,
-                "filename" => $fileName
-            )
+            "/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS" => [
+                "cmsViewMedia" => array (
+                    "basePath" => $targetDir,
+                    "filename" => $fileName
+                )
+            ]
         );
+        //echo '<pre>'; var_dump($arr); echo '</pre>';
         $json = json_encode($arr);
-        $href = "/view-content/".base64_encode_url($json);
+        $href = "/view/".base64_encode_url($json);
         
         
         $r .= '<center><a href="'.$href.'"><img src="'.$thumbURL.'" style="width:200px" '.$onclick.'/><br/><span class="filename">'.$fileName.'</span></a></center></div>';        

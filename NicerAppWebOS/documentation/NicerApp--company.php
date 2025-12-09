@@ -20,7 +20,7 @@
     <h1 class="contentSectionTitle2" style="width:fit-content;padding:10px;">Nicer Enterprises - company overview</h1>
     <div>
         <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
-            <a href="https://nicer.app" target="naHP">https://nicer.app</a>, <a href="https://said.by" target="sbHP">https://said.by</a>, <a href="https://zoned.at" target="zAt">https://zoned.at</a>, <a href="https://github.com/NicerEnterprises" target="githubNicerEnterprises">https://github.com/NicerEnterprises</a>, <br/><!--in addition to ALL of the content listed at the social media URLs below, <br/>-->are ENTIRELY
+            <a href="https://nicer.app" target="naHP">https://nicer.app</a>, <a href="https://said.by" target="sbHP">https://said.by</a>, <a href="https://zoned.at" target="zAt">https://zoned.at</a>, <a href="https://github.com/Rene-AJM-Veerman" target="githubNicerEnterprises">https://github.com/Rene-AJM-Veerman</a>, <br/><!--in addition to ALL of the content listed at the social media URLs below, <br/>-->are ENTIRELY
             Copyrighted (C), have All Rights Reserved (R) 2002-2025 and are 100% Owned by <a href="mailto:rene.veerman.netherlands@gmail.com" target="_new" class="nomod noPushState">Rene A.J.M. Veerman &lt;rene.veerman.netherlands@gmail.com&gt;</a><br/>
             a.k.a. Gavan Peacefan Unifying Revenger Angelicus Divinicus Hoverswell.<br/>
         </p>
@@ -30,7 +30,13 @@
         My protective custody agent's details are well engraved in medical records at https://mentrum.nl<br/>
         </p>
 
-        <?php echo $diaries->getDiary('siteOwner');?>
+        <h2>Executives</h2>
+
+        <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
+        Chief Financial Officer : Jaap I.M. Veerman (to be contacted through the CEO's email address only).
+        </p>
+
+        <?php //echo $diaries->getDiary('siteOwner');?>
 
     </div>
 </div>

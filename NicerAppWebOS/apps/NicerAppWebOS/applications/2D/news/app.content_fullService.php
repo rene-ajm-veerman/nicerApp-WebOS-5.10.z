@@ -27,7 +27,6 @@ $pageTitle = str_replace('_', '&nbsp;', $pageTitle);
             na.site.settings.loadingApps = false;
             na.site.settings.running_loadContent = false;
             na.site.settings.running_loadTheme = false;
-debugger;
             na.m.waitForCondition ('news init after na.m.htmlIdle', function() {
                 var r = (
                     na.m.HTMLidle()
@@ -39,7 +38,6 @@ debugger;
             }, function () {
                 //if (!na.site.globals.themes) na.site.settings = $.extend(na.site.globals, naGlobals);
 
-                debugger;
                 var
                 appKey = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news',
                 section = '<?php echo $view['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news']['section'];?>',

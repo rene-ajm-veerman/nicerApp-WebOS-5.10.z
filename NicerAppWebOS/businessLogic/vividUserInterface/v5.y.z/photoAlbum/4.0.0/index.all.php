@@ -11,7 +11,7 @@
 <body style="overflow:hidden">
 <div id="photoAlbumSelection__scrollpane" class="vividScrollpane vividTheme__scroll_black" style="width:100%; height:100%;">
 <?php
-    $root = realpath(dirname(__FILE__).'/../../../..');
+    $root = realpath(dirname(__FILE__).'/../../../../../..');
     require_once ($root.'/NicerAppWebOS/boot.php');
     set_time_limit(5 * 60);
     /*
@@ -27,9 +27,9 @@ error_reporting(E_ALL);
 
     global $naWebOS;
     
-    $baseURL = '/NicerAppWebOS/siteData/'.$naWebOS->domainFolder;
-    $baseDir = $root.'/NicerAppWebOS/siteData/'.$naWebOS->domainFolder;
-    //echo '<pre style="color:white;">'; var_dump($baseDir); echo '</pre>'; exit();
+    $baseURL = '/siteData/'.$naWebOS->domainFolder;
+    $baseDir = $naWebOS->domainPath.'/siteData/'.$naWebOS->domainFolder;
+    //secho '<pre style="color:white;">'; var_dump($baseDir); echo '</pre>';
 
     /*
     $couchdbConfigFilepath = $root.'/domainConfigs/'.$naWebOS->domainFolder.'/couchdb.json';
@@ -57,6 +57,19 @@ error_reporting(E_ALL);
     //$dbs = $couchdb->getAllDbs();
     $dbList = '';
     $albums = array();
+
+
+
+
+
+
+
+
+
+
+
+
+
     foreach ($dbs->body as $idx => $dbName) {
         $dbList .= $dbName.'<br/>';
         
@@ -68,18 +81,20 @@ error_reporting(E_ALL);
             try { $db = $cdb->setDatabase($dbName,false); } catch (Exception $e) { echo $e->getMessage(); echo '<br/>'; $do = false; exit(); }
             if ($do) {
                 $docs = $cdb->getAllDocs();
-                //echo '<pre style="color:red;">'; var_dump ($docs); echo '</pre>'; exit();
+                //echo '<pre style="color:lime;">'; var_dump ($dbName); var_dump ($docs); echo '</pre>'; //exit();
                 //$dbList .= json_encode($docs).'<br/>';
                 //$dbList .= 'count : '.count($docs).'<br/>';
                 $parentsURL = '';
                 for ($i=0; $i<count($docs->body->rows); $i++) {
     set_time_limit(5 * 60);
                     $it = $cdb->get($docs->body->rows[$i]->id);
-                    //echo '<pre style="color:red;">'; var_dump ($it); echo '</pre>'; exit();
-                    if ($it->body->type==='naMediaAlbum') {
+                    //echo '<pre style="color:red;">'; var_dump ($it); echo '</pre>';// exit();
+                    if (property_exists($it->body, 'type') && $it->body->type==='naMediaAlbum') {
                         $j = $i;
                         $it2 = $cdb->get($docs->body->rows[$j]->id);
                         $parentsURL = $it2->body->text;
+
+                        //echo '<pre style="color:yellow;">'; var_dump ($it2); echo '</pre>';// exit();
                         
                         while ($it2->body->parent!=='#') {
                             $done = false;
@@ -98,7 +113,7 @@ error_reporting(E_ALL);
                     if ($parentsURL!=='') {
                         if (strpos($dbName,'tree___user')!==false) $parentsURL = 'Users/'.$parentsURL;
                         if (strpos($dbName,'tree___role')!==false) $parentsURL = 'Groups/'.$parentsURL;
-                        //echo '<pre style="color:lime;font-weight:bold;">'; var_dump ($baseDir.'/'.$parentsURL); echo '</pre>';
+                        //echo '<pre style="color:lime;font-weight:bold;">'; var_dump ($baseDir.'/'.$parentsURL); var_dump (is_string(realpath($baseDir.'/'.$parentsURL))); echo '</pre>';
                         if (is_string(realpath($baseDir.'/'.$parentsURL))) array_push($albums, $parentsURL);
                     }
                     
@@ -136,7 +151,8 @@ error_reporting(E_ALL);
             echo '<p style="color:red;background:white;">'; var_dump($targetDir); echo '</pre>';
         } else {
 
-            $files = getFilePathList ($targetDir, false, FILE_FORMATS_photos, null, array('file'), 1,1,true);
+            $files = getFilePathList ($targetDir, false, FILE_FORMATS_photos, null, array('file'), 1,1,false);
+            //echo '<pre style="color:lime">'; var_dump($targetDir); var_dump ($files); echo '</pre>';
             
             $dbg = array (
                 'baseURL' => $baseURL,
@@ -145,10 +161,22 @@ error_reporting(E_ALL);
                 'files' => $files
             );
             //if (count($files)>0) {echo '<pre style="color:red;background:white;border-radius:3px;border:1px solid black;">'; var_dump ($dbg); echo '</pre>'; exit();};
+
             //echo '<pre style="color:red;background:white;border-radius:3px;border:1px solid black;">'; var_dump ($dbg); echo '</pre>';
             
+
+
+
+
+
+
+
+
+            $idx3 = 0;
             foreach ($files as $idx2 => $filePath) {
-                if ($idx2===0) {
+                if ($idx3===0) {
+                    $filePath = $filePath['webPath'];
+                    //var_dump ($filePath);
                     $fileName = str_replace ($targetDir.'/', '', $filePath);
                     $thumbPath = $thumbDir.'/'.$fileName;
                     $thumbURL = str_replace ($baseDir, $baseURL, $thumbPath);
@@ -174,6 +202,7 @@ error_reporting(E_ALL);
                     
                     echo '</div>';
                 }
+                $idx3++;
             }
             ob_flush(); ob_end_flush(); ob_start();
         }

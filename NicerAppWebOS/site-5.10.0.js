@@ -3188,13 +3188,14 @@ na.site = {
         $.ajax(ac);
     },
 
-    loadTheme_applySettings : function (dat, callback, loadBackground, saveTheme) {
+    loadTheme_applySettings : function (dat, callback, loadBackground, saveTheme, changeInterval) {
         if (!dat) {
             na.m.log (1510, 'Error : loadTheme_applySettings() called with dat=undefined/false', false);
             return false;
         };
         if (typeof loadBackground=='undefined') loadBackground = true;
         if (typeof saveTheme=='undefined') saveTheme = true;
+        if (typeof changeInterval=='undefined') changeInterval = true;
         //if (dat.specificityName) {
             $('.na_themes_dropdown__specificity > .vividDropDownBox_selector > div')
                 .removeClass('selected')
@@ -3245,7 +3246,7 @@ na.site = {
                 '#siteBackground',
                 na.site.globals.backgroundSearchKey,
                 na.site.globals.background,
-                false
+                true
             );
         }
 
@@ -3294,14 +3295,16 @@ na.site = {
             * (m > 0 ? (m * 60) : 1) // 60 seconds in a minute
             * 1000 // 1000 milliseconds in a second
         );
-        clearInterval (na.site.settings.backgroundChangeInterval);
-        if ($('#changeBackgroundsAutomatically')[0].checked)
-        //if (false)
-            na.site.settings.backgroundChangeInterval = setInterval (function() {
-                na.background.next ( '#siteBackground', na.site.globals.backgroundSearchKey, null, true,
-                    "na.site.components.backgroundChangeInterval() : this website's backgroundChangeInterval is currently turned on to occur every "+(ms/1000)+" seconds."
-                );
-            }, ms);
+        if (changeInterval) {
+            clearInterval (na.site.settings.backgroundChangeInterval);
+            if ($('#changeBackgroundsAutomatically')[0].checked)
+            //if (false)
+                na.site.settings.backgroundChangeInterval = setInterval (function() {
+                    na.background.next ( '#siteBackground', na.site.globals.backgroundSearchKey, null, true);
+                    na.m.log (91, "na.site.components.backgroundChangeInterval() : this website's backgroundChangeInterval is currently turned on to occur every "+(ms/1000)+" seconds.");
+                }, ms);
+
+        }
 
         if (dat.textBackgroundOpacity) {
             na.te.settings.textBackgroundOpacity = dat.textBackgroundOpacity;
@@ -3455,6 +3458,7 @@ na.site = {
     },
 
     saveTheme : function (callback, theme, loadBackground) {
+        debugger;
         na.m.log (1451, 'na.saveTheme() : pre-activation.', false);
         clearTimeout (na.site.settings.timeout_saveTheme);
         na.site.settings.timeout_saveTheme = setTimeout(function (callback, theme, loadBackground) {
@@ -3568,6 +3572,7 @@ na.site = {
             url : url,
             data : themeData,
             success : function (data, ts, xhr) {
+                debugger;
                 if (data.match('status : Failed')) {
                     //na.site.ajaxFail('na.saveTheme() : Could not save settings. Please login again.');
 

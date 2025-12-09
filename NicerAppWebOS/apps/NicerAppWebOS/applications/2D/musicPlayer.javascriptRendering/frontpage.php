@@ -26,6 +26,7 @@
     $read = false;
     $collectionDurationInSeconds = 0;
     $pageDurationInSeconds = 0;
+
     if ((!$rescanContent && file_exists(dirname(__FILE__).'/index.views.json')) || (!array_key_exists('rc',$_GET) || $_GET['rc']!=='true')) {
     //if (!$naLAN && file_exists(dirname(__FILE__).'/index.views.json') && (!array_key_exists('rc',$_GET) || $_GET['rc']!=='true')) {
         // ONLY SLOWS THINGS DOWN CONSIDERABLY $folders = json_decode(file_get_contents($rf.'/index.foldersAndFiles.json'),true);
@@ -99,7 +100,7 @@
                     $appID => [
                         'aid' => $appID,
                         'fds' => $folderDurationInSeconds,
-                        'rp' => str_replace($appFolder.'/music','','/'.$folder['webPath'])//,
+                        'rp' => str_replace('///','/',str_replace($appFolder.'/music','','/'.$folder['webPath']))//,
                         //'set' => $k2a1
                     ]
                 ]
@@ -151,6 +152,11 @@
             } else {
                 $html .= $naWebOS->html($cd['level'], '</ul></li>');
             }
+
+            $u = base64_encode_url(json_encode([
+                'fds' => $folderDurationInSeconds,
+                'rp' => str_replace($appFolder.'/music','','/'.$folder['webPath'])//,
+            ]));
 
             $html .= $naWebOS->html($cd['level'], '<li><a href="'.$urls[$ki].'">'.$vs['rp'].'</a>');
         }
@@ -297,7 +303,7 @@
                     }
                 }
             }
-            $pagerHTML .= '<br/>(<span style="color:lime">'.secondsToTimeString($pageDurationInSeconds).' on this page,</span> <span style="color:white;">'.secondsToTimeString($collectionDurationInSeconds).' overall.</span>) (<a href="copyright.html">Copyright disclaimer</a>)<br/>';
+            $pagerHTML .= '<br/>(<span style="color:lime">'.secondsToTimeString($pageDurationInSeconds).' on this page,</span> <span style="color:white;">'.secondsToTimeString($collectionDurationInSeconds).' overall.</span>) (<a href="/musicCopyrightDisclaimer" class="nomod noPushState" target="_new">Copyright disclaimer</a>)<br/>';
             $pagerHTML .= '</div>';
             echo $pagerHTML;
             echo '<div style="">';

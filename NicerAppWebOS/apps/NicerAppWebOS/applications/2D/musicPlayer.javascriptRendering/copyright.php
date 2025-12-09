@@ -1,7 +1,9 @@
+        <h1>Copyright DISCLAIMER for Nicer.app/music and said.by/music</h1>
+
         <div class="container" style="width:50%;">
             <div class="bg">
                 <p class="p1 backdropped" style="background:rgba(0,0,0,0.555)">
-                Statement by NicerApp WebOS Owner:<br/>
+                Statement by NicerApp WebOS Owner (2025-12-06-Saturday 22:04CET Amsterdam.NL timezone):<br/>
                 These files are put online for anyone to view and download based on fair use in turn based on free distribution, educational purpose, and anti-fear (so: general public health) reasons.<br/>
                 For copyright claims, please email <a href="emailto:rene.veerman.netherlands@gmail.com">rene.veerman.netherlands@gmail.com</a> with a subject line that starts with 'COPYRIGHT CLAIM' or 'COPYRIGHT NOTICE', preferably detailing where the merchandise for your copyright claim is located as well, so that I can list that on the player page.<br/>
                 </p>
@@ -17,8 +19,13 @@
                 2025-10-04(Saturday): PROFIT SHARING PLAN FOR 2027 AND BEYOND (delayed due to technical difficulties getting the rest of this WebOS online and debugged):<br/>
                 Gross profits for these music pages will be shared 34% to the Owner of NicerApp WebOS, and 66% to legitimate copyright claim holders per calendar year (payable 10th of January each year), subject to the amount of seconds that their music was played in total (so for any IP, for any hour on any day) relative to the amount of seconds of total playlength for any and all music that is under such a given verified legitimate copyright claim for that calendar year.
                 </p>
-                <p>
-                <a href="https://grok.com/share/c2hhcmQtMw%3D%3D_de4e4e29-60fc-4f63-9958-70bbd8aa8a22" target="new">The real reason these files are behind a password now</a>; none of the above protects me from serious lawsuits over hosting these files in the first place. I have dire reasons to do so..
+                <p class="backdropped">
+                <a class="nomod noPushState" href="https://grok.com/share/c2hhcmQtMw%3D%3D_de4e4e29-60fc-4f63-9958-70bbd8aa8a22" target="_new">The real reason these files are behind a password now</a>; none of the above protects me from serious lawsuits over hosting these files in the first place.<br/>
+                I have dire reasons to do so.. But to explain it means I'd have to delve into the topic of massive telepathic communications between citizens and authorities in multiple regions on Earth, which is still unsafe to do, to this day. Suffice it to say that telepaths, and especially telepathic children, have more fears to deal with at night and during long boring otherwise silent days, than people who can afford streaming services do.<br/>
+                And fear in and of itself can cause bodily harm, injury, or even death (in rare cases).<br/>
+                I've felt this, and seen it in others too, not just in movies and TV series.<br/>
+                So I'm offering up my entire collection of mp3s, that I have maintained on many disks spread out over multiple locations, for the past 23 years or more.<br/>
+
                 </p>
             </div>
         </div>

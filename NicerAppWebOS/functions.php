@@ -1728,7 +1728,7 @@ another example:
                                 $result[$idx] = [
                                     'path' => $filepath.$r,
                                     'realPath' => $realPath.basename($filepath),
-                                    'webPath' => str_replace($naWebOS->webPath.'/','',$filepath)
+                                    'webPath' => '/'.str_replace($naWebOS->path,'',str_replace($pathStart.'/','',$filepath))
                                 ];
                                 //echo '<pre style="color:white;background:blue;padding:5px;margin:10px;border-radius:8px;">';var_dump($naWebOS->webPath);  var_dump($result[$idx]);echo '</pre>';
                             } else {
@@ -1736,8 +1736,9 @@ another example:
                                 $result['files'][basename($filepath)] = [
                                     'path' => $filepath,
                                     'realPath' => $realPath.basename($filepath),
-                                    'webPath' => str_replace($naWebOS->webPath.'/','',$filepath)
+                                    'webPath' => '/'.str_replace($naWebOS->path,'',str_replace($pathStart.'/','',$filepath))
                                 ];
+
                                 //echo '<pre style="color:blue;background:navy;padding:5px;margin:10px;border-radius:8px;">'; var_dump($naWebOS->webPath); var_dump($result['files'][basename($filepath)]);echo '</pre>';
                             }
                         }

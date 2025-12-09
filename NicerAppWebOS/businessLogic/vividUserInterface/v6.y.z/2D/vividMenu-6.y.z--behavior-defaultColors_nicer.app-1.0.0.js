@@ -1026,7 +1026,6 @@ class naVividMenu__behavior_defaultColors {
             $(bp).bind('mouseover', function (event) {
                 var bp = event.currentTarget;
 
-                debugger;
                 t.cancelHidings(t);
                 if (!t.timeout_hideAll[t.el.id])
                     t.timeout_hideAll[t.el.id] = [];
@@ -1248,7 +1247,6 @@ class naVividMenu__behavior_defaultColors {
 
             t.prevDisplayedEl = t.currentEl.el || t.currentEl;
             t.currentDisplayedEl = t.currentEl.el || t.currentEl;//evt.currentTarget;
-            debugger;
             t.currentDisplayedEl_negativeOffsetY = null;
 
             var
@@ -1313,16 +1311,11 @@ class naVividMenu__behavior_defaultColors {
     }
 
     onmouseout (event) {
-
-
         var toHide = this.mustHide (this, this.currentEl.it, event);
-        debugger;
         this.onmouseout_do(event, toHide);
         return true;
 
-
-
-
+        /*
         var t = this, el = event.currentTarget;
         if (!t.timeout_onmouseout) t.timeout_onmouseout = {};
 
@@ -1340,7 +1333,7 @@ class naVividMenu__behavior_defaultColors {
                 }
             }
         //}, 500, t, event);
-
+        */
     }
 
     onmouseout_do (event, toHide) {

@@ -6,8 +6,8 @@
 <h1>Memoires of <a href="https://x.com/Gavan1977">Rene AJM Veerman</a> (<a href="/NicerAppWebOS/documentation/NicerEnterprises--ownersMemoires.php" class="nomod noPushState" target="naOwnersMemoires">print version</a>).</h1>
 <div class="memoires backdropped">
     <p class="backdropped">
-        Created : 2025-05-11-Tuesday +-00:20CET AMS Amsterdam.NL<br/>
-        Last modified : 2025-05-11-Tuesday 06:44CET AMS Amsterdam.NL<br/>
+        Created : 2025-11-05-Wednesday +-00:20CET AMS Amsterdam.NL<br/>
+        Last modified : 2025-12-02-Monday 23:34CET AMS Amsterdam.NL<br/>
     </p>
 
     <h2>Index</h2>
@@ -35,7 +35,7 @@
     <h2>Early youth</h2>
     <p class="backdropped">
         While still locked away in the crib as a todler kid barely able to walk, I learned to climb over the crib's wooden walls, and down the stairs to the candy cupboard ;-)<br/>
-        Don't worry, I never stole much. I am more of an explorer than a thief, in reality, and to this day.<br/>
+        Don't worry, I never stole much. I am more of an explorer than a thief in reality, and to this day.<br/>
         That's my earliest memory.<br/>
     </p>
 
@@ -50,4 +50,6 @@
     <h2>30-something years</h2>
 
     <h2>40-something years</h2>
+
+    <iframe src="https://youtube.com/embed/nO5KNu-Qwcs"></iframe>
 </div>

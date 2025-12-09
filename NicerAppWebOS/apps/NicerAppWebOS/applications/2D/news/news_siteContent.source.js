@@ -547,9 +547,7 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'] = {
         g.numItemsThatFitScreen = Math.round( ( ow / 440 ) * (oh/400) );
         if (g.numItemsThatFitScreen < 5) g.numItemsThatFitScreen = 5; // smartphone bugfix
 
-        debugger;
         na.m.walkArray (db, db, undefined, na1.displayNews_getDisplayCounts, false, params);
-        debugger;
         var
         ks = Object.keys(dc),
         total = 0;
@@ -783,8 +781,6 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'] = {
                         unread = dc[ks[0]];
                         s.unread = parseInt(unread);
                         na.m.log (100, 's.unread='+s.unread);
-                        debugger;
-
 
                         /*
                         var
@@ -1259,10 +1255,10 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'] = {
                     && !na.site.settings.running_saveTheme
                 );
             }, function () {
-                na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName], null, false);
+                na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName], null, false, false, false);
                 //na.te.reApplySelectorsTree();
             }, 100);
-        }, 800);
+        }, 100);
         return true;
     },
 

@@ -171,7 +171,7 @@ $view = $naWebOS->view;
                     }
                 }
             }
-            $pagerHTML .= '<br/>(<span style="color:lime">'.secondsToTimeString($pageDurationInSeconds).' on this page,</span> <span style="color:white;">'.secondsToTimeString($collectionDurationInSeconds).' overall.</span>) (<a href="/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/musicPlayer.javascriptRendering/copyright.html" target="_new">Copyright disclaimer</a>)<br/>';
+            $pagerHTML .= '<br/>(<span style="color:lime">'.secondsToTimeString($pageDurationInSeconds).' on this page,</span> <span style="color:white;">'.secondsToTimeString($collectionDurationInSeconds).' overall.</span>) (<a href="/musicCopyrightDisclaimer" class="nomod noPushState" target="_new">Copyright disclaimer</a>)<br/>';
             $pagerHTML .= '</div>';
             echo $pagerHTML;
         ?>

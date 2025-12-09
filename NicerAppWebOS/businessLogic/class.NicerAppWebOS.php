@@ -583,12 +583,23 @@ class NicerAppWebOS {
                             if (array_key_exists('appFolder',$view)) $viewsFolder = $this->webPath.$view['appFolder'];
                             else foreach ($view as $appFolder => $app) {
                                 //echo '<pre>'; var_dump ($app); echo '</pre>'; //die();
+                                if (array_key_exists('basePath',$app)) $viewsFolder = $this->webPath.'/'.$app['basePath'];
                                 if (array_key_exists('relPath',$app)) $viewsFolder = $this->webPath.'/'.$app['relPath'];
                                 if (array_key_exists('webPath',$app)) $viewsFolder = $this->webPath.'/'.$app['webPath'];
                                 if (array_key_exists('appFolder',$app)) $viewsFolder = $this->webPath.$app['appFolder'];
                                 break;
                             }
-                            //var_dump($viewsFolder);
+
+                            if ($viewsFolder==='-$viewsFolder NOT FOUND-') {
+                                foreach ($app as $appName => $appSettings) break;
+                                if (array_key_exists('basePath',$appSettings)) $viewsFolder = $this->webPath.'/'.$appSettings['basePath'];
+                                if (array_key_exists('relPath',$appSettings)) $viewsFolder = $this->webPath.'/'.$appSettings['relPath'];
+                                if (array_key_exists('webPath',$appSettings)) $viewsFolder = $this->webPath.'/'.$appSettings['webPath'];
+                                if (array_key_exists('appFolder',$appSettings)) $viewsFolder = $this->webPath.$appSettings['appFolder'];
+
+                            }
+
+                            //var_dump($viewsFolder); exit();
                             foreach ($view as $viewsFolder2 => $viewSettings) {
                                 foreach ($viewSettings as $appFolder => $appSettings) break;
                                 //dangerous, don't remember why i put this in here atm :

@@ -53,7 +53,11 @@ $doc = $call->body->document;
 
 
 $p = preg_match_all ('/<p>.*?:({"mediaFolder":".*?",".*?":["\d]*.*["\d]*}):.*?<\/p>/', $doc, $matches, PREG_OFFSET_CAPTURE);
-//echo '<pre style="color:yellow;background:black;">'; var_dump ($matches); echo '</pre><br/>'; exit();
+$p = preg_match_all ('/<p>.*?:({"mediaFolder":".*?",".*?"}):.*?<\/p>/', $doc, $matches, PREG_OFFSET_CAPTURE);
+if (count($matches[0])===0) {
+    $p = preg_match_all ('/<p>.*?:({"mediaFolder":".*?"}):.*?<\/p>/', $doc, $matches, PREG_OFFSET_CAPTURE);
+}
+//echo '<pre style="color:yellow;background:black;">'; var_dump (htmlentities($doc)); var_dump ($matches); echo '</pre><br/>'; //sexit();
 foreach ($matches[1] as $idx => $match) {
 
     $cmd = json_decode ($match[0], true);

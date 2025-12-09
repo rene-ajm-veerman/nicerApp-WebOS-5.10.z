@@ -44,7 +44,7 @@ foreach ($view as $viewFolder => $viewSettings) break;
 $fn = $view[$viewFolder]['cmsViewMedia']['filename'];
 
 if (substr($view[$viewFolder]['cmsViewMedia']['basePath'],0,1)!=='/') {
-    $baseURL = 'siteData/'.$naWebOS->domainFolder.'/';
+    $baseURL = '/siteData/'.$naWebOS->domainFolder.'/';
     $baseDir = $naWebOS->domainPath.'/siteData/'.$naWebOS->domainFolder.'/';
 } else {
     if (
@@ -58,8 +58,10 @@ if (substr($view[$viewFolder]['cmsViewMedia']['basePath'],0,1)!=='/') {
     $rt = realpath(dirname(__FILE__).'/../../../../../..');
     $baseURL = str_replace($rt, '', $baseDir);
 }
+$baseDir = str_replace ($naWebOS->path,'', $baseDir);
 $targetDir = $baseDir.$view[$viewFolder]['cmsViewMedia']['basePath'].'/';
 $targetURL = $baseURL.$view[$viewFolder]['cmsViewMedia']['basePath'].'/';
+$targetURL = str_replace ($naWebOS->domainPath, '', $targetURL);
 
 $dbg = array (
     'baseURL' => $baseURL,
@@ -72,13 +74,17 @@ $dbg = array (
 //echo '<pre>'.json_encode($dbg,JSON_PRETTY_PRINT).'</pre>'; //exit();
 
 $files = getFilePathList ($targetDir, false, FILE_FORMATS_photos, null, array('file'), 1, 1, false);
-//echo '<pre>'; var_dump ($files); echo '</pre>';
+//echo '<pre>'; var_dump ($files); echo '</pre>'; exit();
 
 foreach ($files as $idx => $file) {
     $prev = '';
     $next = '';
     $path = $file['webPath'];
+    $path = str_replace('/'.$naWebOS->domainPath,'',$path);
+    if (substr($fn,0,1)=='/') $fn = substr ($fn, 1);
     if (basename($path)===$fn) {
+        $myPath = $path;
+        //var_dump ($myPath);
         $prev = $idx > 1 ? $files[$idx-1]['webPath'] : $files[count($files)-1]['webPath'];
         $next = $idx < count($files) - 1 ? $files[$idx+1]['webPath'] : $files[0]['webPath'];
 
@@ -139,8 +145,8 @@ foreach ($files as $idx => $file) {
 </style>
 <script type="text/javascript" src="/NicerAppWebOS/businessLogic/vividUserInterface/v5.y.z/photoAlbum/4.0.0/photoAlbum-4.0.0.source.js?c=<?php echo date('Ymd_His',filemtime($naWebOS->domainPath.'/NicerAppWebOS/businessLogic/vividUserInterface/v5.y.z/photoAlbum/4.0.0/photoAlbum-4.0.0.source.js'));?>"></script>
 <img id="btnBack_fromMediaView" class="tooltip" tooltipTheme="mainTooltipTheme" title="Go back, leave the photo-album viewer." src="/siteMedia/btnBack.png" onclick="window.history.back();" style="position:absolute"/>
-    <img id="viewMedia" src="/<?php echo $targetURL.$fn;?>"/>
-<img id="btnSetBackground" class="tooltip" tooltipTheme="mainTooltipTheme" title="Set as site background" src="/siteMedia/btnBackground.png" onclick="na.backgrounds.next ('#siteBackground', na.site.globals.backgroundSearchKey, '/<?php echo $targetURL.$fn;?>');"/>
+    <img id="viewMedia" src="<?php echo $myPath;?>"/>
+<img id="btnSetBackground" class="tooltip" tooltipTheme="mainTooltipTheme" title="Set as site background" src="/siteMedia/btnBackground.png" onclick="na.backgrounds.next ('#siteBackground', na.site.globals.backgroundSearchKey, '<?php echo $myPath;?>');"/>
 <a id="btnPrevious" href="<?php echo $prevURL;?>"><img id="btnImgPrevious" src="/siteMedia/btnPrevious.png"/></a>
 <a id="btnNext" href="<?php echo $nextURL;?>"><img id="btnImgNext" src="/siteMedia/btnNext.png"/></a>
 <div id="naPhotoAlbum__control" style="position:absolute;top:5%;width:200px;height:100px;right:1%;z-index:3200;">

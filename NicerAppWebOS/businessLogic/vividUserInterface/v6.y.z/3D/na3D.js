@@ -35,7 +35,7 @@ export class na3D_fileBrowser {
         
         t.autoRotate = false;
         t.showLines = false;
-        t.showFiles = true;
+        t.showFiles = false;
         t.animationDuration = 20;
         t.useCameraControls = true;
         t.controlsEnabled = true;
@@ -754,7 +754,6 @@ export class na3D_fileBrowser {
                         if (t.hoverOverName=='{UNKNOWN}') t.hoverOverName = "("+hoveredItem.it.column+":"+hoveredItem.it.row+") ("+p.x+", "+p.y+", "+p.z + ") : " + hoveredItem.it.filepath+'/'+hoveredItem.it.name+' : '+hoveredItem.it.color;
                         //if (t.hoverOverName=='{UNKNOWN}') t.hoverOverName = hoveredItem.it.name;// + ' ('+intersects.length+')';
                     //debugger;
-                        debugger;
                         done = true;
                         var
                         it = hoveredItem.it,
@@ -1460,7 +1459,7 @@ export class na3D_fileBrowser {
     }
 
     async initializeItems (t) {
-        var p = { t : t, ld2 : {}, idxPath : "", idxPath2 : "/0" };
+        var p = { t : t, ld2 : {} };
         t.s2 = [];
         debugger;
         na.m.walkArray_async (t.data[0]['filesAtRoot'], t.data[0]['filesAtRoot'], t.initializeItems_walkKey, t.initializeItems_walkValue, false, p);
@@ -1483,26 +1482,25 @@ export class na3D_fileBrowser {
 
             var path = cd.path.replace(/\/folders/g, '');
             if (path.substr(0,1)!=='/') path = '/'+path;
-            debugger;
 
             var
             lastParent = cd.params.t.items[0],
-            pk = cd.path;
+            pk = cd.path.replace(/\/folders/g,'');
             if (!cd.params.ld2[pk]) cd.params.ld2[pk] = { levelIdx : 0 };
+            var modded = false;
             for (var i=0; i<cd.params.t.items.length; i++) {
                 var it2 = cd.params.t.items[i];
-                /*
-                if (it2.filepath+"/"+it2.name+"/folders" === cd.path) {
+                if (it2.filepath+"/"+it2.name === pk) {
                     lastParent = it2;
+                    cd.params.idxPath2  = it2.idxPath;
+                    modded = true;
+                    //debugger;
                 }
-                if (it2.filepath+"/"+it2.name === cd.path) {
-                    lastParent = it2;
-                }*/
             }
 
 
-            //debugger;
-            if (cd.level <= 4) {
+            /*
+            if (cd.level < 3) {
                 cd.params.idxPath = "/0";// + cd.params.t.items.length;
             } else {
                 var
@@ -1510,6 +1508,7 @@ export class na3D_fileBrowser {
                 il2 = cd.params.idxPath.split("/"),
                 il3 = null,
                 j = il2.length;
+
 
                 for (var i=0; i<j; i++) {
                     if (parseInt(il2[i])===lastParent.idx) il3 = lastParent.idx;
@@ -1519,14 +1518,22 @@ export class na3D_fileBrowser {
                 cd.params.idxPath = il2.join("/") + "/" + lastParent.idx;
                 cd.params.idxPath2 = cd.params.idxPath;
             };
+            */
+
+            if (!cd.params.idxPath2) cd.params.idxPath2='';
+            //sif (!modded) cd.params.idxPath2 += '/' + it2.idx;
+            //cd.params.idxPath = (cd.params.it&&cd.params.it?cd.params.it.idxPath:'') + '/' + cd.params.t.items.length;
+            if (!modded) cd.params.idxPath = cd.params.idxPath2; else cd.params.idxPath = '';// + '/' + cd.params.t.items.length;
             //debugger;
+
+
 
             var
             it = {
                 level : cd.level,
                 name : cd.k,
                 idx : cd.params.t.items.length,
-                idxPath : cd.params.idxPath,//localIdx + "/" + cd.params.t.items.length,
+                idxPath : cd.params.idxPath + '/' + cd.params.t.items.length,
                 filepath : path,
                 levelIdx : ++cd.params.ld2[pk].levelIdx,
                 parent : lastParent,
@@ -1537,6 +1544,7 @@ export class na3D_fileBrowser {
                 model : { position : { x : 0, y : 0, z : 0 } },
                 data : cd.at[cd.k]
             };
+            //if (!modded) cd.params.idxPath = it.idxPath;
             //if (!cd.k.match(/\/.mp3$/)) {
                 //debugger;
                 //console.log ("t779", it.filepath + "/" + it.name, it);
@@ -1550,6 +1558,7 @@ export class na3D_fileBrowser {
             cd.params.t.ld3[it.idxPath].items.push (it);
             //cd.params.idxPath2 = cd.params.idxPath + "/" + it1a.idx;
             cd.params.t.items.push (it);
+            cd.params.it = it;
             //console.log ('initializeFolderView_walkKey() : '+cd.params.t.items.length+' items initialized.')
 
             // display files :
@@ -1572,7 +1581,7 @@ export class na3D_fileBrowser {
                         level : cd.level+1,
                         name : fkey,
                         idx : cd.params.t.items.length,
-                        idxPath : cd.params.idxPath + "/" + it.idx,// + "/" + cd.params.t.items.length,//cd.params.t.items.length,
+                        idxPath : cd.params.idxPath + '/' + cd.params.t.items.length,
                         filepath : path+"/"+cd.k,
                         levelIdx : ++cd.params.ld2[pk].levelIdx,
                         parent : it,
@@ -1587,11 +1596,12 @@ export class na3D_fileBrowser {
                     if (!cd.params.t.ld3[it1a.idxPath]) cd.params.t.ld3[it1a.idxPath] = { itemCount : 0, items : [] };
                     cd.params.t.ld3[it1a.idxPath].itemCount++;
                     cd.params.t.ld3[it1a.idxPath].items.push (it1a);
-                    cd.params.idxPath2 = cd.params.idxPath + "/" + it1a.idx;
+                    //cd.params.idxPath2 = cd.params.idxPath + "/" + it1a.idx;
                     cd.params.t.items.push (it1a);
                 }
             //}
         }
+        //debugger;
     }
     initializeItems_walkValue (cd) {
         //console.log ("initializeItems_walkValue", "cd", cd);
@@ -2057,7 +2067,6 @@ export class na3D_fileBrowser {
                     it.depth = depth;
                     it.pos = pos;
                     it.ld3 = ld3;
-                    if (it.name=='Artists') debugger;
                     //console.log ('t334', it.filepath.replace('/0/filesAtRoot/folders','').replace(/\/folders/g,'')+'/'+it.name, columnField, rowField, column, row, depth, pos);
                     //if (it.name=="gull" || it.name=="owl") debugger;
                 }
@@ -2184,6 +2193,7 @@ export class na3D_fileBrowser {
         //if (t.initialized) //EVUL
 
         na.m.log (1555, fncn+' : Do final position calculations for '+t.items.length+' scene items.');
+        debugger;
         var r = 1.0;
         for (var i=0; i<t.items.length; i++) {
             if (!t.showFiles && t.items[i].name.substr(t.items[i].name.length-4,4)=='.mp3') continue;
@@ -2374,18 +2384,22 @@ export class na3D_fileBrowser {
             //if (it.model) {
                 if (p) {
                     if (!t.ld3[p.idxPath].level) t.ld3[p.idxPath].level = 1;
-                    var radius = 20;
+                    var
+                    radius = 20,
+                    m = p.levelIdx - (p.row * (p.cubeSideLengthCount) - p.column);
+
                     p.c1 = {
                         a : 0,
-                        b : (360 / t.ld3[p.idxPath].itemCount) * (p.levelIdx+1)
+                        b : (360 / m) //* (p.levelIdx+1)
                     };
                     p.c1.c = jsem.math.xy.pointOnCircle_angleInDegrees (0,0,radius,p.c1.b);
+
+                    p.c2 = {
+                        a : 0,
+                        b : (360 / t.ld3[it.idxPath].itemCount - m) //* (it.levelIdx+1)
+                    };
+                    p.c2.c = jsem.math.xy.pointOnCircle_angleInDegrees (0, 0, radius, p.c2.b);
                 }
-                var c1 = {
-                    a : 0,
-                    b : (360 / t.ld3[it.idxPath].itemCount) * (it.levelIdx+1)
-                };
-                c1.c = jsem.math.xy.pointOnCircle_angleInDegrees (0, 0, radius, c1.b);
 
 
                 if (!mx) var mx = 1;
@@ -2394,8 +2408,13 @@ export class na3D_fileBrowser {
                 var
                 mpx = 800, mpy = 800, mpz = 800,
                 mrx = 15, mry = 15, mrz = 15,
-                msx = 400, msy = 400, msz = 400,
-                rx = 1, ry = 1, rz = 1;
+                msx = 400, msy = 400, msz = 400;
+                //if (!rx)
+                    var rx = 1;
+                //if (!ry)
+                    var ry = 1;
+                //if (!rz)
+                    var rz = 1;
                 if (!prx) var prx = rx;
                 if (!pry) var pry = ry;
                 if (!prz) var prz = rz;
@@ -2406,18 +2425,22 @@ export class na3D_fileBrowser {
                 if (!ray) var ray = 0;
                 if (!raz) var raz = 0;
 
-
+                if (it.name=='gregorian') debugger;
+                if (it.name=='gregoriano') debugger;
                 /*if (it && it.parent && it.parent.px) {
                     px = it.parent.px;
                     py = it.parent.py;
                     pz = it.parent.pz;
                 } else */if (it && it.parent && !it.parent.px && prevIt && prevIt.parent && it.parent.idx!==prevIt.parent.idx) {
                     px = p.sPos.x
-                        + (p.columnOffsetValue*mpx*p.c1.c.x)
+                        //+ (p.column*mpx*p.c1.c.x)
+                        + (p.level * mpx);
                     py = p.sPos.y
-                        + (p.rowOffsetValue*mpy*p.c1.c.y)
+                        //+ (p.row*mpy*p.c1.c.y)
+                        + (p.level * mpy);
                     pz = p.sPos.z
-                        + (p.depth*mpz*p.c1.c.y)
+                        //+ (p.depth*mpz*p.c2.c.y)
+                        + (p.level * mpz);
 
                     it.parent.px = px;
                     it.parent.py = py;
@@ -2425,9 +2448,9 @@ export class na3D_fileBrowser {
                     /*rx += 2 * mrx * c1.c.x;
                     ry += 2 * mry * c1.c.y;
                     rz += 2 * mrz * c1.c.y;*/
-                    rx += 2 * msx * c1.c.x;
-                    ry += 2 * msy * c1.c.y;
-                    rz += 2 * msz * c1.c.y;
+                    rx += 3 * msx * p.c1.c.x;
+                    ry += 3 * msy * p.c1.c.y;
+                    rz += 3 * msz * p.c2.c.y;
 
                     rax = 2* mpx * Math.random();
                     ray = 2 * mpy * Math.random();
@@ -2455,6 +2478,7 @@ export class na3D_fileBrowser {
 
                 prevIt = it;
                 mx = 1; my = 1; mz = 1;
+                var mplier = 1.5;
 
 
 
@@ -2466,10 +2490,10 @@ export class na3D_fileBrowser {
                     it.sPos.x = //Math.round( (
                         mx * (
                             px
-                            + (p.column * mpx * 10)
+                            //+ (p.column * mpx * mplier)
                             //+ ( (it.level+1) * rx )
                             + rx
-                            + rax
+                            //+ rax
                             //+ (p.column * p.c1.c.x)
                             //+ -1 * (Math.sin(it.column) * Math.cos(it.row) * it.depth)
                             //+ -1 * (Math.sin(it.column) * it.depth)
@@ -2483,10 +2507,10 @@ export class na3D_fileBrowser {
                     it.sPos.y = // Math.round( (
                         my * (
                             py
-                            + (p.row * mpy * 10)
+                            //+ (p.row * mpy * mplier)
                             //+ ( (it.level+1) * ry)
                             + ry
-                            + ray
+                            //+ ray
                             //+ (p.row * p.c1.c.y)
                             //+ Math.cos(it.column) * Math.cos(it.row) * it.depth
                             //+ Math.cos(it.row) * it.depth
@@ -2499,10 +2523,10 @@ export class na3D_fileBrowser {
                     it.sPos.z = // Math.round( (
                         mz * (
                             pz
-                            + ( p.depth * mpz * 10)
+                            //+ ( p.depth * mpz * mplier)
                             //+ ( (it.level+1) * rz )
                             + rz
-                            + raz
+                            //+ raz
                             //+ Math.cos(it.column) * Math.sin(it.row) * it.depth
                             //+ (it.level * mpz)
                             //+ msz
@@ -2539,15 +2563,15 @@ export class na3D_fileBrowser {
                 }
         //    }
 
-            if (false && it.model) {
+            if (it.model) {
                 var dbg = {
-                    px : it.sPos.x,
-                    py : it.sPos.y,
-                    pz : it.sPos.z,
+                    x : it.sPos.x,
+                    y : it.sPos.y,
+                    z : it.sPos.z,
                     p : p,
                     it : it
                 };
-                console.log ('onresize_do_phase2()::t750 : '+it.filepath+'/'+it.name, dbg);
+                console.log ('onresize_do_phase2() : '+it.filepath+'/'+it.name, dbg);
             }
 
         }
@@ -2613,9 +2637,9 @@ export class na3D_fileBrowser {
                         }
                     }
 
-                    console.log ("t321", it.name, it.color);
+                    //console.log ("t321", it.name, it.color);
 
-                    var sideLength = 300, length = sideLength, width = sideLength, oc = 1;
+                    var sideLength = 300, length = sideLength, width = sideLength, oc = 0.555;
                     var
                     materials2 = [
                         new THREE.MeshBasicMaterial({

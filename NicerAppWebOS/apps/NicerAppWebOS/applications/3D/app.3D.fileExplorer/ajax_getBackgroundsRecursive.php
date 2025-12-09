@@ -8,7 +8,7 @@
 
     $fp = $naRoot.'/NicerAppWebOS/siteCache/app.3D.fileBrowser.json';
     $fp = $naWebOS->domainPath.'/siteCache/app.3D.fileBrowser.json';
-    //if (file_exists($fp)) unlink ($fp);
+    if (file_exists($fp)) unlink ($fp);
     if (file_exists($fp)) readfile($fp);
     else {
         $mi = [];
@@ -21,7 +21,7 @@
         $excl = '/.*thumbs.*/';
         global $excl;
         //$f = getFilePathList ($root, true, $fileFormats, $excl, array('dir','file'), null, 1, true);
-        $f = getFilePathList ($root, true, $fileFormats, $excl, array('dir'), null, 1, true);
+        $f = getFilePathList ($root, true, $fileFormats, $excl, array('dir', 'file'), null, 1, true);
         $f = getFileDetails ($f);
         //echo '<pre style="color:green;">'; var_dump ($root); echo '</pre><pre style="color:blue;">'; echo json_encode($f,JSON_PRETTY_PRINT); echo '</pre>'; die();
 
@@ -58,7 +58,7 @@
         $v = &$cd['v'];
 
         // condense the data :
-        //if ($k=='files') $v = array_keys ($v);
+        if ($k=='files') $v = array_keys ($v);
     }
 
     function getFileDetails_walkValue ($cd) {
