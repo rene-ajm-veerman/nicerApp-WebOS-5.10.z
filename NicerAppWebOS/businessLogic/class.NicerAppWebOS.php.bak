@@ -228,7 +228,7 @@ class NicerAppWebOS {
             if ($_GET['viewID']=='' || $_GET['viewID']=='/') {
                 $view = ['/'=>['page'=>'index']];
             } else {
-                $decoded = json_decode(base64_decode_url($_GET['viewID']), true);
+                $decoded = json_decode(decode_base64_url($_GET['viewID']), true);
                 if (json_last_error()!==0) {
                     $this->view = $this->getView ($_GET['viewID']);
                 } else {
@@ -236,7 +236,7 @@ class NicerAppWebOS {
                 }
             }
         } elseif (array_key_exists('seoValue',$_GET)) {
-                $decoded = json_decode(base64_decode_url($_GET['seoValue']), true);
+                $decoded = json_decode(decode_base64_url($_GET['seoValue']), true);
                 if (json_last_error()!==0) {
                     $this->view = $this->getView($_GET['seoValue']);
                 } else {
@@ -1090,8 +1090,8 @@ class NicerAppWebOS {
         };
 
         $selectorsCachedFN = 'getPageCSS_'.randomString(50);
-        $id = base64_encode_url(json_encode($selectors));
-        $id2 = base64_encode_url(gzencode(json_encode($selectors)));
+        $id = encode_base64_url(json_encode($selectors));
+        $id2 = encode_base64_url(gzencode(json_encode($selectors)));
         $selectorsCachedFilepath = realpath(dirname(__FILE__).'/../..').'/NicerAppWebOS/siteCache/'.$selectorsCachedFN;
 
         $c = $this->getPageCSS_cached($id2);
@@ -1481,7 +1481,7 @@ class NicerAppWebOS {
             foreach ($this->view as $viewFolder => $viewSettings) break;
             //$viewFolder = preg_replace('/.*\//','', $viewFolder);
             //var_dump ($viewFolder); exit();
-            $url = '/view/'.base64_encode_url(json_encode($this->view));
+            $url = '/view/'.encode_base64_url(json_encode($this->view));
         } /*else if (array_key_exists('REQUEST_URI',$_SERVER)) {
             // use defaults if not in proper format (when URL uses HTTP URL parameters for instance)..
             $viewName = '[front page]';
@@ -1510,7 +1510,7 @@ class NicerAppWebOS {
                 foreach ($this->view as $viewFolder => $viewSettings) break;
                 //$viewFolder = preg_replace('/.*\//','', $viewFolder);
                 //var_dump ($viewFolder); exit();
-                $url = '/view/'.base64_encode_url(json_encode($this->view));
+                $url = '/view/'.encode_base64_url(json_encode($this->view));
             } /*else if (array_key_exists('REQUEST_URI',$_SERVER)) {
                 // use defaults if not in proper format (when URL uses HTTP URL parameters for instance)..
                 $viewName = '[front page]';

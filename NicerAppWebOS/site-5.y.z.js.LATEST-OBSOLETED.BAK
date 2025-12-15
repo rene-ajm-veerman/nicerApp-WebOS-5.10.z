@@ -532,7 +532,7 @@ na.site = {
             //debugger;
             var url = document.location.href.replace(document.location.origin,'');
             if (url.match(/\/view/)) {
-                var app = 'app='+na.m.base64_decode_url(document.location.href.replace(document.location.origin,'').replace('/view/',''));
+                var app = 'app='+na.m.decode_base64_url(document.location.href.replace(document.location.origin,'').replace('/view/',''));
             } else {
                 var app = 'url='+url;
             }
@@ -1484,11 +1484,11 @@ na.site = {
         
         try {
             //  debugger;
-            var app = url1.match(/\/view-content/)?JSON.parse(na.m.base64_decode_url(url2)):{};
+            var app = url1.match(/\/view-content/)?JSON.parse(na.m.decode_base64_url(url2)):{};
         } catch (error) {
             appValidJSON = false;
             na.site.settings.current.loadContent_appValidJSON = appValidJSON;
-            var msg = na.m.log (11, 'na.site.loadContent_getContent() : base64 decode error *or* JSON decode error in loadContent_getContent() for <b>url3</b>='+url3+', error='+error.message+', base64 data='+url2+', JSON data='+na.m.base64_decode_url(url2), false);
+            var msg = na.m.log (11, 'na.site.loadContent_getContent() : base64 decode error *or* JSON decode error in loadContent_getContent() for <b>url3</b>='+url3+', error='+error.message+', base64 data='+url2+', JSON data='+na.m.decode_base64_url(url2), false);
             reports.push (msg);
             na.site.fail (msg, null);
         };
@@ -1560,7 +1560,7 @@ na.site = {
                     if (url3.match(/\/view-content\//)) {
                         var
                         url4 = url2.replace(document.location.origin,'').replace(document.location.host,'').replace('/view_content/', ''),
-                        app = JSON.parse(na.m.base64_decode_url(url4));
+                        app = JSON.parse(na.m.decode_base64_url(url4));
                     } else {
                         var
                         app = {
@@ -3474,7 +3474,7 @@ na.site = {
             type : 'GET',
             url : url3,
             data : {
-                viewID : na.m.base64_encode_url(JSON.stringify(na.site.globals.app)),// url2
+                viewID : na.m.encode_base64_url(JSON.stringify(na.site.globals.app)),// url2
                 includeClientOnlyThemes : includeClientOnlyThemes || na.site.globals.specificityName.match(' client')?'true':'false',
                 stickToCurrentSpecificity : stickToCurrentSpecificity,
                 specificityName : specificityName,
@@ -4003,7 +4003,7 @@ na.site = {
             themeData.themeSettings = JSON.stringify(Object.assign({},themeData.themeSettings));
             
             var
-            url = '/NicerAppWebOS/businessLogic/ajax/ajax_database_saveTheme.php?viewID='+na.m.base64_encode_url(JSON.stringify(na.site.globals.app)),
+            url = '/NicerAppWebOS/businessLogic/ajax/ajax_database_saveTheme.php?viewID='+na.m.encode_base64_url(JSON.stringify(na.site.globals.app)),
             ac2 = {
                 type : 'POST',
                 url : url,

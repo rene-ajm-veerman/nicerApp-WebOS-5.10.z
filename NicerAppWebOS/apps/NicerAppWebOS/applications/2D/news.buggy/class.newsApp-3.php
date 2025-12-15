@@ -425,7 +425,7 @@ class newsApp3_class {
             }
 
             $json = '{"/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news":{"section":"'.$path2a.'"}}';
-            $href = '/apps/'.base64_encode_url($json);
+            $href = '/apps/'.encode_base64_url($json);
             $href = '/'.foldMenuKey($cd['k']);
             $cd['params']['html'] .= $indent.'<li><a href="'.$href.'">'.$cd['k'].'</a>';
             $cd['params']['keyCount'] = $cd['params']['keyCount'] + 1;
@@ -449,14 +449,14 @@ class newsApp3_class {
                 .'RewriteCond %{REQUEST_FILENAME} !-d'.PHP_EOL
                 .'RewriteCond %{REQUEST_METHOD} ^(GET)$'.PHP_EOL
                 .'RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest'.PHP_EOL
-                .'RewriteRule '.$url.' /apps-content/'.base64_encode_url($json).$lineEnding.PHP_EOL.PHP_EOL
+                .'RewriteRule '.$url.' /apps-content/'.encode_base64_url($json).$lineEnding.PHP_EOL.PHP_EOL
 
                 .'RewriteCond %{REQUEST_FILENAME} !-f'.PHP_EOL
                 .'RewriteCond %{REQUEST_FILENAME} !-d'.PHP_EOL
                 .'RewriteCond %{REQUEST_METHOD} ^(GET)$'.PHP_EOL
-                .'RewriteRule '.$url.' /apps/'.base64_encode_url($json).$lineEnding.PHP_EOL.PHP_EOL.PHP_EOL;
+                .'RewriteRule '.$url.' /apps/'.encode_base64_url($json).$lineEnding.PHP_EOL.PHP_EOL.PHP_EOL;
             $cd['params']['rewriteRules'] .= $line;
-            $cd['params']['reverseRewriteRulesCSVlines'] .= '"'.$url.'","'.base64_encode_url($json).'"'.PHP_EOL;
+            $cd['params']['reverseRewriteRulesCSVlines'] .= '"'.$url.'","'.encode_base64_url($json).'"'.PHP_EOL;
             //{ var_dump ($cd); }
 
             $prevLevel = $cd['level'];
@@ -486,7 +486,7 @@ class newsApp3_class {
         $path2a = str_replace('/','__', $path2);
         if ($cd['level'] > 0) $indent = str_pad ('', $cd['level']+3, "\t"); else $indent='';
         $json = '{"/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news":{"section":"'.$path2a.'"}}';
-        //$href = '/apps-content/'.base64_encode_url($json);
+        //$href = '/apps-content/'.encode_base64_url($json);
         $href = '/'.foldMenuKey($cd['k']);
         $cd['params']['html'] .= $indent.'<li><a href="'.$href.'">'.$cd['k'].'</a></li>'.PHP_EOL;
 
@@ -497,12 +497,12 @@ class newsApp3_class {
                 .'RewriteCond %{REQUEST_FILENAME} !-d'.PHP_EOL
                 .'RewriteCond %{REQUEST_METHOD} ^(GET)$'.PHP_EOL
                 .'RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest'.PHP_EOL
-                .'RewriteRule '.$url.' /apps-content/'.base64_encode_url($json).$lineEnding.PHP_EOL.PHP_EOL
+                .'RewriteRule '.$url.' /apps-content/'.encode_base64_url($json).$lineEnding.PHP_EOL.PHP_EOL
 
                 .'RewriteCond %{REQUEST_FILENAME} !-f'.PHP_EOL
                 .'RewriteCond %{REQUEST_FILENAME} !-d'.PHP_EOL
                 .'RewriteCond %{REQUEST_METHOD} ^(GET)$'.PHP_EOL
-                .'RewriteRule '.$url.' /apps/'.base64_encode_url($json).$lineEnding.PHP_EOL.PHP_EOL.PHP_EOL;
+                .'RewriteRule '.$url.' /apps/'.encode_base64_url($json).$lineEnding.PHP_EOL.PHP_EOL.PHP_EOL;
         $cd['params']['rewriteRules'] .= $line;
         //var_dump ($cd);
         global $prevLevel;

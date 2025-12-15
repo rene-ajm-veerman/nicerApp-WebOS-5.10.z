@@ -44,7 +44,7 @@ na.tv = na.themeViewer = {
             if (url.indexOf('/apps/')!==-1) {
                 var 
                 appJSON = url.replace('/apps/', ''),
-                app = na.m.base64_decode_url(appJSON);
+                app = na.m.decode_base64_url(appJSON);
                 appHTML = 
                     '<div class="tv_na_url">'+url+'</div>' 
                     +'<pre class="tv_na_url">'+na.tv.syntaxHighlight(app)+'</pre>';

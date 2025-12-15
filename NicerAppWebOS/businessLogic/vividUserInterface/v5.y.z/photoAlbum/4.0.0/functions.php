@@ -3,6 +3,7 @@
     
 function naPhotoAlbum ($basePath=null) {
     $root = realpath(dirname(__FILE__).'/../../../../');
+    $fncn = __FILE__;
     global $naWebOS;
     
     ini_set('display_errors', 1);
@@ -23,8 +24,7 @@ function naPhotoAlbum ($basePath=null) {
         'targetDir' => $targetDir,
         'files' => $files
     );
-    echo '<pre style="color:black;background:white;border-radius:3px;border:1px solid black;">'; var_dump ($dbg); echo '</pre>';
-    exit();
+    //echo '<pre style="color:black;background:white;border-radius:3px;border:1px solid black;">'; var_dump ($fncn); var_dump ($dbg); echo '</pre>';    exit();
 
 
 
@@ -60,7 +60,7 @@ function naPhotoAlbum ($basePath=null) {
         );
         //echo '<pre>'; var_dump($arr); echo '</pre>';
         $json = json_encode($arr);
-        $href = "/view/".base64_encode_url($json);
+        $href = "/view/".encode_base64_url($json);
         
         
         $r .= '<center><a href="'.$href.'"><img src="'.$thumbURL.'" style="width:200px" '.$onclick.'/><br/><span class="filename">'.$fileName.'</span></a></center></div>';        

@@ -11,7 +11,7 @@ na.desktop = na.d = {
     initialize (settings) {
         var t = this;
         t.globals = t.g = {
-            animationSpeed : 300,//'slow',
+            animationSpeed : 250,//'slow',
             divs : [ '#siteTaskbar', '#siteDateTime', '#siteErrors', '#btnOptions', '#btnLoginLogout', '#btnChangeBackground', '#siteContent', '#siteYoutubePlayer', '#siteYoutubeSearch', '#siteComments', '#siteStatusbar', '#siteToolbarThemeEditor', '#siteToolbarLeft', '#siteToolbarRight', '#siteToolbarTop' ],
             visibleDivs : [ '#siteTaskbar', '#siteContent' ],
             configs : {
@@ -156,7 +156,7 @@ na.desktop = na.d = {
         t = na.desktop;
         //$('#siteContent .vividDialogContent').fadeOut('fast');
 
-
+debugger;
 
         na.d.s.animating = true;
         if (reset === undefined) reset = true;
@@ -566,7 +566,7 @@ na.desktop = na.d = {
 
                                 if (divID=='#siteContent') {
                                     if (na.d.s.animate) {
-                                        $(divID).css ({
+                                        $(divID).stop(true,true,false).css ({
                                             display : 'flex'
                                         }).animate ({
                                             top : divs[divID].top,
@@ -606,6 +606,7 @@ na.desktop = na.d = {
                                         for (var id in na.site.settings.na3D) {
                                             var el = na.site.settings.na3D[id];
                                             $('canvas', el.p)
+                                                .stop(true,true,false)
                                                 .animate (
                                                     { width : $(el.p).width(), height : $(el.p).height() },
                                                 {

@@ -45,7 +45,7 @@
                 //$f = str_replace('/','-t0001-',$f);
                 //$f = str_replace('(','-t0002-',$f);
                 //$f = str_replace(')','-t0003-',$f);
-                $ffi[] = base64_encode_url($f);
+                $ffi[] = encode_base64_url($f);
             }
             */
 
@@ -80,7 +80,7 @@
                 unset ($viewSettings['folder']);
                 //unset ($viewSettings['set']); // TODO : it might NOT need this after all.
                 $json[$viewName] = json_encode([$appFolder=>$viewSettings]);
-                $urls[$viewName] = '/view/'.base64_encode_url($json[$viewName]);
+                $urls[$viewName] = '/view/'.encode_base64_url($json[$viewName]);
                 $viewSettings['folder'] = $folder;
                 //var_dump ($viewSettings); die();
                 //echo '<pre>'; var_dump (json_decode($json[$viewName], true)); die();
@@ -216,7 +216,7 @@
                         $viewName = $v3['seoValue'];
                         $appFolder = $k3;
                         //$json2load = $json[$viewName];
-                        //$url = '/view/'.base64_encode_url($json2load);
+                        //$url = '/view/'.encode_base64_url($json2load);
                         $url = $urls[$viewName];
                         //$files = $v3['files'];
 

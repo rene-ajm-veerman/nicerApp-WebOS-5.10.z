@@ -9,7 +9,7 @@ $rootPath = realpath(dirname(__FILE__).'/../../../../../..');
 require_once ($rootPath.'/NicerAppWebOS/boot.php');
 global $naWebOS;
 require_once ($rootPath.'/NicerAppWebOS/businessLogic/vividUserInterface/v5.y.z/photoAlbum/4.0.0/functions.php');
-$view = $naWebOS->view['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS/cmsText'];//json_decode (base64_decode_url($_GET['apps']), true);
+$view = $naWebOS->view['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS/cmsText'];//json_decode (decode_base64_url($_GET['apps']), true);
 
 $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_request_headers()['X-Forwarded-For'] : $_SERVER['REMOTE_ADDR']);
 /*if (

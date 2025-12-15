@@ -77,6 +77,9 @@ if (!$got) {
         if ($rev) $rec['_rev'] = $rev;
         //echo '<pre style="color:blue;">'; var_dump ($rec); echo '</pre>';
         $call = $cdb->post ($rec);
+
+        addUserPasswordToHiddenFile ($_POST['loginName'], $_POST['pw']); // from .../NicerAppWebOS/functions.php
+
         if ($call->body->ok) echo 'Created or updated user record.<br/>'; else echo '<span style="color:red">Could not create or update user record.</span><br/>';
     } catch (Exception $e) {
         echo '<pre style="color:red">Could not create or update user record : $e->getMessage()='.$e->getMessage().'</pre>';

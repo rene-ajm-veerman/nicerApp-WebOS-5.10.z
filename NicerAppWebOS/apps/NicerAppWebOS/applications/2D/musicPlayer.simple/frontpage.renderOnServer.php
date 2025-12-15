@@ -42,7 +42,7 @@
                 //$f = str_replace('/','-t0001-',$f);
                 //$f = str_replace('(','-t0002-',$f);
                 //$f = str_replace(')','-t0003-',$f);
-                $ffi[] = base64_encode_url($f);
+                $ffi[] = encode_base64_url($f);
             }
 
             $views[] = [
@@ -72,7 +72,7 @@
             $viewName = $viewSettings['set'];
             $viewSettings['appFolder'] = $appFolder;
             $json[$viewName] = json_encode($viewSettings);
-            $urls[$viewName] = '/view/'.base64_encode_url($json[$viewName]);
+            $urls[$viewName] = '/view/'.encode_base64_url($json[$viewName]);
         }
     };
 
@@ -232,7 +232,7 @@
                                 $f = str_replace('-t0002-','(',$f);
                                 $f = str_replace('-t0003-',')',$f);
                                 */
-                                $file = $appFolder.'/music'.base64_decode_url($file);
+                                $file = $appFolder.'/music'.decode_base64_url($file);
                                 $k5++;
 
                                 /*

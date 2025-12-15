@@ -17,7 +17,7 @@
         break;
     }
     if ($k!=='/NicerAppWebOS/apps/NicerAppWebOS/applications/3D/app.3D.fileExplorer') {
-            $views = base64_encode_url(json_encode([
+            $views = encode_base64_url(json_encode([
                 "misc" => [
                     'folder' => '/NicerAppWebOS/apps/NicerAppWebOS/applications/3D'
                 ],
@@ -30,7 +30,7 @@
                     ]
                 ]
             ]));
-            $view = json_decode (base64_decode_url($views), true);
+            $view = json_decode (decode_base64_url($views), true);
     }
     $theme = '{$theme}';
     if ($theme === '{$theme}') $theme = 'dark';

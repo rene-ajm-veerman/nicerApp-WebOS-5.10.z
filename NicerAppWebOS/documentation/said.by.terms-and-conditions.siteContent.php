@@ -3,7 +3,7 @@ Said.By/myNickname : Proposed Terms and Conditions
 Failure to comply will result in the immediate and permanent cancellation of your abilities to make use of this platform (to be called "Website" after this), except for the purposes of reviewing and/or downloading your own works.
 
 You will provide a digital copy of the face side of your valid ID before being able to have the public see files, media albums and documents that you host on this Website.
-This needed for the Website operator to stay compliant with the law.
+This is needed for the Website operator to stay compliant with the law.
 I require from you :
 1 face-sided copy of your photo ID.
 Several selfie videos of you, as requested by this Website, which can be taken from the chrome browser on any smartphone as well.

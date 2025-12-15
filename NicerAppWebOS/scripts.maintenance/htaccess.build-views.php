@@ -180,7 +180,7 @@ while (($data = fgetcsv($f, 10*1000, ',')) !== false) {
     $id1 = randomString(50);
     $id2 = randomString(50);
     $seoValue = substr($data[0], 1, strlen($data[0])-2);
-    $viewSettings = json_decode(base64_decode_url($data[1]), true);
+    $viewSettings = json_decode(decode_base64_url($data[1]), true);
 
     //echo $seoValue."\n"; var_dump ($viewSettings); echo PHP_EOL;
 

@@ -1,14 +1,16 @@
 if (typeof na!=='object') { var NicerApp_WebOS = nicerapp = na = {}; }
 na.backgrounds = na.background = na.bg = {
+    globals : { fadingSpeed : 250 },
     settings : {
         useFading : true,
-        fadingMaxTime : 3000
+        fadingMaxTime : 10*1000
     },
 
     initialize (settings) {
         var t = this;
         t.settings = $.extend (na.bg.settings, settings);
 
+        debugger;
         var
         url = '/domainConfig/ajax_backgrounds.php',
         ac = {
@@ -16,7 +18,9 @@ na.backgrounds = na.background = na.bg = {
             url : url,
             success : function (data, ts, xhr) {
                 try {
+                    debugger;
                     t.data = JSON.parse(data);
+                    debugger;
                     /*
                     t.next ('#siteBackground', null, null, false, function() {
                         var
@@ -60,7 +64,7 @@ na.backgrounds = na.background = na.bg = {
             return t.data;
         }, function() {
             t.next_do (div, search, url, saveTheme, callback, callStack);
-        }, 250);
+        }, 20);
     },
 
     next_do : function (div, search, url, saveTheme, callback, callStack) {
@@ -170,11 +174,13 @@ na.backgrounds = na.background = na.bg = {
         //debugger;
         t.settings.div = div;
 
+        /*
         var
         ajaxCommand = {
             type : 'GET',
             url : url,
             success : function (data, ts, xhr) {
+        */
                 var
                 currentTime = performance.timeOrigin + performance.now(),
                 div = t.settings.div,
@@ -194,7 +200,7 @@ na.backgrounds = na.background = na.bg = {
                             background : 'url("'+url+'") repeat'
                         });
                         setTimeout(function() {
-                            $(bgDiv2).fadeIn('slow', 'swing', function () {
+                            $(bgDiv2).stop().fadeIn(na.bg.globals.fadingSpeed, 'swing', function () {
                                 $(bgDiv).css ({
                                     display : 'block',
                                     width: jQuery(window).width() * na.site.settings.current.scale,
@@ -232,7 +238,7 @@ na.backgrounds = na.background = na.bg = {
 
                 } else if (url.match('youtube')) {
                     $(bgDiv).add(bgDiv2).css({display:'none'});
-                    $(bgf).add(bgl).fadeOut('slow');
+                    $(bgf).add(bgl).stop().fadeOut(na.bg.globals.fadingSpeed);
 
                     var ac = {
                         type : 'GET',
@@ -269,8 +275,8 @@ na.backgrounds = na.background = na.bg = {
                 } else {
                     if (na.bg.settings.useFading) {
                         bgl.onload=function(){
-                            jQuery(bgDiv).add('#siteBackground_iframe').fadeOut('normal', function(){
-                                jQuery(bgl).fadeIn('normal', function(){
+                            jQuery(bgf).add('#siteBackground_iframe').stop().fadeOut(na.bg.globals.fadingSpeed, function(){
+                                jQuery(bgl).stop().fadeIn(na.bg.globals.fadingSpeed, function(){
                                     bgf.src = bgl.src;
                                     $(bgf).css ({ display : 'block', opacity : 1 });
                                     $(bgl).hide();
@@ -309,7 +315,7 @@ na.backgrounds = na.background = na.bg = {
                     $.cookie('siteBackground_url', url, na.m.cookieOptions());
                 }
                 //if (!url.match(/cracked-surface/)) na.analytics.logMetaEvent ('background set to '+url, false);
-
+/*
             },
             error : function (xhr, textStatus, errorThrown) {
                 na.site.ajaxFail(fncn, url, xhr, textStatus, errorThrown);
@@ -319,7 +325,7 @@ na.backgrounds = na.background = na.bg = {
         };
         //debugger;
         $.ajax(ajaxCommand);
-
+*/
     },
 
     onPlayerReady : function (a,b,c,d,e,f,g) {

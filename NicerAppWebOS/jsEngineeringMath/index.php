@@ -18,7 +18,7 @@ $URLs_json = array (
 
 $URLs = array();
 foreach ($URLs_json as $URL_id => $URL_data) {
-    $URLs[$URL_id] = base64_encode_url(json_encode($URL_data));
+    $URLs[$URL_id] = encode_base64_url(json_encode($URL_data));
 };
 ?>
 <h1>jsEngineeringMath (UNDER CONSTRUCTION)</h1>

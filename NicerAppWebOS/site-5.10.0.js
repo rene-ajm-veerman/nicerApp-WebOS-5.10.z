@@ -207,7 +207,7 @@ na.site = {
                         }, 1000);
                     }, showMilliseconds);
                 }
-            }, 200
+            }, 20
         );
     },
 
@@ -247,6 +247,7 @@ na.site = {
                     vb : new vividUserInterface_2D_button_v4()
                 };
 
+
                 na.site.reloadMenu({callback:function(){
                     $('#siteMenu').css ({
                         top : $(window).height()-100,
@@ -260,6 +261,8 @@ na.site = {
                     $('.vividMenu_item').css({opacity:0.0001});
 
                 }});
+
+
                 na.site.startUIvisuals(null, function() {
                     var fncn = 'na.site.initialize()::desktopIdle()::startUIvisuals( ()=>{...} )';
                     c.taskbar = new vividUserInterface_2D_dialog({
@@ -331,11 +334,6 @@ na.site = {
                             na.site.onresize ({ reloadMenu : true }); // BEST WAY : the menu may change it's layout completely based on the possibly changed orientation of your device.
                         });
                     };
-                    setTimeout(function(){
-                        na.desktop.resize(na.site.delayedReloadMenu); // .resize() is delayed with clearTimeout() and setTimeout() - independent of .delayedReloadMenu
-                        //na.backgrounds.next('#siteBackground');
-                    },100)
-
                     if (document.location.href.match('/wiki/')) {
                         $('#siteContent > .vividDialogContent > div').css({background:'none'});
                         $('#bodyContent div, #bodyContent a, .mw-header, .vector-pinned-container').css({background:'none'});
@@ -346,90 +344,85 @@ na.site = {
                     $('.lds-facebook').fadeOut('normal');
                     t.setSpecificity(true,false);
 
-                        var
-                        tApp = null,
-                        theme = 'default',
-                        s = na.te.settings.current.specificity,
-                        u = na.site.settings.url,
-                        apps = na.site.globals.app;
+                    var
+                    tApp = null,
+                    theme = 'default',
+                    s = na.te.settings.current.specificity,
+                    u = na.site.settings.url,
+                    apps = na.site.globals.app;
 ;
-                        if (
-                            na.site.globals.themes
-                            && na.site.globals.themes[theme]
-                            && na.site.globals.themes[theme].apps
-                        ) tApp = na.site.globals.themes[theme].apps;
+                    if (
+                        na.site.globals.themes
+                        && na.site.globals.themes[theme]
+                        && na.site.globals.themes[theme].apps
+                    ) tApp = na.site.globals.themes[theme].apps;
 
-                        var
-                        themeData = {
-                            specificityName : $('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html(),
-                            theme : theme,
-                            orientation : na.site.components.orientation,
-                            backgroundSearchKey : na.site.globals.backgroundSearchKey,
-                            background : na.site.globals.background,
-                            changeBackgroundsAutomatically : 'true',//$('#changeBackgroundsAutomatically')[0].checked?'true':'false',
-                            vdSettings_show : 'hidden',//$('#vdSettings_show').val(),
-                            backgroundChange_hours : 0,//$('#backgroundChange_hours').val(),
-                            backgroundChange_minutes : 1,//$('#backgroundChange_minutes').val(),
-                            menusFadingSpeed : 500,//$('#menusFadingSpeed').val(),
-                            menusUseRainbowPanels : 'true',//$('#menusUseRainbowPanels')[0].checked ? 'true' : 'false',
-                            dialogs : {},
-                            apps : tApp,
-                            //view : na.site.components.app,
-                            textBackgroundOpacity : 0.4//parseInt($('#textBackgroundOpacity').val()) / 100
-                        };
+                    var
+                    themeData = {
+                        specificityName : $('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html(),
+                        theme : theme,
+                        orientation : na.site.components.orientation,
+                        backgroundSearchKey : na.site.globals.backgroundSearchKey,
+                        background : na.site.globals.background,
+                        changeBackgroundsAutomatically : 'true',//$('#changeBackgroundsAutomatically')[0].checked?'true':'false',
+                        vdSettings_show : 'hidden',//$('#vdSettings_show').val(),
+                        backgroundChange_hours : 0,//$('#backgroundChange_hours').val(),
+                        backgroundChange_minutes : 1,//$('#backgroundChange_minutes').val(),
+                        menusFadingSpeed : 500,//$('#menusFadingSpeed').val(),
+                        menusUseRainbowPanels : 'true',//$('#menusUseRainbowPanels')[0].checked ? 'true' : 'false',
+                        dialogs : {},
+                        apps : tApp,
+                        //view : na.site.components.app,
+                        textBackgroundOpacity : 0.4//parseInt($('#textBackgroundOpacity').val()) / 100
+                    };
 
-                        if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
-                        if (s.role) themeData.role = s.role;
-                        if (s.user) themeData.user = s.user;
-                        if (s.specificityName) themeData.specificityName = s.specificityName;
-                        if (s.specificityName.match('current page')) {
-                            if (u) themeData.url = u;
-                            if (s.url) themeData.url = s.url;
-                            if (!themeData.url) themeData.url = window.location.href.replace('https://'+na.site.globals.domain,'');
-                            //if (themeData.app) delete themeData.app;
-                        }
-                        if (
-                            typeof s.specificityName=='string'
-                            && (
-                                s.specificityName.match(/site /)
-                                || s.specificityName.match(/current page/)
-                            )
-                        ) {
-                            delete themeData.view;
-                            delete themeData.app;
-                        }
-                        if (
-                            typeof s.specificityName=='string'
-                            && s.specificityName.match(/app /)
-                        ) {
-                            delete themeData.view;
-                            if (app) themeData.app = app;
-                        }
-                        if (
-                            typeof s.specificityName=='string'
-                            && s.specificityName.match(/user /)
-                        ) {
-                            delete themeData.role;
-                            if (themeData.app) delete themeData.app;
-                        }
+                    if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
+                    if (s.role) themeData.role = s.role;
+                    if (s.user) themeData.user = s.user;
+                    if (s.specificityName) themeData.specificityName = s.specificityName;
+                    if (s.specificityName.match('current page')) {
+                        if (u) themeData.url = u;
+                        if (s.url) themeData.url = s.url;
+                        if (!themeData.url) themeData.url = window.location.href.replace('https://'+na.site.globals.domain,'');
+                        //if (themeData.app) delete themeData.app;
+                    }
+                    if (
+                        typeof s.specificityName=='string'
+                        && (
+                            s.specificityName.match(/site /)
+                            || s.specificityName.match(/current page/)
+                        )
+                    ) {
+                        delete themeData.view;
+                        delete themeData.app;
+                    }
+                    if (
+                        typeof s.specificityName=='string'
+                        && s.specificityName.match(/app /)
+                    ) {
+                        delete themeData.view;
+                        if (app) themeData.app = app;
+                    }
+                    if (
+                        typeof s.specificityName=='string'
+                        && s.specificityName.match(/user /)
+                    ) {
+                        delete themeData.role;
+                        if (themeData.app) delete themeData.app;
+                    }
 
 
-                        /*
-                        for (var i=0; i<na.desktop.globals.divs.length; i++) {
-                            var selector = na.desktop.globals.divs[i];
-                            themeData.dialogs = $.extend (themeData.dialogs, na.fetchTheme (selector));
-                        }*/
+                    /*
+                    for (var i=0; i<na.desktop.globals.divs.length; i++) {
+                        var selector = na.desktop.globals.divs[i];
+                        themeData.dialogs = $.extend (themeData.dialogs, na.fetchTheme (selector));
+                    }*/
 
-                        themeData = na.site.loadTheme_fetchDialogs(themeData);
-                        //IS THIS NECESSARY?? na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
-                        na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
-
+                    themeData = na.site.loadTheme_fetchDialogs(themeData);
+                    na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
+                    na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
 
                     t.startTooltips();
-                    na.te.onload('siteContent');
-                    //na.desktop.resize(na.site.onload_phase2, true);
-
-
 
                     for (var appID in na.apps.loaded) {
                         var app = na.apps.loaded[appID];
@@ -477,7 +470,7 @@ na.site = {
                 });
 
 
-            }, 200
+            }, 20
         );
 
         document.addEventListener ('keyup', function (e) {
@@ -1301,11 +1294,11 @@ na.site = {
 
         try {
             //  debugger;
-            var app = url1.match(/\/view/)?JSON.parse(na.m.base64_decode_url(url2)):{};
+            var app = url1.match(/\/view/)?JSON.parse(na.m.decode_base64_url(url2)):{};
         } catch (error) {
             appValidJSON = false;
             na.site.settings.loadContent_appValidJSON = appValidJSON;
-            var msg = na.m.log (1511, 'na.site.loadContent_getContent() : base64 decode error *or* JSON decode error in loadContent_getContent() for <b>url3</b>='+url3+', error='+error.message+', base64 data='+url2+', JSON data='+na.m.base64_decode_url(url2), false);
+            var msg = na.m.log (1511, 'na.site.loadContent_getContent() : base64 decode error *or* JSON decode error in loadContent_getContent() for <b>url3</b>='+url3+', error='+error.message+', base64 data='+url2+', JSON data='+na.m.decode_base64_url(url2), false);
             reports.push (msg);
             na.site.fail (msg, null);
         };
@@ -1382,7 +1375,7 @@ na.site = {
                     if (url3.match(/\/view-content\//)) {
                         var
                         url4 = url2.replace(document.location.origin,'').replace(document.location.host,'').replace('view_content/', ''),
-                        app = JSON.parse(na.m.base64_decode_url(url4));
+                        app = JSON.parse(na.m.decode_base64_url(url4));
                     } else {
                         var
                         app = {
@@ -2757,6 +2750,7 @@ na.site = {
                 $(divEl).addClass('selected');
                 //$('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.specificityName);
                 na.site.globals.themeDBkeys = na.site.globals.themesDBkeys[i];
+                debugger;
                 na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName], function(){na.te.onload('siteContent')});
                 $('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.themeDBkeys.specificityName);
                 na.te.settings.current.specificity = na.site.globals.themeDBkeys;
@@ -3028,7 +3022,7 @@ na.site = {
             type : 'GET',
             url : url3,
             data : {
-                viewID : na.m.base64_encode_url(JSON.stringify(na.site.globals.app)),// url2
+                viewID : na.m.encode_base64_url(JSON.stringify(na.site.globals.app)),// url2
                 includeClientOnlyThemes : includeClientOnlyThemes || na.site.globals.specificityName.match(' client')?'true':'false',
                 stickToCurrentSpecificity : stickToCurrentSpecificity,
                 specificityName : na.site.globals.specificityName,
@@ -3195,7 +3189,7 @@ na.site = {
         };
         if (typeof loadBackground=='undefined') loadBackground = true;
         if (typeof saveTheme=='undefined') saveTheme = true;
-        if (typeof changeInterval=='undefined') changeInterval = true;
+        if (typeof changeInterval=='undefined') changeInterval = false;
         //if (dat.specificityName) {
             $('.na_themes_dropdown__specificity > .vividDropDownBox_selector > div')
                 .removeClass('selected')
@@ -3458,7 +3452,7 @@ na.site = {
     },
 
     saveTheme : function (callback, theme, loadBackground) {
-        debugger;
+        //debugger;
         na.m.log (1451, 'na.saveTheme() : pre-activation.', false);
         clearTimeout (na.site.settings.timeout_saveTheme);
         na.site.settings.timeout_saveTheme = setTimeout(function (callback, theme, loadBackground) {
@@ -3566,7 +3560,7 @@ na.site = {
         //if (themeData.dialogs.indexOf('\\')!==-1) themeData.dialogs = themeData.dialogs.replace(/\\/g, '');
 
         var
-        url = '/NicerAppWebOS/businessLogic/ajax/ajax_database_saveTheme.php?viewID='+na.m.base64_encode_url(JSON.stringify(na.site.globals.app)),
+        url = '/NicerAppWebOS/businessLogic/ajax/ajax_database_saveTheme.php?viewID='+na.m.encode_base64_url(JSON.stringify(na.site.globals.app)),
         ac2 = {
             type : 'POST',
             url : url,

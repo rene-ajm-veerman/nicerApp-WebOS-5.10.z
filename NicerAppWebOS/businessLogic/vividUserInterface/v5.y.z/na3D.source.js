@@ -720,7 +720,7 @@ export class na3D_fileBrowser {
                         relPath : relPath.join('/')
                     }
                 },
-                base64 = na.m.base64_encode_url(JSON.stringify(arr));
+                base64 = na.m.encode_base64_url(JSON.stringify(arr));
                 na.site.loadContent(event, base64);
                 /*
                 setTimeout(function() {

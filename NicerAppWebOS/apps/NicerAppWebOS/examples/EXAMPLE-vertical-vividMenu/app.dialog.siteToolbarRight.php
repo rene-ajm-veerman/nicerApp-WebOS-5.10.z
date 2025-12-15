@@ -1,7 +1,7 @@
 <?php 
 require_once (dirname(__FILE__).'/../../../boot.php');
 require_once (dirname(__FILE__).'/functions.php');
-$view = json_decode (base64_decode_url($_GET['apps']), true);
+$view = json_decode (decode_base64_url($_GET['apps']), true);
 
 global $naIP;
 global $naLAN;

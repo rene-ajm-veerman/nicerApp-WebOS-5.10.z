@@ -1,5 +1,5 @@
 <?php 
-$app = json_decode (base64_decode_url($_GET['apps']), true);
+$app = json_decode (decode_base64_url($_GET['apps']), true);
 
 ?>
 <div id="site3D_backgroundsBrowser" class="na3D" theme="{$theme}">

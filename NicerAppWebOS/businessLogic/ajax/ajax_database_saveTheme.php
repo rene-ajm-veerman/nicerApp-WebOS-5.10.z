@@ -229,6 +229,7 @@ if (!isset($_SESSION) || !is_array($_SESSION) || !array_key_exists('selectors',$
         $permissions = $sel['permissions'];
         
         global $naWebOS;
+
         
         if ($useAdminLogin) {
             $hasPermission = true;
@@ -254,6 +255,8 @@ if (!isset($_SESSION) || !is_array($_SESSION) || !array_key_exists('selectors',$
                 $roles = $naWebOS->dbs->findConnection('couchdb')->roles;
             }
             if ($debug) {
+                echo '<pre>$_COOKIE='; var_dump ($_COOKIE); echo '</pre>'.PHP_EOL.PHP_EOL;
+                echo '<pre>$username101='; var_dump ($username101); echo '</pre>'.PHP_EOL.PHP_EOL;
                 echo '<pre>$roles='; var_dump ($roles); echo '</pre>'.PHP_EOL.PHP_EOL;
                 echo '<pre>$permissions='; var_dump ($permissions); echo '</pre>'.PHP_EOL.PHP_EOL;
             };

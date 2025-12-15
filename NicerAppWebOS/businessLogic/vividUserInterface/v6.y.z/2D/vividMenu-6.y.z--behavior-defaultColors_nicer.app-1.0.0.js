@@ -34,10 +34,10 @@ class naVividMenu__behavior_defaultColors {
         t.debugMe = false;
 
         t.useDelayedShowingAndHiding = true;
-        t.sensitivitySpeedOpen = 800;
+        t.sensitivitySpeedOpen = 400;
         t.sensitivitySpeedClose = 200;
 
-        t.useFading = true;
+        t.useFading = false; // na.site.saveTheme() gets called way more often during startup if this is set to true :-(
         t.fadingSpeed = 200;
 
         t.percentageFor_rainbowPanels =
@@ -75,6 +75,7 @@ class naVividMenu__behavior_defaultColors {
 
     showMenu (t, showMeAnyways) {
         var t = this;
+        debugger;
         //na.m.waitForCondition('showMenu : htmlIdle()',  na.m.HTMLidle, function () {
             var r =  null;
             var x1 = null;
@@ -493,14 +494,14 @@ class naVividMenu__behavior_defaultColors {
                 }, t.sensitivitySpeedClose, t, evt);
             }
 
-            if (!it.b.el.el.parentNode || it.b.el.el.parentNode.id!==container.id) {
+            //if (!it.b.el.el.parentNode || it.b.el.el.parentNode.id!==container.id) {
                 $(it.b.el.el)
                     .css ({display : 'block', opacity:1})
                     .appendTo(container);
                 //if (t.debugMe) na.m.log (1120, 'naVividMenu.showMenuItem() : placing "'+it.label+'"'+/*', parent.id=#'+it.b.el.el.parentNode.id+*/' into #'+container.id, false);
                 $(container).css({ width : 'fit-content', height: 'fit-content' });
                 $(container).css({ width : 'auto', height: 'auto' });
-            }
+            //}
 
 
             var
@@ -510,7 +511,7 @@ class naVividMenu__behavior_defaultColors {
             //var numRows = Math.ceil(numKids/numColumns);
             //console.log ('t333', numKids, numColumns, numRows);
 
-            $(it.b.el.el).css({float:'left'});
+            $(it.b.el.el).css({display:'inline-block'});
             $(container).css ({ left : 10, width : ($(it.b.el.el).outerWidth() * Math.floor(numColumns)) +  (na.d.g.margin * Math.floor(numColumns)), height : 'auto' });
             var bcr = container.getBoundingClientRect();
         } else {
@@ -534,25 +535,26 @@ class naVividMenu__behavior_defaultColors {
             : 'relative'
         );
 
+        /*
         if (t.useFading && useFading) {
         //if (false) {
             $(it.b.el.el).css ({
                 position : position,
                 opacity : 1,
                 display : 'none',
-                float : 'left',
+                //float : 'left',
                 zIndex : t.el.style.zIndex + (it.level * 5)
             });
             $(it.b.el.el).stop(true,true).fadeIn(t.fadingSpeed);
-        } else {
+        } else {*/
             $(it.b.el.el).css ({
                 opacity : 1,
-                display : 'block',
-                float : 'left',
+                display : 'inline-block',
+                //float : 'left',
                 position : position,
                 zIndex : t.el.style.zIndex + (it.level * 5)
             });
-        }
+        //}
 
         return {
             it : it,
@@ -742,6 +744,7 @@ class naVividMenu__behavior_defaultColors {
                     height : $(it.b.el).height()
                 }
             };
+            debugger;
 
             var
             background1 = 'rgba('+(100+Math.random()*150)+','+(100+Math.random()*150)+','+(100+Math.random()*150)+', 0.55)',
@@ -807,7 +810,6 @@ class naVividMenu__behavior_defaultColors {
                 //background : background2a,
                 boxShadow : 'inset 0px 0px 3px 2px rgba(0,0,0,0.8), 4px 4px 2px 2px rgba(0,0,0,0.7)',
                 width : 'auto',
-                maxWidth : 275,
                 height : 'auto',
                 //padding : 5,
                 zIndex : it.b.el.el.style.zIndex-1,
@@ -927,7 +929,13 @@ class naVividMenu__behavior_defaultColors {
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                 )
             };
-            cssPanel.maxWidth = $(panel).width()/2;
+            cssPanel.maxWidth = $(panel).width()/3.75;
+            var mw = 0;
+            $('div.vividButton', panel).each(function(idx,menuItem) {
+                if (mw<$(menuItem).width()) mw = $(menuItem).width();
+            });
+            mw += parseInt($(panel).css('paddingLeft')) + parseInt($(panel).css('paddingRight'));
+            if (cssPanel.maxWidth<mw) cssPanel.maxWidth = mw;
             $(panel).css(cssPanel);
             cssPanel.top = (
                     it.level > 2
@@ -935,9 +943,10 @@ class naVividMenu__behavior_defaultColors {
                         ? p_bcr.top - $(panel).height() - 5 - (1.5 * na.d.g.margin)
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                     : dim.verDirection=='north'
-                        ? p_bcr.top - $(panel).height() - 305 - (1.5 * na.d.g.margin)
+                        ? p_bcr.top - $(panel).height()*3 - 5 - (1.5 * na.d.g.margin)
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                 );
+            //alert (JSON.stringify(cssPanel));
             $(panel).css(cssPanel).css({opacity:panel.opacity}).fadeIn(t.fadingSpeed);
         } else {
             $(panel).css(cssPanel);
@@ -987,11 +996,17 @@ class naVividMenu__behavior_defaultColors {
                         ? p_bcr.top - $(panel).height() - 5 - (1.5 * na.d.g.margin)
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                     : dim.verDirection=='north'
-                        ? p_bcr.top - $(panel).height() - 305 - (1.5 * na.d.g.margin)
+                        ? p_bcr.top - $(panel).height() - 5 - (1.5 * na.d.g.margin)
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                 )
             };
-            cssPanel.maxWidth = $(panel).width()/2;
+            cssPanel.maxWidth = $(panel).width()/3.75;
+            var mw = 0;
+            $('div.vividButton', panel).each(function(idx,menuItem) {
+                if (mw<$(menuItem).width()) mw = $(menuItem).width();
+            });
+            mw += parseInt($(panel).css('paddingLeft')) + parseInt($(panel).css('paddingRight'));
+            if (cssPanel.maxWidth<mw) cssPanel.maxWidth = mw;
             $(panel).css(cssPanel);
             cssPanel.top = (
                     it.level > 2
@@ -999,10 +1014,11 @@ class naVividMenu__behavior_defaultColors {
                         ? p_bcr.top - $(panel).height() - 5 - (1.5 * na.d.g.margin)
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                     : dim.verDirection=='north'
-                        ? p_bcr.top - $(panel).height() - 305 - (1.5 * na.d.g.margin)
+                        ? p_bcr.top - $(panel).height()*3 - 5 - (1.5 * na.d.g.margin)
                         : p_bcr.top + 20 + (1.5 * na.d.g.margin)
                 );
-            $(panel).css(cssPanel).css({opacity:panel.opacity});
+            //alert (JSON.stringify(cssPanel));
+            $(panel).css(cssPanel).css({opacity:panel.opacity}).fadeIn(t.fadingSpeed);
         }
     }
 
@@ -1233,20 +1249,21 @@ class naVividMenu__behavior_defaultColors {
             return false;
         }
 
-        if (!t.timeout_onmouseover) t.timeout_onmouseover = {};
-        if (t.timeout_onmouseover[el.it.idx]) clearTimeout (t.timeout_onmouseover[el.it.idx]);
         for (var panelID in t.panelsShown) {
             var p = t.panelsShown[panelID];
             if  (p.hideAll) clearTimeout(p.hideAll);
             delete t.panelsShown[panelID];
         }
 
+        if (!t.timeout_onmouseover) t.timeout_onmouseover = {};
         if (t.timeout_onmouseover[el.it.idx]) clearTimeout (t.timeout_onmouseover[el.it.idx]);
+        t.cancelHidings(t);
         t.timeout_onmouseover[el.it.idx] = setTimeout(function(t, el, evt) {
             if (t.debugMe) na.m.log (1120, 'naVividMenu.onmouseover() : showing sub-menu for "'+el.it.label+'"', false);
 
             t.prevDisplayedEl = t.currentEl.el || t.currentEl;
-            t.currentDisplayedEl = t.currentEl.el || t.currentEl;//evt.currentTarget;
+            t.currentDisplayedEl = t.currentEl = evt.currentTarget;
+            debugger;
             t.currentDisplayedEl_negativeOffsetY = null;
 
             var
@@ -1255,7 +1272,7 @@ class naVividMenu__behavior_defaultColors {
             t.prevDisplayedEl = null;
 
             var
-            pit = t.currentEl,
+            pit = t.currentDisplayedEl,
             pidx = pit.it?pit.it.idx:pit.idx,
             it2 = t.items[pidx],
             panelID = t.el.id+'__panel__'+pidx;
@@ -1307,20 +1324,21 @@ class naVividMenu__behavior_defaultColors {
             }
 
             //t.showBackPanel(t, el);
-        }, 100, t, el, event);
+        }, 100, t, el, $.extend({},event));
     }
 
     onmouseout (event) {
+        /*
         var toHide = this.mustHide (this, this.currentEl.it, event);
         this.onmouseout_do(event, toHide);
         return true;
 
-        /*
+        */
         var t = this, el = event.currentTarget;
         if (!t.timeout_onmouseout) t.timeout_onmouseout = {};
 
-        //if (t.timeout_onmouseout[parseInt(el.it.idx)]) clearTimeout (t.timeout_onmouseout[el.it.idx]);
-        //t.timeout_onmouseout[parseInt(el.it.idx)] = setTimeout (function(t, evt) {
+        if (t.timeout_onmouseout[parseInt(el.it.idx)]) clearTimeout (t.timeout_onmouseout[el.it.idx]);
+        t.timeout_onmouseout[parseInt(el.it.idx)] = setTimeout (function(t, evt) {
             var toHide = t.mustHide (t, t.currentEl.it, evt);
             if (t.currentEl.it.level > 1 || $(t.el).is('.noInitialShowing')) {
                 na.m.log (1120, 'naVividMenu.onmouseout() : hiding sub-menu for "'+toHide.prevEl[0].it.label+'"', false);
@@ -1332,8 +1350,8 @@ class naVividMenu__behavior_defaultColors {
                     t.onmouseout_do(evt, toHide);
                 }
             }
-        //}, 500, t, event);
-        */
+        }, t.sensitivitySpeedClose, t, event);
+
     }
 
     onmouseout_do (event, toHide) {

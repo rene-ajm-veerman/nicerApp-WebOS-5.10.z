@@ -61,7 +61,7 @@ function saPhotoAlbum ($basePath=null) {
             )
         );
         $json = json_encode($arr);
-        $href = "/apps/".base64_encode_url($json);
+        $href = "/apps/".encode_base64_url($json);
         
         
         $r .= '<center><a href="'.$href.'" onclick="na.s.c.settings.previousScrollTop=jQuery(\'#siteContent__scrollpane\')[0].scrollTop;"><img src="'.$thumbURL.'" style="width:200px" '.$onclick.'/><br/><span class="filename">'.$fileName.'</span></a></center></div>';        

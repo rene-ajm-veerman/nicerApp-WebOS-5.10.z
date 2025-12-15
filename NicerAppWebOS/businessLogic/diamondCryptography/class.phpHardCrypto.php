@@ -90,11 +90,11 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
             chgrp ($fnKey, $filePerms_ownerGroup);
             chmod ($fnKey, $filePerms_perms_readonly);
             
-            $fnAccountCredentials = $this->storagePath.DIRECTORY_SEPARATOR.base64_encode_url($this->fsRandomString(20)).'.ac.txt';
+            $fnAccountCredentials = $this->storagePath.DIRECTORY_SEPARATOR.encode_base64_url($this->fsRandomString(20)).'.ac.txt';
             $accountCredentials = [
                 'username' => $username,
-                'key' => base64_encode_url($key),
-                'key2' => base64_encode_url($key2),
+                'key' => encode_base64_url($key),
+                'key2' => encode_base64_url($key2),
                 'fnAccountCredentials' => $fnAccountCredentials,
                 'fnAccountDetails' => $fnAccountDetails
             ];
@@ -121,8 +121,8 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
             if ($debug) { echo '<pre>';var_dump ($dec); echo '</pre><br/>'.PHP_EOL; };
             if ($dec !== false) {
                 $accountCredentials = json_decode($dec,true);
-                $key = base64_decode_url($accountCredentials['key']);
-                $key2 = base64_decode_url($accountCredentials['key2']);
+                $key = decode_base64_url($accountCredentials['key']);
+                $key2 = decode_base64_url($accountCredentials['key2']);
                 $fnAccountCredentials = $accountCredentials['fnAccountCredentials'];
                 $fnAccountDetails = $accountCredentials['fnAccountDetails'];
                 break;
@@ -145,12 +145,12 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
             //echo '<pre>'.$this->cn.$fncn.' : sodium_crypto_pwhash_scryptsalsa208sha256_str_verify() = '; var_dump ($hashingResult); echo '</pre>'.PHP_EOL;
 
             
-            $fnAccountCredentials = $this->storagePath.DIRECTORY_SEPARATOR.base64_encode_url($this->fsRandomString(20)).'.ac.txt';
-            $fnAccountDetails = $this->storagePath.DIRECTORY_SEPARATOR.base64_encode_url($this->fsRandomString(20)).'.ad.txt';
+            $fnAccountCredentials = $this->storagePath.DIRECTORY_SEPARATOR.encode_base64_url($this->fsRandomString(20)).'.ac.txt';
+            $fnAccountDetails = $this->storagePath.DIRECTORY_SEPARATOR.encode_base64_url($this->fsRandomString(20)).'.ad.txt';
             $accountCredentials = [
                 'username' => $username,
-                'key' => base64_encode_url($key),
-                'key2' => base64_encode_url($key2),
+                'key' => encode_base64_url($key),
+                'key2' => encode_base64_url($key2),
                 'fnAccountCredentials' => $fnAccountCredentials,
                 'fnAccountDetails' => $fnAccountDetails
             ];
@@ -186,8 +186,8 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
             );
             $accountCredentials = [
                 'username' => $username,
-                'key' => base64_encode_url($key),
-                'key2' => base64_encode_url($key2),
+                'key' => encode_base64_url($key),
+                'key2' => encode_base64_url($key2),
                 'fnAccountCredentials' => $fnAccountCredentials,
                 'fnAccountDetails' => $fnAccountDetails
             ];
@@ -212,7 +212,7 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
             $enc = $this->safeEncrypt($jsonAccountDetails, $key); //generates random  encrypted string (Base64 related)
             if ($debug) echo '<pre>'.$this->cn.$fncn.' : $enc = '.$enc.'</pre>'.PHP_EOL;
             if ($debug) { echo '<pre>'.$this->cn.$fncn.' : $fnAccountDetails = '; var_dump ($fnAccountDetails); echo '</pre>'.PHP_EOL; }
-            if (!isset($fnAccountDetails) || $fnAccountDetails===null) $fnAccountDetails = $this->storagePath.DIRECTORY_SEPARATOR.base64_encode_url($this->fsRandomString(20)).'.ad.txt';
+            if (!isset($fnAccountDetails) || $fnAccountDetails===null) $fnAccountDetails = $this->storagePath.DIRECTORY_SEPARATOR.encode_base64_url($this->fsRandomString(20)).'.ad.txt';
             if ($debug) echo '<pre>'.$this->cn.$fncn.' : $fnAccountDetails = '.$fnAccountDetails.'</pre>'.PHP_EOL; 
             file_put_contents ($fnAccountDetails, $enc);
             chmod ($fnAccountDetails, $filePerms_perms_publicWriteableExecutable);
@@ -228,8 +228,8 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
             );
             $accountCredentials = [
                 'username' => $username,
-                'key' => base64_encode_url($key),
-                'key2' => base64_encode_url($key2),
+                'key' => encode_base64_url($key),
+                'key2' => encode_base64_url($key2),
                 'fnAccountCredentials' => $fnAccountCredentials,
                 'fnAccountDetails' => $fnAccountDetails
             ];
@@ -278,8 +278,8 @@ class class_phpHardCrypto implements interface_class_phpHardCrypto {
         if ($dec !== false) {
             $accountCredentials = json_decode($dec,true);
             //echo '<pre>'.$this->cn.$fncn.' : $accountCredentials = '; var_dump ($accountCredentials); echo '</pre><br/>'.PHP_EOL; exit();
-            $key = base64_decode_url($accountCredentials['key']);
-            $key2 = base64_decode_url($accountCredentials['key2']);
+            $key = decode_base64_url($accountCredentials['key']);
+            $key2 = decode_base64_url($accountCredentials['key2']);
             $fnac = $accountCredentials['fnAccountCredentials'];
             $fnad = $accountCredentials['fnAccountDetails'];
         }

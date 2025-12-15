@@ -243,7 +243,7 @@ function t2_html_menu_decks_recurse ($decks, $path="") {
 					'reading' => $viewSettings['apps']['reading']
 				];
                 $hrefJSON = '{"/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/cardgame.tarot":'.json_encode($viewSettings).'}';
-                $href = '/view/'.base64_encode_url($hrefJSON);
+                $href = '/view/'.encode_base64_url($hrefJSON);
                 $n = str_replace ('(','',$n);
                 $n = str_replace (')','',$n);
 				$html.='<li><a class="appMenu selectDeck" href="'.$href.'">'.$n.'</a></li>';
@@ -288,7 +288,7 @@ function t2_html_menu_readings() {
                 //var_dump ($naWebOS->view);
                 //var_dump ($viewSettings); exit();
                 $hrefJSON = '{"/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/cardgame.tarot":'.json_encode($viewSettings,true).'}';
-                $href = '/view/'.base64_encode_url($hrefJSON);
+                $href = '/view/'.encode_base64_url($hrefJSON);
 		$html .= '<li><a class="appMenu selectReading" href="'.$href.'">'.$r.'</a></li>'."\n";
 	}
 	return $html;

@@ -43,7 +43,7 @@ error_reporting(E_ALL);
     $dbs = $cdb->getAllDatabases();
     //echo '<pre style="color:white;">'; var_dump ($dbs); echo '</pre>'; exit();
     
-    //$albums = json_decode(base64_decode_url($_GET['albums']));
+    //$albums = json_decode(decode_base64_url($_GET['albums']));
     //echo '<div style="color:white;">'; var_dump ($albums); echo '</div>'; exit();
     
     /*  $albums can NOT be passed on the URL from the browser na.tree.tinyMCE_photoAlbums_list(),

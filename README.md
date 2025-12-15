@@ -432,13 +432,30 @@ This is free and fairly simple.
 You can choose between **certbot** or **letsencrypt**.
 You can find tutorials on how to use them via google searches for either 'certbot example' or 'letsencrypt example'.
 
+basically, after port-forwarding (on your internet modem's web interface page) port 80 to your server's LAN ip address;
+> sudo service apache2 stop && sudo service nginx stop
+>
+> sudo certbot --certonly -d MYDOMAIN_TLD
+
 After that, the only remaining step is to restart all the server software :
 > sudo service couchdb restart
 > 
 > sudo service apache2 restart
 > 
 > sudo service nginx restart
-	
+
+And, of course, to initialize the database **completely**, by going to
+
+https://MYDOMAIN_TLD/NicerAppWebOS/db_init.php
+
+or (re-initialize all except the social media content, nor themes and news)
+
+https://nicer.app/NicerAppWebOS/db_init.php?doLog=y&doTree=no&doThemeData=no&resetThemeData=y&doMenu=y&doAPI_imageSearch=y&doApp_news=no&doApp_webmail=y&doApp_3D_fileExplorer=y
+
+or (re-initialize all except news)
+
+https://nicer.app/NicerAppWebOS/db_init.php?doLog=y&doTree=no&doThemeData=y&resetThemeData=no&doMenu=y&doAPI_imageSearch=y&doApp_news=no&doApp_webmail=y&doApp_3D_fileExplorer=y
+
 # Modifying the HTML for a nicerapp site
 This is done by modifying .../nicerapp/domainConfigs/YOUR_DOMAIN_NAME/index.template.php
 and .../nicerapp/domainConfigs/YOUR_DOMAIN_NAME/desktop.source.js

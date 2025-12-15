@@ -273,14 +273,21 @@ class NicerAppWebOS {
                 $this->dbsAdmin->findConnection('couchdb')->createGuestUser();
             }
             try {
+                /*
                 if (array_key_exists('cdb_'.$naWebOS->domainFolder.'__loginName',$_COOKIE)) $un = $_COOKIE['cdb_'.$naWebOS->domainFolder.'__loginName']; else $un = 'Guest';
                 $this->dbs = new class_NicerAppWebOS_database_API ($un);
                 //echo '<pre>'; var_dump($_SERVER['SCRIPT_NAME']); echo '</pre>';//var_dump ($this->dbs);exit();
 
                 if (strpos('ajax_login.php',$_SERVER['SCRIPT_NAME'])==false)
                     setcookie('cdb_'.$naWebOS->domainFolder.'__loginName', $this->dbs->findConnection('couchdb')->username, time() + 604800, '/');
+                */
 
+                if (array_key_exists('cdb_loginName',$_COOKIE)) $un = $_COOKIE['cdb_loginName']; else $un = 'Guest';
+                $this->dbs = new class_NicerAppWebOS_database_API ($un);
+                //echo '<pre>'; var_dump($_SERVER['SCRIPT_NAME']); echo '</pre>';//var_dump ($this->dbs);exit();
 
+                if (strpos('ajax_login.php',$_SERVER['SCRIPT_NAME'])==false)
+                    setcookie('cdb_loginName', $this->dbs->findConnection('couchdb')->username, time() + 604800, '/');
 
 
 
@@ -340,7 +347,7 @@ class NicerAppWebOS {
             if ($_GET['viewID']=='' || $_GET['viewID']=='/') {
                 $this->view = ['/'=>['page'=>'index']];
             } else {
-                $decoded = json_decode(base64_decode_url($_GET['viewID']), true);
+                $decoded = json_decode(decode_base64_url($_GET['viewID']), true);
                 if (json_last_error()!==0) {
                     $this->view = $this->getView ($_GET['viewID']);
                 } else {
@@ -348,7 +355,7 @@ class NicerAppWebOS {
                 }
             }
         } elseif (array_key_exists('seoValue',$_GET)) {
-                $decoded = json_decode(base64_decode_url($_GET['seoValue']), true);
+                $decoded = json_decode(decode_base64_url($_GET['seoValue']), true);
                 if (json_last_error()!==0) {
                     $this->view = $this->getView($_GET['seoValue']);
                 } else {
@@ -381,7 +388,11 @@ class NicerAppWebOS {
         if (!is_array($_GET)) {
             $msg = $fncn.' : FAILED (this was not called via a web-browser).';
             trigger_error ($msg, E_USER_ERROR);
+            error_log ($msg);
             return $this->getContent__standardErrorMessage($msg);
+        } else if (!is_array($view)) {
+            return $this->getContent__standardErrorMessage($view);
+            // no trigger_error() or error_log() needed here!
         } else {
             //if (!array_key_exists('viewID',$_GET))$_GET['viewID'] = '/';
             if (
@@ -895,9 +906,8 @@ class NicerAppWebOS {
                 } catch (Exception $e) {
                     $msg = $fncn.' FAILED while trying to find view settings in \''.$db->dataSetName('views').'\' : $e->getMessage()='.$e->getMessage();
                     trigger_error ($msg, E_USER_NOTICE);
-                    echo $msg;
-                    $view = $msg;
-                    return $view;
+                    error_log($msg);
+                    return $msg;
                 }
                 //echo '<pre>'; var_dump($call);exit();
 
@@ -906,8 +916,7 @@ class NicerAppWebOS {
                 $msg = $fncn.' : views count incorrect ("docs" count should be exactly 1) for seoValue='.$_GET['seoValue'].'.<br/>'."\n".'<pre>$call->headers->_HTTP->status='.$call->headers->_HTTP->status.', $call->body='.json_encode($call->body,JSON_PRETTY_PRINT).'</pre>';
                 trigger_error($msg, E_USER_WARNING);
                 error_log($msg);
-                $view = $msg;
-                return $view;
+                return $msg;
             }
         }
 
@@ -1360,8 +1369,8 @@ class NicerAppWebOS {
         };
 
         $selectorsCachedFN = 'getPageCSS_'.randomString(50);
-        $id = base64_encode_url(json_encode($selectors));
-        $id2 = base64_encode_url(gzencode(json_encode($selectors)));
+        $id = encode_base64_url(json_encode($selectors));
+        $id2 = encode_base64_url(gzencode(json_encode($selectors)));
         //$selectorsCachedFilepath = realpath(dirname(__FILE__).'/../..').'/NicerAppWebOS/siteCache/'.$selectorsCachedFN;
         $selectorsCachedFilepath = $_SERVER['DOCUMENT_ROOT'].'/siteCache/'.$selectorsCachedFN;
 
@@ -1777,7 +1786,7 @@ class NicerAppWebOS {
             foreach ($this->view as $viewFolder => $viewSettings) break;
             //$viewFolder = preg_replace('/.*\//','', $viewFolder);
             //echo '<pre>'; var_dump ($this->view); exit();
-            $url = '/view/'.base64_encode_url(json_encode($this->view));
+            $url = '/view/'.encode_base64_url(json_encode($this->view));
 
             //if ($viewFolder=='/') $url = '/';
         } /*else if (array_key_exists('REQUEST_URI',$_SERVER)) {
@@ -1808,7 +1817,7 @@ class NicerAppWebOS {
                 foreach ($this->view as $viewFolder => $viewSettings) break;
                 //$viewFolder = preg_replace('/.*\//','', $viewFolder);
                 //var_dump ($viewFolder); exit();
-                $url = '/view/'.base64_encode_url(json_encode($this->view));
+                $url = '/view/'.encode_base64_url(json_encode($this->view));
                 //if ($viewFolder=='/') $url = '/';
             } /*else if (array_key_exists('REQUEST_URI',$_SERVER)) {
                 // use defaults if not in proper format (when URL uses HTTP URL parameters for instance)..

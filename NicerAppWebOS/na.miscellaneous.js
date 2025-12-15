@@ -36,6 +36,28 @@ na.m = {
 		}
     },
 
+    generateAllUnicode : function () {
+        let str = '';
+        for (let i = 0; i <= 0x10FFFF; i++) {
+            if (i >= 0xD800 && i <= 0xDFFF) continue; // skip surrogates
+            str += String.fromCodePoint(i);
+        }
+        return str;
+    },
+
+/*
+const all = generateAllUnicode();
+console.log("Characters:", all.length); // → 1,111,998
+
+const base64 = Buffer.from(all, 'utf8').toString('base64');
+console.log("Base64 length:", base64.length); // → 1,484,000
+console.log("First 100:", base64.slice(0, 100));
+console.log("Last 100: ", base64.slice(-100));
+
+// Save for comparison
+require('fs').writeFileSync('full_unicode_js.base64', base64);
+*/
+
     handleGalleryLinkClick : function(e){
         e.preventDefault();
         const $thisLink = e.currentTarget;
@@ -126,7 +148,7 @@ na.m = {
 		}, 1000);
 	},
 
-    base64_encode_url : function (str) {
+    encode_base64_url : function (str) {
         var str2 = btoa(str);
         str2 = str2.replace (/=/g, '');
         str2 = str2.replace ('+', '-');
@@ -134,14 +156,14 @@ na.m = {
         return str2;
     },
 
-    base64_decode_url : function (str) {
+    decode_base64_url : function (str) {
         var str2 = str;
         str2 = str2.replace ('-', '+');
         str2 = str2.replace ('_', '/');
         try {
             var r = atob(str2);
         } catch (error) {
-            var r = '{-- na.m.base64_decode_url() : str is not valid base64 data when URL decoded. str='+str+', error.message='+error.message + ' --}';
+            var r = '{-- na.m.decode_base64_url() : str is not valid base64 data when URL decoded. str='+str+', error.message='+error.message + ' --}';
         };
         return r;
     },
@@ -511,7 +533,7 @@ na.m = {
 
         // keep your condtions() REAL fast to execute, and you'll be fine with the following enforced defaults.
         // these defaults keep the entire system as a whole nice & fast :)
-        if (typeof frequency=='undefined' || frequency < 100) frequency = 100;
+        if (typeof frequency=='undefined' || frequency < 10) frequency = 10;
         //if (frequency > 30) frequency = 30;
 
         if (!na.m.settings.waitForCondition_reportsIssued) na.m.settings.waitForCondition_reportsIssued = setInterval (function () {
@@ -521,7 +543,7 @@ na.m = {
 		var r = condition(context);
 
 
-        if (/*!r always list na.m.waitForCondition() calls in console.log() && */ !condition.listed && !na.m.waitForCondition_blacklisted(label)) {
+        if (!r && !condition.listed && !na.m.waitForCondition_blacklisted(label)) {
             condition.listed = true;
             na.m.log (2200, 'na.m.waitForCondition() : ADDED : "'+label+'"', false);
         }

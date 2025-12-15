@@ -348,6 +348,37 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
 
     }
 
+    public function listUsers () {
+        global $naWebOS;
+        $this->cdb->setDatabase('_users',false);
+
+        $r = $this->cdb->getAllDocs();
+        $r = $r->body->rows;
+        //var_dump ($naWebOS->domainFolderForDB);
+        //echo '<pre style="margin:10px;padding:10px;border-radius:10px;border:1px solid ivory;color:lime;background:rgba(0,59,0,0.7);">'; var_dump ($r); echo '</pre>';
+
+        $users = [];
+        foreach ($r as $uIdx => $u) {
+            $user = $this->cdb->get($u->id);
+            //echo '<pre style="margin:10px;padding:10px;border-radius:10px;border:1px solid ivory;color:yellow;background:rgba(0,0,50,0.7);">'; var_dump ($u->id); echo '</pre>';
+
+            if (strpos($u->id, $naWebOS->domainFolderForDB.'___')!==false) {
+
+                $u2 = [
+                    'id' => $this->translate_couchdbUserName_to_plainUserName($u->id),//str_replace('org.couchdb.user:'.$naWebOS->domainFolderForDB.'___', '', $u->id),
+                    'roles' => $user->body->roles
+                ];
+                foreach ($u2['roles'] as $rIdx => $role) {
+                    $u2['roles'][$rIdx] = $this->translate_couchdbGroupName_to_plainGroupName($role);//str_replace($naWebOS->domainFolderForDB.'___','', $role);
+                }
+
+                echo '<pre style="margin:10px;padding:10px;border-radius:10px;border:1px solid ivory;color:yellow;background:rgba(0,0,50,0.7);">'; var_dump ($u2); echo '</pre>';
+                $users[] = $u2;
+            }
+        }
+
+        return $users;
+    }
 
 
     public function createUsers($users=null, $groups=null) {
@@ -786,7 +817,7 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
         try { $this->cdb->deleteDatabase ($dataSetName); } catch (Exception $e) { };
         $this->cdb->setDatabase($dataSetName, true);
         try {
-            $call = $this->cdb->setSecurity ($this->security_admin);
+            $call = $this->cdb->setSecurity ($this->security_guest);
         } catch (Exception $e) {
             if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
         }

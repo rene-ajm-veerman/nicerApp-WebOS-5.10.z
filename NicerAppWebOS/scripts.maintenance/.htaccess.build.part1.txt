@@ -30,6 +30,10 @@ Options +FollowSymLinks
 
     RewriteCond %{REQUEST_METHOD} ^(GET)$
     RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
+    RewriteRule ^(.*)/about/(.*)$ NicerAppWebOS/businessLogic/ajax/ajax_get_content.php?username=$1&url1=about&dataID=$2 [L]
+
+    RewriteCond %{REQUEST_METHOD} ^(GET)$
+    RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
     RewriteRule ^(.*)/during/(.*)$ NicerAppWebOS/businessLogic/ajax/ajax_get_content.php?username=$1&url1=during&dataID=$2 [L]
 
         # it's not a facebook post, and it's not a forum thread either. not even a nested forum thread.
@@ -147,6 +151,9 @@ Options +FollowSymLinks
     RewriteRule ^(.*)/on/(.*)$ NicerAppWebOS/index.php?username=$1&url1=on&dataID=$2 [L]
 
     RewriteCond %{REQUEST_METHOD} ^(GET)$
+    RewriteRule ^(.*)/about/(.*)$ NicerAppWebOS/index.php?username=$1&url1=about&dataID=$2 [L]
+
+    RewriteCond %{REQUEST_METHOD} ^(GET)$
     RewriteRule ^(.*)/during/(.*)$ NicerAppWebOS/index.php?username=$1&url1=during&dataID=$2 [L]
 
 
@@ -196,7 +203,7 @@ Options +FollowSymLinks
             ##RewriteCond %{REQUEST_FILENAME} !-f
             ##RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_METHOD} ^(GET)$
-    RewriteRule ^$ index.php?viewID=/ [L]
+    RewriteRule ^$ NicerAppWebOS/index.php?viewID=/ [L]
 
     RewriteCond %{REQUEST_METHOD} ^(GET)$
     RewriteRule ^nc$ NicerAppWebOS/index.php?uvt=n&lc=n&viewID=/ [L]

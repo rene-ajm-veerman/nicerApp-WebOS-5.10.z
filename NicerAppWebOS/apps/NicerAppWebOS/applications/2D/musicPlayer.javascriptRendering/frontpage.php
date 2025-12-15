@@ -66,7 +66,7 @@
                 //$f = str_replace('/','-t0001-',$f);
                 //$f = str_replace('(','-t0002-',$f);
                 //$f = str_replace(')','-t0003-',$f);
-                $ffi[] = base64_encode_url($f);
+                $ffi[] = encode_base64_url($f);
             }
             */
 
@@ -118,7 +118,7 @@
     foreach ($views as $viewIDX => &$view) {
         foreach ($view as $viewIDX2 => &$app) {
             foreach ($app as $appFolder => &$viewSettings) {
-                $urls[$viewIDX2] = '/view/'.base64_encode_url(json_encode($viewSettings)).'?idxStart='.$idxStart.'&pw='.$pw;
+                $urls[$viewIDX2] = '/view/'.encode_base64_url(json_encode($viewSettings)).'?idxStart='.$idxStart.'&pw='.$pw;
             }
         }
     };
@@ -153,7 +153,7 @@
                 $html .= $naWebOS->html($cd['level'], '</ul></li>');
             }
 
-            $u = base64_encode_url(json_encode([
+            $u = encode_base64_url(json_encode([
                 'fds' => $folderDurationInSeconds,
                 'rp' => str_replace($appFolder.'/music','','/'.$folder['webPath'])//,
             ]));
@@ -314,7 +314,7 @@
                             $viewName = $k2;//$v3['seoValue'];
                             $appFolder = $k3;
                             //$json2load = $json[$viewName];
-                            //$url = '/view/'.base64_encode_url($json2load);
+                            //$url = '/view/'.encode_base64_url($json2load);
                             $url = $urls[$viewName];
                             //$files = $v3['files'];
 

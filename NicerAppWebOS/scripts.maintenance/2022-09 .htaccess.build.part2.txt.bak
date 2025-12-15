@@ -76,7 +76,7 @@ Options +FollowSymLinks
         # via the right computer code when a person wants to view the data in some way.
         #
         # the record contents for vpIDs is also listed in the /*--all other pages--*/ section of this file you're reading now,
-        # as base64_encode_url(json_encode(vpRecord)) encoded data.
+        # as encode_base64_url(json_encode(vpRecord)) encoded data.
         #
         # [1] (in a very efficient way, with amazingly fast binary-tree calculations
         #       happening basically inside the server's CPU,

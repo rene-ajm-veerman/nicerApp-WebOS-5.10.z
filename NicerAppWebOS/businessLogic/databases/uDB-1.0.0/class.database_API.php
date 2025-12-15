@@ -310,6 +310,10 @@ class class_NicerAppWebOS_database_API {
         return $this->callAllDataSets ('createUsers', [$users, $groups]);
     }
 
+    public function listUsers () {
+        return $this->callAllDataSets ('listUsers');
+    }
+
     public function createDatabases ($dbs) {
         $r = [];
         $failedAtLeastOne = false;

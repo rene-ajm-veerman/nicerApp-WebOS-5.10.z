@@ -8,7 +8,7 @@ require_once ($myPath_diskText_userSpecific.'/NicerAppWebOS/boot.php');
 require_once ($myPath_diskText_userSpecific.'/NicerAppWebOS/businessLogic/vividUserInterface/v5.y.z/photoAlbum/4.0.0/functions.php');
 global $naWebOS;
 $view = (array)$naWebOS->view;
-//$view = json_decode (base64_decode_url($_GET['apps']), true);
+//$view = json_decode (decode_base64_url($_GET['apps']), true);
 ?>
 
 <?php

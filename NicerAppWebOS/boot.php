@@ -117,7 +117,12 @@ NicerApp WebOS from Nicer Enterprises
 
     require_once($rootPath_na.'/NicerAppWebOS/businessLogic/class.NicerAppWebOS.log.php');
 
-    $rootPath_na_dbs = $rootPath_na.'/NicerAppWebOS/businessLogic/databases/uDB-1.0.0';
+    global $naIsLatestVersion;
+    $naIsLatestVersion = (/*$naWebOS->domain*/$_SERVER['SERVER_NAME']=='localhost');
+    if ($naIsLatestVersion)
+        $rootPath_na_dbs = $rootPath_na.'/NicerAppWebOS/businessLogic/databases/uDB-2.0.0';
+    else
+        $rootPath_na_dbs = $rootPath_na.'/NicerAppWebOS/businessLogic/databases/uDB-1.0.0';
     require_once ($rootPath_na_dbs.'/class.database_API.php');
     //require_once ($rootPath_na_dbs.'/connectors/forFuture_design_coding_debugging_and_usage/class.fileSystemDB-1.0.0.php');
 

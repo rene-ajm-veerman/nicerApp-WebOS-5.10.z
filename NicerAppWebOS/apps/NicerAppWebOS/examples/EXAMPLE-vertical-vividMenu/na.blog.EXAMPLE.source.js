@@ -515,7 +515,7 @@ na.blog = {
         if (role) arr.cmsText.role = role;
         
         var
-        url = na.m.base64_encode_url (JSON.stringify(arr));
+        url = na.m.encode_base64_url (JSON.stringify(arr));
         
         na.blog.saveEditorContent(sel, function() {
             na.site.loadContent(url);
@@ -557,7 +557,7 @@ na.blog = {
                 filename : filename
             }
         },
-        base64 = na.m.base64_encode_url(JSON.stringify(arr));
+        base64 = na.m.encode_base64_url(JSON.stringify(arr));
         na.site.loadContent(base64);
     },
     
@@ -650,7 +650,7 @@ na.blog = {
                 
                 var y = { 
                     title : parentsLabel, 
-                    value : '/apps/'+na.m.base64_encode_url( JSON.stringify(v) ) 
+                    value : '/apps/'+na.m.encode_base64_url( JSON.stringify(v) )
                 };
                 //debugger;
                 r.push (y);

@@ -1,5 +1,5 @@
 <?php 
-$view = json_decode (base64_decode_url($_GET['apps']), true);
+$view = json_decode (decode_base64_url($_GET['apps']), true);
 
 $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_request_headers()['X-Forwarded-For'] : $_SERVER['REMOTE_ADDR']);
 /*if (

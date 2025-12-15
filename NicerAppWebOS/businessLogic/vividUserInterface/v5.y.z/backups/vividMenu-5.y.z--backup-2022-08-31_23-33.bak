@@ -181,7 +181,7 @@ class naVividMenu {
 
                     var
                     url = document.location.href.replace(document.location.origin,'').replace(document.location.host,'').replace('/apps/',''),
-                    appStr = url.match(/\/apps/)?na.m.base64_decode_url(url):{url:url};
+                    appStr = url.match(/\/apps/)?na.m.decode_base64_url(url):{url:url};
                     if (t.wasFoundInDB) {
                         na.m.log (110, 'layout-position data for menu with ID '+t.el.id+' for url='+window.location.href+', app='+appStr+' at the current resolution that is stored in the server DB, was loaded into local memory.', false);
                         //debugger;
@@ -205,7 +205,7 @@ class naVividMenu {
             fncn = 'naVividMenu.loadPositionData(callback4) (t.el.id='+t.el.id+')',
             dat = null,
             url = document.location.href.replace(document.location.origin,'').replace(document.location.host,'').replace('/apps/',''),
-            appStr = url.match(/\/apps/)?na.m.base64_decode_url(url):{url:url},
+            appStr = url.match(/\/apps/)?na.m.decode_base64_url(url):{url:url},
             msg = 'layout-position data for menu with ID '+t.el.id+' for url='+window.location.href+', app='+appStr+' could not be found on server, since no database architecture is installed there at the moment. calculating the data locally now.';
 
             na.m.log (110, msg, false);
@@ -249,7 +249,7 @@ class naVividMenu {
                     var 
                     url2a = document.location.href.replace(document.location.origin,'').replace(document.location.host,''),
                     url2b = url2a.replace('/apps/',''),
-                    appStr = url2a.match(/\/apps/)?na.m.base64_decode_url(url2):{url:url2a};
+                    appStr = url2a.match(/\/apps/)?na.m.decode_base64_url(url2):{url:url2a};
                     na.m.log (110, 'layout-position data for menu with ID '+t.el.id+' for url='+window.location.href+', app='+appStr+' at current resolution was saved to the server DB.', false);
                 } else {
                     na.m.log (110, 'FAILURE : layout-position data for menu with ID '+t.el.id+' for url='+window.location.href+' at current resolution was attempted to be saved the server DB, but this FAILED. '+data, false);

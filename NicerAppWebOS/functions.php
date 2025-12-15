@@ -6,6 +6,27 @@ require_once(dirname(__FILE__).'/boot.php');
 //use Defuse\Crypto\Key;
 //use Defuse\Crypto\Crypto;
 
+
+function addUserPasswordToHiddenFile ($u, $p) {
+    global $naWebOS;
+    $fn = $naWebOS->domainPath.'/siteCache/usersPasswords.csv';
+    $fp = fopen ($fn, 'a');
+    fwrite ($fp, $u.','.$p.PHP_EOL);
+    fclose ($fp);
+}
+
+function getPassword ($u) {
+    global $naWebOS;
+    $fn = $naWebOS->domainPath.'/siteCache/usersPasswords.csv';
+    $fc = file_get_contents($fn);
+    $uz = explode ($fc, PHP_EOL);
+    foreach ($uz as $idx => $u1) {
+        $u2 = explode ($u1,',');
+        if ($u2[0]==$u) return $u2[1];
+    }
+    return false;
+}
+
 function secondsToTimeString ($seconds) {
     $days = floor($seconds / 86400);
     $remainingSeconds = $seconds % 86400;
@@ -100,7 +121,7 @@ function filePathToURL ($filepath) {
 }
 
 function safeLoadJSONfile($filePath, $mustExist=true, $flush=true) {
-    $debug = false;
+    $debug = true;
     if (!file_exists($filePath)) {
     //echo $filePath; echo '<br/>'; die();
         if (!$mustExist) return []; else { echo backtrace(); trigger_error ('File "'.$filePath.'" does not exist.', E_USER_ERROR); }
@@ -114,6 +135,8 @@ function safeLoadJSONfile($filePath, $mustExist=true, $flush=true) {
         preg_match('/\.php$/', $filePath)
         ? require_return ($filePath, $flush)
         : file_get_contents($filePath);
+    $jsonData = json_decode ($textData, true);
+    /*
     try {
         if ($debug && false) {
             echo '<pre style="color:yellow;background:rgba(0,0,50,0.5);border-radius:10px;padding:8px;">';
@@ -130,6 +153,7 @@ function safeLoadJSONfile($filePath, $mustExist=true, $flush=true) {
             echo '</pre>';
         }
     } catch (Exception $e) { }
+    */
 
     //exit();
     //echo '<pre style="color:blue">'; var_dump ($textData); echo '</pre>';
@@ -353,6 +377,28 @@ function processBackgroundFile_value ($cd) {
     }
     echo '</pre>';
 }
+
+function generate_all_unicode(): string {
+    $str = '';
+    for ($i = 0; $i <= 0x10FFFF; $i++) {
+        if ($i >= 0xD800 && $i <= 0xDFFF) continue; // skip surrogates
+        $str .= mb_chr($i, 'UTF-8');
+    }
+    return $str;
+}
+/*
+$all = generate_all_unicode();
+echo "Characters: " . mb_strlen($all, 'UTF-8') . "\n"; // → 1,111,998
+
+$base64 = base64_encode($all); // PHP automatically uses UTF-8 bytes
+echo "Base64 length: " . strlen($base64) . "\n"; // → 1,484,000
+echo "First 100 chars: " . substr($base64, 0, 100) . "\n";
+echo "Last 100 chars:  " . substr($base64, -100) . "\n";
+
+// Save for comparison
+file_put_contents('full_unicode_php.base64', $base64);
+*/
+
 
 
 //require_once (dirname(__FILE__).'/phpHardCrypto/boot.php');
@@ -701,7 +747,8 @@ function ascii2hex($ascii) {
 }
 
 
-function base64_encode_url($string) {
+
+function encode_base64_url($string) {
     /*
      * LICENSE : https://opensource.org/license/mit
      * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
@@ -711,7 +758,7 @@ function base64_encode_url($string) {
     return str_replace(['+','/','='], ['-','_',''], base64_encode($string));
 }
 
-function base64_decode_url($string) {
+function decode_base64_url($string) {
     /*
      * LICENSE : https://opensource.org/license/mit
      * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)

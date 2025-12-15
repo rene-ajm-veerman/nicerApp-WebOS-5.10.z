@@ -30,7 +30,7 @@
     $urls = array();
     foreach ($views as $viewName => $viewSettings) {
         $json[$viewName] = json_encode($viewSettings);
-        $urls[$viewName] = '/apps/'.base64_encode_url($json[$viewName]);
+        $urls[$viewName] = '/apps/'.encode_base64_url($json[$viewName]);
     };
     */
     error_reporting (E_ALL);

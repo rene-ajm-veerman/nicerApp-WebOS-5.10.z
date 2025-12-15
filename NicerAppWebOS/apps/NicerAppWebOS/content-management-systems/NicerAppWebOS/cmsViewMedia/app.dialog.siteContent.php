@@ -103,7 +103,7 @@ foreach ($files as $idx => $file) {
                 )
             ]
         );
-        $prevJSON = base64_encode_url (json_encode($prevArr));
+        $prevJSON = encode_base64_url (json_encode($prevArr));
         $prevURL = '/view/'.$prevJSON;
 
         $nextArr = array (
@@ -114,7 +114,7 @@ foreach ($files as $idx => $file) {
                 )
             ]
         );
-        $nextJSON = base64_encode_url (json_encode($nextArr));
+        $nextJSON = encode_base64_url (json_encode($nextArr));
         $nextURL = '/view/'.$nextJSON;
     }
 }

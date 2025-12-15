@@ -12,7 +12,7 @@ if (array_key_exists('inputJSONurl', $_REQUEST)) {
 if (array_key_exists('apps', $_GET)) {
     $views = $_GET['apps'];
 } else {
-    $views = base64_encode_url(json_encode([
+    $views = encode_base64_url(json_encode([
         'app.3D.fileExplorer' => [
             'inputJSONurl' => $inputJSONurl,
             'thumbnails' => './thumbs/$filename.$ext'
@@ -20,7 +20,7 @@ if (array_key_exists('apps', $_GET)) {
     ]));
 }
 
-$view = json_decode (base64_decode_url($views), true);
+$view = json_decode (decode_base64_url($views), true);
 
 $theme = '{$theme}';
 if ($theme === '{$theme}') $theme = 'dark';

@@ -944,7 +944,7 @@ na.apps.loaded['applications/content-management-systems/NicerAppWebOS/blogEditor
         if (user) arr.cmsText.user = user;
         if (role) arr.cmsText.role = role;
         
-        //var url = '/'+user+'/in/'+sel.original.dataID;//na.m.base64_encode_url (JSON.stringify(arr));
+        //var url = '/'+user+'/in/'+sel.original.dataID;//na.m.encode_base64_url (JSON.stringify(arr));
         na.blog.saveEditorContent(sel, function(rec) {
             var url = '/'+user.replace(/ /g, '-')+'/'+rec.original.url1+'/'+rec.original.seoValue;
             na.site.loadContent(null, url);
@@ -987,7 +987,7 @@ na.apps.loaded['applications/content-management-systems/NicerAppWebOS/blogEditor
                 filename : filename
             }
         },
-        base64 = na.m.base64_encode_url(JSON.stringify(arr));
+        base64 = na.m.encode_base64_url(JSON.stringify(arr));
         debugger;
         na.site.loadContent(base64);
     },
@@ -1105,7 +1105,7 @@ na.apps.loaded['applications/content-management-systems/NicerAppWebOS/blogEditor
 //debugger;
                 var y = { 
                     title : parentsLabel, 
-                    //value : '/apps/'+na.m.base64_encode_url( JSON.stringify(v) )
+                    //value : '/apps/'+na.m.encode_base64_url( JSON.stringify(v) )
                     value : '/'+user+'/in/'+it.seoValue
                 };
                 //debugger;

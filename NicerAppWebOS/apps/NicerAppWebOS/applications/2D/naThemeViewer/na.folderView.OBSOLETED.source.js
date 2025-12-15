@@ -191,7 +191,7 @@ na.blog = {
                 id : sel.original.id
             }
         },
-        url = na.m.base64_encode_url (JSON.stringify(arr));
+        url = na.m.encode_base64_url (JSON.stringify(arr));
         na.blog.saveEditorContent(sel, function() {
             na.site.loadContent(url);
         });

@@ -99,7 +99,7 @@ function mustDo ($dbCategoryName) {
         return $_GET[$key]!=='no';
 
     } elseif (array_key_exists('dbCategoryNames', $_GET)) {
-        $mustDoDBs = json_decode(base64_decode_url($_GET['dbCategoryNames']), true);
+        $mustDoDBs = json_decode(decode_base64_url($_GET['dbCategoryNames']), true);
         $in = in_array($dbCategoryName, $mustDoDBs);
         if ($in && $mustDoDBs[$dbCategoryName]!=='no') return true; else return false;
     }
