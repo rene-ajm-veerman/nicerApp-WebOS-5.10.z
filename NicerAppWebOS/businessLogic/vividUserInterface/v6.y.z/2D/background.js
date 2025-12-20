@@ -261,18 +261,14 @@ na.backgrounds = na.background = na.bg = {
                 } else {
                     if (na.bg.settings.useFading) {
                         bgl.src = bgf.src;
-                        $(bgl).css({position:'absolute',display:'block',opacity:1});
-                        bgf.onload=function(){
-                            $(bgl).fadeOut(na.bg.globals.fadingSpeed, function() {
-                                bgl.src = bgf.src;
-                                $(bgl).fadeIn(na.bg.globals.fadingSpeed);
-                            });
-
-                            if (typeof callback == 'function') callback();
-                        };
                         $(bgf).css({display:'none'});
+                        bgf.onload =function (evt) {
+                            $(this).fadeIn(na.bg.globals.fadingSpeed, function () {
+                                $('img.bg_last',$(this).parent()).css({display:'none'});
+                            })
+
+                        };
                         bgf.src = url;
-                        $(bgf).fadeIn(na.bg.globals.fadingSpeed);
                     } else {
                         bgl.src = url;
                         if (typeof callback == 'function') callback();
@@ -283,7 +279,7 @@ na.backgrounds = na.background = na.bg = {
                 na.site.globals.backgroundSearchKey = search;
                 na.site.globals.background = url;
                 if (na.site.globals.debug_backgroundChanges) debugger;
-                if (!$.cookie('cdb_loginName') || $.cookie('cdb_loginName')=='Guest') {
+                if (!$.cookie('cdb_loginName') || $.cookie('cdb_loginName')==naGlobals.domain.replace('.','_')+'___Guest') {
                     $.cookie('siteBackground_search', search, na.m.cookieOptions());
                     $.cookie('siteBackground_url', url, na.m.cookieOptions());
                 }

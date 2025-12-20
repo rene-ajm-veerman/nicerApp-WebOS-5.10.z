@@ -95,7 +95,7 @@ na.site = {
     displayWallpaper : function (relURL) {
         var
         randomID = na.m.randomString(),
-        html = '<div id="'+randomID+'" class="vividDialog vividPreview" style="display:none;position:absolute;top:10%;left:10%;width:80%;height:80%;border-radius:10px;border:1px solid grey;box-shadow:-2px -2px 3px 1px rgba(255,255,255,0.555);color:white;"><img src="'+(relURL)+'" style="width:100%;height:100%;"/></div>'
+        html = '<div id="'+randomID+'" class="vividDialog vividPreview" style="cursor:hand;display:none;position:absolute;top:10%;left:10%;width:80%;height:80%;border-radius:10px;border:1px solid grey;box-shadow:-2px -2px 3px 1px rgba(255,255,255,0.555);color:white;"><img src="'+(relURL)+'" style="width:100%;height:100%;"/></div>'
         +'<div id="'+randomID+'_clickShield" class="vividDialog vividClickShield" style="display:block;position:absolute;opacity:0.00001;top:0%;left:0%;width:100%;height:100%;" onclick="$(\'#'+randomID+', #'+randomID+'_clickShield\').fadeOut(\'normal\', function(evt) { $(this).removeClass(\'shown\');});"></div>',
         js = '$(\'#'+randomID+', #'+randomID+'_clickShield\').addClass(\'shown\').fadeIn(\'slow\');';
         $(document.body).append(html);
@@ -515,6 +515,8 @@ na.site = {
     onload_phase2 : function() {
         //TODO : go display an easter egg when it's actually Easter or Christmas
         //TODO : go display tutorial tooltips.
+                $('#siteBackground img.bg_first').fadeIn(2000);
+
     },
 
     reloadMenu : function (settings) {
@@ -1731,7 +1733,7 @@ na.site = {
             if (!el.clickHandler_logging) {
                 el.clickHandler_logging = true;
                 $(el).click (function(){
-                    var msg = '.noPushState::click() : #'+this.id+' clicked; browsing to '+this.href;
+                    var msg = '.noPushState::click() : #'+this.id+' clicked; browsing to "'+this.href+'"';
                     na.m.addLogEntry(msg, 'naIPlog_externalLink');
                     na.m.log(2,msg);
                 })
@@ -2784,7 +2786,6 @@ na.site = {
                 $(divEl).addClass('selected');
                 //$('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.specificityName);
                 na.site.globals.themeDBkeys = na.site.globals.themesDBkeys[i];
-                debugger;
                 na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName], function(){na.te.onload('siteContent')});
                 $('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.themeDBkeys.specificityName);
                 na.te.settings.current.specificity = na.site.globals.themeDBkeys;
@@ -3148,7 +3149,6 @@ na.site = {
             data : acData,
             success : function (data, ts, xhr) {
                 // reload #cssPageSpecific and #jsPageSpecific
-                debugger;
                 if (data=='status : Failed.') {
                     na.m.log (1510, 'na.loadTheme() : FAILED (HTTP SUCCESS, but no theme was found)');
                     na.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName]);
@@ -3586,7 +3586,7 @@ na.site = {
         themeData = na.site.loadTheme_fetchDialogs(themeData);
         //IS THIS NECESSARY?? na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
         na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
-        na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
+        //na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
 
         // ENCAPSULATE (ENCODE) json objects for HTTP transport
         themeData.themeSettings = JSON.stringify(themeData.themeSettings);

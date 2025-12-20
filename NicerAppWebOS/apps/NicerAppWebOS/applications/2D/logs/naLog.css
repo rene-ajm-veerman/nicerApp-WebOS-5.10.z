@@ -1,7 +1,8 @@
 .naIPlog_entry {
+    border : 1px solid silver;
     border-radius : 10px;
-    margin : 10px;
-    padding : 20px;
+    margin : 20px;
+    padding : 10px;
     box-shadow : -2px -2px 3px 1px rgba(255,255,255,0.7), 2px 2px 5px 2px rgba(0,0,0,0.7);
     width : fit-content;
 }
@@ -26,7 +27,9 @@
 .vividClickShield.shown {
     z-index:99999999998765;
 }
-
+.naIPlog_backgroundSetTo {
+    cursor : hand;
+}
 .naIPlog_stacktrace {
     display : none;
     color : white !important;

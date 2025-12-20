@@ -28,13 +28,13 @@ var naLog = {
                             +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
                     } else if (dit.msgProcessed.onclickHTML) {
                         html +=
-                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show(\'slow\');" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide(\'normal\');">'
+                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).stop(true,true,false).show(\'slow\');" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).stop(true,true,false).hide(\'normal\');">'
                                 +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
                                 +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
                                 //+'<span class="naIPlog_referrer">referrer : '+dit.referrer+'</span> '
                             +'</span><br>'
-                            +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'" onclick="'+dit.msgProcessed.onclickHTML+'">'+dit.msgProcessed.msg+'</span>'
+                            +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'" class="naIPlog_backgroundSetTo" onclick="'+dit.msgProcessed.onclickHTML+'">'+dit.msgProcessed.msg+'</span>'
 
                     } else {
                         var info3 = $.extend({}, dit.msgProcessed, dit.info);
@@ -66,30 +66,13 @@ var naLog = {
         } else if (m = msg.match(prefix2)) {
             r = { msg : msg, onclickHTML : na.site.displayWallpaper(m[2])};
         } else r = msg;
-        debugger;
         return r;
-    }/*,
-    showEvents : function (evt,type) {
-        var
-        url = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/ajax_siteToolbarLeft.php',
-        dat = {
-            type : type
-        },
-        ac = {
-            type : 'GET',
-            url : url,
-            data : dat,
-            success : function (data, ts, xhr) {
-                $('#siteToolbarLeft .vividDialogContent').html(data);
-            },
-            error : function (xhr, textStatus, errorThrown) {
-            }
-        };
-        $.ajax(ac);
+    },
+    reload : function (evt,begin,end) {
         var
         url = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/ajax_siteContent.php',
         dat = {
-            type : type
+
         },
         ac = {
             type : 'GET',
@@ -102,5 +85,5 @@ var naLog = {
             }
         };
         $.ajax(ac);
-    }*/
+    }
 };
