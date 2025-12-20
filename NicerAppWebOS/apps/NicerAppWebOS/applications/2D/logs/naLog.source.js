@@ -19,7 +19,7 @@ var naLog = {
                         '<div class="naIPlog_entry '+dit.htmlClasses+'">';
                     if (typeof dit.msgProcessed=='string') {
                         html +=
-                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show();" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide();">'
+                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show(\'slow\');" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide(\'normal\');">'
                                 +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
                                 +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
@@ -28,7 +28,7 @@ var naLog = {
                             +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
                     } else if (dit.msgProcessed.onclickHTML) {
                         html +=
-                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show();" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide();">'
+                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show(\'slow\');" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide(\'normal\');">'
                                 +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
                                 +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
