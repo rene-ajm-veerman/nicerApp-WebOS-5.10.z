@@ -34,7 +34,7 @@ var naLog = {
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
                                 //+'<span class="naIPlog_referrer">referrer : '+dit.referrer+'</span> '
                             +'</span><br>'
-                            +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
+                            +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'" onclick="'+dit.msgProcessed.onclickHTML+'">'+dit.msgProcessed.msg+'</span>'
 
                     } else {
                         var info3 = $.extend({}, dit.msgProcessed, dit.info);
@@ -60,12 +60,13 @@ var naLog = {
         }, 100);
     },
     process_msg : function (msg, dit) {
-        var r = '', prefix1 = 'Starting bootup process for ', prefix2 = /^Background set to "(.*?)";\s(.*?)$/, m = [];
+        var r = '', prefix1 = 'Starting bootup process for ', prefix2 = /Background set to "(.*?)";\s(.*)/, m = [];
         if (msg.indexOf(prefix1)===0) {
             r = { msg : prefix1, documentLocation : JSON.parse(msg.replace(prefix1,'')), ipinfo : dit.ipinfo[0].ip_info, 'ipinfo count' : dit.ipinfo.length}
         } else if (m = msg.match(prefix2)) {
             r = { msg : msg, onclickHTML : na.site.displayWallpaper(m[2])};
         } else r = msg;
+        debugger;
         return r;
     }/*,
     showEvents : function (evt,type) {
