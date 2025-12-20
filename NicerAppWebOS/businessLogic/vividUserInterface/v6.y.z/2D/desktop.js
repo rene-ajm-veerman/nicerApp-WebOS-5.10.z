@@ -156,8 +156,6 @@ na.desktop = na.d = {
         t = na.desktop;
         //$('#siteContent .vividDialogContent').fadeOut('fast');
 
-debugger;
-
         na.d.s.animating = true;
         if (reset === undefined) reset = true;
 
@@ -579,16 +577,17 @@ debugger;
                                             duration : na.d.g.animationSpeed,
                                             complete : function () {
 
+                                                /*
                                                 var
                                                 currentTime1 = performance.timeOrigin + performance.now();
                                                 if ((currentTime1 - currentTime) > 1000) {
-                                                    na.bg.settings.useFading = false;
+                                                    //na.bg.settings.useFading = false;
                                                     na.d.s.animate = false;
                                                 } else {
-                                                    na.bg.settings.useFading = true;
+                                                    //na.bg.settings.useFading = true;
                                                     na.d.s.animate = true;
                                                 }
-
+                                                */
 
 
                                                 na.d.s.animatingDivs[divID] = false;
@@ -643,7 +642,7 @@ debugger;
                                                 */
                                             },
                                             complete : function () {
-
+                                                /*
                                                 var
                                                 currentTime1 = performance.timeOrigin + performance.now();
                                                 if ((currentTime1 - currentTime) > 1000) {
@@ -653,6 +652,7 @@ debugger;
                                                     na.bg.settings.useFading = true;
                                                     na.d.s.animate = true;
                                                 }
+                                                */
 
 
                                                 if (na.site.settings.na3D)
@@ -702,6 +702,7 @@ debugger;
                                             }*/
                                         },
                                         complete : function() {
+                                            /*
                                             var
                                             currentTime1 = performance.timeOrigin + performance.now();
                                             if ((currentTime1 - currentTime) > 1000) {
@@ -711,6 +712,7 @@ debugger;
                                                 na.bg.settings.useFading = true;
                                                 na.d.s.animate = true;
                                             }
+                                            */
                                             na.d.s.animatingDivs[divID] = false;
                                             na.d.masterCallback(callback, $(divID)[0], calculationResults, sectionIdx, section, i)
                                         }

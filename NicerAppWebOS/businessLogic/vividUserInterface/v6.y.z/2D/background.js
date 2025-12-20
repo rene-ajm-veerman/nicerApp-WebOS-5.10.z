@@ -1,6 +1,6 @@
 if (typeof na!=='object') { var NicerApp_WebOS = nicerapp = na = {}; }
 na.backgrounds = na.background = na.bg = {
-    globals : { fadingSpeed : 250 },
+    globals : { fadingSpeed : 1000 },
     settings : {
         useFading : true,
         fadingMaxTime : 10*1000
@@ -10,7 +10,6 @@ na.backgrounds = na.background = na.bg = {
         var t = this;
         t.settings = $.extend (na.bg.settings, settings);
 
-        debugger;
         var
         url = '/domainConfig/ajax_backgrounds.php',
         ac = {
@@ -18,9 +17,7 @@ na.backgrounds = na.background = na.bg = {
             url : url,
             success : function (data, ts, xhr) {
                 try {
-                    debugger;
                     t.data = JSON.parse(data);
-                    debugger;
                     /*
                     t.next ('#siteBackground', null, null, false, function() {
                         var
@@ -211,17 +208,6 @@ na.backgrounds = na.background = na.bg = {
                                     $(bgDiv2).css ({display:'none'});
                                 }, 50);
 
-                                /*
-                                var
-                                currentTime1 = performance.timeOrigin + performance.now();
-                                if ((currentTime1 - currentTime) > na.bg.settings.fadingMaxTime) {
-                                    na.bg.settings.useFading = false;
-                                    na.d.s.animate = false;
-                                } else {
-                                    na.bg.settings.useFading = true;
-                                    na.d.s.animate = true;
-                                }*/
-
                                 if (typeof callback == 'function') callback();
                             })
                         }, 50);
@@ -274,34 +260,21 @@ na.backgrounds = na.background = na.bg = {
 
                 } else {
                     if (na.bg.settings.useFading) {
-                        bgl.onload=function(){
-                            jQuery(bgf).add('#siteBackground_iframe').stop().fadeOut(na.bg.globals.fadingSpeed, function(){
-                                jQuery(bgl).stop().fadeIn(na.bg.globals.fadingSpeed, function(){
-                                    bgf.src = bgl.src;
-                                    $(bgf).css ({ display : 'block', opacity : 1 });
-                                    $(bgl).hide();
-
-                                    var
-                                    currentTime1 = performance.timeOrigin + performance.now(),
-                                    x = (currentTime1 - currentTime);
-                                    if (x > na.bg.settings.fadingMaxTime) {
-                                        na.bg.settings.useFading = false;
-                                        na.d.s.animate = false;
-                                    } else {
-                                        na.bg.settings.useFading = true;
-                                        na.d.s.animate = true;
-                                    }
-                                    currentTime = currentTime1; // bugfix
-
-
-                                    if (typeof callback == 'function') callback();
-                                });
+                        bgl.src = bgf.src;
+                        $(bgl).css({position:'absolute',display:'block',opacity:1});
+                        bgf.onload=function(){
+                            $(bgl).fadeOut(na.bg.globals.fadingSpeed, function() {
+                                bgl.src = bgf.src;
+                                $(bgl).fadeIn(na.bg.globals.fadingSpeed);
                             });
+
+                            if (typeof callback == 'function') callback();
                         };
-                        $(bgl).css({position:'absolute',display:'none',opacity:1}).hide();
-                        bgl.src = url;
-                    } else {
+                        $(bgf).css({display:'none'});
                         bgf.src = url;
+                        $(bgf).fadeIn(na.bg.globals.fadingSpeed);
+                    } else {
+                        bgl.src = url;
                         if (typeof callback == 'function') callback();
                     }
                 };
@@ -314,7 +287,8 @@ na.backgrounds = na.background = na.bg = {
                     $.cookie('siteBackground_search', search, na.m.cookieOptions());
                     $.cookie('siteBackground_url', url, na.m.cookieOptions());
                 }
-                //if (!url.match(/cracked-surface/)) na.analytics.logMetaEvent ('background set to '+url, false);
+                if (!url.match(/cracked-surface/))
+                    na.m.addLogEntry ('Background set to "'+na.site.globals.backgroundSearchKey+'"; '+url, 'naStatus_backgroundChange');
 /*
             },
             error : function (xhr, textStatus, errorThrown) {

@@ -1,4 +1,4 @@
-seductiveapps.pbar = seductiveapps.vividProgressbar = {
+na.pbar = na.vividProgressbar = {
 	about : {
 		whatsThis : 'seductiveapps.pbar = seductiveapps.vividProgressbar = a fancy progressbar component',
 		copyright : '(c) (r) 2011-2013 by [the owner of seductiveapps.com] <seductiveapps@gmail.com>',

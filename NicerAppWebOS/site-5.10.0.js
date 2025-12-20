@@ -92,6 +92,16 @@ na.site = {
         na.desktop.resize();
     },
 
+    displayWallpaper : function (relURL) {
+        var
+        randomID = na.m.randomString(),
+        html = '<div id="'+randomID+'" class="vividDialog vividPreview" style="display:none;position:absolute;top:10%;left:10%;width:80%;height:80%;border-radius:10px;border:1px solid grey;box-shadow:-2px -2px 3px 1px rgba(255,255,255,0.555);color:white;"><img src="'+(relURL)+'" style="width:100%;height:100%;"/></div>'
+        +'<div id="'+randomID+'_clickShield" class="vividDialog vividClickShield" style="display:block;position:absolute;opacity:0.00001;top:0%;left:0%;width:100%;height:100%;" onclick="$(\'#'+randomID+', #'+randomID+'_clickShield\').fadeOut(\'normal\', function(evt) { $(this).removeClass(\'shown\');});"></div>',
+        js = '$(\'#'+randomID+', #'+randomID+'_clickShield\').addClass(\'shown\').fadeIn(\'slow\');';
+        $(document.body).append(html);
+        return js;
+    },
+
     error : function (errorHTML) {
         // detailed (internal) status information in HTML should also be passed to *this* function.
         na.site.setStatusMsg (errorHTML);
@@ -217,6 +227,9 @@ na.site = {
         t.s.c = t.settings.current;
         t.components = t.c = { dialogs : {}, buttons : {}, menus : {} };
         let c = t.components;
+
+        na.m.addLogEntry ('Starting bootup process for '+JSON.stringify(document.location));
+
 
         if (navigator.connection) {
             console.log(`Effective network type: ${navigator.connection.effectiveType}`);
@@ -461,6 +474,8 @@ na.site = {
 
                     na.site.settings.loadingApps = false;
                     na.site.settings.running_loadContent = false;
+
+                    na.m.addLogEntry ('Fully booted.', 'naStatus_fullyBooted');
                     //na.site.onresize();
                     //setTimeout (function() {
                         //na.desktop.resize(na.site.delayedReloadMenu);
@@ -1161,10 +1176,10 @@ na.site = {
 
    // debugger;
         if (!url.match(/\/view\//) && url.indexOf('/')===0) {
-            na.m.log (2, 'na.site.loadContent() : url='+document.location.origin+url);
+            var msg = 'na.site.loadContent() : url='+document.location.origin+url;
             History.pushState (null, '', document.location.origin+url);
         } else if (url.indexOf('/')===-1) {
-            na.m.log (2, 'na.site.loadContent() : url='+document.location.origin+'/view/'+url);
+            var msg = 'na.site.loadContent() : url='+document.location.origin+'/view/'+url;
             History.pushState (null, '', document.location.origin+'/view/'+url);
         } else debugger;
 
@@ -1204,7 +1219,11 @@ na.site = {
             timeString = timeString_now+' (@'+timeString_runningPage+' now)',
             dt = { dateObj : dateObj, timeString : timeString },
             state = History.getState(),
-            url1 = state.url.replace(document.location.origin,'').replace('/view/', '').replace(/^\//,'');
+            url1 = state.url.replace(document.location.origin,'').replace('/view/', '').replace(/^\//,''),
+            msg = 'na.site.stateChange() : url='+state.url;
+
+            na.m.log (2, msg);
+            na.m.addLogEntry (msg, 'naIPlog_stateChange');
 
             var
             c = na.site.settings;
@@ -1240,7 +1259,11 @@ na.site = {
             ec = lcc.ec,
 
             state = History.getState(),
-            url1 = state.url.replace(document.location.origin,'')./*replace('/view/', '').*/replace(/^\//,'');
+            url1 = state.url.replace(document.location.origin,'')./*replace('/view/', '').*/replace(/^\//,''),
+            msg = 'na.site.stateChange() : url='+state.url;
+
+            na.m.log (2, msg);
+            na.m.addLogEntry (msg, 'naIPlog_stateChange');
         }
 
         if (url1==='') url1 = '/';
@@ -1703,6 +1726,17 @@ na.site = {
             if (!na.site.c.menus) na.site.c.menus = {};
             if (!na.site.c.menus['#'+el.id]) na.site.c.menus['#'+el.id] = new naVividMenu(el)
        });
+
+        $('.noPushState').each(function(idx,el) {
+            if (!el.clickHandler_logging) {
+                el.clickHandler_logging = true;
+                $(el).click (function(){
+                    var msg = '.noPushState::click() : #'+this.id+' clicked; browsing to '+this.href;
+                    na.m.addLogEntry(msg, 'naIPlog_externalLink');
+                    na.m.log(2,msg);
+                })
+            }
+        });
 
 
         /* i have no idea anymore what this is supposed to do! ;)
@@ -3189,7 +3223,7 @@ na.site = {
         };
         if (typeof loadBackground=='undefined') loadBackground = true;
         if (typeof saveTheme=='undefined') saveTheme = true;
-        if (typeof changeInterval=='undefined') changeInterval = false;
+        if (typeof changeInterval=='undefined') changeInterval = true;
         //if (dat.specificityName) {
             $('.na_themes_dropdown__specificity > .vividDropDownBox_selector > div')
                 .removeClass('selected')
@@ -3552,6 +3586,7 @@ na.site = {
         themeData = na.site.loadTheme_fetchDialogs(themeData);
         //IS THIS NECESSARY?? na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
         na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
+        na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
 
         // ENCAPSULATE (ENCODE) json objects for HTTP transport
         themeData.themeSettings = JSON.stringify(themeData.themeSettings);
@@ -3566,17 +3601,16 @@ na.site = {
             url : url,
             data : themeData,
             success : function (data, ts, xhr) {
-                debugger;
                 if (data.match('status : Failed')) {
-                    //na.site.ajaxFail('na.saveTheme() : Could not save settings. Please login again.');
+                    var msg = 'na.saveTheme() : Could not save settings. Please login again.';
+                    na.site.ajaxFail(msg, url);
 
-
-                    /*.fadeIn('normal', 'swing', function () {
+                    $('#siteLoginFailed').html(msg).fadeIn('normal', 'swing', function () {
                         setTimeout (function() {
                             $('#siteLoginFailed').fadeOut('normal', 'swing');
                         }, 2 * 1000);
 
-                    });*/
+                    });
                     na.m.log (1451, 'na.saveTheme() : FAILED.');
 
                 } else {
@@ -3592,7 +3626,7 @@ na.site = {
             },
             error : function (xhr, textStatus, errorThrown) {
                 na.m.log (1451, 'na.saveTheme() : FAILED (HTTP ERROR CODE : '+xhr.status+', HTTP ERROR MSG : '+errorThrown+')+');
-                na.ajaxFail(fncn, url, xhr, textStatus, errorThrown);
+                na.site.ajaxFail(fncn, url, xhr, textStatus, errorThrown);
             }
         };
         $.ajax(ac2);

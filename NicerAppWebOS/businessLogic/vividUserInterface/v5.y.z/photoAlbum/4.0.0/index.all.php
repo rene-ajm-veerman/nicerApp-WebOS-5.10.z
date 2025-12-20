@@ -1,7 +1,7 @@
 <html style="overflow:hidden">
 <head>
-    <link type="text/css" rel="StyleSheet" href="/domainConfig/said.by/index.css?c=<?php echo date('Ymd_His');?>">
-    <link type="text/css" rel="StyleSheet" href="/domainConfig/said.by/index.dark.css?c=<?php echo date('Ymd_His');?>">
+    <link type="text/css" rel="StyleSheet" href="/domainConfig/index.css?c=<?php echo date('Ymd_His');?>">
+    <link type="text/css" rel="StyleSheet" href="/domainConfig/index.dark.css?c=<?php echo date('Ymd_His');?>">
     <style>
         .filename {
             color : white;

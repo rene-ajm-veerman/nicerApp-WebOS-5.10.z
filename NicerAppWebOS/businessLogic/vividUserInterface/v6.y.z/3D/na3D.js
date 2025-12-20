@@ -1,5 +1,5 @@
 /*--- LICENSE : https://opensource.org/licenses/MIT
------ Copyright 2020-2024 by Nicer Enterprises (rene.veerman.netherlands@gmail.com)
+----- Copyright 2020-2025 by Rene AJM Veerman (rene.veerman.netherlands@gmail.com)
 ---*/
 
 import * as three from '/NicerAppWebOS/3rd-party/3D/libs/three.js/build/three.module.js';
@@ -1488,6 +1488,7 @@ export class na3D_fileBrowser {
             pk = cd.path.replace(/\/folders/g,'');
             if (!cd.params.ld2[pk]) cd.params.ld2[pk] = { levelIdx : 0 };
             var modded = false;
+            cd.params.idxPath2 = '';
             for (var i=0; i<cd.params.t.items.length; i++) {
                 var it2 = cd.params.t.items[i];
                 if (it2.filepath+"/"+it2.name === pk) {
@@ -1533,7 +1534,7 @@ export class na3D_fileBrowser {
                 level : cd.level,
                 name : cd.k,
                 idx : cd.params.t.items.length,
-                idxPath : cd.params.idxPath + '/' + cd.params.t.items.length,
+                idxPath : cd.params.idxPath2 + '/' + cd.params.t.items.length,
                 filepath : path,
                 levelIdx : ++cd.params.ld2[pk].levelIdx,
                 parent : lastParent,
@@ -1979,6 +1980,47 @@ export class na3D_fileBrowser {
         }, 25);
     }
 
+    projectChildrenOnSphere = function(parentMesh, childMeshes, radius, offset = 0) {
+        const numChildren = childMeshes.length;
+        if (numChildren === 0) return;
+
+        const center = parentMesh.position;
+        const goldenRatio = (1 + Math.sqrt(5)) / 2;
+        const increment = Math.PI * (3 - Math.sqrt(5)); // Golden angle in radians
+
+        childMeshes.forEach((child, i) => {
+            // Fibonacci sphere algorithm for uniform distribution
+            const y = (i * (2 / numChildren)) - 1 + (1 / numChildren); // from -1 to +1
+            const r = Math.sqrt(1 - y * y);
+            const phi = (i * increment) % (Math.PI * 2);
+
+            const x = Math.cos(phi) * r;
+            const z = Math.sin(phi) * r;
+
+            const direction = new THREE.Vector3(x, y, z).normalize();
+
+            // Position on sphere surface
+            child.position.copy(center).add(direction.multiplyScalar(radius));
+
+            // Optional outward offset to avoid clipping
+            if (offset > 0) {
+                child.position.add(direction.multiplyScalar(offset));
+            }
+
+            // Orient child to face radially outward
+            const outwardTarget = center.clone().add(direction.multiplyScalar(radius * 2));
+            child.lookAt(outwardTarget);
+
+            // Optional: lock "up" direction to world Y to prevent unwanted roll
+            // child.up.set(0, 1, 0);
+            // child.lookAt(outwardTarget); // re-apply if using custom up
+
+            // Add as child of parent (or scene.add(child) if you want world space)
+            //parentMesh.add(child);
+            t.scene.add(child);
+        });
+    }
+
     onresize_do_phase2(t, callback) {
         let fncn = 'na3D.js::onresize_do_phase2()';
         na.m.log (1555, fncn+' : BEGIN .pos calculations');
@@ -2383,10 +2425,12 @@ export class na3D_fileBrowser {
 //if (it.name.match(/becoming insane/i)) debugger;
             //if (it.model) {
                 if (p) {
+                    if (!t.ld3[p.idxPath]) t.ld3[p.idxPath] = {};
                     if (!t.ld3[p.idxPath].level) t.ld3[p.idxPath].level = 1;
                     var
                     radius = 20,
-                    m = p.levelIdx - (p.row * (p.cubeSideLengthCount) - p.column);
+                    m = p.levelIdx - (p.row * (ld3.cubeSideLengthCount) - p.column);
+                    if (m<1) m=1;
 
                     p.c1 = {
                         a : 0,
@@ -2431,7 +2475,7 @@ export class na3D_fileBrowser {
                     px = it.parent.px;
                     py = it.parent.py;
                     pz = it.parent.pz;
-                } else */if (it && it.parent && !it.parent.px && prevIt && prevIt.parent && it.parent.idx!==prevIt.parent.idx) {
+                } else */if (it && it.parent && !it.parent.px && p/*&& prevIt && prevIt.parent && it.parent.idx!==prevIt.parent.idx*/) {
                     px = p.sPos.x
                         //+ (p.column*mpx*p.c1.c.x)
                         + (p.level * mpx);
@@ -2448,9 +2492,9 @@ export class na3D_fileBrowser {
                     /*rx += 2 * mrx * c1.c.x;
                     ry += 2 * mry * c1.c.y;
                     rz += 2 * mrz * c1.c.y;*/
-                    rx += 3 * msx * p.c1.c.x;
-                    ry += 3 * msy * p.c1.c.y;
-                    rz += 3 * msz * p.c2.c.y;
+                    rx += p.c1.c.x;
+                    ry += p.c1.c.y;
+                    rz += p.c2.c.y;
 
                     rax = 2* mpx * Math.random();
                     ray = 2 * mpy * Math.random();
@@ -2469,6 +2513,10 @@ export class na3D_fileBrowser {
                     px = it.parent.rax || rax;
                     py = it.parent.ray || ray;
                     pz = it.parent.raz || raz;
+
+                    rx += p.c1.c.x;
+                    ry += p.c1.c.y;
+                    rz += p.c2.c.y;
 
                     it.parent.rax = rax;
                     it.parent.ray = ray;
@@ -2490,9 +2538,10 @@ export class na3D_fileBrowser {
                     it.sPos.x = //Math.round( (
                         mx * (
                             px
-                            //+ (p.column * mpx * mplier)
+                            + (p.column * mpx * mplier)
                             //+ ( (it.level+1) * rx )
-                            + rx
+                            + (it.level+1) * 5 * rx
+                            //+ rx
                             //+ rax
                             //+ (p.column * p.c1.c.x)
                             //+ -1 * (Math.sin(it.column) * Math.cos(it.row) * it.depth)
@@ -2507,9 +2556,10 @@ export class na3D_fileBrowser {
                     it.sPos.y = // Math.round( (
                         my * (
                             py
-                            //+ (p.row * mpy * mplier)
+                            + (p.row * mpy * mplier)
                             //+ ( (it.level+1) * ry)
-                            + ry
+                            + (it.level+1) * 5 * ry
+                            //+ ry
                             //+ ray
                             //+ (p.row * p.c1.c.y)
                             //+ Math.cos(it.column) * Math.cos(it.row) * it.depth
@@ -2523,9 +2573,10 @@ export class na3D_fileBrowser {
                     it.sPos.z = // Math.round( (
                         mz * (
                             pz
-                            //+ ( p.depth * mpz * mplier)
+                            + ( p.depth * mpz * mplier)
                             //+ ( (it.level+1) * rz )
-                            + rz
+                            + (it.level+1) * 5 * rz
+                            //+ rz
                             //+ raz
                             //+ Math.cos(it.column) * Math.sin(it.row) * it.depth
                             //+ (it.level * mpz)
@@ -2626,7 +2677,7 @@ export class na3D_fileBrowser {
                                 }
                             }
                         }
-                        if (!it.color) {
+                        if (!it.color && list) {
                             for (var k=0; k<list.length; k++) {
                                 if (p1[k]==it.idx)
                                     it.color = list[k].color;
@@ -2688,6 +2739,7 @@ export class na3D_fileBrowser {
                         } else {
                             var cube = new THREE.Mesh( new THREE.BoxGeometry( t.meshLength, t.meshLength, t.meshLength ), materials2 );
                         }
+                        if (it.sPos)
                         if (!t.showFiles || it.name.substr(it.name.length-4,4)!=='.mp3') {
                             cube.it = it;
                             cube.position.x = it.sPos.x;

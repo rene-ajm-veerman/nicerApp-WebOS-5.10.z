@@ -1,40 +1,73 @@
 var naLog = {
-    onclick_logEntry : function (evt) {
-        var
-        url = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/ajax_logEntry.php',
-        dat = {
-            i : $(evt.currentTarget).attr('i')
-        },
-        ac = {
-            type : 'GET',
-            url : url,
-            data : dat,
-            success : function (data, ts, xhr) {
-                $('#siteContent .vividDialogContent').html(data);
-            },
-            error : function (xhr, textStatus, errorThrown) {
+    view : function (logData) {
+        naLog.data = logData;
+        na.m.waitForCondition ('naLog.view() : na.m.desktopIdle()?', na.m.desktopIdle, function() {
+            var dat = naLog.data;
+            var html = '';
+            for (var i=0; i<dat.length; i++) {
+                var dit = dat[i];
+                dit.msgProcessed = naLog.process_msg (dit.msg, dit);
+                if (typeof dit.stacktrace=='string')
+                    dit.stacktrace = '      <pre>'+dit.stacktrace.replace('\\n','\n')+'</pre>';
+                for (var j=0; j<dit.ipinfo.length; j++) {
+                    var jit = dit.ipinfo[j];
+                    jit.ip_info = JSON.parse(jit.ip_info);
+                }
+
+                if (dit.info && !dit.info.naIsBot) {
+                    html +=
+                        '<div class="naIPlog_entry '+dit.htmlClasses+'">';
+                    if (typeof dit.msgProcessed=='string') {
+                        html +=
+                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show();" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide();">'
+                                +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
+                                +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
+                                +'<span class="naIPlog_address">'+dit.ip+'</span>'
+                                +'<span class="naIPlog_referrer">referrer : '+dit.referrer+'</span> '
+                            +'</span><br>'
+                            +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
+                    } else if (dit.msgProcessed.onclickHTML) {
+                        html +=
+                            '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show();" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide();">'
+                                +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
+                                +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
+                                +'<span class="naIPlog_address">'+dit.ip+'</span>'
+                                //+'<span class="naIPlog_referrer">referrer : '+dit.referrer+'</span> '
+                            +'</span><br>'
+                            +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
+
+                    } else {
+                        var info3 = $.extend({}, dit.msgProcessed, dit.info);
+                        html +=
+                            '<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'"></span>'
+                                +'<script type="text/javascript" language="javascript">'
+                                +'setTimeout(function() {'
+                                    +'var hms_tst_js = { info : '+JSON.stringify(info3)+'};'
+                                    +'hm (hms_tst_js, "<div class=\\"naIPlog_header\\">'+dit.msgProcessed.msg+' <span class=\\"naIPlog_address\\">'+dit.ip+'</span></div>", { htmlID : "naIPlog_msg__'+dit.millisecondsSinceEpoch+'", fastInit : true });'
+                                +'},150);'
+                                +'</script>';
+                    }
+                    html +=
+                        '<pre class="naIPlog_stacktrace">'+dit.stacktrace+'</pre>'
+                        +'</div>';
+
+                }
             }
-        };
-        $.ajax(ac);
+            $('#siteContent > .vividDialogContent').append(html);
+            na.desktop.settings.visibleDivs.push ('#siteToolbarLeft');
+            na.desktop.resize();
+            //debugger;
+        }, 100);
     },
-    onclick_logEntry_details : function (evt) {
-        var
-        url = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/ajax_logEntry_details.php',
-        dat = {
-            id : evt.currentTarget.id
-        },
-        ac = {
-            type : 'GET',
-            url : url,
-            data : dat,
-            success : function (data, ts, xhr) {
-                $('#siteContent .vividDialogContent').html(data);
-            },
-            error : function (xhr, textStatus, errorThrown) {
-            }
-        };
-        $.ajax(ac);
-    },
+    process_msg : function (msg, dit) {
+        var r = '', prefix1 = 'Starting bootup process for ', prefix2 = /^Background set to "(.*?)";\s(.*?)$/, m = [];
+        if (msg.indexOf(prefix1)===0) {
+            r = { msg : prefix1, documentLocation : JSON.parse(msg.replace(prefix1,'')), ipinfo : dit.ipinfo[0].ip_info, 'ipinfo count' : dit.ipinfo.length}
+        } else if (m = msg.match(prefix2)) {
+            r = { msg : msg, onclickHTML : na.site.displayWallpaper(m[2])};
+        } else r = msg;
+        return r;
+    }/*,
     showEvents : function (evt,type) {
         var
         url = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/ajax_siteToolbarLeft.php',
@@ -68,5 +101,5 @@ var naLog = {
             }
         };
         $.ajax(ac);
-    }
+    }*/
 };

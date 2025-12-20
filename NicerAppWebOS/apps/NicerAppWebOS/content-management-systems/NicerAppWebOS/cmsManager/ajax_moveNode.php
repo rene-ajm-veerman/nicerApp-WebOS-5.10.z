@@ -14,9 +14,9 @@ $call = $cdb->getAllDocs();
 
 foreach ($call->body->rows as $idx => $doc) {
     $call2 = $cdb->get($doc->id);
-    //if ($debug) { echo 't322:<pre>'; var_dump ($call2); echo '</pre>';  };
+    if ($debug) { echo 't322:<pre>'; var_dump ($call2); echo '</pre>';  };
     $doc2 = $call2->body;
-    if ($doc2->parent == $_POST['newParent']) {
+    if (property_exists($doc2,'parent') && $doc2->parent == $_POST['newParent']) {
         $doc2->order = getOrder ($order, $doc2->_id);
         if ($debug) { var_dump ($doc2->order); echo '<br/>'.PHP_EOL; }
         $cdb->post ($doc2);
@@ -38,8 +38,8 @@ try { $call = $cdb->post($call->body); } catch (Exception $e) {
 }
 if ($debug) { echo '$call='; var_dump ($call); echo PHP_EOL.PHP_EOL; }
 
-$oldPath = realpath(dirname(__FILE__).'/../../../../..').'/siteData/'.$naWebOS->domainFolder.'/'.$_POST['oldPath'];
-$newPath = realpath(dirname(__FILE__).'/../../../../..').'/siteData/'.$naWebOS->domainFolder.'/'.$_POST['newPath'];
+$oldPath = $naWebOS->domainPath.'/siteData/'.$naWebOS->domainFolder.'/'.$_POST['oldPath'];
+$newPath = $naWebOS->domainPath.'/siteData/'.$naWebOS->domainFolder.'/'.$_POST['newPath'];
 $xec = 'mv "'.$oldPath.'" "'.$newPath.'"';
 exec ($xec, $output, $result);
 $dbg = array (

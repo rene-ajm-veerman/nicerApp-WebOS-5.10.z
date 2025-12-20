@@ -1,11 +1,11 @@
 // Copyright (C) 2002-2023 and All Rights Reserved (R) by Rene AJM Veerman <rene.veerman.netherlands@gmail.com>
-nicerapp.hms = nicerapp.jsonViewer = {
+nicerapp.htmlMicroscope = nicerapp.hms = nicerapp.jsonViewer = nicerapp.jv = {
 	about : {
 		whatsThis : 'hm() and na.hms = na.jsonViewer = a way to send larg	e recursive data objects to the browser from PHP and view them in a collapsed-expansible view with many bells and whistles.',
-		copyright : '(C) (R) 2010-2024 by rene.veerman.netherlands@gmail.com',
+		copyright : '(C) 2010-2025 by rene.veerman.netherlands@gmail.com',
 		license : 'http://nicerapp.com/license',
 		noWarranty : 'NO WARRANTY EXPRESSED OR IMPLIED. USE ONLY AT YOUR OWN RISK.',
-		version: '1.7.0',
+		version: '1.7.1',
 		dependencies: {
 			'jQuery.com': 'version>=1.4'
 		},
@@ -2571,9 +2571,10 @@ function hm (variable, title, options, callback) {
 	var html = '<span id="hm_' + options.htmlID + '_longMsg"> </span><br/><br/>' + '<span id="' + options.htmlID + '_shortMsg"> </span><br/><br/>';
 	if (!options || !options.htmlID) {
 		var e = document.createElement('div');
-		e.id = hmd.id;
+		e.id = variable.id;
 		e.innerHTML = html;
-		document.body.appendChild(e);
+		///debugger;
+		options.anchor[0].appendChild(e);
 	} else {
 		var e = document.getElementById(options.htmlID);
 		if (!e) debugger;

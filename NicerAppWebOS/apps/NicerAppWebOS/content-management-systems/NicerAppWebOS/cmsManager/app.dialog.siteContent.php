@@ -87,7 +87,7 @@ $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_reque
         'btnAddUser',
         'vividButton_icon_50x50 grouped navbar_button', '_50x50', 'grouped',
         '',
-        'tinymce.activeEditor.execCommand("mceLink");',
+        'tinymce.activeEditor.execCommand(\'mceLink\');',
         '',
         '',
 
@@ -129,7 +129,7 @@ $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_reque
         'btnInsertPageBackground',
         'vividButton_icon_50x50 grouped navbar_button', '_50x50', 'grouped',
         '',
-        'tinymce.activeEditor.execCommand("mceLink");',
+        'alert(\'To be implemented later.\');',
         '',
         '',
 

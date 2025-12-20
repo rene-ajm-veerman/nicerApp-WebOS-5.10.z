@@ -115,6 +115,7 @@ class SagCURLHTTPAdapter extends SagHTTPAdapter {
     $chResponse = curl_exec($this->ch);
 
     if (false && strpos($opts[CURLOPT_URL], 'logentries')===false) {
+    //if (true) {
       $msg = 'debug_backtrace()='.json_encode(debug_backtrace(), JSON_PRETTY_PRINT);
       //echo PHP_EOL.$msg.'<br/>'.PHP_EOL;
       //trigger_error ($msg, E_USER_NOTICE);

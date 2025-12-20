@@ -159,6 +159,7 @@ NicerApp WebOS from Nicer Enterprises
     //echo 'ohhNo'.$rootPath_na; exit();
 
     global $naIP;
+    global $naIPforDB;
     if (
         function_exists('apache_request_headers')
         && array_key_exists('X-Forwarded-For',apache_request_headers())
@@ -169,6 +170,9 @@ NicerApp WebOS from Nicer Enterprises
     } else {
         $naIP = 'OS commandline probably';
     }
+    $naIPforDB = str_replace('.','_',$naIP);
+    $naIPforDB = str_replace(':','-',$naIPforDB);
+
     //var_dump($naIP); echo PHP_EOL; die();
 
 
@@ -372,6 +376,28 @@ NicerApp WebOS from Nicer Enterprises
         }
     }
     //  echo '<p style="color:purple">'; var_dump($naIsBot); echo '</p>';
+
+    global $naBrowserInfo;
+    $naBrowserInfo = [
+        'HTTP_HOST' => $_SERVER['HTTP_HOST'],
+        'HTTP_USER_AGENT' => $_SERVER['HTTP_USER_AGENT'],
+        'HTTP_SEC_CH_UA_PLATFORM' => $_SERVER['HTTP_SEC_CH_UA_PLATFORM'],
+        'HTTP_SEC_CH_UA' => $_SERVER['HTTP_SEC_CH_UA'],
+        'HTTP_SEC_CH_UA_MOBILE' => $_SERVER['HTTP_SEC_CH_UA_MOBILE'],
+        'SERVER_SIGNATURE' => $_SERVER['SERVER_SIGNATURE'],
+        'SERVER_SOFTWARE' => $_SERVER['SERVER_SOFTWARE'],
+        'SERVER_NAME' => $_SERVER['SERVER_NAME'],
+        'SERVER_ADDR' => $_SERVER['SERVER_ADDR'],
+        'SERVER_PORT' => $_SERVER['SERVER_PORT'],
+        'SERVER_PROTOCOL' => $_SERVER['SERVER_PROTOCOL'],
+        'GATEWAY_INTERFACE' => $_SERVER['GATEWAY_INTERFACE'],
+        'naIsBot' => $naIsBot,
+        'naIsDesktop' => $naIsDesktop,
+        'naBrowserMarketSharePercentage-2023-12' => $naBrowserMarketSharePercentage,
+        '_COOKIE' => $_COOKIE
+    ];
+
+
 
     $lanConfigFilepath = $naWebOS->domainPath.'/domainConfig/naLAN.json';
     $lanConfigExampleFilepath = $naWebOS->domainPath.'/domainConfig/naLAN.EXAMPLE.json';

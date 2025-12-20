@@ -33,9 +33,22 @@
         <h2>Executives</h2>
 
         <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
-        CEO, CTO, COO : Rene A.J.M. Veerman [ rene.veerman.netherlands@gmail.com ]<br/>
-        CFO : Jaap I.M. Veerman (to be contacted through the CEO's email address only).<br/>
+        Owner, CEO, CFO, CTO, COO : Rene A.J.M. Veerman [ rene.veerman.netherlands@gmail.com ]<br/>
         </p>
+
+        <h2>Going commercial</h2>
+
+        <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
+        The entire Copyright (C) and All Rights Reserved (R) status of this Software and the domain names said.by, zoned.at and nicer.app are on sale for 95 million euro.<br/>
+        Email me for more details. I'd be willing to become a remote working employee of the buyer too. :-)
+        </p>
+
+        <h2>Business plan</h2>
+
+<pre class="backdropped">
+business decision :
+i will keep NicerApp WebOS (https://nicer.app) MIT-licensed open source that can even be used commercially for free (but without warranty and you'll need your own full stack http://kubuntu.com web-development team to work with it) for at least 2026 too.
+</pre>
 
         <?php //echo $diaries->getDiary('siteOwner');?>
 

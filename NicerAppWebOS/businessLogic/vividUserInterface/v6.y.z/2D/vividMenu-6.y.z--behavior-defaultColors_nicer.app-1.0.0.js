@@ -31,7 +31,7 @@ class naVividMenu__behavior_defaultColors {
             };
         t.theme = $(el).attr('theme');
         t.type = $(el).attr('type') === 'vertical' ? 'vertical' : 'horizontal';
-        t.debugMe = false;
+       t.debugMe = true;
 
         t.useDelayedShowingAndHiding = true;
         t.sensitivitySpeedOpen = 400;
@@ -49,7 +49,11 @@ class naVividMenu__behavior_defaultColors {
         t.childPanels = {};
         t.shownChildren = {};
         t.shownMenuItems = {};
+
+        // may be duplicates; TODO : normalize
         t.timeout_showSubMenu = {};
+        t.timeout_showPanel = {};
+
         t.timeout_hideAll = {};
         t.timeout_hideSubMenu = {};
         t.timeout_onmouseout = {};
@@ -75,7 +79,6 @@ class naVividMenu__behavior_defaultColors {
 
     showMenu (t, showMeAnyways) {
         var t = this;
-        debugger;
         //na.m.waitForCondition('showMenu : htmlIdle()',  na.m.HTMLidle, function () {
             var r =  null;
             var x1 = null;
@@ -129,7 +132,7 @@ class naVividMenu__behavior_defaultColors {
 
                         t.el.it = { parentDiv : t.el.parentNode };
                         if (r) {
-                            setTimeout(function(t, panel, r, x1) {
+                            t.timeout_showPanel[r.it.idx] = setTimeout(function(t, panel, r, x1) {
                                 t.showPanel (
                                     t, event, panel, r.it, {idx : t.el.id, b : { el : t.el }}, r.dim, r.numColumns, (r.numKids / r.numColumns),
                                     $(x1.it.b.el.el).offset().left - $(t.el).offset().left,
@@ -371,7 +374,7 @@ class naVividMenu__behavior_defaultColors {
                     clearTimeout (t.timeout_showSubMenu[id]);
                 };
 
-                if (t.debugMe) na.m.log (1120, 'naVividMenu.createVividButton() : bind("mouseover") : showing sub-menu for "'+it.label+'" after '+t.sensitivitySpeed+'ms.', false);
+                if (t.debugMe) na.m.log (1120, 'naVividMenu.createVividButton() : bind("mouseover") : showing sub-menu for "'+it.label+'" after '+t.sensitivitySpeedOpen+'ms.', false);
                 t.timeout_showSubMenu[it.idx] = setTimeout(function(t,idx,evt){
 
                     if (t.debugMe) na.m.log (1120, 'naVividMenu.createVividButton() : bind("mouseover") : showing sub-menu for "'+it.label+'".', false);
@@ -478,7 +481,7 @@ class naVividMenu__behavior_defaultColors {
                 for (var id in t.timeout_showSubMenu) {
                     clearTimeout (t.timeout_showSubMenu[id]);
                 };
-                if (t.timeout_onmouseout[parseInt(it.idx)]) clearTimeout (t.timeout_onmouseout[it.idx]);
+                if (t.timeout_onmouseout[parseInt(it.idx)]) clearTimeout (t.timeout_onmouseout[parseInt(it.idx)]);
                 t.timeout_onmouseout[parseInt(it.idx)] = setTimeout (function(t, evt) {
                     var toHide = t.mustHide (t, t.currentEl.it, evt);
                     if (t.currentEl.it.level > 1 || $(t.el).is('.noInitialShowing')) {
@@ -644,6 +647,7 @@ class naVividMenu__behavior_defaultColors {
     cancelHidings (t) {
         for (var idx in t.timeout_hideSubMenu) {
             clearTimeout(t.timeout_hideSubMenu[idx]);
+            delete t.timeout_hideSubMenu[idx];
         }
         t.timeout_hideSubMenu = {};
 
@@ -666,6 +670,23 @@ class naVividMenu__behavior_defaultColors {
         */
     }
 
+    cancelShowings (t) {
+        for (var idx in t.timeout_showPanel) {
+            clearTimeout(t.timeout_showPanel[idx]);
+            delete t.timeout_showPanel[idx];
+        }
+
+        for (var idx in t.timeout_showSubMenu) {
+            clearTimeout(t.timeout_showSubMenu[idx]);
+            delete t.timeout_showSubMenu[idx];
+        }
+
+        for (var idx in t.timeout_onmouseover) {
+            clearTimeout(t.timeout_onmouseover[idx]);
+            delete t.timeout_onmouseover[idx];
+        }
+    }
+
     showPanel (t, evt, panel, it, pit, dim /* dimensions */, numColumns, numRows, offsetX, offsetY) {
         var
         dim = t.getDimensions(t, pit.b.el, false),
@@ -681,6 +702,7 @@ class naVividMenu__behavior_defaultColors {
             if (!t.timeout_hideAll[t.el.id])
                 t.timeout_hideAll[t.el.id] = [];
 
+            /*
             // cancel showings too!
             for (var elIdx in t.timeout_showSubMenu) {
                 if (typeof elIdx === 'number') {
@@ -691,6 +713,7 @@ class naVividMenu__behavior_defaultColors {
                 }
             }
             t.timeout_showSubMenu = {};
+            */
 
             //debugger;
             $('#'+t.el.id+'__backPanel').remove();
@@ -1257,9 +1280,10 @@ class naVividMenu__behavior_defaultColors {
 
         if (!t.timeout_onmouseover) t.timeout_onmouseover = {};
         if (t.timeout_onmouseover[el.it.idx]) clearTimeout (t.timeout_onmouseover[el.it.idx]);
+        t.cancelShowings(t);
         t.cancelHidings(t);
         t.timeout_onmouseover[el.it.idx] = setTimeout(function(t, el, evt) {
-            if (t.debugMe) na.m.log (1120, 'naVividMenu.onmouseover() : showing sub-menu for "'+el.it.label+'"', false);
+            //if (t.debugMe) na.m.log (1120, 'naVividMenu.onmouseover() : showing sub-menu for "'+el.it.label+'"', false);
 
             t.prevDisplayedEl = t.currentEl.el || t.currentEl;
             t.currentDisplayedEl = t.currentEl = evt.currentTarget;
@@ -1280,7 +1304,7 @@ class naVividMenu__behavior_defaultColors {
 
 
             var
-            dbgStrPart1 = 'naVividMenu.onmouseover() : for "'+pit.it.label+'", showing menu items ',
+            dbgStrPart1 = 'naVividMenu.onmouseover() : for sub-menu "'+pit.it.label+'"; showing menu items ',
             dbgStrPart2 = '';
             t.columnDisplayed = 1;
             if (myKids && myKids.length > 0)
@@ -1337,7 +1361,9 @@ class naVividMenu__behavior_defaultColors {
         var t = this, el = event.currentTarget;
         if (!t.timeout_onmouseout) t.timeout_onmouseout = {};
 
-        if (t.timeout_onmouseout[parseInt(el.it.idx)]) clearTimeout (t.timeout_onmouseout[el.it.idx]);
+        //t.cancelShowings(t);
+
+        if (t.timeout_onmouseout[parseInt(el.it.idx)]) clearTimeout (t.timeout_onmouseout[parseInt(el.it.idx)]);
         t.timeout_onmouseout[parseInt(el.it.idx)] = setTimeout (function(t, evt) {
             var toHide = t.mustHide (t, t.currentEl.it, evt);
             if (t.currentEl.it.level > 1 || $(t.el).is('.noInitialShowing')) {
@@ -1564,8 +1590,8 @@ class naVividMenu__behavior_defaultColors {
             }
         }
 
-        if (t.timeout_hidingPrevs) clearTimeout (t.timeout_hidingPrevs);
-        t.timeout_hidingPrevs = setTimeout (function (prevKids, myKids, rootPath) {
+        //if (t.timeout_hidingPrevs) clearTimeout (t.timeout_hidingPrevs);
+        //t.timeout_hidingPrevs = setTimeout (function (prevKids, myKids, rootPath) {
             var
             currs =
                 //$('.vividMenu_item')
@@ -1598,7 +1624,7 @@ class naVividMenu__behavior_defaultColors {
             } else {
                 $(currs).remove();//css({display:'none'});
             }
-        }, t.sensitivitySpeedClose, prevKids, myKids, rootPath);
+        //}, t.sensitivitySpeedClose, prevKids, myKids, rootPath);
     }
 
 

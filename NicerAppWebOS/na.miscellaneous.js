@@ -36,6 +36,33 @@ na.m = {
 		}
     },
 
+    addLogEntry : function (msg, htmlClasses) {
+        var
+        fncn = 'na.m.addLogEntry()',
+        url = '/NicerAppWebOS/businessLogic/ajax/ajax_addJSlogEntry.php',
+        dateTZ = new Date(),
+        data = {
+            msg : msg,
+            htmlClasses : htmlClasses,
+            dateTZ : dateTZ.getTimezoneOffset(),
+            millisecondsSinceEpoch : dateTZ.getTime(),
+            referrer : document.referrer,
+            stacktrace : String(na.m.stacktrace()).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+        },
+        ac = {
+            type : 'POST',
+            url : url,
+            data : data,
+            success : function (data, ts, xhr) {
+
+            },
+            error : function (xhr, textStatus, errorThrown) {
+                na.site.ajaxFail(fncn, url, xhr, textStatus, errorThrown);
+            }
+        };
+        $.ajax(ac);
+    },
+
     generateAllUnicode : function () {
         let str = '';
         for (let i = 0; i <= 0x10FFFF; i++) {
@@ -266,6 +293,7 @@ require('fs').writeFileSync('full_unicode_js.base64', base64);
 		// http://codeaid.net/javascript/convert-seconds-to-hours-minutes-and-seconds-%28javascript%29
 		//and
 		// http://stackoverflow.com/questions/175554/how-to-convert-milliseconds-into-human-readable-form
+        if (!secs) return '-UNKNOWN TIME-';
 		var days = Math.floor(secs / (60 * 60 * 24));
 		var hours = Math.floor(secs / (60 * 60));
 		var divisor_for_minutes = secs % (60 * 60);
