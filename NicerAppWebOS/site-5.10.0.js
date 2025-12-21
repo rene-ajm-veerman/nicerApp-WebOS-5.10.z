@@ -3282,7 +3282,7 @@ na.site = {
         }
 
 
-        if (dat.changeBackgroundsAutomatically=='true') {
+        if (dat.changeBackgroundsAutomatically===true || dat.changeBackgroundsAutomatically=='true') {
             $('#changeBackgroundsAutomatically')[0].checked = true;
 
             /*
@@ -3299,6 +3299,8 @@ na.site = {
                 );
             }, ms);
             */
+        } else {
+           $('#changeBackgroundsAutomatically')[0].checked = false;
         }
         if (dat.backgroundChange_hours) $('#backgroundChange_hours').val(dat.backgroundChange_hours);
         if (dat.backgroundChange_minutes) $('#backgroundChange_minutes').val(dat.backgroundChange_minutes);
@@ -3589,7 +3591,7 @@ na.site = {
         themeData = na.site.loadTheme_fetchDialogs(themeData);
         //IS THIS NECESSARY?? na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
         na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
-        //na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
+        na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
 
         // ENCAPSULATE (ENCODE) json objects for HTTP transport
         themeData.themeSettings = JSON.stringify(themeData.themeSettings);
@@ -3684,6 +3686,10 @@ na.site = {
         } catch (err) {
             debugger;
         }
+
+        themeData.changeBackgroundsAutomatically = $('#changeBackgroundsAutomatically')[0].checked;
+        themeData.backgroundChange_hours = $('#changeBackgrounds_hours').val();
+        themeData.backgroundChange_minutes = $('#changeBackgrounds_minutes').val();
 
         return themeData;
     },
