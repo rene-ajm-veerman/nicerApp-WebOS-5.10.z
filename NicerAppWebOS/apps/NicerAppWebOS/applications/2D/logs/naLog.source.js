@@ -1,4 +1,7 @@
 var naLog = {
+    settings : {
+
+    },
     view : function (logData) {
         naLog.data = logData;
         na.m.waitForCondition ('naLog.view() : na.m.desktopIdle()?', na.m.desktopIdle, function() {
@@ -15,6 +18,7 @@ var naLog = {
                 }
 
                 if (dit.info && !dit.info.naIsBot) {
+                    dit.info.referrer = dit.referrer;
                     html +=
                         '<div class="naIPlog_entry '+dit.htmlClasses+'">';
                     if (typeof dit.msgProcessed=='string') {
@@ -23,7 +27,6 @@ var naLog = {
                                 +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
                                 +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
-                                +'<span class="naIPlog_referrer">referrer : '+dit.referrer+'</span> '
                             +'</span><br>'
                             +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
                     } else if (dit.msgProcessed.onclickHTML) {
@@ -56,6 +59,9 @@ var naLog = {
             $('#siteContent > .vividDialogContent').append(html);
             na.desktop.settings.visibleDivs.push ('#siteToolbarLeft');
             na.desktop.resize();
+            naLog.settings.intervalReload = setInterval(function() {
+                naLog.reload();
+            }, 10 * 60 * 1000)
             //debugger;
         }, 100);
     },

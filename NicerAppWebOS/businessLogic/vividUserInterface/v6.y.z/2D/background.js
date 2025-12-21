@@ -260,15 +260,16 @@ na.backgrounds = na.background = na.bg = {
 
                 } else {
                     if (na.bg.settings.useFading) {
-                        bgl.src = bgf.src;
-                        $(bgf).css({display:'none'});
-                        bgf.onload =function (evt) {
-                            $(this).fadeIn(na.bg.globals.fadingSpeed, function () {
+                        bgf.src = bgl.src;
+                        $(bgl).css({display:'none'});
+                        bgl.onload = function (evt) {
+                            debugger;
+                            $(this).fadeIn(na.bg.globals.fadingSpeed, 'swing', function () {
                                 $('img.bg_last',$(this).parent()).css({display:'none'});
                             })
 
                         };
-                        bgf.src = url;
+                        bgl.src = url;
                     } else {
                         bgl.src = url;
                         if (typeof callback == 'function') callback();
@@ -283,8 +284,10 @@ na.backgrounds = na.background = na.bg = {
                     $.cookie('siteBackground_search', search, na.m.cookieOptions());
                     $.cookie('siteBackground_url', url, na.m.cookieOptions());
                 }
-                if (!url.match(/cracked-surface/))
+                if (!url.match(/cracked-surface/)) {
                     na.m.addLogEntry ('Background set to "'+na.site.globals.backgroundSearchKey+'"; '+url, 'naStatus_backgroundChange');
+                    na.site.saveTheme();
+                };
 /*
             },
             error : function (xhr, textStatus, errorThrown) {

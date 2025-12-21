@@ -278,6 +278,7 @@ na.site = {
 
                 na.site.startUIvisuals(null, function() {
                     var fncn = 'na.site.initialize()::desktopIdle()::startUIvisuals( ()=>{...} )';
+
                     c.taskbar = new vividUserInterface_2D_dialog({
                         naSite : t,
                         el : $('#siteTaskbar')
@@ -435,7 +436,7 @@ na.site = {
                     na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
                     na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
 
-                    t.startTooltips();
+                    //t.startTooltips();
 
                     for (var appID in na.apps.loaded) {
                         var app = na.apps.loaded[appID];
@@ -1699,6 +1700,8 @@ na.site = {
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         //if (typeof startLogo=='function') startLogo('neCompanyLogo', 'countryOfOriginColors');
+        na.site.startTooltips();
+
 
         $('.vividDialog'/*, vdc[0]*/).each(function(idx,el){
             if (na.site.c.dialogs['#'+el.id]) delete na.site.c.dialogs['#'+el.id];

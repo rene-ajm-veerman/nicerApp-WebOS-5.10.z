@@ -73,6 +73,33 @@
     box-shadow : -2px -2px 3px 1px rgba(255,255,255,0.7), 2px 2px 5px 2px rgba(0,0,0,0.7);
 }
 
+.naIPlog_entry.mp3Change_start {
+    margin-left : 50px;
+    background : rgba(0,255,0,0.555);
+    color : white;
+}
+.naIPlog_entry.mp3Change_ended {
+    margin-left : 50px;
+    background : rgba(0,100,0,0.555);
+    color : yellow;
+}
+.naIPlog_entry.mp3Change_pausing {
+    margin-left : 50px;
+    background : rgba(0,50,0,0.555);
+    color : yellow;
+}
+.naIPlog_entry.mp3Change_unpausing {
+    margin-left : 50px;
+    background : rgba(0,50,0,0.555);
+    color : yellow;
+}
+.naIPlog_entry.mp3Change_onseeked {
+    margin-left : 50px;
+    background : rgba(0,100,0,0.555);
+    color : silver;
+}
+
+
 .naStatus_fullyBooted {
     margin-left : 50px;
     background : rgba(50,0,50,0.555);
@@ -86,8 +113,8 @@
 
 .naStatus_backgroundChange {
     margin-left : 50px;
-    background : rgba(0,100,0,0.555);
-    color : white;
+    background : rgba(0,255,0,0.555);
+    color : navy;
 }
 .naStatus_backgroundChange .naIPlog_stacktrace {
     background : rgba(0,0,0,0.555);
