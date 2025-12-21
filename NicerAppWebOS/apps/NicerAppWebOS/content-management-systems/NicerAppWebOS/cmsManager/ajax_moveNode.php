@@ -4,8 +4,8 @@ $debug = true;
 
 global $naWebOS;
 $cdb = $naWebOS->dbs->findConnection('couchdb')->cdb;
-
-$cdb->setDatabase($_POST['database'],false);
+$dataSetName = str_replace('_documents', '_tree', $_POST['database']);
+$cdb->setDatabase($dataSetName,false);
 
 $order = json_decode($_POST['order'], true);
 

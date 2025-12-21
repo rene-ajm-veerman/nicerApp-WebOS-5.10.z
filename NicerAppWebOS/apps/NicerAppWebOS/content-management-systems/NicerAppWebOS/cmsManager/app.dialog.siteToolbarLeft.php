@@ -157,7 +157,7 @@ $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_reque
 </div>
 <div id="jsTree" style="height:calc(100% - 70px);"></div>
 <script type="text/javascript">
-    $('#siteToolbarLeft').css({ width : 370 });
+    $('#siteToolbarLeft').css({ width : 420 });
     na.m.waitForCondition ('#siteToolbarLeft::init() : desktopIdle()?', function () {
         var r= (
             na.m.desktopIdle()

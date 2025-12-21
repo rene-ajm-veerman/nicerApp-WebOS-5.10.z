@@ -521,7 +521,6 @@ class naThemeEditor {
 
     initSelectorsTree  (dat) {
         na.te.s.c.dbSelectors = dat;
-        debugger;
         na.m.waitForCondition ('na.te.initSelectorsTree(): $.jstree()?', function() {
             return typeof $.jstree=='object' && typeof $.jstree.create=='function'
         }, function() {

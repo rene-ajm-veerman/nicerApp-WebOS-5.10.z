@@ -3317,7 +3317,7 @@ na.site = {
         );
         setTimeout (function() {
             $('.vdSettings').delay(50).css({ opacity : opacity });
-        }, 1500);
+        }, 500);
 
 
         var

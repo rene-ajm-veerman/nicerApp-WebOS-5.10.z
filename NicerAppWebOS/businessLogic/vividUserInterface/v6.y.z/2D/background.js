@@ -263,7 +263,6 @@ na.backgrounds = na.background = na.bg = {
                         bgf.src = bgl.src;
                         $(bgl).css({display:'none'});
                         bgl.onload = function (evt) {
-                            debugger;
                             $(this).fadeIn(na.bg.globals.fadingSpeed, 'swing', function () {
                                 $('img.bg_last',$(this).parent()).css({display:'none'});
                             })
