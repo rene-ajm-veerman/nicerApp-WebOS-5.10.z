@@ -344,6 +344,7 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
                             oldPath : oldPath,
                             newParent : data.parent,
                             newPath : newPath,
+                            nodeName : data.node.original.text,
                             target : data.node.original._id || original.id,
                             order : JSON.stringify(order)
                         },
@@ -991,7 +992,7 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
                 id : data.node.id,
                 node_title_new : data.text,
                 node_title_old : data.old,
-                oldPath : relFilePath.replace('/'+newFolderName,'')+'/'+data.old,
+                oldPath : relFilePath,
                 newPath : newRelFilePath
             },
             success : function (data, ts, xhr) {
@@ -1008,6 +1009,7 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
         fncn = 'na.cms.onchange_mediaFolderLabel(event)',
         tree = $('#jsTree').jstree(true),
         sel = tree.get_node(tree.get_selected()[0]),
+        url = '/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS/cmsManager/ajax_changeNode_rename_node.php',
         rec = na.cms.settings.current.selectedTreeNode,
         relFilePath = na.cms.currentPath(rec),
         oldFolderName = rec.original.text,
@@ -1020,16 +1022,16 @@ na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/Nic
 
         var
         newRelFilePath = relFilePath.replace('/'+oldFolderName, '/'+newFolderName),
-        url = '/NicerAppWebOS/apps/NicerAppWebOS/content-management-systems/NicerAppWebOS/cmsManager/ajax_changeNode_mediaFolderLabel.php',
         ac = {
             type : 'POST',
             url : url,
             data : {
-                database : sel.original.database,
+                database : sel.original.database.replace(/_documents_/, '_tree_'),
                 id : sel.original._id || original.id,
-                text : newFolderName,
-                relFilePath : relFilePath,
-                newRelFilePath : newRelFilePath
+                node_title_new : newFolderName,
+                node_title_old : oldFolderName,
+                oldPath : relFilePath,
+                newPath : newRelFilePath
             },
             success : function (data, ts, xhr) {
                 na.cms.refresh();
