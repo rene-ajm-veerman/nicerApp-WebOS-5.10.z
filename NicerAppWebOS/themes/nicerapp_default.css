@@ -15,22 +15,22 @@
             color : white;
         }
         #siteYoutubePlayer .vdBackground {
-            background : url("/NicerAppWebOS/siteMedia/backgrounds/tiled/red/318801228_12f7b6a8a2.jpg") repeat;
+            background : url("/siteMedia/backgrounds/tiled/red/318801228_12f7b6a8a2.jpg") repeat;
             opacity : 0.7;
         }
         #siteYoutubeSearch .vdBackground {
-            background : url("/NicerAppWebOS/siteMedia/backgrounds/tiled/red/318801228_12f7b6a8a2.jpg") repeat;
+            background : url("/siteMedia/backgrounds/tiled/red/318801228_12f7b6a8a2.jpg") repeat;
             opacity : 0.7;
         }
         #siteComments .vdBackground {
-            background : url("/NicerAppWebOS/siteMedia/backgrounds/tiled/blue/seamless-texture-blue-watercolor.jpg") repeat;
+            background : url("/siteMedia/backgrounds/tiled/blue/seamless-texture-blue-watercolor.jpg") repeat;
             opacity : 0.7;
         }
         #siteToolbarRight .vdBackground {
-            background : url("/NicerAppWebOS/siteMedia/backgrounds/tiled/blue/seamless-texture-blue-watercolor.jpg") repeat;
+            background : url("/siteMedia/backgrounds/tiled/blue/seamless-texture-blue-watercolor.jpg") repeat;
             opacity : 0.7;
         }
         #siteStatusbar .vdBackground {
-            background : url("/NicerAppWebOS/siteMedia/backgrounds/tiled/blue/images.jpg") repeat;
+            background : url("/siteMedia/backgrounds/tiled/blue/images.jpg") repeat;
             opacity : 0.45;
         }

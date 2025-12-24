@@ -14,27 +14,37 @@ A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<b
 <ol class="todoList" style="width:30%; width:content-width;">
     <li class="todoList"><div>(2025) Fix the final bugs in vividMenu.onmouseover(), vividMenu.onmouseout(), theme handling and in the theme editor.</div></li>
 
+    <li class="todoList"><div>(2025) (DONE) Add statistics/analytics to NicerApp</div></li>
+
     <li class="todoList"><div>(2025) Start on .../logic.databases/uDB-2.0.0, to be based on .../logic.databases/generalizedDatabasesAPI-1.0.0
         <a href="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-uDB.png" class="nomod noPushState" target="tl-udb-1"><img src="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-uDB.png" style="width:320px"/></a>
         <a href="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-taskManager.png" class="nomod noPushState" target="tl-udb-1"><img src="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-taskManager.png" style="width:320px"/></a>
         <ol class="todoList_l1">
             <li class="todoList_l1"><div>Add query routines in uDB to translate couchdb index names to index ids.</div></li>
-            <li class="todoList_l1"><div>Add and test MySQL, PostgreSQL and 'filesystemDB' (fsDB) sub-modules to uDB, as well as their interactions with the CouchDB part of uDB.</div></li>
+            <li class="todoList_l1"><div>Add and test MySQL, PostgreSQL and 'filesystemDB' (fsDB) sub-modules to uDB <b>(also on Window 11)</b>, as well as their interactions with the CouchDB part of uDB.</div></li>
             <li class="todoList_l1"><div>(2027) Start on .../businessLogic/filePhoenix</div></li>
         </ol>
     </div></li>
 
-    <li class="todoList"><div>(2026) Write the background PLUS YouTube search features to funnel textures, photos and videos into the backgrounds list for a NicerApp site (in addition to playing them via a vividDialog combination).</div></li>
+    <li class="todoList"><div>(2026) Rewrite the help system and comments system.
+        <ol class="todoList_l1">
+            <li class="todoList_l1"><div>(2026) Write a notification API based on the VAPID browser API for this WebOS.</div></li>
+
+            <li class="todoList_l1"><div>(2026) Write an in-app tutorial API for this WebOS.</div></li>
+        </ol>
+    </div></li>
+
+    <li class="todoList"><div>(2026) Upgrade the way backgrounds are selected.
+        <ol class="todoList_l1">
+            <li class="todoList_l1"><div>(2026) Add the ability to specify a rectangle somewhere on the screen to be managed by desktop.js.</div></li>
+
+            <li class="todoList_l1"><div>(2026) Revamp /backgroundsBrowser into such a rectangle.</div></li>
+        </ol>
+    </div></li>
 
     <li class="todoList"><div>(2026 to 2027) Complete a <a href="/demo-3D-fileBrowser">3D folders + files structures viewer</a>, linked to all sorts of 2D user interface components/widgets.</div></li>
 
     <li class="todoList"><div>(2026) Allow log entries (of console.log in the browser, and all database traffic and error messages on the server) to be logged to a different machine on the LAN than the main server.</div></li>
-
-    <li class="todoList"><div>(2026) Write a notification API based on the VAPID browser API for this WebOS.</div></li>
-
-    <li class="todoList"><div>(2026) Write an in-app tutorial API for this WebOS.</div></li>
-
-    <li class="todoList"><div>(2027) Add statistics/analytics to NicerApp</div></li>
 
     <li class="todoList"><div>(2026) Get na.m.log() to log per datetimeRangeBegin.milliseconds to datetimeRangeEnd.milliseconds into a database on the server, for use in /view/logs as the PHP data belonging to a PHP session_id().<br/>
     Status : Completed javascript code, now needs revamped generalizedDatabaseAPI written and called, and db businesslogic PHP code.</div></li>

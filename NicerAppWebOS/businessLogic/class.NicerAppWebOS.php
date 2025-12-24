@@ -1194,10 +1194,10 @@ class NicerAppWebOS {
         $r  = $this->html($il, '<div id="'.$id.'_container" class="'.str_replace('vividButton_icon','vividButton_container',$class).'" tabindex="'.$buttonTabIndex.'" style="'.$containerStyle.'" onclick="'.$button_event_onclick.'" onmouseover="'.$button_event_onmouseover.'" onmouseout="'.$button_event_onmouseout.'" title="'.$buttonTitleAlt2.'" alt="'.$buttonTitleAlt.'">');
         $r .= $this->html($il+1, '<div id="'.$id.'" class="'.$class.' tooltip" title="'.$buttonTitleAlt2.'" tabindex="'.$buttonTabIndex.'" style="'.$buttonStyle.'">');
         $r .= $this->html($il+2,    '<div class="vividButton_icon_borderCSS'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'"></div>');
-        if (!is_null($borderImgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgBorder'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/NicerAppWebOS/siteMedia/'.$borderImgSrc.'"/>');
-        if (!is_null($tileImgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgTile'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/NicerAppWebOS/siteMedia/'.$tileImgSrc.'"/>');
-        if (!is_null($buttonBGimgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgButtonIconBG'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/NicerAppWebOS/siteMedia/'.$buttonBGimgSrc.'"/>');
-        if (!is_null($buttonImgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgButtonIcon'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/NicerAppWebOS/siteMedia/'.$buttonImgSrc.'"/>');
+        if (!is_null($borderImgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgBorder'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/siteMedia/'.$borderImgSrc.'"/>');
+        if (!is_null($tileImgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgTile'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/siteMedia/'.$tileImgSrc.'"/>');
+        if (!is_null($buttonBGimgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgButtonIconBG'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/siteMedia/'.$buttonBGimgSrc.'"/>');
+        if (!is_null($buttonImgSrc)) $r .= $this->html($il+2,    '<img class="vividButton_icon_imgButtonIcon'.$subClassSuffix.' '.$iconComponents_subClassSuffix.'" srcPreload="/siteMedia/'.$buttonImgSrc.'"/>');
         if (!is_null($buttonOverlayHTML)) $r .= $this->html($il+2,    $buttonOverlayHTML);
         $r .= $this->html($il, '</div>');
         if (is_string($buttonText) && $buttonText!=='') {

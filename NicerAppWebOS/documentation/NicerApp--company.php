@@ -45,10 +45,9 @@
 
         <h2>Business plan</h2>
 
-<pre class="backdropped">
-business decision :
-i will keep NicerApp WebOS (https://nicer.app) MIT-licensed open source that can even be used commercially for free (but without warranty and you'll need your own full stack http://kubuntu.com web-development team to work with it) for at least 2026 too.
-</pre>
+        <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
+        I will keep NicerApp WebOS (https://nicer.app) MIT-licensed open source that can even be used commercially for free (but without warranty and you'll need your own full stack http://kubuntu.com web-development team to work with it) for at least 2026 too.
+        </p>
 
         <?php //echo $diaries->getDiary('siteOwner');?>
 

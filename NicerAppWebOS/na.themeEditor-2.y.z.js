@@ -234,49 +234,49 @@ class naThemeEditor {
                     },
                     types : {
                         "naSystemFolder" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naSystemFolder.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naSystemFolder.png",
                             "valid_children" : []
                         },
                         "naUserRootFolder" : {
                             "max_depth" : 14,
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naUserRootFolder.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naUserRootFolder.png",
                             "valid_children" : ["naFolder", "naMediaAlbum", "naDocument"]
                         },
                         "naGroupRootFolder" : {
                             "max_depth" : 14,
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naGroupRootFolder.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naGroupRootFolder.png",
                             "valid_children" : ["naFolder", "naMediaAlbum", "naDocument"]
                         },
                         "naFolder" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naFolder.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naFolder.png",
                             "valid_children" : ["naFolder", "naMediaAlbum", "naDocument"]
                         },
                         "naDialog" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naSettings.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naSettings.png",
                             "valid_children" : []
                         },
                         "naSettings" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naSettings.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naSettings.png",
                             "valid_children" : []
                         },
                         "naTheme" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naVividThemes.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naVividThemes.png",
                             "valid_children" : []
                         },
                         "naVividThemes" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naVividThemes.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naVividThemes.png",
                             "valid_children" : []
                         },
                         "naMediaAlbum" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naMediaAlbum.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naMediaAlbum.png",
                             "valid_children" : [ "naMediaAlbum" ]
                         },
                         "naDocument" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naDocument.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naDocument.png",
                             "valid_children" : []
                         },
                         "saApp" : {
-                            "icon" : "/NicerAppWebOS/siteMedia/na.site.view.tree.naApp.png",
+                            "icon" : "/siteMedia/na.site.view.tree.naApp.png",
                             "valid_children" : []
                         }
                     },

@@ -12,7 +12,7 @@
     else {
         $mi = [];
 
-        $root = $naRoot.'/NicerAppWebOS/siteMedia/backgrounds/landscape';
+        $root = $naRoot.'/siteMedia/backgrounds/landscape';
         $root =   realpath(dirname(__FILE__).'/../../../../../../../nicer.app-musicPlayer-music');
         //var_dump ($root); die();
         $fileFormats = '/.*/';

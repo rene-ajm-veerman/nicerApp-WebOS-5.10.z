@@ -27,7 +27,7 @@
     $collectionDurationInSeconds = 0;
     $pageDurationInSeconds = 0;
 
-    if ((!$rescanContent && file_exists(dirname(__FILE__).'/index.views.json')) || (!array_key_exists('rc',$_GET) || $_GET['rc']!=='true')) {
+    if ((!$rescanContent && file_exists(dirname(__FILE__).'/index.views.json')) && (!array_key_exists('rc',$_GET) || $_GET['rc']!=='true')) {
     //if (!$naLAN && file_exists(dirname(__FILE__).'/index.views.json') && (!array_key_exists('rc',$_GET) || $_GET['rc']!=='true')) {
         // ONLY SLOWS THINGS DOWN CONSIDERABLY $folders = json_decode(file_get_contents($rf.'/index.foldersAndFiles.json'),true);
         $views = json_decode(file_get_contents(dirname(__FILE__).'/index.views.json'),true);

@@ -29,7 +29,7 @@ na.site = {
             { msg_html : '<p>2025-07(July)-06(Sun) 09:55CET (Amsterdam.NL\'s timezone) : It\'s only when a man has decided never to let himself get used as romantic toy or tool by women, that he can actually start any sort of relationship with one himself. such is the legacy of the much-hated monogamy movement, supplanted now by <a href="https://tinyurl.com/multi-amarous-church" class="directLink" target+"mac">The Multi-Amarous Church</a>.</p>' },
             { msg_html : '<p>2025-07(July)-06(Sun) 10:07CET (Amsterdam.NL\'s timezone) : It\'s only when someone has decided never (again) to let the Gods, Angels, Spirits and/or Demons deceive and play with him/her, that he/she becomes actually free from the spiritual world.</p>' },
             { msg_html : '<p>2025-07(July)-06(Sun) 10:08CET (Amsterdam.NL\'s timezone) : It\'s only when someone has decided never (again) to let the bureaucrats, cops, ambulance staff and politicians deceive and play with him/her, that he/she becomes actually free from the mass media news worlds.</p>' },
-            { msg_html : '<p>2025-11(Nov)-15(Sun) 03:46CET (Amsterdam.NL\'s timezone) : <img src="https://nicer.app/NicerAppWebOS/siteMedia/backgrounds/landscape/animals/art/4600401-animal-gorilla-ape-primate-herbivore-silver-back.jpg" style="width:550px;"/><br><b>When</b> you make it to big earner in any field of business, always remember to be the big friendly ape towards \'the working class\' - so that the Great Hunters wont have to put you down..</p>' }
+            { msg_html : '<p>2025-11(Nov)-15(Sun) 03:46CET (Amsterdam.NL\'s timezone) : <img src="https://nicer.app/siteMedia/backgrounds/landscape/animals/art/4600401-animal-gorilla-ape-primate-herbivore-silver-back.jpg" style="width:550px;"/><br><b>When</b> you make it to big earner in any field of business, always remember to be the big friendly ape towards \'the working class\' - so that the Great Hunters wont have to put you down..</p>' }
         ]
     },
 
@@ -53,8 +53,8 @@ na.site = {
         // NOTE : all of these na.site.globals app get overridden by values stuck in databases of some sort (lol),
         //          and are listed by the index.php file as 'var naGlobals', before merging it's (sub-)values.
         domain : 'said.by',
-        domainPath : '/var/www/nicer.app-5.10.z/nicer.app-5.10.0-beta3/',
-        domainWWWroot : 'nicer.app-5.10.0-beta3',
+        domainPath : '/var/www/nicer.app-5.10.z/nicer.app-5.10.0-beta4/',
+        domainWWWroot : 'nicer.app-5.10.0-beta4',
         domainFolder : 'said.by',
 
         // these are all pixel values, without the CSS 'NNNNpx' notation.
@@ -255,10 +255,10 @@ na.site = {
                 var fncn = 'na.site.initialize()::desktopIdle()';
 
                 t.g = t.globals = $.extend (t.g, naGlobals);
-                na.te = new naThemeEditor();
-                t.ui = {
+                na.ui = {
                     vb : new vividUserInterface_2D_button_v4()
                 };
+                na.te = new naThemeEditor();
 
 
                 na.site.reloadMenu({callback:function(){
@@ -1121,7 +1121,7 @@ na.site = {
     loadContent : function (event, url, callback_phase1, callback_phase2) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         na.apps.mustHaveAtLeast_number = 0;
@@ -1192,7 +1192,7 @@ na.site = {
 	stateChange : function(evt){
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
 		var
@@ -1280,7 +1280,7 @@ na.site = {
     loadContent_getContent : function (ec, url1) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         var
@@ -1374,7 +1374,7 @@ na.site = {
         loadContent_getContent_do = function () {
         /*
         * LICENSE : https://opensource.org/license/mit
-        * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+        * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
         * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
         */
             $('.lds-facebook').fadeIn('normal');
@@ -1437,7 +1437,7 @@ na.site = {
     loadContent_displayContent (data, ts, xhr) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
 
@@ -1696,7 +1696,7 @@ na.site = {
     startUIvisuals : function (divID, callback) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         //if (typeof startLogo=='function') startLogo('neCompanyLogo', 'countryOfOriginColors');
@@ -1776,7 +1776,7 @@ na.site = {
     bindTodoListAnimations : function (selector) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         $(selector).each(function(idx,el) {
@@ -1798,7 +1798,7 @@ na.site = {
     initializeScriptsForApps : function (f) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         // na.site.loadContent()::stage 004 : put all the SCRIPT tags with a src= attribute into the HEAD of the document, IF they're not there already, and let them load properly.
@@ -1944,7 +1944,7 @@ na.site = {
     initializeApps : function (f, callback) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         if (f) {
@@ -2037,7 +2037,7 @@ na.site = {
     appDivLoaded : function (appID, divID, f, cb) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         var c = na.site.settings;
@@ -2067,7 +2067,7 @@ na.site = {
     resizeApps : function (f) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         var fncn = 'na.site.resizeApps()';
@@ -2145,7 +2145,7 @@ na.site = {
     appResized : function (appID, f) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         var c = na.site.settings;
@@ -2167,7 +2167,7 @@ na.site = {
     getPageSpecificSettings : function (ec, eventIdx, eventParams, f) {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         if (
@@ -2263,7 +2263,7 @@ na.site = {
     renderAllCustomHeadingsAndLinks : function () {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
 
@@ -2348,7 +2348,7 @@ na.site = {
     closeAll_2D_apps : function() {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
 
@@ -2356,7 +2356,7 @@ na.site = {
     closeAll_3D_apps : function() {
     /*
      * LICENSE : https://opensource.org/license/mit
-     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/NicerEnterprises/NicerApp-WebOS/blob/main/NicerAppWebOS/version.json)
+     * (C) +-2020AD to 2025AD (possibly later, see https://nicer.app/NicerAppWebOS/version.json or https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z/blob/main/NicerAppWebOS/version.json)
      * (C) 2025 "Rene A.J.M. Veerman" <rene.veerman.netherlands@gmail.com>
      */
         for (var elID in na.site.settings.na3D) {
@@ -2757,27 +2757,24 @@ na.site = {
             //if (!na.site.globals.themesDBkeys[i].hasWritePermission) $(divEl).addClass('disabled');
             if (na.site.globals.themesDBkeys[i].hasData) $(divEl).addClass('hasData');
 
-            /*
-             * TODO : URGENT : Upgrade vividButton4.2 to vividButton4.3
-            debugger;
             var
             b = na.site.components.buttons['#btnLockSpecificity'],
-            b1 = b.icon_svg.settings.buttons['#btnLockSpecificity'],
+            //b1 = b.icon_svg.settings.buttons['#btnLockSpecificity'],
             selectMe = (
                 simple
                     ? (
                         na.site.globals.themeSpecificityName === na.site.globals.themesDBkeys[i].specificityName
                         || na.site.globals.specificityName === na.site.globals.themesDBkeys[i].specificityName
                     )
-                    : b1 && b1.state == b1.btnCode.selectedState
+                    : b && b.state == b.btnCode.selectedState
                         ? (
                             na.site.globals.themeSpecificityName === na.site.globals.themesDBkeys[i].specificityName
                             || na.site.globals.specificityName === na.site.globals.themesDBkeys[i].specificityName
                         )
                         : i == l
             );
-            */
-            var selectMe = (
+
+/*            var selectMe = (
                 simple
                     ? i == l
                     : (
@@ -2785,6 +2782,7 @@ na.site = {
                         || na.site.globals.specificityName === na.site.globals.themesDBkeys[i].specificityName
                     )
             );
+*/
             if (selectMe) {
                 $(divEl).addClass('selected');
                 //$('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.specificityName);

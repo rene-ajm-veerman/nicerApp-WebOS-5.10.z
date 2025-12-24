@@ -34,13 +34,13 @@ class naVividDialog {
             );
             html += 
                 '<div class="vdSettings" style="z-index:10000;opacity:'+opacity+';">'
-                    +'<img class="btnSettings" src="/NicerAppWebOS/siteMedia/btnPickColor.png" onclick="na.site.settings.activeDivs = [\'#siteToolbarThemeEditor\']; var d = na.site.settings.dialogs[\'#'+this.el.id+'\']; d.displaySettingsDialog(d, \''+t.el.id+'\')"/>'
+                    +'<img class="btnSettings" src="/siteMedia/btnPickColor.png" onclick="na.site.settings.activeDivs = [\'#siteToolbarThemeEditor\']; var d = na.site.settings.dialogs[\'#'+this.el.id+'\']; d.displaySettingsDialog(d, \''+t.el.id+'\')"/>'
                     +'<input type="range" min="1" max="100" value="50" class="sliderOpacityRange" onchange="na.te.opacityChange(event);"/>'
                 +'</div>'
                 +(
                     !$(t.el).is('.naNoComments')
                     ? '<div class="vdTools" style="z-index:10000;opacity:'+opacity+';">'
-                        +'<img class="btnComments" src="/NicerAppWebOS/siteMedia/pencil.png" onclick="if (na.d.s.visibleDivs.includes(\'siteComments\')) arrayRemove(na.d.s.visibleDivs,\'#siteComments\'); else na.d.s.visibleDivs.push(\'#siteComments\'); na.desktop.resize();"></div>'
+                        +'<img class="btnComments" src="/siteMedia/pencil.png" onclick="if (na.d.s.visibleDivs.includes(\'siteComments\')) arrayRemove(na.d.s.visibleDivs,\'#siteComments\'); else na.d.s.visibleDivs.push(\'#siteComments\'); na.desktop.resize();"></div>'
                     : ''
                 );
             if (

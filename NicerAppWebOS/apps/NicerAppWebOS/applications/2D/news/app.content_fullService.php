@@ -84,8 +84,8 @@ $pageTitle = str_replace('_', '&nbsp;', $pageTitle);
                     <div id="div_newsApp_searchbar" class="content_containerDiv_item" style="order:2;display:none;">
                         <label for="newsApp_searchbar" id="label_newsApp_searchbar" class="label_newsApp" style="font-size:120%;font-weight:bold;padding:5px;">Search for : </label>
                         <input id="newsApp_searchbar" style="display:none; background:rgba(255,255,255,1); border-radius:7px; border : 1px solid black;vertical-align:middle" onchange="na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'].onSearch(event)"/>
-                        <img id="newsApp_searchbar__enterQuery" title="search the entire news database (up to 14 days into the past)" src="/NicerAppWebOS/siteMedia/na.question-mark.svg.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'].onSearch(event)"/>
-                        <img id="newsApp_searchbar__abandonQuery" title="abandon the current search query and display the very latest news again" src="/NicerAppWebOS/siteMedia/na.reset.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'].clearSearch(event)"/>
+                        <img id="newsApp_searchbar__enterQuery" title="search the entire news database (up to 14 days into the past)" src="/siteMedia/na.question-mark.svg.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'].onSearch(event)"/>
+                        <img id="newsApp_searchbar__abandonQuery" title="abandon the current search query and display the very latest news again" src="/siteMedia/na.reset.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/news'].clearSearch(event)"/>
                     </div>
                     <div id="div_newsApp_info" class="content_containerDiv_item" style="order:2;margin-right:7px;">
                         <span id="newsApp_info" class="contentSectionTitle1_span newsApp_header">This app will load up older news-items whenever needed</span>
@@ -202,8 +202,8 @@ echo $naWebOS->html_vividButton (
                         <td id="td_newsApp_searchbar" style="vertical-align:middle;display:none;">
                             <label for="newsApp_searchbar" id="label_newsApp_searchbar" class="label_newsApp" style="width:80px;">Search :</label>
                             <input id="newsApp_searchbar" style="display:none; background:rgba(255,255,255,1); border-radius:7px; border : 1px solid black;vertical-align:middle" onchange="na.apps.loaded['news'].onSearch(event)"/>
-                            <img id="newsApp_searchbar__enterQuery" title="search the entire news database (up to 14 days into the past)" src="/NicerAppWebOS/siteMedia/na.question-mark.svg.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['news'].onSearch(event)"/>
-                            <img id="newsApp_searchbar__abandonQuery" title="abandon the current search query and display the very latest news again" src="/NicerAppWebOS/siteMedia/na.reset.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['news'].clearSearch(event)"/>
+                            <img id="newsApp_searchbar__enterQuery" title="search the entire news database (up to 14 days into the past)" src="/siteMedia/na.question-mark.svg.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['news'].onSearch(event)"/>
+                            <img id="newsApp_searchbar__abandonQuery" title="abandon the current search query and display the very latest news again" src="/siteMedia/na.reset.png" style="height:30px;vertical-align:middle" onclick="na.apps.loaded['news'].clearSearch(event)"/>
                         </td>
                         <td id="td_newsApp_info" style="text-align:left;vertical-align:middle;">
                             <span id="newsApp_info" style="text-align:left;display:none;">This app will load up older news-items whenever needed</span>

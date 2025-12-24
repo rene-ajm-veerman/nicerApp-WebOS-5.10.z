@@ -157,7 +157,7 @@ na.backgrounds = na.background = na.bg = {
 
                     if (hit) {
                         if (useRoot)
-                            hits[hits.length] = bgs[collectionIdx].root+'/'+bgk;
+                            hits[hits.length] = document.location.origin+bgs[collectionIdx].root+'/'+bgk;
                         else
                             hits[hits.length] = bgk;
                     }
@@ -165,7 +165,7 @@ na.backgrounds = na.background = na.bg = {
             }
 
             if (hits.length===0) return false;
-            var url = '/'+hits[Math.floor(Math.random() * Math.floor(hits.length))];
+            var url = hits[Math.floor(Math.random() * Math.floor(hits.length))];
         };
         na.m.log (10, fncn+' : url='+url, true);
         //debugger;

@@ -19,7 +19,7 @@ class class_NicerAppWebOS_database_API {
         global $naWebOS;
         $ret = [];
 
-        $domainConfigsPath = realpath($myPath_BLdbs.'/../..').'/domains/'.$naWebOS->domainFolder.'/domainConfig/';
+        $domainConfigsPath = $naWebOS->domainPath.'/domainConfig/';
             //echo '<h2>'.$domainConfigsPath.'</h2>';
         $configFilename = 'databases.username-'.$username.'.json';
             //echo '<pre style="color:green">'; var_dump($domainConfigsPath.'/'.$configFilename); var_dump(file_exists($domainConfigsPath.'/'.$configFilename)); echo '</pre>';
