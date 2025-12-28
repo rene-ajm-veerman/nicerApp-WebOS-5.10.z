@@ -31,7 +31,7 @@ class naVividMenu__behavior_defaultColors {
             };
         t.theme = $(el).attr('theme');
         t.type = $(el).attr('type') === 'vertical' ? 'vertical' : 'horizontal';
-       t.debugMe = true;
+        t.debugMe = false;
 
         t.useDelayedShowingAndHiding = true;
         t.sensitivitySpeedOpen = 400;
@@ -767,7 +767,6 @@ class naVividMenu__behavior_defaultColors {
                     height : $(it.b.el).height()
                 }
             };
-            debugger;
 
             var
             background1 = 'rgba('+(100+Math.random()*150)+','+(100+Math.random()*150)+','+(100+Math.random()*150)+', 0.55)',
@@ -1287,7 +1286,6 @@ class naVividMenu__behavior_defaultColors {
 
             t.prevDisplayedEl = t.currentEl.el || t.currentEl;
             t.currentDisplayedEl = t.currentEl = evt.currentTarget;
-            debugger;
             t.currentDisplayedEl_negativeOffsetY = null;
 
             var

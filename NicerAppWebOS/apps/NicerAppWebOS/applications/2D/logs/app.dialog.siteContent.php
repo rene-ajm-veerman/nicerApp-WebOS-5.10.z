@@ -1,7 +1,6 @@
 <?php
 global $naWebOS;
 global $naLAN;
-if (!$naLAN) die('403 Forbidden.');
 $debugMe = false;
 
 global $db;
@@ -12,7 +11,12 @@ $cdb = $db->cdb;
 global $dataSetName;
 $dataSetName = $cdbDomain.'___analytics';
 //echo $dataSetName; exit();
-$cdb->setDatabase($dataSetName, true);
+$cdb->setDatabase($dataSetName, false);
+
+
+foreach ($naWebOS->view as $afn => $as) break;
+$naWebOS->view[$afn]['beginDateTime'] = safeHTTPinput ('beginDateTime', (time() * 1000) - (7 * 24 * 3600 * 1000));
+$naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
 
     function transformResults_findCommand ($call) {
         global $naWebOS;
@@ -82,29 +86,35 @@ $cdb->setDatabase($dataSetName, true);
     }
 
 $in = &$_GET;
-$fields = [ '_id', 'ip', 'secondsSinceEpoch', 'msg', 'referrer', 'stacktrace', 'info' ];
+$fields = [ '_id', 'ip', 'millisecondsSinceEpoch', 'msg', 'referrer', 'stacktrace', 'info', 'htmlClasses', 'dateTZ' ];
 
 if (
-    array_key_exists('begin', $in)
-    && array_key_exists('end', $in)
+    $naWebOS->view[$afn]['beginDateTime']
+    && $naWebOS->view[$afn]['endDateTime']
 ) {
     $findCommand = [
-        'selector' => [ 'secondsSinceEpoch' => [['$gt']=>$in['begin']-1, ['$lt']=>$in['end']+1]  ],
-        'fields' => &$fields
+        'selector' => [ 'millisecondsSinceEpoch' => [['$gt']=>$naWebOS->view[$afn]['beginDateTime']-1, $naWebOS->view[$afn]['endDateTime']+1]  ],
+        'fields' => &$fields,
+        'sort' => ['millisecondsSinceEpoch'],
+        'use_index' => 'primaryIndex'
     ];
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
-} else if (array_key_exists('begin', $in)) {
+} else if ($naWebOS->view[$afn]['beginDateTime']) {
     $findCommand = [
-        'selector' => [ 'secondsSinceEpoch' => ['$gt' => $in['begin'] - 1] ],
-        'fields' => &$fields
+        'selector' => [ 'millisecondsSinceEpoch' => ['$gt' => $naWebOS->view[$afn]['beginDateTime'] - 1] ],
+        'fields' => &$fields,
+        'sort' => ['millisecondsSinceEpoch'],
+        'use_index' => 'primaryIndex'
     ];
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
 } else if (array_key_exists('end', $in)) {
     $findCommand = [
-        'selector' => [ 'secondsSinceEpoch' => ['$lt' => $in['end'] + 1] ],
-        'fields' => &$fields
+        'selector' => [ 'millisecondsSinceEpoch' => ['$lt' => $naWebOS->view[$afn]['endDateTime'] + 1] ],
+        'fields' => &$fields,
+        'sort' => ['millisecondsSinceEpoch'],
+        'use_index' => 'primaryIndex'
     ];
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
@@ -115,20 +125,21 @@ if (
 }
 
 if ($debugMe) {
-    echo '<pre style="background:rgba(0,0,50,0.555);color:lime;border-radius:10px;margin:10px;padding:10px;">';
-    var_dump ($results);
-    echo '</pre>';
     echo '<pre style="background:rgba(0,255,0,0.555);color:yellow;border-radius:10px;margin:10px;padding:10px;">';
     var_dump ($findCommand);
     echo '</pre>';
     echo '<pre style="background:rgba(255,255,255,0.555);color:navy;border-radius:10px;margin:10px;padding:10px;">';
     var_dump ($call);
     echo '</pre>';
+    echo '<pre style="background:rgba(0,0,50,0.555);color:lime;border-radius:10px;margin:10px;padding:10px;">';
+    var_dump ($results);
+    echo '</pre>';
 }
 ?>
 <link rel="StyleSheet" href="/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/naLog.css?m=<?=filemtime(dirname(__FILE__).'/naLog.css')?>"/>
 <script type="text/javascript" src="/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/logs/naLog.source.js?m=<?=filemtime(dirname(__FILE__).'/naLog.source.js')?>'"></script>
 <script type="text/javascript">
+    var view = <?=json_encode($naWebOS->view);?>;
     var naLogData = <?=json_encode($results);?>;
     naLog.view(naLogData);
 </script>

@@ -86,7 +86,7 @@ var naBackgroundsBrowser = na.bb = {
             for (var rp in dit) break;
             if (rp.indexOf(k)!==-1) {
                 var
-                v = '/'+dat[0].root+'/'+rp,
+                v = document.location.origin+dat[0].root+'/'+rp,
                 jsOnClick = 'na.bg.next("#siteBackground", null, "'+v+'");';
                 html += '<img src="'+v+'" class="naBackgroundsBrowser_img" onclick=\''+jsOnClick+'\' title="'+v+'"/>'
             }

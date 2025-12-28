@@ -6,6 +6,11 @@ require_once(dirname(__FILE__).'/boot.php');
 //use Defuse\Crypto\Key;
 //use Defuse\Crypto\Crypto;
 
+function safeHTTPinput ($in, $default=null) {
+    if (array_key_exists($in, $_POST)) return $_POST[$in];
+    elseif (array_key_exists($in, $_GET)) return $_GET[$in];
+    else return $default;
+}
 
 function addUserPasswordToHiddenFile ($u, $p) {
     global $naWebOS;

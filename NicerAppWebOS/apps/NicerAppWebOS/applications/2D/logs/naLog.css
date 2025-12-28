@@ -102,8 +102,9 @@
 
 .naStatus_fullyBooted {
     margin-left : 50px;
-    background : rgba(50,0,50,0.555);
-    color : white;
+    background : rgba(0,0,100,0.555);
+    color : #0FF !important;
+    font-weight : bold;
 }
 .naStatus_fullyBooted .naIPlog_stacktrace {
     background : rgba(0,0,0,0.555);
@@ -113,8 +114,8 @@
 
 .naStatus_backgroundChange {
     margin-left : 50px;
-    background : rgba(0,255,0,0.555);
-    color : navy;
+    background : rgba(0,0,255,0.555);
+    color : yellow;
 }
 .naStatus_backgroundChange .naIPlog_stacktrace {
     background : rgba(0,0,0,0.555);

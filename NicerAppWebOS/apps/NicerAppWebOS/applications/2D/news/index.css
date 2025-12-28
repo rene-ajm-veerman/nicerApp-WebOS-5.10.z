@@ -57,7 +57,8 @@
     background : rgba(0,0,50,0.4);
 }
 #siteContent__btnOptions_menu label, #siteContent__btnOptions_menu p     {
-    background : rgba(0,0,0,0.555) !important;
+    background : rgba(255,255,255,0.555) !important;
+    color : navy !important;
     padding : 8px;
     border-radius : 10px;
 
@@ -145,7 +146,7 @@
 }
 .newsApp__item__outer__bgFile1 {
     position : absolute;
-    background:url('/siteMedia/backgrounds/tiled/yellow/20972262180_07ae2c28aa_b.jpg');
+    background:url('/siteMedia/backgrounds/tiled/Yellow/20972262180_07ae2c28aa_b.jpg');
     background-size :  650px 650px;
     opacity : 0.3;
     z-index:-1;
@@ -156,7 +157,7 @@
 }
 .newsApp__item__outer__bgFile2 {
     position : absolute;
-    background:url('/siteMedia/backgrounds/tiled/yellow/318849091_f2d312f7a4.jpg');
+    background:url('/siteMedia/backgrounds/tiled/Yellow/318849091_f2d312f7a4.jpg');
     background-size :  650px 650px;
     opacity : 0;
     z-index:-1;
@@ -376,11 +377,11 @@ background-size: 200%;
     height:100%;
     box-shadow : 0px 0px 5px 3px rgba(0,0,0,0.55) inset, 4px 4px 7px 2px rgba(0,0,0,1);
     opacity : 0.555;
-    background : url(/siteMedia/backgrounds/tiled/grey/seamless_light_background_texture.jpg);
+    background : url(/siteMedia/backgrounds/tiled/Grey/seamless_light_background_texture.jpg);
     border-radius : 14px;
 }
 .newsApp__item__outer__bg p a:hover {
-    background : url(/siteMedia/backgrounds/tiled/grey/seamless_light_background_texture.jpg);
+    background : url(/siteMedia/backgrounds/tiled/Grey/seamless_light_background_texture.jpg);
 }
 
 .newsApp__item__title a,
@@ -423,11 +424,11 @@ background-size: 200%;
 }*/
 @keyframes anim_titleDesc_hover {
     0% {
-        background : url(/siteMedia/backgrounds/tiled/grey/seamless_light_background_texture.jpg);
+        background : url(/siteMedia/backgrounds/tiled/Grey/seamless_light_background_texture.jpg);
         opacity : 0.1;
     }
     100% {
-        background : url(/siteMedia/backgrounds/tiled/grey/seamless_light_background_texture.jpg);
+        background : url(/siteMedia/backgrounds/tiled/Grey/seamless_light_background_texture.jpg);
         opacity : 1;
     }
 }

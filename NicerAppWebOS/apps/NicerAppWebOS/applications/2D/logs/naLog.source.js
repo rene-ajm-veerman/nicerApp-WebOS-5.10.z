@@ -22,17 +22,21 @@ var naLog = {
                     html +=
                         '<div class="naIPlog_entry '+dit.htmlClasses+'">';
                     if (typeof dit.msgProcessed=='string') {
+                        var dt = new Date(parseInt(dit.millisecondsSinceEpoch)),
+                        dt = dt.format("yyyy-mm-dd HH:MM:ss.l");
                         html +=
                             '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).show(\'slow\');" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).hide(\'normal\');">'
-                                +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
+                                +'<span class="naIPlog_millisecondsSinceEpoch">'+dt
                                 +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
                             +'</span><br>'
                             +'<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'">'+dit.msg+'</span>'
                     } else if (dit.msgProcessed.onclickHTML) {
+                        var dt = new Date(parseInt(dit.millisecondsSinceEpoch)),
+                        dt = dt.format("yyyy-mm-dd HH:MM:ss.l");
                         html +=
                             '<span class="naIPlog_header" onmouseover="$(\'.naIPlog_stacktrace\',$(this).parent()).stop(true,true,false).show(\'slow\');" onmouseout="$(\'.naIPlog_stacktrace\',$(this).parent()).stop(true,true,false).hide(\'normal\');">'
-                                +'<span class="naIPlog_millisecondsSinceEpoch">'+(new Date(parseInt(dit.millisecondsSinceEpoch)).toString())+'.'+na.m.secondsToTime(parseInt(dit.millisecondsSinceEpoch)).milliSeconds+'</span> '
+                                +'<span class="naIPlog_millisecondsSinceEpoch">'+dt
                                 +'<span class="naIPlog_timezoneOffset">'+dit.dateTZ+'</span> '
                                 +'<span class="naIPlog_address">'+dit.ip+'</span>'
                                 //+'<span class="naIPlog_referrer">referrer : '+dit.referrer+'</span> '
@@ -59,9 +63,6 @@ var naLog = {
             $('#siteContent > .vividDialogContent').append(html);
             na.desktop.settings.visibleDivs.push ('#siteToolbarLeft');
             na.desktop.resize();
-            naLog.settings.intervalReload = setInterval(function() {
-                naLog.reload();
-            }, 10 * 60 * 1000)
             //debugger;
         }, 100);
     },

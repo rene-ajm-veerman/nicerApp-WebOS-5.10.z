@@ -793,7 +793,6 @@ class naVividButton_icon_svg {
     }
 
     async redraw (b) {
-        debugger;
         var
         t = this,
         cs = b.btnCode.states[b.state],
@@ -823,7 +822,6 @@ class naVividButton_icon_svg {
                 loadLayer = async function () {
                     let result;
                     try {
-                        debugger;
                         var dt = t.changedDateTime_current();
                         result = await $.ajax ({
                             type : 'GET',
