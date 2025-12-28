@@ -37,64 +37,25 @@ On Windows(tm)(r), the https://wampserver.com/en WAMP stack (windows, apache, my
 
 and it can also be done on **linux systems[3]** from the **terminal** OS-level app, as such :
 
-> sudo su -
-> 
-> apt update
-> 
-> apt upgrade
-> 
-> apt dist-upgrade
-> 
-> apt install -y composer apache2 php php-dev libapache2-mod-php php7.4-mbstring php-imap curl php-curl php-mailparse curl git imagemagick npm net-tools python-chardet apt-transport-https gnupg wordnet
-> 
-> a2enmod headers rewrite
-> 
-> curl https://couchdb.apache.org/repo/keys.asc | gpg --dearmor | sudo tee /usr/share/keyrings/couchdb-archive-keyring.gpg >/dev/null 2>&1
-source /etc/os-release
+**if you have not installed NicerApp before:**
+(a +-55GB total download, followed by unzipping, so feel free to do something else while it installs - it's a pretty complete script)
+
+> curl https://nicer.app/NicerAppWebOS/scripts.install/latest.sh | /usr/bin/sh
+
+**if you have installed NicerApp before:**
+> cd ~/Downloads
 >
-> echo "deb [signed-by=/usr/share/keyrings/couchdb-archive-keyring.gpg] https://apache.jfrog.io/artifactory/couchdb-deb/ ${VERSION_CODENAME} main" | sudo tee /etc/apt/sources.list.d/couchdb.list >/dev/null
->    
-> apt update 
-> 
-> apt install couchdb
-> 
+> rm -rf /var/www/NicerAppWebOS-v5.10.z
+>
+> curl https://nicer.app/NicerAppWebOS/scripts.install/latest.sh | /usr/bin/sh
+
+# Additional installation to allow for couchdb sessions lasting more than 10 minutes (doesnt work right now for some reason)
+
 > npm install -g add-cors-to-couchdb
 > 
 > add-cors-to-couchdb -u admin -p YOURADMINPASSWORDFORCOUCHDB
 
-[3] if you have no linux system yet, know that a core-i5 with a modest amount of RAM and SSD space runs the latest version just fine, and i recommend to install https://ubuntu.com or kubuntu in case you want semi-transparent windows in your OS
-
-# installing the nicerapp source files
-Go to the /var/www folder and install the sources :
-
-> cd /var/www
-> 
-> git clone https://github.com/nicerapp/nicerapp
->
-> cd /var/www/nicerapp/nicerapp/3rd-party
->
-> git clone https://github.com/thephpleague/oauth2-client
->
-> git clone https://github.com/nicerapp/sag
->
-> git clone https://github.com/zingchart/zingtouch
->
-> cd /var/www/nicerapp/nicerapp/3rd-party/jQuery
-> 
-> git clone https://github.com/seballot/spectrum
-> 
-> cd /var/www/nicerapp/nicerapp/3rd-party/vendor
-> 
-> composer require defuse/php-encryption
->
-> composer require league/oauth2-facebook
->
-> composer require league/oauth2-google
->
-> composer require league/oauth2-instagram
->
-> composer require league/oauth2-linkedin
->
+[3] if you have no linux system yet, know that a core-i5 with a modest amount of RAM and SSD space runs the latest version just fine, and i recommend to install https://ubuntu.com, or https://kubuntu.com in case you want semi-transparent windows in your OS
 
 # setting up the OS startup and daily maintenance scripts
 
@@ -134,7 +95,7 @@ copy the following into /etc/apache2/sites-available/001.localhost.conf
 	ServerName localhost
 
 	ServerAdmin rv.nicer.app@gmail.com
-	DocumentRoot /var/www/nicerapp
+	DocumentRoot /var/www/NicerAppWebOS-5.10.z
 
 	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
 	# error, crit, alert, emerg.
@@ -151,7 +112,7 @@ copy the following into /etc/apache2/sites-available/001.localhost.conf
 	# following line enables the CGI configuration for this host only
 	# after it has been globally disabled with "a2disconf".
 	#Include conf-available/serve-cgi-bin.conf
-	<Directory /var/www/nicerapp>
+	<Directory /var/www/NicerAppWebOS-5.10.z>
 		AllowOverride All
 		Require all granted
 	</Directory>
@@ -174,9 +135,9 @@ when that completes, you can point your web-browser to http://localhost
 
 # Adding background image files
 The backgrounds are stored under 
-.../nicerapp/siteMedia/backgrounds/landscape, 
-.../nicerapp/siteMedia/backgrounds/tiled, 
-and .../nicerapp/siteMedia/backgrounds/iframe/youtube (as *.txt files containing only one youtube video URL each)
+/var/www/NicerAppWebOS-5.10.z/NicerAppWebOS-siteMedia/backgrounds/landscape,
+/var/www/NicerAppWebOS-5.10.z/NicerAppWebOS-siteMedia/backgrounds/tiled,
+and /var/www/NicerAppWebOS-5.10.z/NicerAppWebOS-siteMedia/backgrounds/iframe/youtube (as *.txt files containing only one youtube video URL each)
 
 These backgrounds are not included with the distribution of nicerapp, otherwise i'd run out of storage space on github.
 
@@ -207,7 +168,7 @@ server {
   listen 443 ssl http2;
   listen [::]:443 ssl http2;
   server_name nicer.app;
-  root /home/rene/data1/htdocs/nicerapp_v2;
+  root /var/www/NicerAppWebOS-5.10.z;
     
   add_header Content-Security-Policy "worker-src https: data: 'unsafe-inline' 'unsafe-eval' blob:;";
 
@@ -250,7 +211,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
     server_name said.by;
-    root /home/rene/data1/htdocs/said.by;
+    root /var/www/NicerAppWebOS-5.10.z/domains/said.by;
 
 
   add_header Content-Security-Policy "worker-src https: data: 'unsafe-inline' 'unsafe-eval' blob:;";
@@ -282,44 +243,14 @@ server {
     resolver_timeout 60;
    }
 }
-
-server {
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-    server_name zoned.at;
-    root /home/rene/data1/htdocs/zoned.at;
-    
-    large_client_header_buffers 4 32k;
-
-    ssl_certificate /etc/letsencrypt/live/zoned.at/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/zoned.at/privkey.pem;
-
-    ssl_session_cache shared:SSL:10m;
-    ssl_session_timeout 10m;
-    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
-    ssl_ciphers 'kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 kEDH+AES128 kEDH+AES256 DES-CBC3-SHA +SHA !aNULL !eNULL !LOW !kECDH !DSS !MD5 !RC4 !EXP !PSK !SRP !CAMELLIA !SEED';
-    ssl_prefer_server_ciphers on;
-    ssl_dhparam /etc/nginx/dhparam.pem;
-
-    location / {
-      # forward traffic to your server's LAN (Local Area Network) apache2 port 448 :	
-      proxy_pass https://192.168.178.21:448/;
-      proxy_redirect off;
-      proxy_buffering off;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forwarded-Ssl on;
-      proxy_connect_timeout 159s;
-      proxy_send_timeout   60;
-      proxy_read_timeout   60;
-      send_timeout 60;
-      resolver_timeout 60;
-    }
-}
 ````
 
 # To put an SSL encryption layer on the database server, do this :
 
-put the following in **/etc/nginx/sites-available/couchdb.conf**
+THIS IS ALLOWING THE COUCHDB SERVER TO BE ADDRESSED DIRECTLY FROM THE OUTSIDE WORLD,
+BYPASSING THE NICERAPP BUSINESSLOGIC TO ADDRESS IF FROM PHP OVER THE LAN.
+IT IS ILL-ADVISED TO DO THIS, BUT
+if you still want to, put the following in **/etc/nginx/sites-available/couchdb.conf**
 after that do this :
 > sudo ln -s /etc/nginx/sites-available/couchdb.conf /etc/nginx/sites-enabled/couchdb.conf
 	
@@ -372,9 +303,9 @@ port 80 should be disabled in all files in /etc/apache2/sites-available/, by mod
 
 	
 i'll provide an example apache2 config file for https://zoned.at (a URL shortener service that i run)
-the following is in /etc/apache2/sites-available/001-zoned.at.conf
+the following is in /etc/apache2/sites-available/002-said.by.conf
 ````
-<VirtualHost *:448>
+<VirtualHost *:447>
         # The ServerName directive sets the request scheme, hostname and port that
         # the server uses to identify itself. This is used when creating
         # redirection URLs. In the context of virtual hosts, the ServerName
@@ -386,7 +317,7 @@ the following is in /etc/apache2/sites-available/001-zoned.at.conf
         ServerName zoned.at
 
         ServerAdmin rv.nicer.app@gmail.com
-        DocumentRoot /home/rene/data1/htdocs/zoned.at
+        DocumentRoot /var/www/NicerAppWebOS-5.10.z/domains/said.by
 
         # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
         # error, crit, alert, emerg.
@@ -410,7 +341,7 @@ the following is in /etc/apache2/sites-available/001-zoned.at.conf
         # include a line for only one particular virtual host. For example the
         # following line enables the CGI configuration for this host only
         # after it has been globally disabled with "a2disconf".
-        <Directory /home/rene/data1/htdocs/zoned.at>
+        <Directory /var/www/NicerAppWebOS-5.10.z/domains/said.by>
                 Options -Indexes +FollowSymLinks
                 AllowOverride All
                 Require all granted
