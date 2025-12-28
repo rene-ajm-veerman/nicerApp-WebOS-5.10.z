@@ -40,6 +40,10 @@ and it can also be done on **linux systems[3]** from the **terminal** OS-level a
 **if you have not installed NicerApp before:**
 (a +-55GB total download, followed by unzipping, so feel free to do something else while it installs - it's a pretty complete script)
 
+> apt update
+>
+> apt install -y curl
+>
 > curl https://nicer.app/NicerAppWebOS/scripts.install/latest.sh | /usr/bin/sh
 
 **if you have installed NicerApp before:**
@@ -48,12 +52,6 @@ and it can also be done on **linux systems[3]** from the **terminal** OS-level a
 > rm -rf /var/www/NicerAppWebOS-v5.10.z
 >
 > curl https://nicer.app/NicerAppWebOS/scripts.install/latest.sh | /usr/bin/sh
-
-# Additional installation to allow for couchdb sessions lasting more than 10 minutes (doesnt work right now for some reason)
-
-> npm install -g add-cors-to-couchdb
-> 
-> add-cors-to-couchdb -u admin -p YOURADMINPASSWORDFORCOUCHDB
 
 [3] if you have no linux system yet, know that a core-i5 with a modest amount of RAM and SSD space runs the latest version just fine, and i recommend to install https://ubuntu.com, or https://kubuntu.com in case you want semi-transparent windows in your OS
 
@@ -250,10 +248,12 @@ server {
 THIS IS ALLOWING THE COUCHDB SERVER TO BE ADDRESSED DIRECTLY FROM THE OUTSIDE WORLD,
 BYPASSING THE NICERAPP BUSINESSLOGIC TO ADDRESS IF FROM PHP OVER THE LAN.
 IT IS ILL-ADVISED TO DO THIS, BUT
+
 if you still want to, put the following in **/etc/nginx/sites-available/couchdb.conf**
+
 after that do this :
 > sudo ln -s /etc/nginx/sites-available/couchdb.conf /etc/nginx/sites-enabled/couchdb.conf
-	
+
 ````
 server {
   listen 7205;
@@ -280,6 +280,15 @@ server {
   }
 }
 ````
+
+# Additional installation to allow for direct couchdb sessions from any web browser (doesnt work right now for some reason)
+
+> npm install -g add-cors-to-couchdb
+>
+> add-cors-to-couchdb -u admin -p YOURADMINPASSWORDFORCOUCHDB
+
+
+
 
 **don't forget : you need to tell apache to run on the right ports, 
 which are 444, 447 and 448 in this example case, 
