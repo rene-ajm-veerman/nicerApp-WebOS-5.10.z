@@ -1,10 +1,10 @@
 {
     "whatsThis" : "NicerApp WebOS v5.10.0-beta4",
     "copyright" : "Copyright (C) 2002-2025 \"Rene A.J.M. Veerman\" [rene.veerman.netherlands@gmail.com]",
-    "version" : "5.10.0-beta4",
+    "version" : "5.10.1",
     "majorVersion" : {
         "firstCreated" : "2002 around January if i'm not mistaken.",
-        "lastModified" : "2025-12-25(Thursday) +-04:00 CET Amsterdam.NL's timezone."
+        "lastModified" : "2025-12-28(Sunday) +-03:26 CET Amsterdam.NL's timezone."
     },
     "supportedBrowsers" : [
         {
