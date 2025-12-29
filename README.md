@@ -397,8 +397,8 @@ or (re-initialize all except news)
 https://nicer.app/NicerAppWebOS/db_init.php?doLog=y&doTree=no&doThemeData=y&resetThemeData=no&doMenu=y&doAPI_imageSearch=y&doApp_news=no&doApp_webmail=y&doApp_3D_fileExplorer=y
 
 # Modifying the HTML for a nicerapp site
-This is done by modifying .../nicerapp/domainConfigs/YOUR_DOMAIN_NAME/index.template.php
-and .../nicerapp/domainConfigs/YOUR_DOMAIN_NAME/desktop.source.js
+This is done by modifying .../NicerAppWebOS-5.10.z/domains/MYDOMAIN_TLD/domainConfig/index.template.php
+and .../NicerAppWebOS-5.10.z/domains/MYDOMAIN_TLD/domainConfig//desktop.source.js
 
 # Adding new URLs and apps into a nicerapp site
 All apps and pages on a nicerapp site are loaded through a URL that looks somewhat like this :

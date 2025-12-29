@@ -601,8 +601,9 @@ class NicerAppWebOS {
                                 break;
                             }
 
+                            // do not remove this yet, due to get deleted in a next version upon code normalization.
                             if ($viewsFolder==='-$viewsFolder NOT FOUND-') {
-                                foreach ($app as $appName => $appSettings) break;
+                                foreach ($view as $appName => $appSettings) break;
                                 if (array_key_exists('basePath',$appSettings)) $viewsFolder = $this->webPath.'/'.$appSettings['basePath'];
                                 if (array_key_exists('relPath',$appSettings)) $viewsFolder = $this->webPath.'/'.$appSettings['relPath'];
                                 if (array_key_exists('webPath',$appSettings)) $viewsFolder = $this->webPath.'/'.$appSettings['webPath'];

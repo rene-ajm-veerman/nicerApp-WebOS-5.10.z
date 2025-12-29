@@ -37,4 +37,25 @@ if [ ! -d "/var/www/NicerAppWebOS-v5.10.z" ]; then
   chmod -R 750 ../NicerAppWebOS-tarotSite-decks
   cd ..
   git clone https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z NicerAppWebOS-code
+
+  rm NicerAppWebOS-code/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/cardgame.tarot/appContent/tarotSite/decks
+  ln -s NicerAppWebOS-tarotSite-decks NicerAppWebOS-code/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/cardgame.tarot/appContent/tarotSite/decks
+
+  rm domains/nicer.app/siteMedia
+  ln -s NicerAppWebOS-siteMedia domains/nicer.app/siteMedia
+  chown www-data:www-data domains/nicer.app/siteMedia
+  chmod 750 domains/nicer.app/siteMedia
+
+  mkdir domains/nicer.app/siteData
+  chown www-data:www-data domains/nicer.app/siteData
+  chmod 750 domains/nicer.app/siteData
+
+  rm domains/said.by/siteMedia
+  ln -s NicerAppWebOS-siteMedia domains/said.by/siteMedia
+  chown www-data:www-data domains/said.by/siteMedia
+  chmod 750 domains/said.by/siteMedia
+
+  mkdir domains/said.by/siteData
+  chown www-data:www-data domains/said.by/siteData
+  chmod 750 domains/said.by/siteData
 fi

@@ -5,7 +5,7 @@ global $naLAN;
 global $naIP;
 global $naIPforDB;
 global $naBrowserInfo;
-//sif ($naLAN) exit ('HTTP ERROR 403 Forbidden - naLAN===true');
+if ($naLAN) exit ('HTTP ERROR 403 Forbidden - naLAN===true');
 
 
 
