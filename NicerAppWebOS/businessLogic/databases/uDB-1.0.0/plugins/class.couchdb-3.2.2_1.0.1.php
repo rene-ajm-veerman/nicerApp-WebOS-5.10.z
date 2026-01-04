@@ -801,11 +801,23 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
 
     public function createDataSet_ip_info() {
         // TODO : error handling
-
         $dataSetName = $this->dataSetName('ip_info');
         try {
             $this->cdb->deleteDatabase ($dataSetName);
         } catch (Exception $e) { echo $e->getMessage(); };
+
+        $rec = [
+            'index' => [
+                'fields' => [ [ 'ip' => 'asc' ] ]
+            ],
+            'name' => 'primaryIndex',
+            'type' => 'json'
+        ];
+        try {
+            $this->cdb->setIndex ($rec);
+        } catch (Exception $e) {
+            if ($this->debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
+        }
 
         $this->cdb->setDatabase($dataSetName, true);
     }

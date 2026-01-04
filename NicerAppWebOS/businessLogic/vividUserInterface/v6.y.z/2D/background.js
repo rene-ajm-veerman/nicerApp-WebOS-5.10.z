@@ -157,7 +157,7 @@ na.backgrounds = na.background = na.bg = {
 
                     if (hit) {
                         if (useRoot)
-                            hits[hits.length] = document.location.origin+bgs[collectionIdx].root+'/'+bgk;
+                            hits[hits.length] = document.location.origin+'/'+bgs[collectionIdx].root+'/'+bgk;
                         else
                             hits[hits.length] = bgk;
                     }

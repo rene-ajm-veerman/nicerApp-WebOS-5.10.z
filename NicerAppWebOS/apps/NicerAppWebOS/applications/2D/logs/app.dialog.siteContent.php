@@ -25,6 +25,7 @@ $naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
         $debugMe = false;
         $cdbDomain = $naWebOS->domainFolderForDB;//str_replace('.','_',$naWebOS->domainFolder);
         $dsn = $cdbDomain.'___ipinfo';
+        //var_dump($dsn);
         $cdb->setDatabase($dsn);
         $r = [];
         //echo '<pre>'; var_dump($call); echo '</pre>';
@@ -39,9 +40,17 @@ $naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
                 'selector' => [ 'ip' => $rec->ip ],
                 'fields' => [ 'ip', 'ip_info' ]
             ];
+            $cdb->setDatabase($dsn);
             $call2 = $cdb->find($findCommand);
+            //echo '<pre>'; var_dump ($call2); echo '</pre>';
 
-            $rec->ipinfo = $call2->body->docs;
+            if (
+                isset($call2)
+                && property_exists($call2,'body')
+                && property_exists($call2->body, 'docs')
+            ) {
+                $rec->ipinfo = $call2->body->docs;
+            }
             $r[] = $rec;
             if ($debugMe) { echo '<pre style="background:rgba(100,0,0,0.555);color:white;border-radius:10px;margin:10px;padding:10px;">'; var_dump($rec); echo '</pre>'; };
         }
@@ -56,6 +65,7 @@ $naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
         $debugMe = false;
         $cdbDomain = $naWebOS->domainFolderForDB;//str_replace('.','_',$naWebOS->domainFolder);
         $dsn = $cdbDomain.'___ipinfo';
+
         $r = [];
         //echo '<pre>'; var_dump($call); echo '</pre>'; return;
         //$b = json_decode(json_encode($call),true);
@@ -68,14 +78,23 @@ $naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
             $dat = $cdb->get(urlencode($rec->id));
             //echo '<pre style="background:rgba(100,0,0,0.555);color:white;border-radius:10px;margin:10px;padding:10px;">'; var_dump($dat); echo '</pre>';
 
+
             $findCommand = [
                 'selector' => [ 'ip' => $dat->body->ip ],
-                'fields' => [ 'ip', 'ip_info' ]
+                'fields' => [ 'ip', 'ip_info' ],
+                'use_index' => [ ]
             ];
             $cdb->setDatabase($dsn);
+
+
             $call2 = $cdb->find($findCommand);
 
-            $dat->body->ipinfo = $call2->body->docs;
+            if (
+                isset($call2)
+                && property_exists($call2,'body')
+                && property_exists($call2->body, 'docs')
+            ) $dat->body->ipinfo = $call2->body->docs;
+
             $r1 = json_decode(json_encode($dat->body));
             $r[] = $r1;
             if ($debugMe) { echo '<pre style="background:rgba(100,0,0,0.555);color:white;border-radius:10px;margin:10px;padding:10px;">'; var_dump($r1); echo '</pre>'; };
@@ -88,6 +107,13 @@ $naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
 $in = &$_GET;
 $fields = [ '_id', 'ip', 'millisecondsSinceEpoch', 'msg', 'referrer', 'stacktrace', 'info', 'htmlClasses', 'dateTZ' ];
 
+
+
+
+
+
+
+
 if (
     $naWebOS->view[$afn]['beginDateTime']
     && $naWebOS->view[$afn]['endDateTime']
@@ -96,7 +122,7 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => [['$gt']=>$naWebOS->view[$afn]['beginDateTime']-1, $naWebOS->view[$afn]['endDateTime']+1]  ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
-        'use_index' => 'primaryIndex'
+        'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
@@ -105,7 +131,7 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => ['$gt' => $naWebOS->view[$afn]['beginDateTime'] - 1] ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
-        'use_index' => 'primaryIndex'
+        'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
@@ -114,7 +140,7 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => ['$lt' => $naWebOS->view[$afn]['endDateTime'] + 1] ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
-        'use_index' => 'primaryIndex'
+        'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);

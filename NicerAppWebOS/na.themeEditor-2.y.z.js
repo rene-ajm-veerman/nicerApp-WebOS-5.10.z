@@ -69,7 +69,7 @@ class naThemeEditor {
         */
         if (!na.site.c.menus['#textFontFamily'])
             na.site.c.menus['#textFontFamily'] =
-                new naVividMenu ($('#textFontFamily')[0], true);
+                new CascadingMenu ($('#textFontFamily')[0]);
 
 
         $('#textFontFamily')[0].addEventListener('mouseover', function() {

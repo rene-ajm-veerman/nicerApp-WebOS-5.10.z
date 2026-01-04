@@ -260,8 +260,8 @@ na.site = {
                 };
                 na.te = new naThemeEditor();
 
-
                 na.site.reloadMenu({callback:function(){
+                    /* obsoleted v6.y.z code :
                     $('#siteMenu').css ({
                         top : $(window).height()-100,
                         left : 10,
@@ -272,6 +272,26 @@ na.site = {
                         bottom : 0
                     });
                     $('.vividMenu_item').css({opacity:0.0001});
+                    */
+
+                    if (!na.site.c.menus) na.site.c.menus = {};
+                    const menu = $('#siteMenu')[0];
+                    if (menu) na.site.c.menus['#'+menu.id] = new naVividMenu(menu.id);
+                    $('#siteMenu .vividMenu_mainUL, #siteMenu_forReal').css({visibility:'visible'});
+                    $('#siteMenu').css({
+                        top : 'auto',
+                        bottom : 100,
+                        left : 40,
+                        display : 'block',
+                        width : 10,
+                        height : 'fit-content',
+                        position : 'absolute',
+                        zIndex : 99999999999
+                    });
+                    $('.vividMenu_mainUL, #siteMenu').addClass('submenu').css({top:'auto',position:'absolute',display:'none',visibility:'visible',bottom:10,height:'fit-content',zIndex:99999999}).delay(50);
+                    $('#btnShowStartMenu')[0].addEventListener('mouseenter', function () {
+                        $('.vividMenu_mainUL, #siteMenu').css({display:'block'})
+                    });
 
                 }});
 
@@ -284,9 +304,10 @@ na.site = {
                         el : $('#siteTaskbar')
                     });
                     $('.vividButton4, .vividButton_icon_50x50, .vividButton_icon_100x100').each(function(idx,el) {
-                        c.buttons['#'+el.id] = new vividUserInterface_2D_button ({ naSite : t, el : el });
+                        if (!c.buttons['#'+el.id]) c.buttons['#'+el.id] = new vividUserInterface_2D_button ({ naSite : t, el : el });
                     });
 
+                    /*
                     $('.vividDialog').each(function(idx,el) {
                         if (!na.site.s.c.zidx) na.site.s.c.zidx = [];
                         na.site.s.c.zidx.push ({
@@ -297,7 +318,7 @@ na.site = {
 
                         var d = new vividUserInterface_2D_dialog ({ naSite : t, el : $(el) });
                         switch (el.id) {
-                            case 'siteTaskbar' : c.taskbar = d; break;
+                            case 'sgiteTaskbar' : c.taskbar = d; break;
                             case 'siteSettingsMenu' : c.settingsMenu = d; break;
                         }
                         if (
@@ -306,6 +327,7 @@ na.site = {
                                 !=='{$div_'+el.id+'}'
                         ) { c.dialogs['#'+el.id] = d; }
                     });
+                    */
                     /*
                     $('#btnSettings_container').hover (function() {
                         clearTimeout(na.site.settings.timeout_showSettingsMenu);
@@ -327,12 +349,12 @@ na.site = {
                         }, parseInt(na.d.g.animationSpeed)+500);
                     });
                     */
-                    $('#siteSettingsMenu').hover(function() {
+                    $('#siteSettingsMenu, #siteSettingsMenu .vividButton').hover(function() {
                         na.site.settings.heldUp['#siteSettingsMenu'] = true;
                         clearTimeout(na.site.settings.timeout_hideSettingsMenu);
                     }, function(evt) {
                         na.site.settings.heldUp['#siteSettingsMenu'] = false;
-                        c.settingsMenu.hide({ naSite : t, checkHeldUp : '#siteSettingsMenu' });
+                        c.dialogs['#siteSettingsMenu'].hide({ naSite : t, checkHeldUp : '#siteSettingsMenu' });
                     });
 
 
@@ -520,43 +542,6 @@ na.site = {
 
     },
 
-    reloadMenu : function (settings) {
-        // only drastically slows things down
-        //na.desktop.resize(null, false);
-        //na.site.onresize ({ reloadMenu:false });
-
-
-        //na.m.waitForCondition ('na.site.reloadMenu() : na.m.HTMLidle() && !na.site.settings.current.startingApps?', function() {
-        na.m.waitForCondition ('na.site.reloadMenu() : na.m.HTMLidle()?', function() {
-            var r =
-                na.m.HTMLidle()
-                //&& !na.site.settings.current.startingApps;
-            return r;
-        }, function() {
-            var
-            callback3x = (settings ? settings.callback : null),
-            callback2b = function () {
-                na.m.log (210, '<UL> & <LI> DATA LOADED FOR #siteMenu', false);
-                na.m.log (210, 'STARTING TO RE-INITIALIZE #siteMenu', false);
-
-                setTimeout (function() {
-                    $('#siteMenu').css({zIndex:800*1000});
-                    na.site.settings.menus['#siteMenu'] = new naVividMenu($('#siteMenu')[0], function(menu) {
-                        na.m.log (210, 'DONE RE-INITIALIZING #siteMenu', false);
-                        var topLevelItemCount = $('.vividMenu_mainUL > li', menu).length;
-                        //debugger;
-
-                        if (settings) settings.naVividMenu_menuInitialized = menu;
-                        if (typeof callback3x=='function') callback3x (settings);
-                    });
-                }, 50);
-            };
-
-            na.site.reloadMenu_reOrganise (callback2b);
-            na.site.renderAllCustomHeadingsAndLinks();
-        }, 50);
-    },
-
     onresize : function(settings) {
         $('#siteBackground, #siteBackground iframe, #siteBackground img, #siteBackground div').css({
             width : $(window).width(),
@@ -735,61 +720,6 @@ na.site = {
         */
     },
 
-    reloadMenu_reOrganise : function(callback4a) {
-
-        if (!$('#siteMenu_vbChecker')[0]) $('#siteMenu').append('<div id="siteMenu_vbChecker" class="vividButton vividButton_text vividMenu_item" theme="'+$('#siteMenu').attr('theme')+'" style="opacity:0.0001;position:absolute;">abc XYZ</div>');
-
-        var
-        fncn = 'na.site.reloadMenu_forTheFirstTime(callback)',
-        menuItemWidth = $('#siteMenu_vbChecker').outerWidth(),
-        numRootItems = $('#siteMenu').width() / menuItemWidth,
-        nri = Math.floor(numRootItems) > 2 ? Math.floor(numRootItems) : 1,
-        mlp = '<li class="contentMenu"><a class="contentMenu" href="-contentMenu-">-contentMenu-</a></li>',
-        contentMenu = $('#app_mainmenu li')[0] ? '<li class="contentMenu_populated">'+$('#app_mainmenu li')[0].innerHTML+'</li>' : '';
-
-        var
-        widest = { rootItems : 0, layout : null },
-        hit = { rootItems : 0, layout : null };
-
-        $('.vividMenu_layout').each (function(idx,layout) {
-            var
-            iw = parseInt($(layout).attr('itemsLevel1'));
-
-            if (iw > widest.rootItems) widest = { rootItems : iw, layout : layout };
-            if (iw === nri) hit = { rootItems : iw, layout : layout };
-        });
-        if (!hit.layout) hit = widest;
-
-        var
-        menu = $('#siteMenu'),
-        items = $('.vividMenu_mainUL', menu),
-        segs = $('.vividMenu_segments', menu);
-        $('.vividMenu_item', menu).remove();
-
-        items.html(hit.layout.innerHTML);
-        $('.subMenu, .vividMenu_subMenuPanel', items).each(function (idx, subMenu) {
-            var
-            smID = '#subMenu__'+$(subMenu).attr('subMenuID');
-            //smID = '.subMenu[submenuid="'+$(subMenu).attr('subMenuID')+'"]'; // only to be used when experiencing DNS problems
-            items.html (
-                items[0].innerHTML.replace( subMenu.outerHTML, $(smID)[0].outerHTML )
-            );
-        });
-
-        var
-        menu = items[0].innerHTML,
-        p1 = menu.indexOf(mlp),
-        mt = menu.substr(0,p1) + contentMenu + menu.substr(p1+mlp.length);
-
-        items[0].innerHTML = mt;
-        var il1 = parseInt($('#siteMenu ul').attr('itemslevel1'));
-        //if (mt.indexOf('-contentMenu-')===-1) $('#siteMenu ul').attr('itemslevel1', ''+(il1-1));
-        //debugger;
-
-        na.site.transformLinks ($('#siteMenu_items')[0]);
-        if (typeof callback4a=='function') callback4a ( menu );
-    },
-
     changeBackground : function () {
         na.m.log (2650, 'next background will be searched among "'+na.site.globals.backgroundSearchKey+'" candidates.');
         na.backgrounds.next ('#siteBackground', na.site.globals.backgroundSearchKey, null, true);
@@ -873,7 +803,7 @@ na.site = {
                     $('#siteRegistration').fadeOut('normal');
                     if (typeof callback=='function') callback(false);
                     $('#siteLogin').css({opacity:1}).fadeOut('normal', 'swing', function () {
-                        var lfMsg = (
+                        var lfMsg = na.site.formatFailMsg(
                             na.site.globals.hasDB
                             ? 'Login failed. Please try again.'
                             : 'Logged in as "Guest" because there is currently no database architecture available.'
@@ -911,6 +841,10 @@ na.site = {
             }
         };
         $.ajax(ac);
+    },
+
+    formatFailMsg : function (m) {
+        return '<div class="vividDialogPopup_background">&nbsp;</div>'+m;
     },
 
 
@@ -1719,18 +1653,28 @@ na.site = {
 
         if ( !$('#btnShowStartMenu')[0].naInitializedAlreadyHere ) {
             $('#btnShowStartMenu').mouseenter (function(evt) { // in honor of the coding language 'Python', a language like Ruby, which I'll one day use for the installation scripts of NicerAppWebOS.
-                var evt2 = $.extend( {}, evt);
-                evt2.currentTarget = $('#siteMenu__0')[0];
-                na.site.c.menus['#siteMenu'].currentEl = evt2.currentTarget;
-                na.site.c.menus['#siteMenu'].onmouseover (evt2);
+
+                $('#siteMenu').css({
+                    top : $(window).height() - na.d.g.margin - $('#siteMenu').height(),
+                    left : $('#btnShowStartMenu').offset().left
+                })
+
+                var
+                evt = new Event('mouseover'),
+                //evt2 = $.extend( {}, evt),
+                rel = $('#siteMenu > ul.vividMenu_mainUL > li > ul')[0];
+                evt.currentTarget = rel;
+                rel.dispatchEvent(evt);
+
+                //na.site.c.menus['#siteMenu_forReal'].currentEl = evt2.currentTarget;
+                //na.site.c.menus['#siteMenu_forReal'].onmouseover (evt2);
             });
         }
 
-
         $('.vividMenu'/*, vdc[0]*/).each(function(idx,el){
             if (!na.site.c.menus) na.site.c.menus = {};
-            if (!na.site.c.menus['#'+el.id]) na.site.c.menus['#'+el.id] = new naVividMenu(el)
-       });
+            if (el.id!='siteMenu' && !na.site.c.menus['#'+el.id]) na.site.c.menus['#'+el.id] = new naVividMenu(el);
+        });
 
         $('.noPushState').each(function(idx,el) {
             if (!el.clickHandler_logging) {
@@ -2504,6 +2448,7 @@ na.site = {
 
                 setTimeout (function() {
                     $('#siteMenu').css({zIndex:800*1000});
+                    /*
                     na.site.components.menus['#siteMenu'] = new naVividMenu($('#siteMenu')[0], function(menu) {
                         $('#siteMenu').css ({
                             top : $(window).height()+100,
@@ -2520,8 +2465,9 @@ na.site = {
                         //debugger;
 
                         if (settings) settings.naVividMenu_menuInitialized = menu;
+                    });*/
+                    $('#siteMenu > .vividMenu_mainUL').addClass('submenu');
                         if (typeof callback3x=='function') callback3x (settings);
-                    });
                 }, 50);
             };
 
@@ -2536,8 +2482,8 @@ na.site = {
         var
         fncn = 'na.reloadMenu_forTheFirstTime(callback)',
         menuItemWidth = $('#siteMenu_vbChecker').outerWidth(),
-        numRootItems = $('#siteMenu').width() / menuItemWidth,
-        nri = Math.floor(numRootItems) > 2 ? Math.floor(numRootItems) : 1,
+       numRootItems = ($(window).width()-(2*na.d.g.margin)) / menuItemWidth,
+         nri = Math.floor(numRootItems) > 2 ? Math.floor(numRootItems) : 1,
         mlp = '<li class="contentMenu"><a class="contentMenu" href="-contentMenu-">-contentMenu-</a></li>',
         contentMenu = $('#app_mainmenu li')[0] ? '<li class="contentMenu_populated">'+$('#app_mainmenu li')[0].innerHTML+'</li>' : '';
 
@@ -3607,13 +3553,24 @@ na.site = {
                 if (data.match('status : Failed')) {
                     var msg = 'na.saveTheme() : Could not save settings. Please login again.';
                     na.site.ajaxFail(msg, url);
+                    msg = na.site.formatFailMsg(msg);
 
-                    $('#siteLoginFailed').html(msg).fadeIn('normal', 'swing', function () {
-                        setTimeout (function() {
-                            $('#siteLoginFailed').fadeOut('normal', 'swing');
-                        }, 2 * 1000);
+                    $('#siteLoginFailed')
+                        .css({opacity:0.0001,display:'block',visibility:'visible'})
+                        .delay(50)
+                        .html(msg)
+                        .css({
+                            top : ($(window).height()/2) - ($('#siteLoginFailed').height()/2),
+                            left : ($(window).width()/2) - ($('#siteLoginFailed').width()/2),
+                             opacity : 1,
+                             display : 'none'
+                        })
+                        .fadeIn('normal', 'swing', function () {
+                            setTimeout (function() {
+                                $('#siteLoginFailed').fadeOut('normal', 'swing');
+                            }, 2 * 1000);
 
-                    });
+                        });
                     na.m.log (1451, 'na.saveTheme() : FAILED.');
 
                 } else {
@@ -3686,8 +3643,8 @@ na.site = {
         }
 
         themeData.changeBackgroundsAutomatically = $('#changeBackgroundsAutomatically')[0].checked;
-        themeData.backgroundChange_hours = $('#changeBackgrounds_hours').val();
-        themeData.backgroundChange_minutes = $('#changeBackgrounds_minutes').val();
+        themeData.backgroundChange_hours = $('#backgroundChange_hours').val();
+        themeData.backgroundChange_minutes = $('#backgroundChange_minutes').val();
 
         return themeData;
     },

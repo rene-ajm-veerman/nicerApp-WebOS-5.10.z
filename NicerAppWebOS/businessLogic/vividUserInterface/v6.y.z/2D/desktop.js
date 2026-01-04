@@ -164,16 +164,6 @@ na.desktop = na.d = {
             height : $(window).height()
         });
 
-        $('#siteMenu').css ({
-            top : $(window).height()+100,
-            left : 10,
-        });
-        $('#siteMenu__0').css ({
-            opacity : 0.00001,
-            zIndex : -1,
-            bottom : -100
-        });
-
         if (!na.d.s.visibleDivs.includes('#siteTaskbar')) na.d.s.visibleDivs.push('#siteTaskbar');
         if (!na.d.s.visibleDivs.includes('#siteContent')) na.d.s.visibleDivs.push('#siteContent');
 

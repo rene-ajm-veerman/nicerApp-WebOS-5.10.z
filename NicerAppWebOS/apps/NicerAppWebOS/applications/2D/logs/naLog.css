@@ -5,13 +5,67 @@
     padding : 10px;
     box-shadow : -2px -2px 3px 1px rgba(255,255,255,0.7), 2px 2px 5px 2px rgba(0,0,0,0.7);
     width : fit-content;
+    height : fit-content;
 }
 .naIPlog_header {
-    padding : 20px;
+    padding : 5px;
     padding-left : 0px;
     line-height:2em;
 
 }
+
+div.naIPlog_header {
+    width : fit-content;
+    height : auto;
+}
+div.naIPlog_headerLine   {
+    background : rgba(0,0,0,0.2);
+    border-radius : 10px;
+    width : fit-content;
+    height : fit-content;
+    margin : 5px;
+    display : inline-block;
+    float:left;
+    text-align:center;
+    vertical-align:middle;
+
+}
+div.naIPlog_header div.even {
+    background : rgba(0,0,255,0.2);
+    border-radius : 10px;
+    width : fit-content;
+    height : fit-content;
+    margin : 5px;
+    display:flex;
+    flex-wrap : wrap;
+}
+div.naIPlog_header div.uneven {
+    background : rgba(255,255,255,0.2);
+    border-radius : 10px;
+    width : fit-content;
+    height : fit-content;
+    display:flex;
+    flex-wrap : wrap;
+}
+div.naIPlog_header > div > div {
+    border-radius : 10px;
+    width:fit-content;
+    display : flex;
+    flex-direction : row;
+    justify-items : center;
+    justify-content : center;
+}
+div.naIPlog_header > div > div > div {
+    border-radius : 10px;
+    padding : 5px;
+    margin : 5px;
+    width:fit-content;
+    display : flex;
+    flex-direction : row;
+    justify-items : center;
+    justify-content : center;
+}
+
 .vividPreview {
     z-index:-1;
 }

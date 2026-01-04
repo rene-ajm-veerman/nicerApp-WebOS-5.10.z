@@ -1253,7 +1253,8 @@ class NicerAppWebOS {
     }
 
     public function getSiteMenu() {
-        $contentFile = dirname(__FILE__).'/domainConfigs/'.$this->domainFolder.'/mainmenu.php';
+        global $naWebOS;
+        $contentFile = $naWebOS->domainPath.'/domainConfig/'.$this->domainFolder.'/mainmenu.php';
         //var_dump ($contentFile); exit();
         $content = require_return ($contentFile, false);
         //var_dump ($content); echo '-.0.-'; exit();

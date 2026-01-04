@@ -5,7 +5,9 @@ global $naLAN;
 global $naIP;
 global $naIPforDB;
 global $naBrowserInfo;
+global $naIsBot;
 if ($naLAN) exit ('HTTP ERROR 403 Forbidden - naLAN===true');
+if ($naIsBot) exit ('HTTP ERROR 403 Forbidden - naIsBot===true');
 
 
 

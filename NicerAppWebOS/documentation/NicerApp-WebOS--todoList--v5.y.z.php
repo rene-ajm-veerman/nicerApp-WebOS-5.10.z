@@ -56,7 +56,11 @@ A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<b
     I promise to bring you all some level of CSS animations in the generation config language :)<br/>
     Maybe even a real translation of CSS animations (they're easy to parse), into SVG color and transparency animations! :D</div></li>
 
+    <li class="todoList"><div>(2028) Create a quantum + elemental + molecular editor data-structure and component as business logic code and an initially basic 2D (+3D ThreeJS?) user-interface.</div></li>
+
     <li class="todoList"><div>Create a donations button (again, in collaboration with paypal.com), with monthly goal indicator, for the news app.</div></li>
+
+    <li class="todoList"><div>(2030) Create a bitcoin + stocks + bonds + indexes storage &amp; trading app - with free to use accounts as well - in essence i'd need a bank company name. :-D</div></li>
 
     <li class="todoList"><div>Implement bandwidth throttling in the <a href="https://github.com/NicerEnterprises/NicerApp-WebOS/tree/main/NicerAppWebOS/scripts.install" target="mainBashInstallScript_for_NicerAppWebOS" class="nomod noPushState">main Bash install script</a>.</div></li>
 
