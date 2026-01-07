@@ -1050,7 +1050,8 @@ class naThemeEditor {
     }
     
     specificitySelected  (event) {
-        var sn = $(event.currentTarget).html();
+        var sn = $(event.currentTarget).html() || event;
+        debugger;
         if (!sn) return false;
 
         na.te.s.c.specificity = null;
@@ -1069,6 +1070,8 @@ class naThemeEditor {
             } else {
                 na.site.c.buttons['#btnDeleteSpecificity'].enable();
             }
+
+            //na.site.setSpecificity();
 
             na.site.loadTheme (function () { // **POSSIBLY** NOT NEEDED
                 var btn = $('#'+na.te.s.c.selectedButtonID)[0];

@@ -1399,9 +1399,9 @@ class NicerAppWebOS {
         //echo '<pre>';var_dump ($selectors); exit();
 
 
-
+        $mySpecificityName = null;
         foreach ($selectors2 as $idx => $selector) {
-            if ($debug) { echo '<pre style="color:yellow;background:blue;padding:5px;margin:10px;border-radius:10px;"><h2>'.$idx.'</h2>'.PHP_EOL.PHP_EOL; var_dump ($selector); echo '</pre>'.PHP_EOL.PHP_EOL; }
+            if ($debug) { echo '<pre style="color:yellow;background:blue;padding:5px;margin:10px;border-radius:10px;"><h2>'.$idx.'</h2>'.PHP_EOL.PHP_EOL.json_encode ($selector,JSON_PRETTY_PRINT).'</pre>'.PHP_EOL.PHP_EOL; }
             if (
                 !array_key_exists('has_read_permission',$selector)
                 || !$selector['has_read_permission']
@@ -1423,14 +1423,16 @@ class NicerAppWebOS {
             $hasData = false;
             if (is_array($css)) {
                 foreach ($css['themes'] as $themeName => $theme) { $hasData = true; break; };
-                $specificityName = (
+
+                if (!$mySpecificityName)
+                $mySpecificityName = (
                     array_key_exists($themeName, $css['themes'])
                     && array_key_exists('specificityName', $css['themes'][$themeName])
                     ? $css['themes'][$themeName]['specificityName']
                     : $selector['specificityName']
                 );
             } else {
-                $specificityName = $selector['specificityName'];
+                if (!$mySpecificityName) $mySpecificityName = $selector['specificityName'];
                 $hasData = is_string($css);
             }
             $selectors2[$idx]['hasData'] = $hasData;
@@ -1450,12 +1452,31 @@ class NicerAppWebOS {
                     '$css' => $css,
                     '$hasJS' => $hasJS,
                     '$hasCSS' => $hasCSS,
-                    '$selector' => $selector,
-                    '$selectorL1' => $selectorL1
+                    '$selector' => $selector//,
+                    //'$selectorL1' => $selectorL1
                 ];
                 $this->echoDebugData ($dbg, $fncn.' : 3', 'naDebugData_getPageCSS');
 
             }
+        }
+        foreach ($selectors2 as $idx => $selector) {
+            $css = $this->getPageCSS_specific($selector);
+
+            $hasData = false;
+            if (is_array($css)) {
+                foreach ($css['themes'] as $themeName => $theme) { $hasData = true; break; };
+
+                $specificityName = (
+                    array_key_exists($themeName, $css['themes'])
+                    && array_key_exists('specificityName', $css['themes'][$themeName])
+                    ? $css['themes'][$themeName]['specificityName']
+                    : $selector['specificityName']
+                );
+            } else {
+                $specificityName = $selector['specificityName'];
+                $hasData = is_string($css);
+            }
+
 
             //if (is_array($css)) $css = json_encode($css, JSON_PRETTY_PRINT);
             //$_SESSION['selectorName'] = $selectorNames[$idx];
@@ -1464,7 +1485,10 @@ class NicerAppWebOS {
             if (
                 !$hasJS
                 && $js === true
-                && is_array($css)
+                && (
+                    is_array($css)
+                    || is_string($css)
+                )
                 && array_key_exists('display',$selector)
                 && $selector['display']!==false
             ) {
@@ -1478,7 +1502,7 @@ class NicerAppWebOS {
 
                 $_SESSION['themeName'] = $themeName;
                 $_SESSION['specificityName'] = $selector['specificityName'];
-                if ($debug) { echo '<pre style="color:green">'; var_dump ($css); echo '</pre>'; exit(); }
+                if ($debug) { echo '<pre style="color:green">'; var_dump ($selectors2); echo '</pre>'; exit(); }
 
                 //echo '<pre>'; var_dump ($this); exit();
 
@@ -1496,9 +1520,10 @@ class NicerAppWebOS {
                     //$r .= "\tspecificityName : \"".$specificityName."\",".PHP_EOL;
                     //$r .= "\tspecificityName_revert : \"".$specificityName."\",".PHP_EOL;
                     //echo '<pre style="background:navy;color:lime;border-radius:10px;">'; var_dump ($css); echo '</pre>';
-                    $r .= "\tspecificityName : \"".$specificityName."\",".PHP_EOL;
+                    $r .= "\tspecificityName : \"".$mySpecificityName."\",".PHP_EOL;
                     $r .= "\tspecificityNames : ".json_encode($selectorNames).",".PHP_EOL;
                     $r .= "\tthemesDBkeys : ".json_encode($selectors2, JSON_PRETTY_PRINT).",".PHP_EOL;
+                    $r .= "\tview : ".json_encode($this->view, JSON_PRETTY_PRINT).",".PHP_EOL;
                     $r .= "\tnaLAN : ".($naLAN ? 'true' : 'false').','.PHP_EOL;
                     $r .= "\tnaHasErrors : ".((array_key_exists('naErrors',$_SESSION) && is_string ($_SESSION['naErrors']) && $_SESSION['naErrors']!=='') ? 'true' : 'false').','.PHP_EOL;
                     $r .= "\thasDB : ".($this->hasDB ? 'true' : 'false').PHP_EOL;
@@ -1534,7 +1559,7 @@ class NicerAppWebOS {
                 $ret = $r.$ret;
             };
 
-            if (is_array($css) && !$hasCSS) {
+            if ((is_array($css) || is_string($css)) && !$hasCSS) {
                 //echo '<pre>'; var_dump ($css); exit();
                 $hasCSS = true;
                 foreach ($css['themes'] as $themeName => $theme) { break; };
@@ -1691,11 +1716,12 @@ class NicerAppWebOS {
                         $r .= "\tbackgroundSearchKey : '".$theme['backgroundSearchKey']."',".PHP_EOL;
                         $r .= "\tthemes : ".json_encode($css['themes'], JSON_PRETTY_PRINT).",".PHP_EOL;
                         $r .= "\tthemeName : '".$themeName."',".PHP_EOL;
-                        $r .= "\tspecificityName : \"".$specificityName."\",".PHP_EOL;
+                        $r .= "\tspecificityName : \"".$mySpecificityName."\",".PHP_EOL;
                         //$r .= "\tspecificityName : \"".$specificityName."\",".PHP_EOL;
                         //$r .= "\tspecificityName_revert : \"".$specificityName."\",".PHP_EOL;
                         //$r .= "\tspecificityNames : ".json_encode($selectorNames).",".PHP_EOL;
                         $r .= "\tthemesDBkeys : ".json_encode($selectors2, JSON_PRETTY_PRINT).",".PHP_EOL;
+                        $r .= "\tview : ".json_encode($this->view, JSON_PRETTY_PRINT).",".PHP_EOL;
                         $r .= "\tnaLAN : ".($naLAN ? 'true' : 'false').','.PHP_EOL;
                         $r .= "\tnaHasErrors : ".((array_key_exists('naErrors',$_SESSION) && is_string ($_SESSION['naErrors']) && $_SESSION['naErrors']!=='') ? 'true' : 'false').','.PHP_EOL;
                         $r .= "\thasDB : ".($this->hasDB ? 'true' : 'false').PHP_EOL;
@@ -1784,6 +1810,10 @@ class NicerAppWebOS {
         $viewFolder = '[UNKNOWN VIEW]';
 
         //echo '<pre>$this->view='; var_dump ($this->view); exit();
+        if (is_string($this->view)) {
+            $this->view = json_decode($this->view, true);
+        }
+
         if (is_array($this->view) && !is_null($this->view)) {
             foreach ($this->view as $viewFolder => $viewSettings) break;
             //$viewFolder = preg_replace('/.*\//','', $viewFolder);
@@ -1813,6 +1843,7 @@ class NicerAppWebOS {
                 || $_SERVER['REQUEST_URI'] !== $_SESSION['url']
             ) && (
                 strpos($_SERVER['REQUEST_URI'], 'pageSpecificSettings.php')===false
+                || strpos($_SERVER['REQUEST_URI'], 'saveTheme.php')===false
             )
         ) {
             if (is_array($this->view) && !is_null($this->view)) {
@@ -1821,18 +1852,7 @@ class NicerAppWebOS {
                 //var_dump ($viewFolder); exit();
                 $url = '/view/'.encode_base64_url(json_encode($this->view));
                 //if ($viewFolder=='/') $url = '/';
-            } /*else if (array_key_exists('REQUEST_URI',$_SERVER)) {
-                // use defaults if not in proper format (when URL uses HTTP URL parameters for instance)..
-                $viewName = '[front page]';
-                $url = '/';
-
-                // check if SEO url exists in proper format
-                $uri = $_SERVER['REQUEST_URI'];
-                if ($uri!=='' && strpos('?', $uri)===false) {
-                    $viewName = '[app page]';
-                    $url = $uri;
-                }
-            } */else {
+            } else {
                 $viewFolder = '[front page]';
                 $url = '/';
 
@@ -1844,6 +1864,7 @@ class NicerAppWebOS {
         }
 
         $appName = preg_replace('/.*\//','',$viewFolder);
+        //var_dump ($_SESSION);        var_dump ($this->view);        var_dump ($appName);        var_dump ($viewFolder);        die();
         //if ($debug) { echo '<pre>'; var_dump ($url); echo PHP_EOL; var_dump ($this->view); echo '</pre>'.PHP_EOL; }
         /*if ($viewFolder!=='') {
             $appName = preg_replace('/.*\//','',$viewFolder);
@@ -2220,6 +2241,8 @@ class NicerAppWebOS {
         ];
     }
 
+
+
     public function getPageCSS_specific($selector) {
         $debug = $this->debugThemeLoading;
         $cdbFunctional1a = true;
@@ -2237,8 +2260,8 @@ class NicerAppWebOS {
         }
 
         unset ($selector['display']);
-        //unset ($selector['has_read_permission']);
-        //unset ($selector['has_write_permission']);
+        unset ($selector['has_read_permission']);
+        unset ($selector['has_write_permission']);
         unset ($selector['permissions']);
 
         /*

@@ -126,6 +126,7 @@ $rec2 = array (
     'theme' => $_POST['theme'],
     'textBackgroundOpacity' => floatval($_POST['textBackgroundOpacity']),
     'themeSettings' => json_decode($_POST['themeSettings'], true),
+    'view' => json_decode($_POST['view'], true),
     'apps' => json_decode($_POST['apps'], true),
     'backgroundSearchKey' => $_POST['backgroundSearchKey'],
     'background' => $_POST['background'],
@@ -214,7 +215,7 @@ if (!isset($_SESSION) || !is_array($_SESSION) || !array_key_exists('selectors',$
         if ($selector['specificityName']===$_POST['specificityName']) $sel = $selector;
     }
     //die();
-    //var_dump ($selector);    var_dump ($sel);    var_dump ($_POST);    die();
+    //var_dump ($selectors);    var_dump ($sel);    var_dump ($_POST);    die();
 
     if ($debug) { echo '$sel='; var_dump ($sel); }
     if (!array_key_exists('permissions',$sel)) {

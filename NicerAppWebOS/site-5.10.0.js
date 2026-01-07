@@ -408,11 +408,11 @@ na.site = {
                         menusUseRainbowPanels : 'true',//$('#menusUseRainbowPanels')[0].checked ? 'true' : 'false',
                         dialogs : {},
                         apps : tApp,
-                        //view : na.site.components.app,
+                        view : na.site.globals.view,
                         textBackgroundOpacity : 0.4//parseInt($('#textBackgroundOpacity').val()) / 100
                     };
 
-                    if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
+                    //if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
                     if (s.role) themeData.role = s.role;
                     if (s.user) themeData.user = s.user;
                     if (s.specificityName) themeData.specificityName = s.specificityName;
@@ -2685,6 +2685,7 @@ na.site = {
             ) continue;
             var l = i;
         }
+        var selectMe = false;
         for (var j in na.site.globals.themesDBkeys) {
             var i = parseInt(j);
             if (
@@ -2701,11 +2702,15 @@ na.site = {
                 .attr('value',i);
 
             //if (!na.site.globals.themesDBkeys[i].hasWritePermission) $(divEl).addClass('disabled');
-            if (na.site.globals.themesDBkeys[i].hasData) $(divEl).addClass('hasData');
+            if (na.site.globals.themesDBkeys[i].hasData) {
+                debugger;
+                $(divEl).addClass('hasData');
+            }
 
             var
-            b = na.site.components.buttons['#btnLockSpecificity'],
+            b = na.site.components.buttons['#btnLockSpecificity'];
             //b1 = b.icon_svg.settings.buttons['#btnLockSpecificity'],
+
             selectMe = (
                 simple
                     ? (
@@ -2720,6 +2725,8 @@ na.site = {
                         : i == l
             );
 
+            if (selectMe) var lastSelected = i;
+
 /*            var selectMe = (
                 simple
                     ? i == l
@@ -2729,20 +2736,24 @@ na.site = {
                     )
             );
 */
-            if (selectMe) {
-                $(divEl).addClass('selected');
-                //$('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.specificityName);
-                na.site.globals.themeDBkeys = na.site.globals.themesDBkeys[i];
-                na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName], function(){na.te.onload('siteContent')});
-                $('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.themeDBkeys.specificityName);
-                na.te.settings.current.specificity = na.site.globals.themeDBkeys;
-                na.m.log (3, 'na.site.setSpecificity() : specificity (simple==='+(simple?'true':'false')+') now set to "'+na.site.globals.themeDBkeys.specificityName+'"')
-                //break; // DO NOT DO THIS! breaks na.site.saveTheme()??
-            };
-
-            //debugger;
             $('.na_themes_dropdown__specificity > .vividDropDownBox_selector > .vividScrollpane').append($(divEl).clone(true,true));
+        }
+
+
+        debugger;
+        if (selectMe) {
+            $(divEl).addClass('selected');
+            //$('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.specificityName);
+            na.site.globals.themeDBkeys = na.site.globals.themesDBkeys[lastSelected];
+            na.site.loadTheme_applySettings (na.site.globals.themes[na.site.globals.themeName], function(){na.te.onload('siteContent')});
+            $('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.themeDBkeys.specificityName);
+            na.te.settings.current.specificity = na.site.globals.themeDBkeys;
+            na.m.log (3, 'na.site.setSpecificity() : specificity (simple==='+(simple?'true':'false')+') now set to "'+na.site.globals.themeDBkeys.specificityName+'"')
+            //break; // DO NOT DO THIS! breaks na.site.saveTheme()??
         };
+
+        //debugger;
+
 
         na.te.settings.selectedThemeName = na.site.globals.themeName;
         for (var themeName in na.site.globals.themes) {
@@ -2796,19 +2807,9 @@ na.site = {
             na.te.specificitySelected(evt);
         });
 
-        //$('#siteToolbarThemeEditor .vividScrollpane').not('.vividDropDownBox_selected').css({ overflow : 'visible' });
-
-        //if (!na.m.desktopIdle()) {
             na.te.settings.current.selectedThemeName = na.site.globals.themeName;
-            //$('.themeItem').each(function(idx,ti) {
             $('.themeItem').removeClass('onfocus');
 
-/*
-                $(ti).removeClass('onfocus');
-                if ($(ti).val()==na.te.settings.current.selectedThemeName) {
-                    $(ti).addClass('onfocus');
-                }
-*/
 
             $('.na_themes_dropdown__themes').hover(function() {
                 clearTimeout(na.site.components.timeout_onmouseout_themes);
@@ -2871,36 +2872,7 @@ na.site = {
             });
 
 
-                    var evt = { currentTarget : $('#specificity')[0] };
-                    if (na.site.globals.themesDBkeys) na.te.specificitySelected(evt);
-
-
-
-
-            //});
-        /*} /*else {
-            $('#themes option').each(function(idx,optEl){
-                $('#themeChange_themeName').html('');
-                for (var i=0; i<na.site.globals.themesDBkeys.length; i++) {
-                    var optEl2 = document.createElement('option');
-                    //debugger;
-                    optEl2.value = JSON.stringify(na.site.globals.themesDBkeys[i]);
-                    optEl2.innerHTML = $(optEl).html();
-                    if (optEl.innerHTML==$('.themeItem.onfocus').val()) {
-                        $(optEl2)[0].selected = true;
-                    };
-                    $('#themeChange_themeName')[0].appendChild(optEl2);
-                };
-
-                optEl.selected=false;
-                if (optEl.innerHTML==$('.themeItem.onfocus').val()) {
-                    optEl.selected=true;
-                }
-            });
-
-        }*/
-
-        //na.setSiteLoginLogout();
+            //if (na.site.globals.themesDBkeys) na.te.specificitySelected(na.te.settings.current.specificity.specificityName);
     },
 
     loadTheme : function (callback, theme, doGetPageSpecificSettings, doSwitchSpecificities, specificityName, loadBackground, includeClientOnlyThemes, preserveCurrentTheme, stickToCurrentSpecificity) {
@@ -3456,10 +3428,6 @@ na.site = {
         if (!theme) theme = na.site.globals.themeName;
         na.site.components.running_saveTheme = true;
 
-        if (typeof apps=='object')
-            for (var app in apps) break;
-        else var app = apps;
-
         if (!s) return false;
         if (!theme) theme = $('.na_themes_dropdown__themes > .vividDropDownBox_selected > .vividScrollpane').html();
         na.m.log (1451, 'na.saveTheme() : STARTING.', false);
@@ -3486,11 +3454,14 @@ na.site = {
             menusUseRainbowPanels : 'true',//$('#menusUseRainbowPanels')[0].checked ? 'true' : 'false',
             dialogs : {},
             apps : tApp,
+            view : na.site.globals.view,
             //view : na.site.components.app,
             textBackgroundOpacity : 0.4//parseInt($('#textBackgroundOpacity').val()) / 100
         };
+        debugger;
 
-        if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
+        //if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
+        if (s.app) themeData.app = s.app;
         if (s.role) themeData.role = s.role;
         if (s.user) themeData.user = s.user;
         if (s.specificityName) themeData.specificityName = s.specificityName;
@@ -3515,7 +3486,6 @@ na.site = {
             && s.specificityName.match(/app /)
         ) {
             delete themeData.view;
-            if (app) themeData.app = app;
         }
         if (
             typeof s.specificityName=='string'
@@ -3540,6 +3510,7 @@ na.site = {
         // ENCAPSULATE (ENCODE) json objects for HTTP transport
         themeData.themeSettings = JSON.stringify(themeData.themeSettings);
         themeData.apps = JSON.stringify(Object.assign({},themeData.apps));
+        themeData.view = JSON.stringify(Object.assign({},themeData.view));
         //if (themeData.dialogs.indexOf('+')!==-1) themeData.dialogs = themeData.dialogs.replace(/\+/g, ' ');
         //if (themeData.dialogs.indexOf('\\')!==-1) themeData.dialogs = themeData.dialogs.replace(/\\/g, '');
 

@@ -89,7 +89,11 @@ class naVividMenu {
         var sh = spaceRight > spaceLeft ? spaceRight : spaceLeft;
         var sv = spaceTop > spaceBottom ? spaceTop : spaceBottom;
 
-        submenu.style.width = (sh / 3) + 'px';
+        submenu.style.width = (
+          (sh / 2.5) > parentRect.width * 3
+          ? parentRect.width * 3
+          : sh / 2.5
+        ) + 'px';
 
         const submenuWidth = submenu.offsetWidth;
         const submenuHeight = submenu.offsetHeight;

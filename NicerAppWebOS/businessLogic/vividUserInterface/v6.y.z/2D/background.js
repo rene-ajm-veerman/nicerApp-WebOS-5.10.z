@@ -285,7 +285,7 @@ na.backgrounds = na.background = na.bg = {
                 }
                 if (!url.match(/cracked-surface/)) {
                     na.m.addLogEntry ('Background set to "'+na.site.globals.backgroundSearchKey+'"; '+url, 'naStatus_backgroundChange');
-                    na.site.saveTheme();
+                    if (saveTheme) na.site.saveTheme();
                 };
 /*
             },
