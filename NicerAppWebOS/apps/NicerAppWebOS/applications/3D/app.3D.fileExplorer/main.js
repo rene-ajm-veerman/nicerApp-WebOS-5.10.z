@@ -85,6 +85,8 @@ import { DragControls } from '/NicerAppWebOS/3rd-party/3D/libs/three.js/examples
 
 
                 });
+
+                na.backgrounds.next('#siteBackground', '3D');
                 
                 var 
                 html = 

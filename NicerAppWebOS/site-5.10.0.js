@@ -2701,15 +2701,12 @@ na.site = {
                 .html(na.site.globals.themesDBkeys[i].specificityName)
                 .attr('value',i);
 
-            //if (!na.site.globals.themesDBkeys[i].hasWritePermission) $(divEl).addClass('disabled');
             if (na.site.globals.themesDBkeys[i].hasData) {
-                debugger;
                 $(divEl).addClass('hasData');
             }
 
             var
             b = na.site.components.buttons['#btnLockSpecificity'];
-            //b1 = b.icon_svg.settings.buttons['#btnLockSpecificity'],
 
             selectMe = (
                 simple
@@ -2726,21 +2723,10 @@ na.site = {
             );
 
             if (selectMe) var lastSelected = i;
-
-/*            var selectMe = (
-                simple
-                    ? i == l
-                    : (
-                        na.site.globals.themeSpecificityName === na.site.globals.themesDBkeys[i].specificityName
-                        || na.site.globals.specificityName === na.site.globals.themesDBkeys[i].specificityName
-                    )
-            );
-*/
             $('.na_themes_dropdown__specificity > .vividDropDownBox_selector > .vividScrollpane').append($(divEl).clone(true,true));
         }
 
 
-        debugger;
         if (selectMe) {
             $(divEl).addClass('selected');
             //$('.na_themes_dropdown__specificity > .vividDropDownBox_selected').html (na.site.globals.specificityName);
@@ -2751,9 +2737,6 @@ na.site = {
             na.m.log (3, 'na.site.setSpecificity() : specificity (simple==='+(simple?'true':'false')+') now set to "'+na.site.globals.themeDBkeys.specificityName+'"')
             //break; // DO NOT DO THIS! breaks na.site.saveTheme()??
         };
-
-        //debugger;
-
 
         na.te.settings.selectedThemeName = na.site.globals.themeName;
         for (var themeName in na.site.globals.themes) {
@@ -3458,7 +3441,6 @@ na.site = {
             //view : na.site.components.app,
             textBackgroundOpacity : 0.4//parseInt($('#textBackgroundOpacity').val()) / 100
         };
-        debugger;
 
         //if (s.view) themeData.view = s.view; //else if (s.url) themeData.url = s.url;
         if (s.app) themeData.app = s.app;

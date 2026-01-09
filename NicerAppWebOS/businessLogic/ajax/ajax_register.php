@@ -21,6 +21,7 @@ $ip = (array_key_exists('X-Forwarded-For',apache_request_headers())?apache_reque
 }*/
 
 global $naWebOS;
+global $naIP;
 $cdbDomain = $naWebOS->domainFolderForDB;
 
 $db = $naWebOS->dbsAdmin->findConnection('couchdb');
@@ -31,7 +32,7 @@ $username = $db->translate_plainUserName_to_couchdbUserName ($_POST['loginName']
 $username1 = preg_replace('/.*___/', '', $username);
 
 $security_role = '{ "admins": { "names": [], "roles": ["guests"] }, "members": { "names": [], "roles": [] } }';
-$security_user = '{ "admins": { "names": ["'.$cdbDomain.'___'.$username.'"], "roles": ["'.$cdbDomain.'___Guests", "'.$cdbDomain.'___Users"] }, "members": { "names": ["'.$cdbDomain.'___'.$username.'"], "roles": ["'.$cdbDomain.'___Guests", "'.$cdbDomain.'___Users"] } }';
+$security_user = '{ "admins": { "names": ["'.$username.'"], "roles": ["'.$cdbDomain.'___Guests", "'.$cdbDomain.'___Users"] }, "members": { "names": ["'.$username.'"], "roles": ["'.$cdbDomain.'___Guests", "'.$cdbDomain.'___Users"] } }';
 
 $uid = 'org.couchdb.user:'.$username;
 $got = true;
@@ -66,8 +67,9 @@ if (!$got) {
             '_id' => $id,
             'name' => $username,
             'password' => $_POST['pw'],
-            'realname' => $username,
+            'realname' => $_POST['loginName'],
             'email' => $_POST['email'],
+            'ip' => $naIP,
             'roles' => [
                 $cdbDomain.'___Guests',
                 $cdbDomain.'___Users'
@@ -94,7 +96,7 @@ try {
 } catch (Exception $e) {
     if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
 }
-if ($debug) echo '<pre style="color:green">'; var_dump($call); echo '</pre>'.PHP_EOL;
+if ($debug) { echo '<pre style="color:green">'; var_dump($call); echo '</pre>'.PHP_EOL; };
 
 $rec1_id = cdb_randomString(20);
 $do = false; try { $doc = $cdb->get($rec1_id); } catch (Exception $e) { $do = true; };

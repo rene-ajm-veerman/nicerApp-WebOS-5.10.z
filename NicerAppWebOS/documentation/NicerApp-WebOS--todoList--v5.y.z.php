@@ -5,18 +5,18 @@
 
 <h1 class="contentSectionTitle2"><span class="contentSectionTitle2_span">NicerApp WebOS Development Direction</span></h1><br/><br/>
 
-<p class="backdropped" style="width:30%"><b>Last modified : 2025-11-01-Saturday 12:05CET Amsterdam.NL</b></p>
+<p class="backdropped" style="width:30%"><b>Last modified : 2026-01-07-Wednesday 02:03CET Amsterdam.NL</b></p>
 <p class="backdropped" style="width:30%">
 The yearly release stage of a new <a href="https://github.com/Rene-AJM-Veerman/NicerApp-WebOS-5.10.z">stable version</a> of NicerApp WebOS is always Dec 1st - Dec 24th.<br/>
 A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<br/>
 </p>
 
 <ol class="todoList" style="width:30%; width:content-width;">
-    <li class="todoList"><div>(2025) Fix the final bugs in vividMenu.onmouseover(), vividMenu.onmouseout(), theme handling and in the theme editor.</div></li>
+    <li class="todoList"><div>(2026) Improve /logs (statistics and analytics)</div></li>
 
-    <li class="todoList"><div>(2025) (DONE) Add statistics/analytics to NicerApp</div></li>
+    <li class="todoList"><div>(2026) Fix final bugs in said.by/me document handling</div></li>
 
-    <li class="todoList"><div>(2025) Start on .../logic.databases/uDB-2.0.0, to be based on .../logic.databases/generalizedDatabasesAPI-1.0.0
+    <li class="todoList"><div>(2026) Start on .../logic.databases/uDB-2.0.0, to be based on .../logic.databases/generalizedDatabasesAPI-1.0.0
         <a href="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-uDB.png" class="nomod noPushState" target="tl-udb-1"><img src="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-uDB.png" style="width:320px"/></a>
         <a href="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-taskManager.png" class="nomod noPushState" target="tl-udb-1"><img src="/NicerAppWebOS/documentation/__README__documentation/v5.10.z/v5.10.z-taskManager.png" style="width:320px"/></a>
         <ol class="todoList_l1">
@@ -34,15 +34,9 @@ A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<b
         </ol>
     </div></li>
 
-    <li class="todoList"><div>(2026) Upgrade the way backgrounds are selected.
-        <ol class="todoList_l1">
-            <li class="todoList_l1"><div>(2026) Add the ability to specify a rectangle somewhere on the screen to be managed by desktop.js.</div></li>
-
-            <li class="todoList_l1"><div>(2026) Revamp /backgroundsBrowser into such a rectangle.</div></li>
-        </ol>
-    </div></li>
-
     <li class="todoList"><div>(2026 to 2027) Complete a <a href="/demo-3D-fileBrowser">3D folders + files structures viewer</a>, linked to all sorts of 2D user interface components/widgets.</div></li>
+
+    <li class="todoList"><div>(2026) Implement <a href="https://stackoverflow.com/questions/10721884/how-to-render-html-to-an-image" class="nomod noPushState" target="sohrhi">rendering from HTML</a> to an <a href="https://developer.chrome.com/blog/headless-chrome/" class="nomod noPushState" target="hc">image</a>, to facilitate pre-fetches with image preview of specific pages on a NicerApp server by other websites.</div></li>
 
     <li class="todoList"><div>(2026) Allow log entries (of console.log in the browser, and all database traffic and error messages on the server) to be logged to a different machine on the LAN than the main server.</div></li>
 

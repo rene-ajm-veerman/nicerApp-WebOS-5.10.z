@@ -17,7 +17,6 @@ import { FirstPersonControls } from "/NicerAppWebOS/3rd-party/3D/libs/three.js/e
 import gsap from "https://unpkg.com/gsap@3.12.2/index.js";
 import { CameraControls, approxZero } from '/NicerAppWebOS/3rd-party/3D/libs/three.js/camera-controls-dev/dist/camera-controls.module.js';// with {type:"module"};
 
-
 /*
   import {
     CSS2DRenderer,
@@ -1542,7 +1541,7 @@ export class na3D_fileBrowser {
                 upDown : 0,
                 columnOffsetValue : 1000,
                 rowOffsetValue : 1000,
-                model : { position : { x : 0, y : 0, z : 0 } },
+                model : { position : new THREE.Vector3(0,0,0) },
                 data : cd.at[cd.k]
             };
             //if (!modded) cd.params.idxPath = it.idxPath;
@@ -1561,6 +1560,8 @@ export class na3D_fileBrowser {
             cd.params.t.items.push (it);
             cd.params.it = it;
             //console.log ('initializeFolderView_walkKey() : '+cd.params.t.items.length+' items initialized.')
+
+            cd.params.ld2[cd.path] = { levelIdx : 1 };
 
             // display files :
             if (cd.params.t.showFiles && it.data.files)
@@ -1590,7 +1591,7 @@ export class na3D_fileBrowser {
                         upDown : 0,
                         columnOffsetValue : 1000,
                         rowOffsetValue : 1000,
-                        model : { position : { x : 0, y : 0, z : 0 } }
+                        model : { position : new THREE.Vector3(0,0,0) }
                     };
 
                     if (!cd.params.t.ld3) cd.params.t.ld3 = {};
@@ -1914,7 +1915,6 @@ export class na3D_fileBrowser {
             var p1 = t.ld4[i].substr(1).split("/");
 
             //setTimeout (function(p1, i) {
-                /*
                 var colorGradientScheme = {
                     themeName: "naColorgradientScheme_custom__"+p1.join("_"),
                     cssGeneration: {
@@ -1953,13 +1953,14 @@ export class na3D_fileBrowser {
                     }
 
                 var list = naCG.generateList_basic (colorGradientScheme, p1.length);
-                */
-                t.ld3[t.ld4[i]].color =
+                t.ld3[t.ld4[i]].colorList = list;
+
+                /*t.ld3[t.ld4[i]].color =
                     "rgb("
                         +Math.round(50+Math.random()*205)+","
                         +Math.round(50+Math.random()*205)+","
                         +Math.round(50+Math.random()*205)+")";
-                //t.ld3[t.ld4[i]].colorList = list;
+                */
                 t.ld3[t.ld4[i]].p1 = p1;
                 //debugger;
             //}, i + (Math.random() * 200), p1, i);
@@ -1980,7 +1981,7 @@ export class na3D_fileBrowser {
         }, 25);
     }
 
-    projectChildrenOnSphere = function(parentMesh, childMeshes, radius, offset = 0) {
+    projectChildrenOnSphere = function(t,parentMesh, childMeshes, radius, offset = 0) {
         const numChildren = childMeshes.length;
         if (numChildren === 0) return;
 
@@ -2009,7 +2010,7 @@ export class na3D_fileBrowser {
 
             // Orient child to face radially outward
             const outwardTarget = center.clone().add(direction.multiplyScalar(radius * 2));
-            child.lookAt(outwardTarget);
+            //child.lookAt(outwardTarget);
 
             // Optional: lock "up" direction to world Y to prevent unwanted roll
             // child.up.set(0, 1, 0);
@@ -2021,7 +2022,602 @@ export class na3D_fileBrowser {
         });
     }
 
+    projectHierarchy(t, item, radius, radiusFromParent) {
+        const parentMesh = item.model;
+        const childrenItems = t.getChildren(item);
+        if (childrenItems.length === 0) return;
+        if (!radiusFromParent) radiusFromParent = radius * 3;
+
+        const childMeshes = childrenItems.map(it => it.model);
+
+        // Project direct children around this parent (your Fibonacci logic)
+        const numChildren = childMeshes.length;
+        const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+
+        for (let i = 0; i < numChildren; i++) {
+            const phi = Math.acos(1 - 2 * (i + 0.5) / numChildren);
+            const theta = goldenAngle * i;
+
+            const x = Math.cos(theta) * Math.sin(phi);
+            const y = Math.sin(theta) * Math.sin(phi);
+            const z = Math.cos(phi);
+
+            const direction = new THREE.Vector3(x, y, z);
+            const center = parentMesh.position.clone();
+
+            const child = childMeshes[i];
+            child.position.copy(center).add(direction.multiplyScalar(radius));
+
+            // Orient outward (uncomment if needed)
+            // const outwardTarget = center.clone().add(direction.multiplyScalar(radius * 2));
+            // child.lookAt(outwardTarget);
+        }
+
+        // Recurse: For each child, project ITS children around ITS new position
+        const clv = (
+            (childrenItems.length/100) > 0.5
+            ? (childrenItems.length/100)
+            : 0.5
+        )
+        const childRadius = (radius / 1.5) * clv; // Scale down for sub-levels; adjust factor (e.g., /2 for tighter nesting)
+        for (let childItem of childrenItems) {
+            t.projectHierarchy(t, childItem, childRadius);
+        }
+    }
+
     onresize_do_phase2(t, callback) {
+        let fncn = 'na3D.js::onresize_do_phase2()';
+        na.m.log (1555, fncn+' : BEGIN .pos calculations');
+
+        for (var path in t.ld3) {
+            path = path.replace(/\/.*?/,'');
+            var ld3 = t.ld3['/'+path];
+
+            // calculate x,y,z as grid positions in the scene,
+            // to be translated later in this function into scene coordinates.
+            if (path!=="") {
+                for (var i=0; i<ld3.items.length; i++) {
+                    var
+                    it = t.items[ld3.items[i].idx];
+
+                    ld3.rowColumnCount = Math.floor(Math.sqrt(ld3.itemCount));
+                    ld3.cubeSideLengthCount = Math.floor(Math.cbrt(ld3.itemCount));
+                    ld3.rowColumnCount = Math.floor(Math.sqrt(ld3.cubeSideLengthCount));
+
+                    var
+                    pos = { x : 0, xField : 0, y : 0, yField : 0, z : 0 },
+
+                    // 2D view
+                    columnField = 0,
+                    rowField = 0,
+
+                    // 3D view
+                    column = 0,
+                    row = 0,
+                    depth = 0;
+
+                    //if (it.filepath=="siteMedia/backgrounds/tiled/active") debugger;
+                    for (var j=0; j<ld3.items.length; j++) {
+                        var it2 = t.items[ld3.items[j].idx];
+                        if (
+                            (it.parent ? it.parent.idx === it2.parent.idx : false)
+                            && it2.levelIdx <= it.levelIdx
+                        ) {
+                            if (
+                                column >= ld3.cubeSideLengthCount
+                                && row >= ld3.cubeSideLengthCount
+                            ) {
+                                pos.z++;
+                                depth++;
+
+                                column = 0;
+                                row = 0;
+                            } else if (row >= ld3.cubeSideLengthCount) {
+                                pos.z++;
+                                depth++;
+
+                                column = 0;
+                                row = 0;
+
+                                pos.y = 0;
+                                pos.x++;
+                            } else if (column >= ld3.cubeSideLengthCount) {
+                                pos.y++;
+                                pos.x = 0;
+                                row++;
+                                column = 0;
+                            } else {
+                                column++;
+                                pos.x++;
+                            }
+
+                            if (columnField >= ld3.cubeSideLengthCount) {
+                                pos.yField++;
+                                pos.xField = 0;
+                                rowField++;
+                                columnField = 0;
+                            } else {
+                                columnField++;
+                                pos.xField++;
+                            }
+
+                        }
+
+                    };
+
+                    // do NOT move this finalized code...
+                    it.rowField = rowField;
+                    it.columnField = columnField;
+                    it.row = row;
+                    it.column = column;
+                    it.depth = depth;
+                    it.pos = pos;
+                    it.ld3 = ld3;
+                    //console.log ('t334', it.filepath.replace('/0/filesAtRoot/folders','').replace(/\/folders/g,'')+'/'+it.name, columnField, rowField, column, row, depth, pos);
+                    //if (it.name=="gull" || it.name=="owl") debugger;
+                }
+            }
+            //debugger;
+        }
+        na.m.log (1555, fncn+' : END .pos calculations');
+
+        var
+        its = $.extend( [], t.items ),
+        its2 = [],
+        compare = function (a, b) {
+            return a.parent-b.parent;
+        },
+        compare1 = function (a, b) {
+            if (a.it && b.it) {
+                return a.it.level-b.it.level;
+            } else return 0;
+        };
+
+        its.sort (compare1);
+
+
+        var
+        maxLevel = 0;
+
+        na.m.log (1555, fncn+' : BEGIN scene items position calculations');
+        for (var i=0; i<its.length; i++) {
+            if (!t.showFiles && its[i].name.substr(its[i].name.length-4,4)=='.mp3') continue;
+            if (maxLevel < its[i].level) maxLevel = its[i].level;
+            for (var j=0; j<its.length; j++) {
+
+                var
+                name = "",
+                parent = t.hovered || t.items[0];
+
+                while (parent) {
+                    //$("#site3D_label")[0].textContent =
+                    //  t.hovered.object.it.name.replace(/-\s*[\w]+\.mp3/, ".mp3");
+                    /*
+                    var li =
+                        parent.object.it.filepath
+                            .replace("/0/filesAtRoot/folders/","")
+                            .replace("/0/filesAtRoot/folders","");
+                    if (li!=="") li+= "/";
+                    li += parent.object.it.name.replace(/\s*-\s*[-_\w]+\.mp3$/,".mp3")
+                    //l += " ("+parent.object.it.parent.rndz+")";
+                    li = li.replace(/folders\//g, "");
+                    */
+                    var li = its[i].filepath + '/' + its[i].name;
+
+                    /*
+                    var lj =
+                        its[j].filepath
+                            .replace("/0/filesAtRoot/folders/","")
+                            .replace("/0/filesAtRoot/folders","");
+                    if (lj!=="") lj+= "/";
+                    lj += its[j].name.replace(/\s*\-\s*[-_\w]+\.mp3$/,".mp3");
+                    //l += " ("+parent.object.it.parent.rndz+")";
+                    lj = lj.replace(/folders\//g, "");
+                    */
+                    var lj = its[j].filepath + '/' + its[j].name;
+
+                    parent = parent.parent;
+                }
+
+                if (
+                    //its[i].idxPath+"/"+its[i].idx === its[j].idxPath+"/"+its[j].idx
+                    //its[i].idxPath === its[j].idxPath
+                    //its[i].filepath === its[j].filepath
+                    //&& its[i].name === its[j].name
+                    /*
+                    its[i].pos.x === its[j].pos.x
+                    && its[i].pos.y === its[j].pos.y
+                    && its[i].pos.z === its[j].pos.z*/
+                    li === lj
+                ) {
+                    //console.log ('t780', li);
+                    var
+                    ita = {
+                        level: its[i].level,
+                        maxColumn : Math.max( its[i].columnField, its[j].columnField ),
+                        maxRow : Math.max( its[i].rowField, its[j].rowField ),
+                        maxDepth : Math.max ( its[i].depth, its[j].depth )
+                    };
+                    if (ita.maxColumn === its[i].columnField) ita.maxColumnIt = its[i]; else ita.maxColumnIt = its[j];
+                    if (ita.maxRow === its[i].rowField) ita.maxRowIt = its[i]; else ita.maxRowIt = its[j];
+                    if (ita.maxDepth === its[i].depth) ita.maxDepthIt = its[i]; else ita.maxDepthIt = its[j];
+                    its[i].ita = ita;
+                    its[j].ita = ita;
+                    break;
+                    /*
+                    its[i].maxColumnIta = ita;
+                    its[i].maxRowIta = ita;
+                    its[i].maxDepthIta = ita;
+                    its[j].maxColumnIta = ita;
+                    its[j].maxRowIta = ita;
+                    its[j].maxDepthIta = ita;
+                    */
+                    //if (!its2.includes(ita)) its2.push (ita);
+                }
+                if (its[i].ita) continue;
+            }
+        }
+        na.m.log (1555, fncn+' : END scene items position calculations');
+
+        var
+        /*
+        compare2 = function (a,b) {
+            var x = b.maxColumn - a.maxColumn;
+            if (x === 0) return b.maxRow - a.maxRow; else return x;
+        },
+        compare3 = function(a,b) {
+            return a.name < b.name;
+        },
+        */
+        its2 = its;
+
+        // calculate directional offset values
+        // from cube/sphere XYZ grouping field
+        var pp = null;
+        var pox = {}, poy = {}, poz = {}, pd = {};
+        var prevIt = null;
+        //if (t.initialized) //EVUL
+
+        na.m.log (1555, fncn+' : Do final position calculations for '+t.items.length+' scene items.');
+        debugger;
+        var r = 1.0, p1 = null, p1m = [];
+        for (var i=0; i<t.items.length; i++) {
+            if (!t.showFiles && t.items[i].name.substr(t.items[i].name.length-4,4)=='.mp3') continue;
+
+            var
+            offsetXY = 200,
+            it = t.items[i],
+            p = (it.parent ? it.parent : null);
+
+                var
+                itmaxc = it.ita.maxColumn,
+                itmaxr = it.ita.maxRow,
+                itmaxd = it.ita.maxDepth,
+                itLeftRight = (
+                    it.column-1 == itmaxc / 2
+                    ? 0
+                    : itmaxc===1
+                        ? 0
+                        : itmaxc - it.column == it.column -1
+                            ? 0
+                            : itmaxc - it.column < it.column - 1
+                                ? 1
+                                : -1
+                            ),
+                itUpDown = (
+                    it.row-1 == itmaxr/2
+                    ? 0
+                    : itmaxr===1
+                        ? 0
+                        : itmaxr - it.row == it.row - 1
+                            ? 0
+                            : itmaxr - it.row < it.row - 1
+                                ? 1
+                                : -1
+                            ),
+                itBackForth = (
+                    it.depth-1 == itmaxd/2
+                    ? 0
+                    : itmaxd===1
+                        ? 0
+                        : itmaxd - it.depth == it.depth - 1
+                            ? 0
+                            : itmaxr - it.depth < it.depth - 1
+                                ? 1
+                                : -1
+                            ),
+                itc = (itmaxc - 1 - it.columnField),
+                itr = (itmaxr - 1 - it.rowField),
+                itd = (itmaxd - 1 - it.depth);
+
+                it.columnOffsetValue = itc;//Math.floor(itc);
+                it.rowOffsetValue = itr;//Math.floor(itr);
+                it.depthOffsetValue = itd;//Math.floor(itr);
+                it.leftRight = itLeftRight;
+                it.upDown = itUpDown;
+                it.backForth = itBackForth;
+                //if (it.name=="landscape") debugger;
+            //};
+
+
+
+            let divider = 1;
+
+
+            if (!it.sPos) it.sPos = {};
+        }
+
+        var
+        sideLength = 300,
+        length = sideLength,
+        width = sideLength,
+        shape = new THREE.Shape();
+        shape.moveTo( 0,0 );
+        shape.lineTo( 0, width );
+        shape.lineTo( length, width );
+        shape.lineTo( length, 0 );
+        shape.lineTo( 0, 0 );
+
+        var extrudeSettings = {
+        steps: 40,
+        depth: sideLength,
+        bevelEnabled: true,
+        bevelThickness: 40,
+        bevelSize: 40,
+        bevelOffset: 0,
+        bevelSegments: 40
+        };
+
+        na.m.log (1555, fncn+' : Add scene items to scene.');
+        for (var j=0; j<t.items.length; j++) {
+            var p7a = t.items[j].idxPath;
+
+            if (false) {
+                var p7b = p7a.substr(1).split("/");
+                p7b.pop();
+                var p7a1 = '/'+p7b.join('/');
+                if (p7a1==='/') p7a1 = p7a;
+            } else {
+                var p7a1 = p7a;
+            }
+
+            if (t.ld3 && t.ld3[p7a1]) {
+                var
+                color = t.ld3[p7a1].color,
+                list = t.ld3[p7a1].colorList,
+                p1 = t.ld3[p7a1].p1,
+                it = t.items[j];
+                if (it && !it.name.match(/\/.mp3$/)) {
+                    //if (it.name.match(/SABATON/)) debugger;
+                    if (color) it.color = color; else {
+                        if (it.parent && it.parent) {
+                            for (var k=0; k<list.length; k++) {
+                                if (p1[k]==it.parent.idx) {
+                                    it.color = list[k].color;
+                                }
+                            }
+                        }
+                        if (!it.color && list) {
+                            for (var k=0; k<list.length; k++) {
+                                if (p1[k]==it.idx)
+                                    it.color = list[k].color;
+                            }
+                        }
+                        if (!it.color) {
+                            it.color = "rgb(0,0,255)";
+                        }
+                    }
+
+                    //console.log ("t321", it.name, it.color);
+
+                    var sideLength = 300, length = sideLength, width = sideLength, oc = 0.555;
+                    var
+                    /*
+                    materials2 = [
+                        new THREE.MeshBasicMaterial({
+                            color : it.color ? it.color : "rgb(0,0,255)",
+                            opacity : oc,
+                            wireframe : t.wireframe,
+                            transparent : true
+                        }),
+                        new THREE.MeshBasicMaterial({
+                            color : it.color ? it.color : "rgb(0,0,255)",
+                            opacity : oc,
+                            wireframe : t.wireframe,
+                            transparent : true
+                        }),
+                        new THREE.MeshBasicMaterial({
+                            color : it.color ? it.color : "rgb(0,0,255)",
+                            opacity : oc,
+                            wireframe : t.wireframe,
+                            transparent : true
+                        }),
+                        new THREE.MeshBasicMaterial({
+                            color : it.color ? it.color : "rgb(0,0,255)",
+                            opacity : oc,
+                            wireframe : t.wireframe,
+                            transparent : true
+                        }),
+                        new THREE.MeshBasicMaterial({
+                            color : it.color ? it.color : "rgb(0,0,255)",
+                            opacity : oc,
+                            wireframe : t.wireframe,
+                            transparent : true
+                        }),
+                        new THREE.MeshBasicMaterial({
+                            color : it.color ? it.color : "rgb(0,0,255)",
+                            opacity : oc,
+                            wireframe : t.wireframe,
+                            transparent : true
+                        })
+
+                    ],*/
+                    materials2 = [
+                        new THREE.MeshPhongMaterial({
+                            color : p.color ? p.color : 'rgb(0,0,255)',
+                            transparent : true,
+                            opacity : oc,
+                            specular: 0xffffff,
+                            shininess : 50
+                        }),
+                        new THREE.MeshPhongMaterial({
+                            color : p.color ? p.color : 'rgb(0,0,255)',
+                            transparent : true,
+                            opacity : oc,
+                            specular: 0xffffff,
+                            shininess : 50
+                        }),
+                        new THREE.MeshPhongMaterial({
+                            color : p.color ? p.color : 'rgb(0,0,255)',
+                            transparent : true,
+                            opacity : oc,
+                            specular: 0xffffff,
+                            shininess : 50
+                        }),
+                        new THREE.MeshPhongMaterial({
+                            color : p.color ? p.color : 'rgb(0,0,255)',
+                            transparent : true,
+                            opacity : oc,
+                            specular: 0xffffff,
+                            shininess : 50
+                        }),
+                        new THREE.MeshPhongMaterial({
+                            color : p.color ? p.color : 'rgb(0,0,255)',
+                            transparent : true,
+                            opacity : oc,
+                            specular: 0xffffff,
+                            shininess : 50
+                        }),
+                        new THREE.MeshPhongMaterial({
+                            color : p.color ? p.color : 'rgb(0,0,255)',
+                            transparent : true,
+                            opacity : oc,
+                            specular: 0xffffff,
+                            shininess : 50
+                        })
+                    ];
+                    if (it.parent) {
+                        // parent/current folder :
+                        if (it.name.substr(it.name.length-4,4)=='.mp3') {
+                            if (t.showFiles)
+                            var cube = t.createSphere (t.meshLength * 3, it.color);
+                        } else {
+                            var cube = new THREE.Mesh( new THREE.BoxGeometry( t.meshLength, t.meshLength, t.meshLength ), materials2 );
+                        }
+                        if (it.sPos)
+                        if (!t.showFiles || it.name.substr(it.name.length-4,4)!=='.mp3') {
+                            cube.it = it;
+                            cube.position.set(0,0,0);
+                            t.scene.remove(it.model);
+                            //if (it.name.match("SABATON")) debugger;
+                            it.model = cube;
+                            t.scene.add( cube );
+                            t.s2.push(cube);
+                            //t.items.push (it);
+                        }
+                    } else {
+                        var cube = new THREE.Mesh( new THREE.BoxGeometry( t.meshLength, t.meshLength, t.meshLength ), materials2 );
+                        cube.it = it;
+                        cube.position.set(0,0,0);
+                        it.model = cube;
+                        t.scene.add( cube );
+                        t.s2.push(cube);
+                    }
+                }
+            }
+        }
+
+        /*
+        for (var i=0; i<t.items.length; i++) {
+            var
+            it = t.items[i],
+            p = (it.parent ? it.parent : null);
+
+            if (p) {
+                p1m.push (it.model);
+                if (p1!==p) {
+                    debugger;
+                    t.projectChildrenOnSphere (t, p.model, p1m, 1000, 0);
+                    p1 = p;
+                }
+            }
+        }*/
+        // NEW: After all meshes added, start recursive projection from root
+        //t.projectHierarchy(t, t.items[0], 10*1000); // Start radius ~5000; adjust as needed
+        const dat2 = t.itemsToGraphData(t);
+
+        const Graph = ForceGraph3D({
+                rendererConfig: {
+                    antialias: true,   // Optional but recommended for smooth edges
+                    alpha: true        // This enables transparent background!
+                }
+            })(t.el)
+            .backgroundColor('rgba(0,0,0,0)')
+            .dagMode('zin')           // Great for hierarchies like file trees
+            .nodeLabel('name')
+            .nodeAutoColorBy('type')        // e.g., 'folder' vs 'file'
+            .graphData(dat2)   // { nodes: [...], links: [...] }
+            .nodeOpacity(0.6);
+//
+/*
+
+        const Graph = ForceGraph3D(t.el, {
+            dagMode : 'radialout',
+            nodeLabel : 'name',
+            nodeAutoColorBy : 'type',
+            nodeOpacity : 0.5,
+            linkOpacity : 0.3,
+            rendererConfig : {
+                antialias: true,
+                alpha: true
+            }
+        });
+        Graph.graphData(dat2);*/
+
+
+
+        t.initialized = true;
+        var x = t.items;
+        t.onresize_postDo(t, true);
+    }
+
+    getChildren(item) {
+        return this.items.filter(it => it.parent === item && (this.showFiles || !it.name.endsWith('.mp3')));
+    }
+
+    itemsToGraphData(t) {
+        const nodes = [];
+        const links = [];
+
+        // Filter out items you don't want to show (optional)
+        const visibleItems = t.items.filter(it =>
+            t.showFiles || !it.name.endsWith('.mp3')
+        );
+
+        // Create nodes
+        visibleItems.forEach(item => {
+            nodes.push({
+                id: item.idx,                  // Must be unique — your idx is perfect
+                name: item.name,
+                type: item.name.endsWith('.mp3') ? 'file' : 'folder',
+                item: item,                    // Optional: keep reference to original
+                // Add any other data you want (color, size, etc.)
+                color: item.color || (item.name.endsWith('.mp3') ? '#ff6666' : '#66ccff')
+            });
+
+            // Create link if it has a parent
+            if (item.parent && item.parent.idx !== undefined) {
+                links.push({
+                    source: item.parent.idx,   // parent's id
+                    target: item.idx           // child's id
+                });
+            }
+        });
+
+        return { nodes, links };
+    }
+
+    onresize_do_phase2_OLDnBUGGY(t, callback) {
         let fncn = 'na3D.js::onresize_do_phase2()';
         na.m.log (1555, fncn+' : BEGIN .pos calculations');
 

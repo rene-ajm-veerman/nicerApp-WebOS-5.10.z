@@ -384,9 +384,20 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
     public function createUsers($users=null, $groups=null) {
         // $users and $groups are defined in .../NicerAppWebOS/db_init.php (bottom of the file).
         global $naWebOS;
+        $cdbDomain = $naWebOS->domainFolderForDB;
+        $debug = true;
+
         $g2 = [];
         //echo '<pre>633:'; var_dump ($users); die();
         foreach ($users as $userName => $userDoc) {
+
+            $un = $this->translate_plainUserName_to_couchdbUserName ($userName);
+            $username1 = preg_replace('/.*___/', '', $un);
+
+            $security_role = '{ "admins": { "names": [], "roles": ["guests"] }, "members": { "names": [], "roles": [] } }';
+            $security_user = '{ "admins": { "names": ["'.$un.'"], "roles": ["'.$cdbDomain.'___Guests", "'.$cdbDomain.'___Users"] }, "members": { "names": ["'.$un.'"], "roles": ["'.$cdbDomain.'___Guests", "'.$cdbDomain.'___Users"] } }';
+
+
             $dn = $this->dataSetName_domainName($naWebOS->domainFolder);
             $uid = 'org.couchdb.user:'.$this->translate_plainUserName_to_couchdbUserName($userName);
             //var_dump ($uid); die();
@@ -415,6 +426,105 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
             } catch (Exception $e) {
                 echo '<pre style="color:red">'; var_dump ($e); echo '</pre>';
             }
+
+            $cdb = $this->cdb;
+            $dbName = $cdbDomain.'___cms_tree___user___'.strtolower($username1);
+            try { $cdb->deleteDatabase ($dbName); } catch (Exception $e) { };
+            $cdb->setDatabase($dbName, true);
+            try {
+                $call = $cdb->setSecurity ($security_user);
+            } catch (Exception $e) {
+                if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
+            }
+            //if ($debug) { echo '<pre style="color:green">'; var_dump($call); echo '</pre>'.PHP_EOL; }
+
+            $rec1_id = cdb_randomString(20);
+            $do = false; try { $doc = $cdb->get($rec1_id); } catch (Exception $e) { $do = true; };
+            $data = '{ "database" : "'.$dbName.'", "_id" : "'.$rec1_id.'", "id" : "'.$rec1_id.'", "parent" : "baa", "text" : "'.$userName.'", "state" : { "opened" : true }, "type" : "naUserRootFolder" }';
+            if ($do) try { $cdb->post($data); } catch (Exception $e) { if ($debug) { echo '<pre>'.json_encode(json_decode($data),JSON_PRETTY_PRINT).'</pre>'; echo $e->getMessage(); echo '<br/>'; }};
+
+            $rec2_id = cdb_randomString(20);
+            $do = false; try { $doc = $cdb->get($rec2_id); } catch (Exception $e) { $do = true; };
+            $data = '{ "database" : "'.$dbName.'", "_id" : "'.$rec2_id.'", "id" : "'.$rec2_id.'", "parent" : "'.$rec1_id.'", "text" : "Blog", "state" : { "opened" : true }, "type" : "naFolder" }';
+            if ($do) try { $cdb->post($data); } catch (Exception $e) { if ($debug) {echo '<pre>'.json_encode(json_decode($data),JSON_PRETTY_PRINT).'</pre>'; echo $e->getMessage(); echo '<br/>'; }};
+
+            $rec2a_id = cdb_randomString(20);
+            $do = false; try { $doc = $cdb->get($rec2a_id); } catch (Exception $e) { $do = true; };
+            $data = '{ "database" : "'.$dbName.'", "_id" : "'.$rec2a_id.'", "id" : "'.$rec2a_id.'", "parent" : "'.$rec2_id.'", "text" : "New Document", "url1" : "in", "seoValue" : "New Document", "state" : { "opened" : true, "selected" : true }, "type" : "naDocument" }';
+            if ($do) try { $cdb->post($data); } catch (Exception $e) { if ($debug) {echo '<pre>'.json_encode(json_decode($data),JSON_PRETTY_PRINT).'</pre>'; echo $e->getMessage(); echo '<br/>'; }};
+
+            $rec3_id = cdb_randomString(20);
+            $do = false; try { $doc = $cdb->get($rec3_id); } catch (Exception $e) { $do = true; };
+            $data = '{ "database" : "'.$dbName.'", "_id" : "'.$rec3_id.'", "id" : "'.$rec3_id.'", "parent" : "'.$rec1_id.'", "text" : "Media Albums", "state" : { "opened" : true }, "type" : "naFolder" }';
+            if ($do) try { $cdb->post($data); } catch (Exception $e) { if ($debug) { echo '<pre>'.json_encode(json_decode($data),JSON_PRETTY_PRINT).'</pre>'; echo $e->getMessage(); echo '<br/>'; }};
+
+
+            //$dbName = $cdbDomain.'___cms_tree';
+
+
+
+
+            echo 'Created database '.$dbName.'<br/>'.PHP_EOL;
+
+            $dbName = $cdbDomain.'___cms_documents___user___'.strtolower($username1);
+            try { $cdb->deleteDatabase ($dbName); } catch (Exception $e) { };
+            $cdb->setDatabase($dbName, true);
+            try {
+                $call = $cdb->setSecurity ($security_user);
+            } catch (Exception $e) {
+                if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
+            }
+            $rec = array(
+                'user' => $userName,
+                '_id' => $rec2a_id,
+                'id' => $rec2a_id,
+                'text' => 'New',
+                'url1' => 'on',
+                'seoValue' => 'frontpage',
+                'pageTitle' => $userName.'\'s frontpage',
+                'document' => '<p>Start editing your frontpage here</p>'
+            );
+            try {
+                $cdb->post($rec);
+            } catch (Exception $e) {
+                if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
+            }
+            echo 'Created database '.$dbName.'<br/>'.PHP_EOL;
+
+            //$dbName = $cdbDomain.'___themeData__user___'.strtolower($username);
+            $dbName = $cdbDomain.'___data_themes';
+            //try { $cdb->deleteDatabase ($dbName); } catch (Exception $e) { };
+            $cdb->setDatabase($dbName, true);
+            try {
+                $call = $cdb->setSecurity ($security_role);
+            } catch (Exception $e) {
+                if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
+            }
+
+            $rec = array(
+                'url' => '[default]',
+                'user' => $userName,
+                '_id' => cdb_randomString(20),
+                'dialogs' => array_merge_recursive(
+                                        css_to_array (file_get_contents(
+                                            realpath(dirname(__FILE__).'/../../../../../')
+                                            .'/NicerAppWebOS/themes/nicerapp_default_siteContent-almost-transparent.css'
+                                        )),
+                                        css_to_array (file_get_contents(
+                                            realpath(dirname(__FILE__).'/../../../../../')
+                                            .'/NicerAppWebOS/themes/nicerapp_app.2D.musicPlayer.css'
+                                        ))
+                        )
+
+            );
+            try {
+                $cdb->post($rec);
+            } catch (Exception $e) {
+                if ($debug) { echo '<pre style="color:red">'; var_dump ($e); echo '</pre>'; exit(); }
+            }
+
+            echo 'Created and populated database '.$dbName.'<br/>'.PHP_EOL;
+
         }
 
         $dataSetName = $this->dataSetName('groups');
@@ -431,6 +541,9 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
             if ($call->body->ok) echo (!$got?'Created ':'Updated ').'\''.$gn.'\' group document in database '.$dataSetName.'.<br/>'; else echo '<span style="color:red">Could not '.(!$got?'create ':'update ').'\''.$gn.'\' group document in database '.$dataSetName.'.</span><br/>';
 
         }
+
+
+
 
         return true;
     }

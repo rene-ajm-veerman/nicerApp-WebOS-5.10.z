@@ -2,6 +2,11 @@
 global $naWebOS;
 global $naLAN;
 $debugMe = false;
+if (!$naLAN) {
+    echo '<h1>NicerApp WebOS logs</h1>';
+    echo 'This data is unavailable outside nicer.app\'s LAN, sorry.';
+    exit();
+}
 
 global $db;
 global $cdb;
