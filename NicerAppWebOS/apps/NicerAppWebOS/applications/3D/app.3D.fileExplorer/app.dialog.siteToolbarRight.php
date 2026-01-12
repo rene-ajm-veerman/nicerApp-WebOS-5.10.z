@@ -3,7 +3,6 @@ require_once (realpath(dirname(__FILE__).'/../../../../../..').'/NicerAppWebOS/b
 global $naWebOS; global $naLAN;
 $view = $naWebOS->view;
 
-$setPath = $view['folder']['path'];
 $authorEmail = 'rene.veerman.netherlands@gmail.com';
 $spacer = "\n\t\t\t\t";
 
@@ -14,17 +13,8 @@ $spacer = "\n\t\t\t\t";
 	<meta http-equiv="content-language" content="english">
 	<link type="text/css" rel="StyleSheet" media="screen" href="/NicerAppWebOS/3rd-party/jQuery/jPlayer-2.9.1/jplayer.vivid.css"/>
 
-	<div id="app__musicPlayer__player" class="vividDialog naNoComments" style="overflow:visible;position:absolute;width:320px;height:120px;">
-        <audio id="audioTag">
-            <?php 
-            $vs = '/'.str_replace(' ','%20',$view['folder']['webPath']);
-            foreach ($filez2 as $idx=>$fn) {
-                $id = 'mp3Source_'.$idx;
-                echo PHP_EOL;
-                echo "\t\t\t".'<source id="'.$id.'" src="'.$vs.$filez2[$idx].'" type="audio/mpeg">'.PHP_EOL;
-            }
-            ?>
-        </audio>
+	<div id="app__musicPlayer__player" class="vividDialog naNoComments" style="margin:20px;overflow:visible;position:relative;width:320px;height:120px;">
+        <audio id="audioTag"></audio>
         
 		<div class="audioPlayerUI">
             <div class="audioPlayerButtons">
@@ -52,29 +42,35 @@ $spacer = "\n\t\t\t\t";
 		</div>
 	</div>
 
-	<div id="app__musicPlayer__playlist" class="vividDialog naNoComments" theme="dark" style="text-align:center;opacity:0.001;overflow:visible;position:absolute; width:300px;height:300px;">
-        <h2 class="vt backdropped" style="padding:0px !important; margin:20px !important;display:flex;justify-content:center;align-items:center;width:auto;height:50px;font-size:10px;background:rgba(0,0,255,0.25);color:white;border-radius:10px;box-shadow:2px 2px 3px 2px rgba(0,0,0,0.7);">Playlist<br/>(drag and drop items onto this window)</h2>
-		<ul id="playlist" class="vividScrollpane" style="width:100%;height:calc(100% - 50px);"></ul>
+	<div id="app__musicPlayer__playlist" class="vividDialog naNoComments backdropped" theme="dark" style="margin:10px;margin-left:20px;text-align:center;overflow:visible;position:relative; width:300px;height:calc(50% - 130px);">
+        <h2 class="vt backdropped" style="padding:0px !important; margin:10px !important;display:flex;justify-content:center;align-items:center;width:auto;height:50px;font-size:10px;background:rgba(0,0,255,0.25);color:white;border-radius:10px;box-shadow:2px 2px 3px 2px rgba(0,0,0,0.7);">Playlist<br/>(drag and drop files into this window)</h2>
+		<ul id="playlist" class="vividScrollpane" style="width:100%;height:calc(100% - 80px);"></ul>
 	</div>
 	
-	<div id="app__musicPlayer__description" class="vividDialog naNoComments" theme="dark" style="opacity:0.001;overflow:visible;position:absolute;width:320px;height:300px;">
-        <div class="vividDialogContent" style="font-size:inherit">
-            <div id="mp3descText" style="font-size:inherit"></div>
-            <div id="siteIntroText">
-                
-                <?php //echo $htmlIntro?>
-            </div>
-		</div>
+	<div id="app__musicPlayer__fileListing" class="vividDialog naNoComments backdropped" theme="dark" style="margin:10px;margin-top:0;margin-left:20px;overflow:visible;position:relative;width:300px;height:calc(50% - 120px);">
+        <h2 class="vt backdropped" style="padding:0px !important; margin:10px !important;display:flex;justify-content:center;align-items:center;width:auto;height:50px;font-size:10px;background:rgba(0,0,255,0.25);color:white;border-radius:10px;box-shadow:2px 2px 3px 2px rgba(0,0,0,0.7);">Files List</h2>
+		<ul id="fileListing" class="vividScrollpane" style="width:100%;height:calc(100% - 80px);"></ul>
 	</div>
+
+	<style>
+        #playlist, #fileListing { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+        #playlist li, #fileListing li { border : none; margin : 0; padding : 0; background : none; box-shadow : none; }
+	</style>
 
 	<script type="text/javascript">
         $(document).ready(function() {
+            $('#siteToolbarRight').css({width:360});
+            $('#siteToolbarRight .vividScrollpane').css({overflow:'hidden'});
+
+            $( "#playlist" ).sortable({
+                revert: true
+            });
+
+            $('#siteContent .vividScrollpane').css({overflow:'hidden'});
             na.m.waitForCondition('na.d?', function() { return na.d; }, function() {
-                $('#siteToolbarRight').css({width:300});
                 na.d.s.visibleDivs.push ('#siteToolbarRight');
-                $('#siteContent').css({width:'auto'});
                 na.d.s.visibleDivs.push ('#siteContent');
-                //na.d.resize();
+                na.d.resize();
             }, 100);
         });
 	</script>

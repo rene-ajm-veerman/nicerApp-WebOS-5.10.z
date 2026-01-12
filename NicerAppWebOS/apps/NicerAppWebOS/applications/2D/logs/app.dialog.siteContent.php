@@ -22,6 +22,7 @@ $cdb->setDatabase($dataSetName, false);
 foreach ($naWebOS->view as $afn => $as) break;
 $naWebOS->view[$afn]['beginDateTime'] = safeHTTPinput ('beginDateTime', (time() * 1000) - (7 * 24 * 3600 * 1000));
 $naWebOS->view[$afn]['endDateTime'] = safeHTTPinput ('endDateTime');
+//echo '<pre>'; var_dump($naWebOS->view); die();
 
     function transformResults_findCommand ($call) {
         global $naWebOS;
@@ -127,8 +128,10 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => [['$gt']=>$naWebOS->view[$afn]['beginDateTime']-1, $naWebOS->view[$afn]['endDateTime']+1]  ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
+        'limit' => 250, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
+    echo '<pre>'; var_dump($findCommand); die();
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
 } else if ($naWebOS->view[$afn]['beginDateTime']) {
@@ -136,15 +139,19 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => ['$gt' => $naWebOS->view[$afn]['beginDateTime'] - 1] ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
+        'limit' => 250, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
+    //echo '<pre>'.json_encode($findCommand,JSON_PRETTY_PRINT); die();
     $call = $cdb->find($findCommand);
+    //echo '<pre>'; var_dump($call,JSON_PRETTY_PRINT); die();
     $results = transformResults_findCommand ($call);
 } else if (array_key_exists('end', $in)) {
     $findCommand = [
         'selector' => [ 'millisecondsSinceEpoch' => ['$lt' => $naWebOS->view[$afn]['endDateTime'] + 1] ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
+        'limit' => 250, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     $call = $cdb->find($findCommand);

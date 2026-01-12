@@ -75,9 +75,10 @@ import { DragControls } from '/NicerAppWebOS/3rd-party/3D/libs/three.js/examples
                                 var parameters = { views : [ JSON.parse(data) ] };
                                 na.m.log (1555, fncn+' : END decode '+data.length+' bytes, url='+url);
 
-                                na.site.settings.na3D= {
+                                na.site.settings.na3D = {
                                     '#app_3D_fileExplorer' : new na3D_fileBrowser(el, $(el).parent()[0], parameters)
                                 };
+                                na.apps.loaded.threed_fileExplorer = na.site.settings.na3D['#app_3D_fileExplorer'];
                             }
                         };
                         $.ajax(ac);
@@ -86,7 +87,7 @@ import { DragControls } from '/NicerAppWebOS/3rd-party/3D/libs/three.js/examples
 
                 });
 
-                na.backgrounds.next('#siteBackground', '3D');
+                na.backgrounds.next('#siteBackground', '3Dee');
                 
                 var 
                 html = 
@@ -107,7 +108,7 @@ import { DragControls } from '/NicerAppWebOS/3rd-party/3D/libs/three.js/examples
                     +'<div id="showLines" class="vividButton" theme="dark" style="position:relative;" onclick="for (var id in na.site.settings.na3D) { var td = na.site.settings.na3D[id]; td.toggleShowLines(); }">Show Lines</div>'
                     +'</div>';
                 //$('#siteToolbarRight .vividDialogContent').html (html);
-
+                //$('#siteToolbarRight').css({width:'fit-content'});
 
 
 

@@ -17,6 +17,12 @@ import { FirstPersonControls } from "/NicerAppWebOS/3rd-party/3D/libs/three.js/e
 import gsap from "https://unpkg.com/gsap@3.12.2/index.js";
 import { CameraControls, approxZero } from '/NicerAppWebOS/3rd-party/3D/libs/three.js/camera-controls-dev/dist/camera-controls.module.js';// with {type:"module"};
 
+
+/*-- OPTIONAL : */
+//import { CSS2DRenderer, CSS2DObject } from 'https://esm.sh/three/examples/jsm/renderers/CSS2DRenderer.js';
+//import { UnrealBloomPass } from 'https://esm.sh/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import SpriteText from "https://esm.sh/three-spritetext";
+
 /*
   import {
     CSS2DRenderer,
@@ -585,7 +591,6 @@ export class na3D_fileBrowser {
     }
 
     createlisteners(t) {
-        debugger;
         document.addEventListener("pointerdown", function(e) {
             //console.log ('t.createlisteners() : pointerdown() : t.controlsKey = '+t.controlsKey);
             t.evt3 = $.extend({},e);
@@ -1460,7 +1465,6 @@ export class na3D_fileBrowser {
     async initializeItems (t) {
         var p = { t : t, ld2 : {} };
         t.s2 = [];
-        debugger;
         na.m.walkArray_async (t.data[0]['filesAtRoot'], t.data[0]['filesAtRoot'], t.initializeItems_walkKey, t.initializeItems_walkValue, false, p);
         t.itemsInitialized = true;
 
@@ -2279,7 +2283,6 @@ export class na3D_fileBrowser {
         //if (t.initialized) //EVUL
 
         na.m.log (1555, fncn+' : Do final position calculations for '+t.items.length+' scene items.');
-        debugger;
         var r = 1.0, p1 = null, p1m = [];
         for (var i=0; i<t.items.length; i++) {
             if (!t.showFiles && t.items[i].name.substr(t.items[i].name.length-4,4)=='.mp3') continue;
@@ -2545,7 +2548,9 @@ export class na3D_fileBrowser {
         // NEW: After all meshes added, start recursive projection from root
         //t.projectHierarchy(t, t.items[0], 10*1000); // Start radius ~5000; adjust as needed
         const dat2 = t.itemsToGraphData(t);
+        na.apps.loaded.threed_fileExplorer = t;
 
+        var textures = {};
         const Graph = ForceGraph3D({
                 rendererConfig: {
                     antialias: true,   // Optional but recommended for smooth edges
@@ -2553,12 +2558,168 @@ export class na3D_fileBrowser {
                 }
             })(t.el)
             .backgroundColor('rgba(0,0,0,0)')
-            .dagMode('zin')           // Great for hierarchies like file trees
+            //.dagMode('zin')           // Great for hierarchies like file trees
             .nodeLabel('name')
-            .nodeAutoColorBy('type')        // e.g., 'folder' vs 'file'
+            .nodeAutoColorBy('folder')        // e.g., 'folder' vs 'file'
             .graphData(dat2)   // { nodes: [...], links: [...] }
-            .nodeOpacity(0.6);
-//
+            .nodeOpacity(0.6)
+            /*.nodeThreeObject(node => {
+                const mode = 'label';
+                switch (mode) {
+                    case 'label':
+
+                        const nodeEl = document.createElement('div');
+                        nodeEl.textContent = node.id;
+                        nodeEl.style.color = node.color;
+                        nodeEl.className = 'node-label';
+                        return new CSS2DObject(nodeEl);
+
+                        break;
+
+                    case 'icon':
+                        // Choose icon based on your node data (e.g., node.type === 'folder')
+                        let iconUrl;
+                        if (node.type === 'folder') {
+                            iconUrl = '/siteMedia/folderIcon_original.png';  // Replace with your actual URL
+                        } else {
+                            // For files – you could further check extension if needed
+                            iconUrl = '/siteMedia/iconMusic.png';    // Or a generic file icon
+                            // Example: if (node.name.endsWith('.js')) iconUrl = '.../js.png';
+                        }
+
+                        if (textures[iconUrl]) {
+                            var imgTexture = textures[iconUrl];
+                        } else {
+                            var imgTexture = new THREE.TextureLoader().load(iconUrl);
+                            textures[iconUrl] = imgTexture;
+                        }
+
+                        imgTexture.colorSpace = THREE.SRGBColorSpace;  // Important for correct colors
+
+                        const material = new THREE.SpriteMaterial({
+                            map: imgTexture,
+                            transparent: true,     // Handles PNG transparency
+                            opacity: 1
+                        });
+
+                        const sprite = new THREE.Sprite(material);
+
+                        // Size the icon – adjust to your preference (bigger = more prominent)
+                        const iconSize = 12;  // Try 8-20 depending on your graph scale
+                        sprite.scale.set(iconSize, iconSize, iconSize);
+
+                        // Optional: Center the sprite properly (sprites pivot at center by default)
+                        sprite.center.set(0.5, 0.5);
+
+
+
+                        /*
+                            // Add always-visible text label below the icon
+                            const spriteText = new SpriteText(node.name);  // ← Just like this!
+
+                            spriteText.color = '#ffffff';         // Or any vivid color that pops on your background
+                            spriteText.textHeight = 4;            // Adjust size (try 3-6)
+                            spriteText.fontFace = 'Arial';        // Optional: 'Verdana', 'Helvetica', etc.
+                            spriteText.fontSize = 32;             // Base font size (textHeight scales it)
+                            spriteText.backgroundColor = 'rgba(0,0,0,0.4)'; // Optional subtle backdrop
+                            spriteText.padding = 4;
+                            spriteText.borderRadius = 4;
+                            spriteText.position.set(0, -iconSize / 2 - 4, 0); // Below the icon (adjust Y offset)
+
+                            // Prevent z-fighting with links/nodes
+                            spriteText.material.depthWrite = false;
+
+                            sprite.add(spriteText);  // Attach to your main icon sprite group* /
+
+                        return sprite;
+                }
+            })  */
+            .nodeThreeObjectExtend(true)
+            //.forceEngine('ngraph')
+            .nodeAutoColorBy('group')
+            .linkThreeObjectExtend(true)
+                .linkThreeObject(link => {
+                        // extend link with text sprite
+                        var
+                        t = na.apps.loaded.threed_fileExplorer,
+                        st = t.items[link.target].name;
+
+
+                        //const sprite = new SpriteText(`${link.source} > ${link.target}`);
+                        const sprite = new SpriteText(`${st}`);
+                        sprite.color = 'lightgrey';
+                        sprite.textHeight = 1.5;
+                        return sprite;
+                })
+
+                .linkPositionUpdate((sprite, { start, end }) => {
+                    const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
+                        [c]: end[c] + (end[c] - start[c]) * 0.2 // calc middle point
+                    })));
+
+                    // Position sprite
+                    Object.assign(sprite.position, middlePos);
+                })
+                .linkDirectionalArrowRelPos(0.9)
+                .linkOpacity(0.4)
+            .linkColor(() => 'grey')
+            .nodeAutoColorBy('group')
+            .linkAutoColorBy(d => gData.nodes[d.source].group)
+            .linkOpacity(0.5)
+            .linkPositionUpdate((sprite, { start, end }) => {
+                const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
+                    [c]: end[c] + ((end[c] - start[c]) / 10) // calc middle point
+                })));
+
+                // Position sprite
+                Object.assign(sprite.position, middlePos);
+            })
+            .onNodeClick(node => {
+                // Aim at node from outside it
+                const distance = 40;
+                const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+
+                const newPos = node.x || node.y || node.z
+                    ? { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }
+                    : { x: 0, y: 0, z: distance }; // special case if node is in (0,0,0)
+
+                Graph.cameraPosition(
+                    newPos, // new position
+                    node, // lookAt ({ x, y, z })
+                    3000  // ms transition duration
+                );
+
+                node.item.data.files.sort();
+debugger;
+                let html = '';
+                for (let i=0; i<node.item.data.files.length; i++) {
+                    let it = node.item.data.files[i];
+                    if (it.match(/.mp3$/)) {
+                        html += '<li style="margin-right:10px;"><div class="vividButton" style="position:relative;"><a href="javascript:na.apps.loaded.threed_fileExplorer.play(\''+node.item.filepath+'/'+node.item.name+'/'+it+'\')" style="font-size:medium">'+it+'</a></div></li>';
+                    }
+                }
+                $('#fileListing').html(html);
+                $('#fileListing, #playlist').css({overflowY:'auto'});
+                $("#playlist li div, #fileListing li div").css({lineHeight:'1em'});
+
+                na.site.startUIvisuals();
+                $( "#fileListing li" ).draggable({
+                    connectToSortable: "#playlist",
+                    helper: "clone",
+                    revert: "invalid"
+                });
+                $( "#playlist, #playlist li, #fileListing, #fileListing li" ).disableSelection();
+
+
+            });;
+
+            /* not a good idea for dense trees :
+            const bloomPass = new UnrealBloomPass();
+            bloomPass.strength = 4;
+            bloomPass.radius = 1;
+            bloomPass.threshold = 0;
+            Graph.postProcessingComposer().addPass(bloomPass);
+//          */
 /*
 
         const Graph = ForceGraph3D(t.el, {
@@ -2579,6 +2740,17 @@ export class na3D_fileBrowser {
         t.initialized = true;
         var x = t.items;
         t.onresize_postDo(t, true);
+    }
+
+    play (relPath) {
+        let
+        fullPath = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/musicPlayer.javascriptRendering/music/'+relPath,
+        html = '<source src="'+fullPath+'" type="audio/mpeg">';
+        $('#audioTag')[0].src = fullPath;
+        $('#audioTag')[0].play();
+
+
+        debugger;
     }
 
     getChildren(item) {
