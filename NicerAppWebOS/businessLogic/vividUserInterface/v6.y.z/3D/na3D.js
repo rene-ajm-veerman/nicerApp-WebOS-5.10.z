@@ -2676,7 +2676,7 @@ export class na3D_fileBrowser {
             })
             .onNodeClick(node => {
                 // Aim at node from outside it
-                const distance = 40;
+                const distance = -40;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
 
                 const newPos = node.x || node.y || node.z
@@ -2695,7 +2695,11 @@ debugger;
                 for (let i=0; i<node.item.data.files.length; i++) {
                     let it = node.item.data.files[i];
                     if (it.match(/.mp3$/)) {
-                        html += '<li style="margin-right:10px;"><div class="vividButton" style="position:relative;"><a href="javascript:na.apps.loaded.threed_fileExplorer.play(\''+node.item.filepath+'/'+node.item.name+'/'+it+'\')" style="font-size:medium">'+it+'</a></div></li>';
+                        let path =
+                            node.item.filepath.replace(/'/g, '\\\'').replace(/#/g,'\\#').replace(/&amp;/g,'&')
+                            +'/'+node.item.name.replace(/'/g, '\\\'').replace(/#/g,'\\#').replace(/&amp;/g,'&')
+                            +'/'+it.replace(/'/g, '\\\'').replace(/#/g,'\\#').replace(/&amp;/g,'&');
+                        html += '<li style="margin-right:10px;"><div id="filesList_'+i+'" class="vividButton" style="position:relative;"><a href="javascript:na.apps.loaded.threed_fileExplorer.play($(\'#filesList_'+i+'\')[0], \''+path+'\')" style="font-size:medium">'+it+'</a></div></li>';
                     }
                 }
                 $('#fileListing').html(html);
@@ -2742,12 +2746,14 @@ debugger;
         t.onresize_postDo(t, true);
     }
 
-    play (relPath) {
+    play (btn, relPath) {
         let
         fullPath = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/musicPlayer.javascriptRendering/music/'+relPath,
         html = '<source src="'+fullPath+'" type="audio/mpeg">';
         $('#audioTag')[0].src = fullPath;
         $('#audioTag')[0].play();
+        $('#fileListing .vividButtonSelected').removeClass('vividButtonSelected').addClass('vividButton');
+        $(btn).addClass('vividButtonSelected');
 
 
         debugger;
