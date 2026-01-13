@@ -43,7 +43,7 @@ na.site = {
             'naNativeApps' : {
                 debugLevelMin : 0,
                 debugLevelMax : 9999
-                // debugLevelMin >= 2000 and debugLevelMax <= 4000
+                // debugLevelMin >= 2000 and debugLevelMax < 4000
                     // :    show all core engine errors AND all app level errors for apps native
                     //      to the NicerApp WebOS repository (.../NicerAppWebOS/apps/NicerAppWebOS/*).
             }

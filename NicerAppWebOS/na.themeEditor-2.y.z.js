@@ -756,7 +756,12 @@ class naThemeEditor {
     transform_siteGlobalsThemes_to_jsTree (specifier) {
         var
         themeName = na.site.globals.themeName,
+        themeData = na.site.loadTheme_fetchDialogs(themeData);
+        //IS THIS NECESSARY?? na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
+        na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
+        var
         inputData = na.site.globals.themes[themeName];
+
         if (!inputData) inputData = na.site.globals.themes.default;
         inputData = inputData.themeSettings;
 
@@ -766,6 +771,7 @@ class naThemeEditor {
             {dat:[],did:null},
             'Selectors', '#', 'naSelectorSet'
         );
+        debugger;
         return outputData;
     }
 

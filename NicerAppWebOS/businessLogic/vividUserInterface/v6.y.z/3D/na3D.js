@@ -2549,6 +2549,7 @@ export class na3D_fileBrowser {
         //t.projectHierarchy(t, t.items[0], 10*1000); // Start radius ~5000; adjust as needed
         const dat2 = t.itemsToGraphData(t);
         na.apps.loaded.threed_fileExplorer = t;
+        na.apps.loaded.threed_fileExplorer.d = dat2;
 
         var textures = {};
         const Graph = ForceGraph3D({
@@ -2664,11 +2665,11 @@ export class na3D_fileBrowser {
                 .linkOpacity(0.4)
             .linkColor(() => 'grey')
             .nodeAutoColorBy('group')
-            .linkAutoColorBy(d => gData.nodes[d.source].group)
+            .linkAutoColorBy(d => na.apps.loaded.threed_fileExplorer.d.nodes[d.source].group)
             .linkOpacity(0.5)
             .linkPositionUpdate((sprite, { start, end }) => {
                 const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
-                    [c]: end[c] + ((end[c] - start[c]) / 10) // calc middle point
+                    [c]: end[c] + 400//((end[c] - start[c]) / 50) // calc middle point
                 })));
 
                 // Position sprite
@@ -2676,7 +2677,7 @@ export class na3D_fileBrowser {
             })
             .onNodeClick(node => {
                 // Aim at node from outside it
-                const distance = -40;
+                const distance = 100;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
 
                 const newPos = node.x || node.y || node.z
@@ -2702,7 +2703,7 @@ debugger;
                         html += '<li style="margin-right:10px;"><div id="filesList_'+i+'" class="vividButton" style="position:relative;"><a href="javascript:na.apps.loaded.threed_fileExplorer.play($(\'#filesList_'+i+'\')[0], \''+path+'\')" style="font-size:medium">'+it+'</a></div></li>';
                     }
                 }
-                $('#fileListing').html(html);
+                $('#fileListing').append(html);
                 $('#fileListing, #playlist').css({overflowY:'auto'});
                 $("#playlist li div, #fileListing li div").css({lineHeight:'1em'});
 
@@ -2748,12 +2749,18 @@ debugger;
 
     play (btn, relPath) {
         let
-        fullPath = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/musicPlayer.javascriptRendering/music/'+relPath,
-        html = '<source src="'+fullPath+'" type="audio/mpeg">';
+        fullPath = '/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/musicPlayer.javascriptRendering/music/'+relPath;
         $('#audioTag')[0].src = fullPath;
         $('#audioTag')[0].play();
         $('#fileListing .vividButtonSelected').removeClass('vividButtonSelected').addClass('vividButton');
         $(btn).addClass('vividButtonSelected');
+        let
+        i = $('#playlist li').length,
+        html = '<li style="margin-right:10px;"><div id="playList_'+i+'" class="vividButton" style="position:relative;"><a href="javascript:na.apps.loaded.threed_fileExplorer.play($(\'#filesList_'+i+'\')[0], \''+fullPath+'\')" style="font-size:medium">'+it+'</a></div></li>';
+        $('#playlist ul').append(html);
+        $("#playlist li div, #fileListing li div").css({lineHeight:'1em'});
+
+        na.site.startUIvisuals();
 
 
         debugger;

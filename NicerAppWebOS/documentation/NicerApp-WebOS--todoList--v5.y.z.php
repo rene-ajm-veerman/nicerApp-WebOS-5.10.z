@@ -12,7 +12,7 @@ A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<b
 </p>
 
 <ol class="todoList" style="width:30%; width:content-width;">
-    <li class="todoList"><div>(2026) Improve /logs (statistics and analytics)</div></li>
+    <li class="todoList"><div>(2026) Improve /logs (statistics and analytics), build an opt-in/out feature for user accounts and IP addresses.</div></li>
 
     <li class="todoList"><div>(2026) Fix final bugs in said.by/me document handling</div></li>
 
@@ -34,7 +34,7 @@ A major upgrade of the documentation will happen well before Dec 1st 2025! :-)<b
         </ol>
     </div></li>
 
-    <li class="todoList"><div>(2026 to 2027) Complete a <a href="/demo-3D-fileBrowser">3D folders + files structures viewer</a>, linked to all sorts of 2D user interface components/widgets.</div></li>
+    <li class="todoList"><div>(2026) Complete a <a href="/3D">3D folder structure viewer</a>, saving the user's 3D position in a database after 2 seconds of movement or inactivity, and which will be linked to all sorts of 2D user interface components/widgets.</div></li>
 
     <li class="todoList"><div>(2026) Implement <a href="https://stackoverflow.com/questions/10721884/how-to-render-html-to-an-image" class="nomod noPushState" target="sohrhi">rendering from HTML</a> to an <a href="https://developer.chrome.com/blog/headless-chrome/" class="nomod noPushState" target="hc">image</a>, to facilitate pre-fetches with image preview of specific pages on a NicerApp server by other websites.</div></li>
 
