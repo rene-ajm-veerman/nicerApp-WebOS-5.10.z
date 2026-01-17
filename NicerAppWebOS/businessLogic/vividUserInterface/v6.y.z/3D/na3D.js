@@ -706,6 +706,26 @@ export class na3D_fileBrowser {
         $('#site3D_controls_key').html(t.vtext.controls[t.controlsKey]);
         t.animate_OLD_AND_WITH_ANGLE_BUG(t,e);
         //debugger;
+
+        for (var i=0; i<t.items.length; i++) {
+            var
+            it = t.items[i],
+            sprite = it.sprite,
+            start = sprite.start,
+            end = sprite.end;
+
+
+            const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
+                        [c]: end[c] + 50//(end[c] - start[c]) * 0.2 // calc middle point
+                    })));
+
+                    // Position sprite
+                    Object.assign(sprite.position, middlePos);
+;
+
+        }
+
+
         t.update(t);
         t.render(t);
     }
@@ -2559,7 +2579,7 @@ export class na3D_fileBrowser {
                 }
             })(t.el)
             .backgroundColor('rgba(0,0,0,0)')
-            //.dagMode('zin')           // Great for hierarchies like file trees
+            .dagMode('zin')           // Great for hierarchies like file trees
             .nodeLabel('name')
             .nodeAutoColorBy('folder')        // e.g., 'folder' vs 'file'
             .graphData(dat2)   // { nodes: [...], links: [...] }
@@ -2650,6 +2670,10 @@ export class na3D_fileBrowser {
                         const sprite = new SpriteText(`${st}`);
                         sprite.color = 'lightgrey';
                         sprite.textHeight = 1.5;
+
+                        t.items[parseInt(link.target)].sprite = sprite;
+                        //debugger;
+
                         return sprite;
                 })
 
@@ -2657,6 +2681,9 @@ export class na3D_fileBrowser {
                     const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
                         [c]: end[c] + (end[c] - start[c]) * 0.2 // calc middle point
                     })));
+
+                    sprite.start = start;
+                    sprite.end = end;
 
                     // Position sprite
                     Object.assign(sprite.position, middlePos);
@@ -2669,7 +2696,7 @@ export class na3D_fileBrowser {
             .linkOpacity(0.5)
             .linkPositionUpdate((sprite, { start, end }) => {
                 const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
-                    [c]: end[c] + 400//((end[c] - start[c]) / 50) // calc middle point
+                    [c]: end[c] + 30//((end[c] - start[c]) / 50) // calc middle point
                 })));
 
                 // Position sprite

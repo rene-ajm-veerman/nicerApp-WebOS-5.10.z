@@ -85,6 +85,7 @@ echo $naWebOS->html_vividButton (
 ?>
 </div>
 <script type="text/javascript">
+    $('#siteToolbarLeft').addClass('naNoSettings').addClass('naNoComments');
     setTimeout(function() {
         $('.vividButton_icon_100x100').each(function(idx,el) {
             na.site.settings.buttons['#'+el.id] = new naVividButton(el);

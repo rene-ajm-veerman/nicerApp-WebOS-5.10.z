@@ -771,7 +771,6 @@ class naThemeEditor {
             {dat:[],did:null},
             'Selectors', '#', 'naSelectorSet'
         );
-        debugger;
         return outputData;
     }
 

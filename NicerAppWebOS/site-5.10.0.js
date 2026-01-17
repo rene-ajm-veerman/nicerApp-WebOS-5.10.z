@@ -278,21 +278,6 @@ na.site = {
                     const menu = $('#siteMenu')[0];
                     if (menu) na.site.c.menus['#'+menu.id] = new naVividMenu(menu.id);
                     $('#siteMenu .vividMenu_mainUL, #siteMenu_forReal').css({visibility:'visible'});
-                    $('#siteMenu').css({
-                        top : 'auto',
-                        bottom : 100,
-                        left : 40,
-                        display : 'block',
-                        width : 10,
-                        height : 'fit-content',
-                        position : 'absolute',
-                        zIndex : 99999999999
-                    });
-                    $('.vividMenu_mainUL, #siteMenu').addClass('submenu').css({top:'auto',position:'absolute',display:'none',visibility:'visible',bottom:10,height:'fit-content',zIndex:99999999}).delay(50);
-                    $('#btnShowStartMenu')[0].addEventListener('mouseenter', function () {
-                        $('.vividMenu_mainUL, #siteMenu').css({display:'block'})
-                    });
-
                 }});
 
 
@@ -401,10 +386,10 @@ na.site = {
                         backgroundSearchKey : na.site.globals.backgroundSearchKey,
                         background : na.site.globals.background,
                         changeBackgroundsAutomatically : 'true',//$('#changeBackgroundsAutomatically')[0].checked?'true':'false',
-                        vdSettings_show : 'hidden',//$('#vdSettings_show').val(),
-                        backgroundChange_hours : 0,//$('#backgroundChange_hours').val(),
-                        backgroundChange_minutes : 1,//$('#backgroundChange_minutes').val(),
-                        menusFadingSpeed : 500,//$('#menusFadingSpeed').val(),
+                        vdSettings_show : $('#vdSettings_show').val(),
+                        backgroundChange_hours : $('#backgroundChange_hours').val(),
+                        backgroundChange_minutes : $('#backgroundChange_minutes').val(),
+                        menusFadingSpeed : $('#menusFadingSpeed').val(),
                         menusUseRainbowPanels : 'true',//$('#menusUseRainbowPanels')[0].checked ? 'true' : 'false',
                         dialogs : {},
                         apps : tApp,
@@ -1652,12 +1637,8 @@ na.site = {
         });
 
         if ( !$('#btnShowStartMenu')[0].naInitializedAlreadyHere ) {
-            $('#btnShowStartMenu').mouseenter (function(evt) { // in honor of the coding language 'Python', a language like Ruby, which I'll one day use for the installation scripts of NicerAppWebOS.
-
-                $('#siteMenu').css({
-                    top : $(window).height() - na.d.g.margin - $('#siteMenu').height(),
-                    left : $('#btnShowStartMenu').offset().left
-                })
+            $('#btnShowStartMenu')[0].naInitializedAlreadyHere = true;
+            $('#btnShowStartMenu').click (function(evt) { // in honor of the coding language 'Python', a language like Ruby, which I'll one day use for the installation scripts of NicerAppWebOS.
 
                 var
                 evt = new Event('mouseover'),
@@ -3430,10 +3411,10 @@ na.site = {
             backgroundSearchKey : na.site.globals.backgroundSearchKey,
             background : na.site.globals.background,
             changeBackgroundsAutomatically : 'true',//$('#changeBackgroundsAutomatically')[0].checked?'true':'false',
-            vdSettings_show : 'hidden',//$('#vdSettings_show').val(),
-            backgroundChange_hours : 0,//$('#backgroundChange_hours').val(),
-            backgroundChange_minutes : 1,//$('#backgroundChange_minutes').val(),
-            menusFadingSpeed : 500,//$('#menusFadingSpeed').val(),
+            vdSettings_show : $('#vdSettings_show').val(),
+            backgroundChange_hours : $('#backgroundChange_hours').val(),
+            backgroundChange_minutes : $('#backgroundChange_minutes').val(),
+            menusFadingSpeed : $('#menusFadingSpeed').val(),
             menusUseRainbowPanels : 'true',//$('#menusUseRainbowPanels')[0].checked ? 'true' : 'false',
             dialogs : {},
             apps : tApp,

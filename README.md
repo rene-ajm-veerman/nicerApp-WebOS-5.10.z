@@ -367,7 +367,17 @@ the following is in /etc/apache2/sites-available/002-said.by.conf
 </VirtualHost>
 ````
 
-**Finally**, you need to create the actual encryption keys for apache2.
+# Configuring nginx
+
+in /etc/nginx/nginx.conf, put
+
+> client_max_body_size 2M;
+
+in your 'http' section.
+
+# Final steps
+
+And then, you need to create the actual encryption keys for apache2.
 This is free and fairly simple.
 You can choose between **certbot** or **letsencrypt**.
 You can find tutorials on how to use them via google searches for either 'certbot example' or 'letsencrypt example'.

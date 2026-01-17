@@ -11,6 +11,7 @@ class vividUserInterface_2D_dialog {
         }
         t.el = t.cmd.el[0];
         t.el.vividUserInterface_2D_dialog = t;
+        t.settings = {};
 
 
         if (!$('canvas',t.el)[0]) {
@@ -185,6 +186,35 @@ class vividUserInterface_2D_dialog {
             $(cmd.checkHeldUp).removeClass('shown').addClass('hidden');
         }, 300);
 
+    }
+
+    displaySettingsDialog (t, dialogID) {
+        //na.site.settings.dialogs['#siteToolbarThemeEditor'].settings.current.dialogID = dialogID;
+        var d = na.site.c.dialogs['#siteToolbarThemeEditor'];
+        d.settings.dialogID = dialogID;
+        na.d.s.visibleDivs = arrayRemove(na.d.s.visibleDivs, '#siteContent');
+        na.d.s.visibleDivs = arrayRemove(na.d.s.visibleDivs, '#siteToolbarThemeEditor');
+        na.d.s.visibleDivs.push ('#siteContent');
+        na.d.s.visibleDivs.push ('#siteToolbarThemeEditor');
+        na.te.onload(dialogID);
+/*
+        var html =
+            '<div class="vdSettingsScripts">'
+            +'<link rel="stylesheet" href="/NicerAppWebOS/3rd-party/jsTree-3.2.1/dist/themes/default/style.css" onload="var d = na.site.settings.dialogs[\'#siteToolbarThemeEditor\']; d.displaySettingsDialog_scriptLoaded(d);"/> <!-- has style.min.css -->'
+            +'<script type="text/javascript" src="/NicerAppWebOS/3rd-party/jsTree-3.2.1/dist/jstree.min.js?c='+na.m.changedDateTime_current()+'" onload="var d = na.site.settings.dialogs[\'#siteToolbarThemeEditor\'];  d.displaySettingsDialog_scriptLoaded(d);"></script> <!-- has jstree.min.js -->'
+            +'</div>';
+        if ($('.vdSettingsScripts').length<1) {
+            $(t.el).prepend(html);
+
+            //na.m.addJS (null, "/NicerAppWebOS/3rd-party/jQuery/spectrum/dist/spectrum.min.js?c="+na.m.changedDateTime_current(), null, function () { d.displaySettingsDialog_scriptLoaded(d); });
+            //na.m.addJS (null, "/NicerAppWebOS/3rd-party/jsTree-3.2.1/dist/jstree.min.js?c="+na.m.changedDateTime_current(), null, function () { d.displaySettingsDialog_scriptLoaded(d); });
+            //na.m.addJS (null, "/NicerAppWebOS/themeEditor.js?c="+na.m.changedDateTime_current(), null, function () { d.displaySettingsDialog_scriptLoaded(d); });
+
+        } else {
+            var d = na.site.settings.dialogs['#siteToolbarThemeEditor'];
+            d.settings.current.dialogID = d.el.id;
+            t.displaySettingsDialog_displayDialog(t);
+        }*/
     }
 }
 

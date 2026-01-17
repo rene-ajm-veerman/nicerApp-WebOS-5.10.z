@@ -72,19 +72,19 @@ na.backgrounds = na.background = na.bg = {
         if (!callback && saveTheme) callback = na.site.saveTheme;
         if (!search) search = t.settings.backgroundSearchKey;
         if (!search) {
-            search = 'landscape';
+            search = 'LWandscape';
         };
         t.settings.backgroundSearchKey = search;
 
 
         var oldBSK = na.site.globals.backgroundSearchKey;
-        if (oldBSK==='' || oldBSK=='landscape' || oldBSK=='portrait') {
+        if (oldBSK==='' || oldBSK=='Landscape' || oldBSK=='Portrait') {
             if ( parseFloat($(window).width()) > parseFloat($(window).height()) )
                 na.site.globals.backgroundSearchKey
-                    = na.site.globals.backgroundSearchKey.replace ('portrait', 'landscape');
+                    = na.site.globals.backgroundSearchKey.replace ('Portrait', 'Landscape');
             else
                 na.site.globals.backgroundSearchKey
-                    = na.site.globals.backgroundSearchKey.replace ('landscape', 'portrait');
+                    = na.site.globals.backgroundSearchKey.replace ('Landscape', 'Portrait');
         }
         /*
         if (oldBSK !== '' && oldBSK != na.site.globals.backgroundSearchKey)
@@ -129,15 +129,16 @@ na.backgrounds = na.background = na.bg = {
                     h = parseInt(bgSize[1]);
 
                     for (var j=0; j<sk.length; j++) {
+                        var re = new RegExp(sk[j], 'i');
                         if (sk[j].substr(0,1)==='-') {
-                            if (bgk.match(sk[j])) hit = false;
+                            if (bgk.match(re)) hit = false;
                         } else {
-                            if (!bgk.match(sk[j])) hit = false;
+                            if (!bgk.match(re)) hit = false;
                         }
                     }
 
                     if (
-                        !bgk.match(/tiled/)
+                        !bgk.match(/Tiled/i)
                         && !bgk.match(/\.txt$/)
                         && (
                             $(window).width() > w
@@ -170,6 +171,7 @@ na.backgrounds = na.background = na.bg = {
         na.m.log (10, fncn+' : url='+url, true);
         //debugger;
         t.settings.div = div;
+        debugger;
 
         /*
         var

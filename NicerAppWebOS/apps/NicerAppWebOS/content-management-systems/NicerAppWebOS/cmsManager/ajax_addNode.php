@@ -94,7 +94,7 @@ $id = array_key_exists('id',$_POST) && !is_bool($_POST['id']) && is_string($_POS
 $recordToAdd = array (
     '_id' => $id,
     'id' => $id,
-    'database' => str_replace('_tree','_documents',$_POST['database']),
+    'database' => $_POST['database'],
     'parent' => $_POST['parent'],
     'type' => $_POST['type'],
     'text' =>  $textFinal,
@@ -122,9 +122,9 @@ $call3a = $cdb->getAllDocs();
 
 foreach ($call3a->body->rows as $idx => $doc) {
     $call2a = $cdb->get($doc->id);
-    //if ($debug) { echo 't322:<pre>'; var_dump ($call2); echo '</pre>';  };
+    if ($debug) { echo 't322:<pre>'; var_dump ($call2a); echo '</pre>';  };
     $doc2 = $call2a->body;
-    if ($doc2->parent == $_POST['parent']) {
+    if (property_exists($doc2, 'parent') && $doc2->parent == $_POST['parent']) {
         $doc2->order = getOrder ($order, $doc2->_id);
         if ($debug) { var_dump ($doc2->order); echo '<br/>'.PHP_EOL; }
         $cdb->post ($doc2);

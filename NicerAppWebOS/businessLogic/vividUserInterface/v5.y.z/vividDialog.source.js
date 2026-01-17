@@ -23,7 +23,7 @@ class naVividDialog {
         for (var i in na.site.globals.themesDBkeys) {
             if (na.site.globals.themesDBkeys[i].specificityName == na.site.globals.specificityName) idx = i;
         }
-        //debugger;
+        debugger;
         if (idx!==false && na.site.globals.themesDBkeys[idx].display) {
             var opacity = (
                 $('#vdSettings_show').val()=='hidden'

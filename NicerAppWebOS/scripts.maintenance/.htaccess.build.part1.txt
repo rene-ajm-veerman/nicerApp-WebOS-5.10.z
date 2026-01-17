@@ -196,14 +196,14 @@ Options +FollowSymLinks
             ##RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_METHOD} ^(GET)$
     RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
-    RewriteRule ^$ NicerAppWebOS/businessLogic/ajax/ajax_get_content.php?viewID=/ [L]
+    RewriteRule ^(?!/)$ NicerAppWebOS/businessLogic/ajax/ajax_get_content.php?viewID=/ [L]
 
     # front page when it needs the full NicerApp framework
             # tried this already (doesn't work)
             ##RewriteCond %{REQUEST_FILENAME} !-f
             ##RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_METHOD} ^(GET)$
-    RewriteRule ^$ NicerAppWebOS/index.php?viewID=/ [L]
+    RewriteRule ^(?!/)$ NicerAppWebOS/index.php?viewID=/ [L]
 
     RewriteCond %{REQUEST_METHOD} ^(GET)$
     RewriteRule ^nc$ NicerAppWebOS/index.php?uvt=n&lc=n&viewID=/ [L]
@@ -231,9 +231,9 @@ Options +FollowSymLinks
 
     RewriteCond %{REQUEST_URI} !^/NicerAppWebOS/apps/NicerAppWCS/applications/2D/musicPlayer/music/.*$
     RewriteCond %{HTTP:X-Requested-With} XMLHttpRequest
-    RewriteRule ^([\-\w\d]+)$ NicerAppWebOS/businessLogic/ajax/ajax_get_content.php?seoValue=$1&%{QUERY_STRING} [L]
+    RewriteRule ^(?!/)([\-\w\d]+)$ NicerAppWebOS/businessLogic/ajax/ajax_get_content.php?seoValue=$1&%{QUERY_STRING} [L]
 
     RewriteCond %{REQUEST_URI} !^/NicerAppWebOS/apps/NicerAppWCS/applications/2D/musicPlayer/music/.*$
-    RewriteRule ^([\-\w\d]+)$ NicerAppWebOS/index.php?seoValue=$1&%{QUERY_STRING} [L]
+    RewriteRule ^(?!/)([\-\w\d]+)$ NicerAppWebOS/index.php?seoValue=$1&%{QUERY_STRING} [L]
 </IfModule>
 

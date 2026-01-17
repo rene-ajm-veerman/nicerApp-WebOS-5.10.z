@@ -238,7 +238,7 @@ na.desktop = na.d = {
                         sn = section[sectionIdx][divID].snapTo[j],
                         offsetY = section[sectionIdx][divID].offsetY ? section[sectionIdx][divID].offsetY : 0,
                         offsetX = section[sectionIdx][divID].offsetX ? section[sectionIdx][divID].offsetX : 0;
-                        //if (divID=='#btnOptions' || divID=='#siteMenu') debugger;
+                        if (divID=='#btnOptions' || divID=='#siteMenu') debugger;
                         //if (divID=='#siteTaskbar') debugger;
                         switch (sn.edge) {
                             case 'top':
@@ -334,11 +334,12 @@ na.desktop = na.d = {
                         && section[sectionIdx][divID].yMinHeight
                     ) divs[divID].height -= section[sectionIdx][divID].yMinHeight;
                     na.m.log (10010, fncn+' : calculated sections', false);
-                    //debugger;
+                    debugger;
 
                     switch (divID) {
                         case '#siteMenu':
                             //divs[divID].top += na.d.g.margin;
+                            divs[divID].top = 'auto';
                             divs[divID].left += na.d.g.margin;
                             break;
                         case '#btnOptions':

@@ -119,7 +119,7 @@ $fields = [ '_id', 'ip', 'millisecondsSinceEpoch', 'msg', 'referrer', 'stacktrac
 
 
 
-
+// TODO : Use couchdb 'bookmarks' to retrieve all relevant documents rather than the 'limit' listed below here.
 if (
     $naWebOS->view[$afn]['beginDateTime']
     && $naWebOS->view[$afn]['endDateTime']
@@ -128,7 +128,7 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => [['$gt']=>$naWebOS->view[$afn]['beginDateTime']-1, $naWebOS->view[$afn]['endDateTime']+1]  ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
-        'limit' => 250, // hardcoded (in couchdb!) max value
+        'limit' => 20, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     echo '<pre>'; var_dump($findCommand); die();
@@ -139,7 +139,7 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => ['$gt' => $naWebOS->view[$afn]['beginDateTime'] - 1] ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
-        'limit' => 250, // hardcoded (in couchdb!) max value
+        'limit' => 20, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     //echo '<pre>'.json_encode($findCommand,JSON_PRETTY_PRINT); die();
@@ -151,7 +151,7 @@ if (
         'selector' => [ 'millisecondsSinceEpoch' => ['$lt' => $naWebOS->view[$afn]['endDateTime'] + 1] ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
-        'limit' => 250, // hardcoded (in couchdb!) max value
+        'limit' => 20, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
     $call = $cdb->find($findCommand);

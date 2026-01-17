@@ -31,15 +31,18 @@ class naVividMenu {
 
     // Main menu positioning
     menu.style.position = 'fixed';
+    menu.style.top = 'auto';
     menu.style.left = '40px';
-    menu.style.bottom = '80px';
-    //menu.style.display = 'none';
+    menu.style.width = 'fit-content';
+    menu.style.bottom = '330px';
+    menu.style.display = 'none';
 
     // Toggle main menu
     if (openBtn) {
       openBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        $('.vividMenu_mainUL',menu).css({display:'block'});
       });
     }
 

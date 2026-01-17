@@ -67,7 +67,7 @@
       font-weight : bold !important;
     }
     .ui-datepicker, .ui-timepicker-div {
-      z-index: 9999 !important;
+      z-index: 3000000 !important;
       color : white !important;
       font-weight : bold;
       background : none;
@@ -76,7 +76,7 @@
     content : '';
     position:absolute;
 top:0;left:0;width:100%;height:100%;
-      background : url(/siteMedia/backgrounds/tiled/Green/green-rust-1.png) repeat;
+      background : url(/siteMedia/backgrounds/Tiled/Green/green-rust-1.png) repeat;
       opacity : 0.3 !important;
       z-index : -1;
     }
@@ -240,8 +240,10 @@ foreach ($naWebOS->view as $afn => $as) break;
 <script src="/NicerAppWebOS/3rd-party/jQuery/jquery-ui-timepicker-addon.js"></script>
 
 <script>
+    $('#siteToolbarLeft').addClass('naNoSettings').addClass('naNoComments');
+
   var $hidden = $('');
-  var $hidden2 = $('<input type="text" id="endDateTime" style="position:absolute;z-index:-70;opacity:0;pointer-events:none;">');
+  var $hidden2 = $('<input type="text" id="endDateTime2" style="position:absolute;z-index:-70;opacity:0;pointer-events:none;">');
   $('body').append($hidden).append($hidden2);
   $hidden = $('#beginDateTime');
   $hidden2 = $('#endDateTime');
