@@ -119,6 +119,7 @@ for i, img_path in enumerate(unprocessed_files, 1):
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         print(f"  → Checkpoint saved ({len(results)} total)")
+        break
 
     time.sleep(1.5)  # between images
 

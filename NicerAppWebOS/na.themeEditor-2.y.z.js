@@ -409,9 +409,10 @@ class naThemeEditor {
         
         var x = $('#colorpicker').css('display'), y = 'abc';
         if (typeof c==='undefined') c = 'rgba(0,0,0,0.5)';
-        //debugger;
+        debugger;
         if ($.spectrum) $('#colorpicker').css({display:'block'}).spectrum ({
             color:c, 
+            flat : true,
             type:'flat',
             showAlpha : true,
             showPalette : false,
@@ -431,6 +432,7 @@ class naThemeEditor {
         if (typeof c2==='undefined') c2 = 'black';
         if ($.spectrum) $('#borderColorpicker').css({display:'block'}).spectrum ({
             color:c2, 
+            flat : true,
             type: "flat", 
             showAlpha : true,
             showPalette : false, 

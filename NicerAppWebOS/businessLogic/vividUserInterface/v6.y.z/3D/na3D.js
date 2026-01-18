@@ -2579,7 +2579,7 @@ export class na3D_fileBrowser {
                 }
             })(t.el)
             .backgroundColor('rgba(0,0,0,0)')
-            .dagMode('zin')           // Great for hierarchies like file trees
+            .dagMode('zout')           // Great for hierarchies like file trees
             .nodeLabel('name')
             .nodeAutoColorBy('folder')        // e.g., 'folder' vs 'file'
             .graphData(dat2)   // { nodes: [...], links: [...] }
