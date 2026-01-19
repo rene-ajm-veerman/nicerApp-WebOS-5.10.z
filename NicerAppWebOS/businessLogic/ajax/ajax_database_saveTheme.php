@@ -208,9 +208,10 @@ if (!isset($_SESSION) || !is_array($_SESSION) || !array_key_exists('selectors',$
     foreach ($selectors as $idx => $selector) {
         $dbg2 = [
             '1' => $selector['specificityName'],
-            '2' => $_POST['specificityName']
+            '2' => $_POST['specificityName'],
+            'selectors' => $selectors
         ];
-        //echo '<pre style="margin:5px;border-radius:10px;padding:5px;background:navy;color:lime">'; var_dump ($dbg2); echo '</pre>';
+        echo '<pre style="margin:5px;border-radius:10px;padding:5px;background:navy;color:lime">'; var_dump ($dbg2); echo '</pre>';
 
         if ($selector['specificityName']===$_POST['specificityName']) $sel = $selector;
     }

@@ -284,7 +284,7 @@ class NicerAppWebOS {
 
                 if (array_key_exists('cdb_loginName',$_COOKIE)) $un = $_COOKIE['cdb_loginName']; else $un = 'Guest';
                 $this->dbs = new class_NicerAppWebOS_database_API ($un);
-                //echo '<pre>'; var_dump($_SERVER['SCRIPT_NAME']); echo '</pre>';//var_dump ($this->dbs);exit();
+                //echo '<pre>'; var_dump($_COOKIE); echo '</pre>';var_dump ($this->dbs->findConnection('couchdb')->roles);exit();
 
                 if (strpos('ajax_login.php',$_SERVER['SCRIPT_NAME'])==false)
                     setcookie('cdb_loginName', $this->dbs->findConnection('couchdb')->username, time() + 604800, '/');
@@ -1293,7 +1293,7 @@ class NicerAppWebOS {
                             $adjustedUserOrGroupID = $userOrGroupID; // TODO : check if this is necessary
 
                             if ($debug)
-                            { echo '<pre style="color:white;background:blue;margin:10px;padding:5px;">t666b2='; var_dump($accountType); echo PHP_EOL; var_dump ($userOrGroupID); echo PHP_EOL; var_dump ($adjustedUserOrGroupID); echo PHP_EOL.PHP_EOL; var_dump ($this->dbs->findConnection('couchdb')->roles); echo '</pre>';}
+                            { echo '<pre style="color:white;background:blue;margin:10px;padding:5px;">t666b2='; var_dump($accountType); echo PHP_EOL; var_dump ($userOrGroupID); echo PHP_EOL; var_dump ($adjustedUserOrGroupID); echo PHP_EOL.PHP_EOL; echo 't666='; var_dump ($this->dbs->findConnection('couchdb')->username); echo '</pre>';}
                             if ($accountType == 'roles') {
                                 //if ($debug) { echo '$this->dbs->roles='; var_dump($this->dbs->roles); };
                                 if (is_string($this->dbs)) {
@@ -2031,10 +2031,17 @@ class NicerAppWebOS {
         ) {
             $selectors[] = array (
                 'permissions' => [
-                    'read' => [ 'users' => [ $username100 ] ],
-                    'write' => [ 'users' => [ $username100 ] ]
+                    'read' => [ 'users' => [ $username101 ] ],
+                    'write' => [
+                        //'users' => [ $username101 ]
+                        'roles' => [
+                            $db->translate_plainGroupName_to_couchdbGroupName('Owners'),
+                            $db->translate_plainGroupName_to_couchdbGroupName('Chief Officers'),
+                            $db->translate_plainGroupName_to_couchdbGroupName('Moderators')
+                        ]
+                    ]
                 ],
-                'specificityName' => 'site for user '.$username101,
+                'specificityName' => 'site for user '.$username100,
                 'user' => $username100,
                 'display' => true
             );
@@ -2043,15 +2050,15 @@ class NicerAppWebOS {
 
             $selectors[] = array (
                 'permissions' => [
-                    'read' => [ 'users' => [ $username100 ] ],
-                    'write' => [ 'users' => [ $username100 ] ]
+                    'read' => [ 'users' => [ $username101 ] ],
+                    'write' => [ 'users' => [ $username101 ] ]
                 ],
-                'specificityName' => 'site for user '.$username101.' at the client',
+                'specificityName' => 'site for user '.$username100.' at the client',
                 'user' => $username100,
                 'ip' => $naIP,
                 'display' => true
             );
-            $selectorNames[] = 'site for user '.$username101.' at the client';
+            $selectorNames[] = 'site for user '.$username100.' at the client';
 
 
 
@@ -2068,7 +2075,12 @@ class NicerAppWebOS {
                             'roles' => [ $db->translate_plainGroupName_to_couchdbGroupName('Guests'), $role ]
                         ],
                         'write' => [
-                            'roles' => [ $role ]
+                            //'roles' => [ $role ]
+                            'roles' => [
+                                $db->translate_plainGroupName_to_couchdbGroupName('Owners'),
+                                $db->translate_plainGroupName_to_couchdbGroupName('Chief Officers'),
+                                $db->translate_plainGroupName_to_couchdbGroupName('Moderators')
+                            ]
                         ]
                     ),
                     'specificityName' => 'site for group '.$role2,
@@ -2124,7 +2136,14 @@ class NicerAppWebOS {
                 $selectors[] = array (
                     'permissions' => [
                         'read' => [ 'roles' => [ $role ] ],
-                        'write' => [ 'roles' => [ $role ] ]
+                        'write' => [
+                            //'roles' => [ $role ]
+                            'roles' => [
+                                $db->translate_plainGroupName_to_couchdbGroupName('Owners'),
+                                $db->translate_plainGroupName_to_couchdbGroupName('Chief Officers'),
+                                $db->translate_plainGroupName_to_couchdbGroupName('Moderators')
+                            ]
+                        ]
                     ],
                     'specificityName' => 'current page for group '.$role2,
                     'url' => $url,
@@ -2154,7 +2173,14 @@ class NicerAppWebOS {
                 $selectors[] = array (
                     'permissions' => [
                         'read' => [ 'users' => [ $username101 ] ],
-                        'write' => [ 'users' => [ $username101 ] ]
+                        'write' => [
+                            //'users' => [ $username101 ]
+                            'roles' => [
+                                $db->translate_plainGroupName_to_couchdbGroupName('Owners'),
+                                $db->translate_plainGroupName_to_couchdbGroupName('Chief Officers'),
+                                $db->translate_plainGroupName_to_couchdbGroupName('Moderators')
+                            ]
+                        ]
                     ],
                     'specificityName' => 'app \''.$appName.'\' for user '.$username100,
                     'app' => $viewFolder,
@@ -2182,7 +2208,14 @@ class NicerAppWebOS {
             $selectors[] = array (
                 'permissions' => [
                     'read' => [ 'users' => [ $username101 ] ],
-                    'write' => [ 'users' => [ $username101 ] ]
+                    'write' => [
+                        //'users' => [ $username101 ]
+                        'roles' => [
+                            $db->translate_plainGroupName_to_couchdbGroupName('Owners'),
+                            $db->translate_plainGroupName_to_couchdbGroupName('Chief Officers'),
+                            $db->translate_plainGroupName_to_couchdbGroupName('Moderators')
+                        ]
+                    ]
                 ],
                 'specificityName' => 'current page for user '.$username100,
                 'url' => $url,

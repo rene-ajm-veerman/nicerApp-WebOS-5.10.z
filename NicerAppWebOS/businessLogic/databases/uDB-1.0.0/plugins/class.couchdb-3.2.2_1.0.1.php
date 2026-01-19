@@ -18,6 +18,7 @@ class class_NicerAppWebOS_database_API_couchdb_3_2 {
     public $cms = null;
     public $connectionSettings = null;
     public $admin = false;
+    public $isAdmin = false;
     
     public $username=null;
     public $roles=null;

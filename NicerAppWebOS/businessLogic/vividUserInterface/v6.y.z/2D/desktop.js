@@ -261,7 +261,7 @@ na.desktop = na.d = {
                                     divs[divID].left = $(window).width() - $(divID).width() - na.d.g.margin+ offsetX;
                                 } else {
                                     if (divs[sn.element])
-                                        divs[divID].left = divs[sn.element].left + divs[sn.element].width + na.d.g.margin + offsetX;
+                                        divs[divID].left = divs[sn.element].left + divs[sn.element].width + offsetX;
                                     else
                                         divs[divID].left = na.d.g.margin + offsetX;
                                 }
@@ -289,7 +289,7 @@ na.desktop = na.d = {
                             break;
                         case 'maxY':
                             if ($(window).width() < na.site.globals.reallySmallDeviceWidth)
-                                divs[divID].width = $(window).width() - (2 * na.d.g.margin)
+                                divs[divID].width = $(window).width() - ( na.d.g.margin)
                             else
                                 divs[divID].width = $(divID).width();
 
@@ -362,7 +362,7 @@ na.desktop = na.d = {
                             if (!na.d.s.visibleDivs.includes('#siteToolbarLeft') || na.d.s.visibleDivs.includes('#siteToolbarThemeEditor'))
                                 divs[divID].width -= 2*(na.d.g.margin);
                             else
-                                divs[divID].width -= (na.d.g.margin);
+                                divs[divID].width -= na.d.g.margin;
                             //if (visibleDivs.includes('#siteDateTime')) {
                                 //divs[divID].top += na.d.g.margin;
                                 //divs[divID].height -= na.d.g.margin;

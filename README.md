@@ -295,18 +295,18 @@ which are 444, 447 and 448 in this example case,
 and those ports should NOT be forwarded from your modem / ADSL router / fiber internet connection device to your LAN. 
 port 80 should be disabled in all files in /etc/apache2/sites-available/, by modifying the line(s) containing 'VirtualHost'**
 
-**edit /etc/apache2/ports.conf** to become the following, but be sure to change 192.168.178.77 your server's LAN IP address, which can be found with the 'ifconfig' terminal app :
+**edit /etc/apache2/ports.conf** to become the following, but be sure to change 192.168.178.55 your server's LAN IP address, which can be found with the 'ifconfig' terminal app :
 ````
 <IfModule ssl_module>
-        Listen 192.168.178.77:444
-        Listen 192.168.178.77:447
-        Listen 192.168.178.77:448
+        Listen 192.168.178.55:444
+        Listen 192.168.178.55:447
+        Listen 192.168.178.55:448
 </IfModule>
 
 <IfModule mod_gnutls.c>
-        Listen 192.168.178.77:444
-        Listen 192.168.178.77:447
-        Listen 192.168.178.77:448
+        Listen 192.168.178.55:444
+        Listen 192.168.178.55:447
+        Listen 192.168.178.55:448
 </IfModule>
 ````
 
@@ -412,34 +412,23 @@ and .../NicerAppWebOS-5.10.z/domains/MYDOMAIN_TLD/domainConfig//desktop.source.j
 
 # Adding new URLs and apps into a nicerapp site
 All apps and pages on a nicerapp site are loaded through a URL that looks somewhat like this :
-http://localhost/apps/eyJtdXNpYyI6eyJzZXQiOiJpbmRleCJ9fQ
+http://localhost/view/eyJtdXNpYyI6eyJzZXQiOiJpbmRleCJ9fQ
 
-You will notice the "strange" sequence after /apps/ in that URL.
-It's strange because it's base64-encoded JSON, allowing for multiple settings to be passed into the nicerapp PHP code, while avoiding the "old" practice of using http://localhost/apps/someApp.php?setting1=x&setting2=y
+You will notice the "strange" sequence after /view/ in that URL.
+It's strange because it's base64-encoded JSON, allowing for multiple settings to be passed into the nicerapp PHP code, while avoiding the "old" practice of using http://localhost/view/someApp.php?setting1=x&setting2=y
 
-If you want to simplify things for use in Search Engine Optimization (SEO), you can have http://localhost/abc automatically translated into http://localhost/apps/eyJtdXNpYyI6eyJzZXQiOiJpbmRleCJ9fQ in **.../.htaccess** - there are already some examples supplied.
+If you want to simplify things for use in Search Engine Optimization (SEO), you can have http://localhost/abc automatically translated into http://localhost/view/eyJtdXNpYyI6eyJzZXQiOiJpbmRleCJ9fQ in **.../.htaccess** - there are already some examples supplied.
 
-You would store any new apps that you might create under .../nicerapp/apps/YOURNAME/APPNAME/app.dialog.siteContent.php or .../nicerapp/apps/YOURNAME/APPNAME/app.dialog.siteToolbarLeft.php or any other main DIV name with class="vividDialog" as found in .../nicerapp/domainConfigs/YOUR_DOMAIN_NAME/index.template.php
+You would store any new apps that you might create under .../nicerapp/view/YOURNAME/APPNAME/app.dialog.siteContent.php or .../nicerapp/view/YOURNAME/APPNAME/app.dialog.siteToolbarLeft.php or any other main DIV name with class="vividDialog" as found in .../nicerapp/domainConfigs/YOUR_DOMAIN_NAME/index.template.php
 
-And .../ajax_get_content.php is responsible for mapping your http://localhost/apps/eyJtdXNpYyI6eyJzZXQiOiJpbmRleCJ9fQ to the right code.
+And .../ajax_get_content.php is responsible for mapping your http://localhost/view/eyJtdXNpYyI6eyJzZXQiOiJpbmRleCJ9fQ to the right code.
 
-One would ask, rightfully so, how to create these /apps/* URLs.
+One would ask, rightfully so, how to create these /view/* URLs.
 in PHP, that's done with the always available .../nicerapp/functions.php::**base64_encode_url()** and .../nicerapp/functions.php::**base64_decode_url()**
 in JavaScript, it's done with the always available **na.m.base64_encode_url()** and **na.m.base64_decode_url()**
 
-# Window Cosmetics Settings
-2021/07/20 : 
-it needs more work. it needs theme capabilities for instance.
-and please note i may run a different ubuntu OS installation on my development machine, with it's own apache2 running on localhost only of course, but that this machine does query the live server.
-
-so if i'm working on my development machine (which is just good practice) and go from debugging general issues to specifically hunt for WCS settings,
-then i'm updating the live server with the new graphics settings.
-
-to try to copy such settings from a development couchdb to a live-server couchdb,
-is to invite tons upon tons of extra work, which will sometimes be nearly impossible to replicate accurately.
-
 # Questions, bug-reports, feature-requests?
-you can post these to rene.veerman.netherlands@gmail.com, and i will try to respond within 72 hours, even on weekends.
+you can post these to rene.veerman.netherlands@gmail.com, https://github.com/rene-ajm-veerman/nicerApp-WebOS-5.10.z/issues, or https://github.com/rene-ajm-veerman/NicerApp-WebOS-domainConfig/issues, and i will try to respond within 72 hours, even on weekends.
 
 if you need a quick solution towards getting yourself a collection of background images, you can look for 'wallpaper' on https://rarbg.to and use a torrent client (like transmission on ubuntu, or utorrent on windows) to download them.
 

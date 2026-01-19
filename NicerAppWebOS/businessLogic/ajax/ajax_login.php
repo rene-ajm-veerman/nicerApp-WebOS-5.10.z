@@ -48,8 +48,8 @@ try {
     preg_match_all('/=(.*?);/', $output[6], $output2);
     //var_dump ($output2);
     //echo '</pre>'.PHP_EOL;
-    setcookie ('cdb_authSession_cookie', $output2[1][0], strtotime($output2[1][2]), '/', 'said.by');
-    setcookie ('cdb_loginName', $username, strtotime($output2[1][2]), '/', 'said.by');
+    setcookie ('cdb_authSession_cookie', $output2[1][0], strtotime($output2[1][2]), '/', $naWebOS->domain);
+    setcookie ('cdb_loginName', $username, strtotime($output2[1][2]), '/', $naWebOS->domain);
     $_SESSION['cdb_loginName'] = $username;
 
 } catch (Exception $e) {

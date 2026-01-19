@@ -1,9 +1,9 @@
 Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
 Found 18502 total images
-Loaded 1580 completed images
-16922 images left to process
+Loaded 1940 completed images
+16562 images left to process
 
-[   1/16922] forest_2.jpg
+[   1/16562] 1742.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -12,7 +12,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   2/16922] 2027.jpg
+[   2/16562] aerial_view_loc__Pyrenees__.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -21,7 +21,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   3/16922] 31228.jpg
+[   3/16562] 1062.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -30,7 +30,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   4/16922] 1832.jpg
+[   4/16562] 1455.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -39,7 +39,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   5/16922] 1532.jpg
+[   5/16562] pexels-eberhard-grossgasteiger-1287081.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -48,7 +48,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   6/16922] loc__the_basta_rock__.jpg
+[   6/16562] 1819.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -57,7 +57,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   7/16922] 870.jpg
+[   7/16562] 2041.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -66,7 +66,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   8/16922] 564.jpg
+[   8/16562] snow-mountains-lake-reflection-water-blue-sky-landscape-4000x2282-2121.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -75,7 +75,7 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   9/16922] 2082086.jpg
+[   9/16562] 143.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -84,7 +84,286 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[  10/16922] 1749.jpg
+[  10/16562] 1380.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (1950 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 1950 completed images
+16552 images left to process
+
+[   1/16552] pexels-irina-iriser-673803.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16552] pexels-pixabay-2156.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16552] 529.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16552] 1162.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16552] town_lake.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16552] 745.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16552] pexels-stein-egil-liland-3374204.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16552] worndown_farm.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16552] 583.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16552] canyon_river_seen_from_hilltop.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (1960 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 1960 completed images
+16542 images left to process
+
+[   1/16542] foggy_stairs_in_mountains.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16542] pexels-susanne-jutzeler-1261572.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16542] hills_next_to_lakes.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16542] 1911.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16542] wWw.TechTools.NET__-__244.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16542] 172.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16542] 1453.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16542] 2016.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16542] foggy_hills_3.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16542] 1206.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (1970 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 1970 completed images
+16532 images left to process
+
+[   1/16532] digital art - large mayan pyramid - nighttime.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16532] 16322046236_27d3c86f40_o.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16532] canal_2.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16532] boat_on_shore.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16532] desktop-backgrounds-space.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16532] 464.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16532] 1873.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16532] tropical_beach_4.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -93,25 +372,52 @@ Loaded 1580 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
 Found 18502 total images
-Loaded 1580 completed images
-16922 images left to process
+Loaded 1970 completed images
+16532 images left to process
 
-[   1/16922] forest_2.jpg
+[   1/16532] digital art - large mayan pyramid - nighttime.jpg
   - llava-llama3 / detailed ... done
   - moondream / keywords ... done
   - llava-llama3 / keywords ... done
-  → Checkpoint saved (1590 total)
+[   9/16532] pexels-sergio-souza-2760630.jpg
+  - llava-llama3 / detailed ... done
+  - llava:7b / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / keywords ... done
+  - llava:7b / detailed ... done
+  - bakllava / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / detailed ... done
+  - moondream / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16532] 16322046236_27d3c86f40_o.jpg
+  - llava-llama3 / detailed ... done
+[  10/16532] pexels-james-wheeler-417074.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (1980 total)
 
 All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
 Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
 done
-  - llava:7b / detailed ... done
-  - llava:7b / keywords ... done
-  - bakllava / detailed ... done
-  - bakllava / keywords ... done
-  - moondream / detailed ... done
-  - moondream / keywords ... done
-[   2/16922] 2027.jpg
+[   3/16532] canal_2.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -120,7 +426,7 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   3/16922] 31228.jpg
+[   4/16532] boat_on_shore.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -129,7 +435,7 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   4/16922] 1832.jpg
+[   5/16532] desktop-backgrounds-space.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -138,7 +444,7 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   5/16922] 1532.jpg
+[   6/16532] 464.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -147,7 +453,7 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   6/16922] loc__the_basta_rock__.jpg
+[   7/16532] 1873.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -156,7 +462,7 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   7/16922] 870.jpg
+[   8/16532] tropical_beach_4.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -165,7 +471,7 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   8/16922] 564.jpg
+[   9/16532] pexels-sergio-souza-2760630.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -174,34 +480,223 @@ done
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   9/16922] 2082086.jpg
+[  10/16532] pexels-james-wheeler-417074.jpg
   - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 1980 completed images
+16522 images left to process
+
+[   1/16522] forest_road_with_cut_down_trees.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 1980 completed images
+16522 images left to process
+
+[   1/16522] forest_road_with_cut_down_trees.jpg
+  - llava-llama3 / detailed ... done
+  - llava:7b / detailed ... done
+  - llava-llama3 / keywords ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
-  - llava:7b / keywords ... done
-  - bakllava / detailed ... done
-  - bakllava / keywords ... done
-  - moondream / detailed ... done
-  - moondream / keywords ... done
-[  10/16922] 1749.jpg
-  - llava-llama3 / detailed ... done
-  - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
   - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
   - bakllava / detailed ... done
   - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-  → Checkpoint saved (1590 total)
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (1980 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+[   2/16522] wWw.TechTools.NET__-__166.jpg
+  - llava-llama3 / detailed ... done
+[   2/16522] wWw.TechTools.NET__-__166.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   3/16522] 1916.jpg
+  - llava-llama3 / detailed ... done
+[   3/16522] 1916.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   4/16522] lake_in_the_mountains_seen_from_mountain_top.jpg
+  - llava-llama3 / detailed ... done
+[   4/16522] lake_in_the_mountains_seen_from_mountain_top.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   5/16522] 1225.jpg
+  - llava-llama3 / detailed ... done
+[   5/16522] 1225.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   6/16522] 1717.jpg
+  - llava-llama3 / detailed ... done
+[   6/16522] 1717.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   7/16522] wWw.TechTools.NET__-__201.jpg
+  - llava-llama3 / detailed ... done
+[   7/16522] wWw.TechTools.NET__-__201.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   8/16522] wWw.TechTools.NET__-__181.jpg
+  - llava-llama3 / detailed ... done
+[   8/16522] wWw.TechTools.NET__-__181.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   9/16522] 361.jpg
+  - llava-llama3 / detailed ... done
+[   9/16522] 361.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[  10/16522] 1789.jpg
+  - llava-llama3 / detailed ... done
+[  10/16522] 1789.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (1990 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+  → Checkpoint saved (1990 total)
 
 All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
 Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
 Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
 Found 18502 total images
-Loaded 1590 completed images
-16912 images left to process
+Loaded 1990 completed images
+16512 images left to process
 
-[   1/16912] 1224.jpg
+[   1/16512] pexels-sindre-strøm-1144176.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -210,7 +705,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   2/16912] Water_mountains_landscapes_nature_snow_valley_rocks_switzerland_rivers_3840x2400.jpg
+[   2/16512] 903.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -219,7 +714,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   3/16912] pexels-juan-pablo-serrano-arenas-1246437.jpg
+[   3/16512] 653.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -228,7 +723,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   4/16912] 1514.jpg
+[   4/16512] 1299.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -237,7 +732,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   5/16912] 856.jpg
+[   5/16512] 351.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -246,7 +741,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   6/16912] clouds_covering_hills.jpg
+[   6/16512] hilltop_overlooking_hills_and_lake.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -255,7 +750,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   7/16912] 1322.jpg
+[   7/16512] pexels-krivec-ales-547119.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -264,7 +759,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   8/16912] 1301.jpg
+[   8/16512] 228.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -273,7 +768,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   9/16912] 876.jpg
+[   9/16512] 1922.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -282,7 +777,7 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[  10/16912] 871.jpg
+[  10/16512] 1631.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -291,16 +786,16 @@ Loaded 1590 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-  → Checkpoint saved (1600 total)
+  → Checkpoint saved (2000 total)
 
 All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
 Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
 Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
 Found 18502 total images
-Loaded 1600 completed images
-16902 images left to process
+Loaded 2000 completed images
+16502 images left to process
 
-[   1/16902] house_on_lake_island.jpg
+[   1/16502] 1527.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -309,7 +804,7 @@ Loaded 1600 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   2/16902] countryside scenic view of farm.jpg
+[   2/16502] 1456.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -318,7 +813,7 @@ Loaded 1600 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   3/16902] photographer_on_hill_next_to_lakes.jpg
+[   3/16502] 676.jpg
   - llava-llama3 / detailed ... done
   - llava-llama3 / keywords ... done
   - llava:7b / detailed ... done
@@ -327,6 +822,4031 @@ Loaded 1600 completed images
   - bakllava / keywords ... done
   - moondream / detailed ... done
   - moondream / keywords ... done
-[   4/16902] 1153.jpg
+[   4/16502] 744.jpg
   - llava-llama3 / detailed ... done
-  - llava-llama3 / keywords ... 
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16502] pexels-joão-vítor-heinrichs-1787043.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16502] 360.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16502] beach_seen_from_above_2.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16502] countryside_hills_dirtroad.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16502] pexels-kevin-bidwell-1485317.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16502] 185.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2010 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2010 completed images
+16492 images left to process
+
+[   1/16492] beaches-beach-hdr-sands-photography-natute-ocean-great-romantic-amazing-hdr-ferns-plants-sea-landscape-palms-horizon-sunrise-sunset-sky-colors-water-nice-sand-cool-beauty-beautiful.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16492] 1865.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16492] walkway_through_marshland.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16492] 651.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16492] 1051.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16492] tea_plantation_2.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16492] 446.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16492] 1528.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16492] 2082145.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16492] 1435.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2020 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2020 completed images
+16482 images left to process
+
+[   1/16482] 2082049.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16482] pexels-kellie-churchman-1001682.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16482] wWw.TechTools.NET__-__138.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16482] 473.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16482] forest_hills_lake.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16482] 756.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16482] pexels-quang-nguyen-vinh-2177427.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16482] blue_mountains.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16482] untitled_panorama2.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16482] 1823.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2030 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2030 completed images
+16472 images left to process
+
+[   1/16472] wWw.TechTools.NET__-__199.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16472] pexels-suzukii-xingfu-872831.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16472] 1359.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16472] 1540.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16472] lighthouse_on_coast.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16472] Scenery_Mountains_Tulips_Bellis_Petunia_Alps_Clouds_Trees_Nature_tulip_meadow_4200x2800.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16472] 1313.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16472] 340.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16472] pexels-anton-atanasov-226721.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16472] woofing-cover-online-1.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2040 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2030 completed images
+16472 images left to process
+
+[   1/16472] wWw.TechTools.NET__-__199.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16472] pexels-suzukii-xingfu-872831.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16472] 1359.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16472] 1540.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16472] lighthouse_on_coast.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16472] Scenery_Mountains_Tulips_Bellis_Petunia_Alps_Clouds_Trees_Nature_tulip_meadow_4200x2800.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16472] 1313.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16472] 340.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16472] pexels-anton-atanasov-226721.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16472] woofing-cover-online-1.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2040 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2040 completed images
+16462 images left to process
+
+[   1/16462] Wallpapersxl Fower Backgraund Love Scenic Tropical Bright Colorful Flowers 1761828 1920x1080.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16462] 1443.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16462] wWw.TechTools.NET__-__233.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16462] pexels-lucas-pezeta-2331471.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16462] boat_with_people_on_mountain_lake.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16462] 470.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16462] 918.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16462] 955.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16462] 210.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16462] tree_in_field.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2050 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2050 completed images
+16452 images left to process
+
+[   1/16452] hills_farmland_farm.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16452] fisherman.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16452] pexels-serena-koi-1666634.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16452] pexels-emiliano-arano-2127969.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16452] pexels-zhang-kaiyv-1168940.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16452] lake_pier.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16452] aerial_view_countryside_fog.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16452] 253.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16452] 980.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16452] 963.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2060 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2060 completed images
+16442 images left to process
+
+[   1/16442] boat_near_shore.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16442] park_with_cliffs.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16442] 521.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16442] pexels-pixabay-157879.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16442] 2034.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16442] tropical_beach_13.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16442] 363.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16442] 563.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16442] 1847.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16442] wWw.TechTools.NET__-__130.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2070 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2070 completed images
+16432 images left to process
+
+[   1/16432] 1289.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16432] pexels-lukas-298723.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16432] hills_forest_fog_clouds.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16432] pexels-rido-alwarno-1581026.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16432] pexels-tobias-bjørkli-2113566.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16432] pexels-denishan-joseph-4137250.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16432] pexels-joão-vítor-heinrichs-5022456.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16432] boats_on_shore_seen_from_above.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16432] 1459.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16432] 1345.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2080 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2080 completed images
+16422 images left to process
+
+[   1/16422] 1779.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16422] 1201.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16422] pexels-fwstudio-172289.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16422] tropical_beach_with_boats.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16422] Otto-Blog1-Scenic-smaller2.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16422] 2013.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16422] 182.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16422] worndown_countryside_home.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16422] 661.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16422] 1422.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2090 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2090 completed images
+16412 images left to process
+
+[   1/16412] 1859.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16412] doc53c959090cc810128507291.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16412] 707.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16412] 1762.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16412] 1316.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16412] 837.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16412] 917.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2090 completed images
+16412 images left to process
+
+[   1/16412] 1859.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+[   8/16412] pexels-siegfried-poepperl-8336339.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / keywords ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2090 completed images
+16412 images left to process
+
+[   1/16412] 1859.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - moondream / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   2/16412] doc53c959090cc810128507291.jpg
+  - llava-llama3 / detailed ... done
+[   9/16412] forest walkway.jpg
+  - llava-llama3 / detailed ... done
+[   2/16412] doc53c959090cc810128507291.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   3/16412] 707.jpg
+  - llava-llama3 / detailed ... done
+[  10/16412] 1656.jpg
+  - llava-llama3 / detailed ... done
+[   3/16412] 707.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2100 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+[   4/16412] 1762.jpg
+  - llava-llama3 / detailed ... done
+[   4/16412] 1762.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   5/16412] 1316.jpg
+  - llava-llama3 / detailed ... done
+[   5/16412] 1316.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   6/16412] 837.jpg
+  - llava-llama3 / detailed ... done
+[   6/16412] 837.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   7/16412] 917.jpg
+  - llava-llama3 / detailed ... done
+[   7/16412] 917.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   8/16412] pexels-siegfried-poepperl-8336339.jpg
+  - llava-llama3 / detailed ... done
+[   8/16412] pexels-siegfried-poepperl-8336339.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   9/16412] forest walkway.jpg
+  - llava-llama3 / detailed ... done
+[   9/16412] forest walkway.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[  10/16412] 1656.jpg
+  - llava-llama3 / detailed ... done
+[  10/16412] 1656.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2100 completed images
+16402 images left to process
+
+[   1/16402] 1994.jpg
+  - llava-llama3 / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+  → Checkpoint saved (2100 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+  → Checkpoint saved (2100 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16402] 1131.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16402] 1231.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16402] 244559297_10227519348190088_8924259767047472062_n.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16402] hall.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16402] 1866.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16402] town_covered_in_clouds.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16402] dark and light forest.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16402] 295.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16402] 1033.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2110 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2110 completed images
+16392 images left to process
+
+[   1/16392] 570.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16392] pexels-jeremy-bishop-2397413.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16392] pexels-david-dibert-1297790.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16392] 1909.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16392] pexels-pierre-blaché-2351399.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16392] 465.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16392] loc__Hamburg_Germany__.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16392] wWw.TechTools.NET__-__215.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16392] hills_forest_lake_boathouse.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16392] 1096.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2120 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2120 completed images
+16382 images left to process
+
+[   1/16382] waterfalls-hidden-heaven-sunset-sunlight-sky-wonderful-water-trees-nature-sun-waterfall-beauty-forest-beautiful-scenery-rays-view-amazing-paradise-sunrise-images.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16382] 1215.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16382] 1775.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16382] 1331.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16382] pexels-max-vakhtbovych-7174112.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2120 completed images
+16382 images left to process
+
+[   1/16382] waterfalls-hidden-heaven-sunset-sunlight-sky-wonderful-water-trees-nature-sun-waterfall-beauty-forest-beautiful-scenery-rays-view-amazing-paradise-sunrise-images.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+[   6/16382] pexels-asad-photo-maldives-1450369.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / keywords ... done
+  - llava-llama3 / keywords ... done
+  - moondream / detailed ... done
+  - llava:7b / detailed ... done
+  - moondream / keywords ... done
+  - llava:7b / keywords ... done
+[   2/16382] 1215.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+[   7/16382] 241346.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / keywords ... done
+  - llava-llama3 / keywords ... done
+  - moondream / detailed ... done
+  - llava:7b / detailed ... done
+  - moondream / keywords ... done
+  - llava:7b / keywords ... done
+[   3/16382] 1775.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+[   8/16382] 970.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / keywords ... done
+  - llava-llama3 / keywords ... done
+  - moondream / detailed ... done
+  - llava:7b / detailed ... done
+  - moondream / keywords ... done
+  - llava:7b / keywords ... done
+[   4/16382] 1331.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+[   9/16382] 1971.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / keywords ... done
+  - llava-llama3 / keywords ... done
+  - moondream / detailed ... done
+  - llava:7b / detailed ... done
+  - moondream / keywords ... done
+  - llava:7b / keywords ... done
+[   5/16382] pexels-max-vakhtbovych-7174112.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+[  10/16382] 2046.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / keywords ... done
+  - llava-llama3 / keywords ... done
+  - moondream / detailed ... done
+  - llava:7b / detailed ... done
+  - moondream / keywords ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2120 completed images
+16382 images left to process
+
+[   1/16382] waterfalls-hidden-heaven-sunset-sunlight-sky-wonderful-water-trees-nature-sun-waterfall-beauty-forest-beautiful-scenery-rays-view-amazing-paradise-sunrise-images.jpg
+  - llava-llama3 / detailed ... done
+  - llava:7b / keywords ... done
+[   6/16382] pexels-asad-photo-maldives-1450369.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - bakllava / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2130 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+[   2/16382] 1215.jpg
+  - llava-llama3 / detailed ... done
+[   7/16382] 241346.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   3/16382] 1775.jpg
+  - llava-llama3 / detailed ... done
+[   8/16382] 970.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   4/16382] 1331.jpg
+  - llava-llama3 / detailed ... done
+[   9/16382] 1971.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+[   5/16382] pexels-max-vakhtbovych-7174112.jpg
+  - llava-llama3 / detailed ... done
+[  10/16382] 2046.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2130 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+[   6/16382] pexels-asad-photo-maldives-1450369.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16382] 241346.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16382] 970.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16382] 1971.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16382] 2046.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2130 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2130 completed images
+16372 images left to process
+
+[   1/16372] 1218.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16372] 1565.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16372] 784.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16372] 643.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16372] 1236.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16372] 1193.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16372] forested hills and mountains.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16372] castle_loc__mont_saint_Michel_France__.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16372] 1303.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16372] 1481.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2140 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2140 completed images
+16362 images left to process
+
+[   1/16362] 731.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16362] 627.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16362] 2010.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16362] 1384.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16362] loc__Patagonia__.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16362] 1447.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16362] 1113.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16362] oriental_home_on_hill_overlooking_city_at_night.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16362] train_along_mountain_lake.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16362] 298.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2150 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2150 completed images
+16352 images left to process
+
+[   1/16352] 1092.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16352] 623.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16352] wWw.TechTools.NET__-__183.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16352] 442.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16352] countryside_overlooking_mountains.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16352] bench_on_hilltop_overlooking_town.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16352] 2082102.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16352] 757.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16352] pexels-philippe-donn-1114690.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16352] 1848.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2160 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2160 completed images
+16342 images left to process
+
+[   1/16342] pexels-sourav-mishra-3136673.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16342] 2082070.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16342] 1929.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16342] 541.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16342] 669.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16342] 555.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16342] 213.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16342] 2038.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16342] 1285.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16342] 319.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2170 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2170 completed images
+16332 images left to process
+
+[   1/16332] pexels-ylanite-koppens-1883386.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16332] 277.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16332] worndown_old_car_in_countryside.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16332] pier.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16332] loc__Phra_Nakhon_si_Ayutthaya__.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16332] pexels-skitterphoto-1147423.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16332] 1365.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16332] 1405.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16332] 1981.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16332] 1674.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2180 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2180 completed images
+16322 images left to process
+
+[   1/16322] 1018.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16322] 247.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16322] 447.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16322] 1879.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16322] 1442.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16322] 489.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16322] snowy_park.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16322] 605.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16322] 391.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16322] 1709.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2190 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2190 completed images
+16312 images left to process
+
+[   1/16312] wWw.TechTools.NET__-__131.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16312] 2082131.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16312] 1412.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16312] 879.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16312] 1474.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16312] 1813.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16312] pexels-adonyi-gábor-1414651.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16312] mountain_range_seen_from_hilltop_2_loc__Homberg__.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16312] pexels-aleksandar-pasaric-325185.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16312] pexels-james-wheeler-5689657.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2200 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2200 completed images
+16302 images left to process
+
+[   1/16302] farm.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16302] 463.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16302] 1500.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16302] 168.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16302] mountain_lake_with_boathouse.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16302] 1827.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16302] snowy_lakeside.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16302] pexels-roman-odintsov-6898853.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16302] 973.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16302] 1258.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2210 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2210 completed images
+16292 images left to process
+
+[   1/16292] pexels-roberto-nickson-2775196.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16292] 1756.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16292] volcano.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16292] 1261.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16292] Desktop-Nexus-Nature-Desktop-Backgrounds.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16292] villa.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16292] pexels-eberhard-grossgasteiger-8051671.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16292] 507.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16292] 1046.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16292] sunrise_sunset_lakeside_cabin.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2220 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2220 completed images
+16282 images left to process
+
+[   1/16282] 370.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16282] 1972.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16282] 1167.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16282] pexels-stein-egil-liland-1933239.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16282] 392.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16282] 1344.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16282] 816.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16282] tropical_beach_14.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16282] 2490185.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16282] 1689.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2220 completed images
+16282 images left to process
+
+[   1/16282] 370.jpg
+  - llava-llama3 / detailed ... done
+  - bakllava / detailed ... done
+  - llava-llama3 / keywords ... done
+  - bakllava / keywords ... done
+  - llava:7b / detailed ... done
+  - moondream / detailed ... done
+  - llava:7b / keywords ... done
+  - moondream / keywords ... done
+  - bakllava / detailed ... done
+  → Checkpoint saved (2230 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16282] 1972.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16282] 1167.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16282] pexels-stein-egil-liland-1933239.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16282] 392.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16282] 1344.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16282] 816.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16282] tropical_beach_14.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16282] 2490185.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16282] 1689.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2230 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2230 completed images
+16272 images left to process
+
+[   1/16272] 934.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16272] mountain_lake_road.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16272] 1142.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16272] 1979.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16272] 890.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16272] 1242.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16272] 1758.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16272] 272.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16272] wWw.TechTools.NET__-__234.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16272] 362.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2240 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2240 completed images
+16262 images left to process
+
+[   1/16262] 493.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16262] 1785.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16262] Desktop-Wallpaper-11.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16262] 1619.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16262] forested_lake.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16262] 1008.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16262] 844.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16262] 1362.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16262] 1302.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16262] pexels-walid-ahmad-909654.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2250 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2250 completed images
+16252 images left to process
+
+[   1/16252] pexels-nextvoyage-730662.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16252] 167.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16252] 1073.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16252] 379546-svetik.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16252] 964.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16252] 438.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16252] 1064.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16252] pexels-hussain-shiman-7629061.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16252] 835.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16252] 1157.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2260 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2260 completed images
+16242 images left to process
+
+[   1/16242] pexels-pixabay-73873.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16242] pexels-mike-145685.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16242] wWw.TechTools.NET__-__224.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16242] 811.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16242] 969.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16242] wWw.TechTools.NET__-__192.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16242] 537.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16242] old_village_at_night.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16242] godrays.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16242] 1924.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2270 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2270 completed images
+16232 images left to process
+
+[   1/16232] pexels-pixabay-462118.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16232] pexels-ken-cheung-5384149.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16232] 931.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16232] pexels-eberhard-grossgasteiger-1624255.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16232] 1469.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16232] 1252.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16232] 550.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16232] 645.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/16232] 1523.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/16232] pexels-nandhu-kumar-339614.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+  → Checkpoint saved (2280 total)
+
+All done! Results in: wallpaper_descriptions_multi_prompts-Landscape.json
+Structure: { "relative/path.jpg": { "llava-llama3": { "detailed": "…", "keywords": "…" }, … } }
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/16222] 941.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/16222] 1843.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/16222] 191.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/16222] 1196.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/16222] pexels-tae-fuller-2691562.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/16222] big_house_or_hotel_on_lake.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/16222] wWw.TechTools.NET__-__221.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Loaded 2280 completed images
+16222 images left to process
+
+[   1/16222] 998.jpg
+  - llava-llama3 / detailed ... 

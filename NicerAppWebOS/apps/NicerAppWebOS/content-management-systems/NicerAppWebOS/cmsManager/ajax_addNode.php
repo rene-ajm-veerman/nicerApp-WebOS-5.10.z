@@ -115,7 +115,7 @@ try { $call = $cdb->post($recordToAdd); } catch (Exception $e) {
 //echo '<pre>'; var_dump ($dbName); echo json_encode($recordToAdd, JSON_PRETTY_PRINT); echo '<br/>'; var_dump ($msg); var_dump (debug_backtrace(), JSON_PRETTY_PRINT); echo '</pre>'; die();
 //trigger_error ($msg, E_USER_NOTICE);
 
-$order = json_decode($_POST['order'], true);
+if (array_key_exists('order',$_POST)) $order = json_decode($_POST['order'], true); else $order = [];
 
 $call3a = $cdb->getAllDocs();
 //if ($debug) { echo 't321:<pre>'; var_dump ($call); echo '</pre>';  };
@@ -125,7 +125,7 @@ foreach ($call3a->body->rows as $idx => $doc) {
     if ($debug) { echo 't322:<pre>'; var_dump ($call2a); echo '</pre>';  };
     $doc2 = $call2a->body;
     if (property_exists($doc2, 'parent') && $doc2->parent == $_POST['parent']) {
-        $doc2->order = getOrder ($order, $doc2->_id);
+        if (array_key_exists('order',$_POST)) $doc2->order = getOrder ($order, $doc2->_id);
         if ($debug) { var_dump ($doc2->order); echo '<br/>'.PHP_EOL; }
         $cdb->post ($doc2);
     }
@@ -134,6 +134,7 @@ foreach ($call3a->body->rows as $idx => $doc) {
     function getOrder ($order, $docID) {
         foreach ($order as $idx2 => $orderID)
             if ($docID==$orderID) return $idx2;
+        return 0;
     }
 
 
