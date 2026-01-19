@@ -2743,17 +2743,17 @@ na.site = {
                 }
             };
         }
-        $('.na_themes_dropdown__specificity').hover(function() {
+        $('.na_themes_dropdown__specificity').hover(function(evt) {
             clearTimeout(na.site.components.timeout_onmouseover_specificity);
             na.site.components.timeout_onmouseover_specificity = setTimeout(function() {
-                $('.na_themes_dropdown__specificity > .vividDropDownBox_selector').fadeIn('normal');
+                $('.vividDropDownBox_selector', evt.target).fadeIn('normal');
                 $('#btnDeleteSpecificity').css({alignSelf:'start'});
             }, 700);
         }, function() {
             clearTimeout(na.site.components.timeout_onmouseover_specificity);
             clearTimeout(na.site.components.timeout_onmouseout_specificity);
             na.site.components.timeout_onmouseout_specificity = setTimeout(function() {
-                $('.na_themes_dropdown__specificity > .vividDropDownBox_selector').fadeOut('normal');
+                $('.vividDropDownBox_selector', evt.target).fadeOut('normal');
                 $('#btnDeleteSpecificity').css({display:'block'});
             }, 700);
 
