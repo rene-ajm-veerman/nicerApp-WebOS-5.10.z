@@ -2636,7 +2636,7 @@ na.site = {
         if (typeof simple=='undefined') simple = true;
         if (typeof saveTheme=='undefined') saveTheme = true;
 
-        $('.na_themes_dropdown').html('<div class="vividDropDownBox_selected vividScrollpane" style="white-space:normal;"></div><div class="vividDropDownBox_selector"><div class="vividScrollpane" style="padding:0px;"></div></div>').delay(50);
+        $('.na_themes_dropdown').html('<div class="vividDropDownBox_selected vividScrollpane" style="white-space:normal;"></div><div class="vividDropDownBox_selector"><div class="vividScrollpane" style="padding:0px;height:400px;"></div></div>').delay(50);
         $('.vividDropDownBox_selected, .vividDropDownBox_selector').each(function(idx,el) {
             /* junk :
             var w = 0;
