@@ -334,7 +334,7 @@ na.desktop = na.d = {
                         && section[sectionIdx][divID].yMinHeight
                     ) divs[divID].height -= section[sectionIdx][divID].yMinHeight;
                     na.m.log (10010, fncn+' : calculated sections', false);
-                    debugger;
+                    //debugger;
 
                     switch (divID) {
                         case '#siteMenu':

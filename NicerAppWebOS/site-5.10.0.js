@@ -3573,7 +3573,11 @@ na.site = {
             if (!themeData.themeSettings) themeData.themeSettings = {};
             themeData.themeSettings.Extras = na.te.transform_jsTree_to_siteGlobalsThemes();
         } catch (err) {
-            debugger;
+            var dbg = {
+                msg : err.message,
+                stack : err.stack
+            };
+            na.m.log (6, 'na.site.loadTheme_fetchDialogs(): na.te.transform_jsTree_to_siteGlobalsThemes() failed.', dbg);
         }
 
         themeData.changeBackgroundsAutomatically = $('#changeBackgroundsAutomatically')[0].checked;

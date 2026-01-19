@@ -171,7 +171,6 @@ na.backgrounds = na.background = na.bg = {
         na.m.log (10, fncn+' : url='+url, true);
         //debugger;
         t.settings.div = div;
-        debugger;
 
         /*
         var

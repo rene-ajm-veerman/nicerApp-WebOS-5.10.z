@@ -409,7 +409,6 @@ class naThemeEditor {
         
         var x = $('#colorpicker').css('display'), y = 'abc';
         if (typeof c==='undefined') c = 'rgba(0,0,0,0.5)';
-        debugger;
         if ($.spectrum) $('#colorpicker').css({display:'block'}).spectrum ({
             color:c, 
             flat : true,
