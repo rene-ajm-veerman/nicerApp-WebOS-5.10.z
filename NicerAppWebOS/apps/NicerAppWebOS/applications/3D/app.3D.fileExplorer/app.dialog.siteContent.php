@@ -1,9 +1,26 @@
 <?php
     global $naWebOS;
+    global $naLAN;
     $view = $naWebOS->view;
     require_once (realpath(dirname(__FILE__).'/../../../../..').'/functions.php');
 
     $rootURL = 'http://localhost';
+
+if (
+    $naLAN
+    /*|| ((array_key_exists('pw',$_GET)
+            && (
+                $_GET['pw']=='efv7750'
+                || $_GET['pw']=='xmas2025ai-d'
+                || $_GET['pw']=='pl-2025-10-24-15-03'
+                || $_GET['pw']=='AllahuaAckbar507788'
+                || $_GET['pw']=='alwaysXMASohNoes-50s'
+                || $_GET['pw']=='alwaysXMASzzz'
+            )
+        )
+    )*/
+) {
+
 
     if (array_key_exists('inputJSONurl', $_REQUEST)) {
         $inputJSONurl = $_REQUEST['inputJSONurl'];
@@ -26,7 +43,7 @@
                         'parameters' => [
                             'thumbnails' => './thumbs/300'
                         ],
-                        'seoValue' => 'demo-3D-fileBrowser'
+                        'seoValue' => '3D'
                     ]
                 ]
             ]));
@@ -44,7 +61,7 @@
             na.site.settings.na3D['#app_3D_fileExplorer'].settings.parameters =
 
                 <?php echo json_encode($view, JSON_PRETTY_PRINT); ?>;
-        }, 100);
+                }, 100);
     </script>
     <div id="site3D_backgroundsBrowser" class="na3D" theme="<?php echo $theme;?>">
     </div>
@@ -55,3 +72,6 @@
 <!--     <script src="//cdn.jsdelivr.net/npm/three-spritetext"></script> -->
     <script type="module" src="/NicerAppWebOS/apps/NicerAppWebOS/applications/3D/app.3D.fileExplorer/main.js"></script>
     <!--<script type="module" src="/NicerAppWebOS/businessLogic/ajax/ajax_loadJSmodule.php?file=/NicerAppWebOS/apps/NicerAppWebOS/applications/3D/app.3D.fileExplorer/main.js"></script>-->
+<?php
+}
+?>

@@ -26,7 +26,7 @@
         </p>
 
         <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
-        Should I unexpectedly die for some strange reason, for instance by long standing "dissident" disputes (I'm an assertive peace activist who is NOT without the ability to look at his own ranks with criticism!) suddenly becoming lethal in some way, I want my belongings donated to my parents initially, and to the Amsterdam.NL stedelijk museum after their eventual death, who may all do with it all as they please, on condition of keeping copies of https://nicer.app plus https://said.by up and running.<br/>
+        Should I unexpectedly die for some strange reason, for instance by long standing "dissident" disputes (I'm an assertive peace activist who is not without the ability to look at his own ranks with criticism) suddenly becoming lethal in some way, I want my belongings donated to my parents initially, and to the Amsterdam.NL stedelijk museum after their eventual death, who may all do with it all as they please, on condition of keeping copies of https://nicer.app plus https://said.by up and running.<br/>
         My protective custody agent's details are well engraved in medical records at https://mentrum.nl<br/>
         </p>
 
@@ -46,10 +46,20 @@
         <h2>Business plan</h2>
 
         <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
-        I will keep NicerApp WebOS (https://nicer.app) MIT-licensed open source that can even be used commercially for free (but without warranty and you'll need your own full stack http://kubuntu.com web-development team to work with it) for at least 2026 too.
+        I will keep NicerApp WebOS (https://nicer.app) MIT-licensed open source that can even be used commercially for free for at least 2026 too, but without warranty and you'll need your own full stack http://kubuntu.com web-development team to work with it.
         </p>
 
-        <?php //echo $diaries->getDiary('siteOwner');?>
+        <?php
+        /*
+        <h2>Rene AJM Veerman's personal diaries</h2>
+            <?php echo $diaries->getDiary('Rene AJM Veerman');?>
+            <?php echo $diaries->getDiary('aivd.nl.juniorJudge-Gavan.PURAD.Hoverswell');?>
+            <h3>I got kicked off X.com for a week(!) due to me making death threats against your favorite warmongering international head honcho politicians.</h3>
+            <p class="backdropped">I mean against people like @realDonaldTrump @Zelenskyy_ua, the Rothschilds, the UK 'Committee of 300', the US GOP AND Democrats (who are equally guilty of getting us into the deep shit with China Russia and Iran)</p>
+            <iframe style="margin:40px;border:1px solid silver;background:rgba(0,0,255,0.555);width:calc(100% - 80px);height:1080px;" src="https://said.by/Rene/on/frontpage"></iframe>
+        */
+        ?>
+
 
     </div>
 </div>

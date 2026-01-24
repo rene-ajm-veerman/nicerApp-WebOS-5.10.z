@@ -10,7 +10,7 @@
 <div style="background:rgba(0,0,50,0.007)">
     <style>
     body {
-        background : url(/siteMedia/backgrounds/tiled/grey/background.jpg);
+        background : url(/siteMedia/backgrounds/Tiled/Grey/background.jpg);
     }
     </style>
     <link type="text/css" rel="StyleSheet" href="NicerEnterprises--company--base.css?c=NOW">
@@ -41,7 +41,7 @@
     </div>
 
     <?php
-        echo $diaries->getDiary('siteOwner');
+        //echo $diaries->getDiary('Rene AJM Veerman');
     ?>
 </div>
 <script type="text/javascript">

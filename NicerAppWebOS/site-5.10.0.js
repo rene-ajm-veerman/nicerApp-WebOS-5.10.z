@@ -52,13 +52,11 @@ na.site = {
         // TODO : keep these up to date with each version number and/or label increase.
         // NOTE : all of these na.site.globals app get overridden by values stuck in databases of some sort (lol),
         //          and are listed by the index.php file as 'var naGlobals', before merging it's (sub-)values.
-        domain : 'said.by',
-        domainPath : '/var/www/nicer.app-5.10.z/nicer.app-5.10.0-beta4/',
-        domainWWWroot : 'nicer.app-5.10.0-beta4',
-        domainFolder : 'said.by',
+        domain : 'nicer.app',
+        domainPath : '/var/www/nicer.app-5.10.z/domains/nicer.app',
 
         // these are all pixel values, without the CSS 'NNNNpx' notation.
-        margin : 8,
+        //margin : 8,
         smallDeviceWidth : 1081,
         reallySmallDeviceWidth : 700
     },

@@ -2,7 +2,26 @@ import ollama
 import os
 import json
 import time
+import fcntl
+import subprocess
 from pathlib import Path
+
+import fcntl
+import sys
+import time
+
+LOCK_FILE = "ollama-image-to-text.lock"   # or in your script dir
+
+def acquire_lock():
+    lock_fd = open(LOCK_FILE, 'w')
+    try:
+        fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return lock_fd
+    except BlockingIOError:
+        print("Another instance holds the lock. Exiting.")
+        sys.exit(1)
+
+lock_file = acquire_lock()   # put this right at the top after imports
 
 # === Configuration - change these if needed ===
 MODELS = [
@@ -35,6 +54,11 @@ PROMPTS = [
 ]
 
 BASE_DIR = Path('/var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape')
+
+INPUTS = [
+    'wallpaper_descriptions_multi_prompts-Landscape..b1.json',
+    'wallpaper_descriptions_multi_prompts-Landscape..b2.json'
+]
 
 OUTPUT_FILE = 'wallpaper_descriptions_multi_prompts-Landscape.json'
 
@@ -75,17 +99,62 @@ for root, dirs, files in os.walk(BASE_DIR):
 
 print(f"Found {len(image_files)} total images")
 
-# ── Load existing results for resume ──
+RESULTS_DIR = Path("./")   # e.g. "/home/user/nicerApp/NicerAppWebOS/data/wallpapers"
+MAIN_FILE = RESULTS_DIR / "wallpaper_descriptions_multi_prompts-Landscape.json"
+BATCH_FILES = [
+    RESULTS_DIR / "wallpaper_descriptions_multi_prompts-Landscape..b1.json",
+    RESULTS_DIR / "wallpaper_descriptions_multi_prompts-Landscape..b2.json",
+]
+BACKUP_MAIN = MAIN_FILE.with_suffix(".main_backup_before_merge.json")   # safety copy
+
+# Optional: new output file if you want to test without overwriting
+# OUTPUT_MERGED = RESULTS_DIR / "wallpaper_descriptions_multi_prompts-Landscape.merged.json"
+
+print(f"Main file:   {MAIN_FILE}")
+print(f"Batch files: {BATCH_FILES}\n")
+
+# Step 1: Load main results (or start empty)
 results = {}
-if os.path.exists(OUTPUT_FILE):
+if MAIN_FILE.exists():
     try:
-        with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
+        with open(MAIN_FILE, 'r', encoding='utf-8') as f:
             results = json.load(f)
-        print(f"Loaded {len(results)} completed images")
-    except json.JSONDecodeError:
-        print(f"Warning: Invalid JSON in {OUTPUT_FILE}. Starting fresh.")
+        print(f"Loaded main file: {len(results):,} images already processed")
+    except Exception as e:
+        print(f"Error loading main file: {e}\nStarting with empty results.")
+        results = {}
 else:
-    print(f"No existing file found. Starting from scratch.")
+    print("Main file not found → starting fresh.")
+
+# Optional safety backup
+if MAIN_FILE.exists():
+    MAIN_FILE.rename(BACKUP_MAIN)
+    print(f"→ Created backup: {BACKUP_MAIN.name}")
+
+# Step 2: Merge from batch files (only add missing keys)
+added_total = 0
+for batch_path in BATCH_FILES:
+    if not batch_path.exists():
+        print(f"Batch file missing, skipping: {batch_path}")
+        continue
+
+    try:
+        with open(batch_path, 'r', encoding='utf-8') as f:
+            batch = json.load(f)
+
+        added = 0
+        for img_path, desc_data in batch.items():
+            if img_path not in results:
+                results[img_path] = desc_data
+                added += 1
+
+        print(f"From {batch_path.name}: added {added:,} new images")
+        added_total += added
+    except Exception as e:
+        print(f"Error reading {batch_path}: {e}")
+
+print(f"\nTotal new images added from batches: {added_total:,}")
+print(f"Final total in results: {len(results):,} images")
 
 unprocessed_files = [
     img_path for img_path in image_files
@@ -114,12 +183,23 @@ for i, img_path in enumerate(unprocessed_files, 1):
 
     results[rel_path] = image_results
 
-    # Checkpoint save
+
+
+    # When saving (replace your existing save block):
     if i % CHECKPOINT_INTERVAL == 0 or i == len(unprocessed_files):
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
-        print(f"  → Checkpoint saved ({len(results)} total)")
-        break
+        # Step 3: Save merged result
+        try:
+            with open(MAIN_FILE, 'w', encoding='utf-8') as f:
+                json.dump(results, f, indent=2, ensure_ascii=False)
+            print(f"→ Successfully saved merged file: {MAIN_FILE}")
+            exit(0)
+
+            # Optional: also save to a separate file for verification
+            # with open(OUTPUT_MERGED, 'w', encoding='utf-8') as f:
+            #     json.dump(results, f, indent=2, ensure_ascii=False)
+            # print(f"Also saved copy to: {OUTPUT_MERGED}")
+        except Exception as e:
+            print(f"Error saving merged file: {e}")
 
     time.sleep(1.5)  # between images
 
