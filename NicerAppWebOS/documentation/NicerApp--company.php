@@ -34,6 +34,7 @@
 
         <p class="backdropped" style="width:25%;background:rgba(0,0,0,0.4);padding:10px;margin:10px;border-radius:10px;">
         Owner, CEO, CFO, CTO, COO : Rene A.J.M. Veerman [ rene.veerman.netherlands@gmail.com ]<br/>
+        <img src="https://nicer.app/NicerAppWebOS/documentation/selfies/rene-ajm-veerman/IMG_20251109_145323_1.jpg" style="width:80%;"/>
         </p>
 
         <h2>Going commercial</h2>
@@ -52,7 +53,7 @@
         <?php
         /*
         <h2>Rene AJM Veerman's personal diaries</h2>
-            <?php echo $diaries->getDiary('Rene AJM Veerman');?>
+            <?php //echo $diaries->getDiary('Rene AJM Veerman');?>
             <?php echo $diaries->getDiary('aivd.nl.juniorJudge-Gavan.PURAD.Hoverswell');?>
             <h3></h3>
             <iframe style="margin:40px;border:1px solid silver;background:rgba(0,0,255,0.555);width:calc(100% - 80px);height:1080px;" src="https://said.by/Rene/on/frontpage"></iframe>

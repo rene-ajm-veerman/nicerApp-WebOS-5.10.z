@@ -430,6 +430,8 @@ na.site = {
                         if (themeData.app) delete themeData.app;
                     }
 
+                    na.background.initialize({naSite : t});
+                    na.backgrounds = na.background;
 
                     /*
                     for (var i=0; i<na.desktop.globals.divs.length; i++) {
@@ -438,7 +440,7 @@ na.site = {
                     }*/
 
                     themeData = na.site.loadTheme_fetchDialogs(themeData);
-                    na.site.globals.themes[na.site.globals.themeName] = $.extend({}, themeData);
+                    na.site.globals.themes[na.site.globals.themeName] = $.extend({}, na.site.globals.themes[na.site.globals.themeName], themeData);
                     na.site.loadTheme_applySettings (themeData, null, false); // apply theme changes, all except .background in this case.
 
                     //t.startTooltips();
@@ -475,8 +477,6 @@ na.site = {
                     }, 1 * 60 * 1000);
                     */
 
-                    na.background.initialize({naSite : t});
-                    na.backgrounds = na.background;
 
                     na.site.settings.loadingApps = false;
                     na.site.settings.running_loadContent = false;
@@ -3098,6 +3098,7 @@ na.site = {
     },
 
     loadTheme_applySettings : function (dat, callback, loadBackground, saveTheme, changeInterval) {
+        debugger;
         if (!dat) {
             na.m.log (1510, 'Error : loadTheme_applySettings() called with dat=undefined/false', false);
             return false;

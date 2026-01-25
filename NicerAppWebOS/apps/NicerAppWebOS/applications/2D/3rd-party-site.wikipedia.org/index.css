@@ -19,21 +19,29 @@ html, body {
     padding : 5px;
 }
 .mw-parser-output p, .mw-parser-output li {
-    width : calc(100% - 550px);
+    left : 20px;
+    width : calc(100% - 40px);
+
     background : none;
+}
+#mp-tfa-img {
+    margin : 0.5em 0.9em 0.4em 30px !important;
+    z-index : 999999999999 !important;
 }
 .mw-parser-output li {
     width : fit-content;
 }
 
 .mw-parser-output p {
-    background : rgba(100,255,100,0.4) !important;
+
 }
 
 .infobox, .vector-pinned-container, .vector-body-before-content, .vector-page-toolbar-container, .vector-toc, .hatnote {
     background : transparent;
     position : relative;
     color : white !important;
+    justify-self: end;
+    width : 100% !important;
 }
 .infobox::before, .vector-pinned-container::before, .vector-body-before-content::before, .vector-page-toolbar-container::before, .hatnote::before, .mw-parser-output p::before:not(.jsl10n), .mw-parser-output > ul > li::before {
     content : '';
@@ -47,7 +55,9 @@ html, body {
     position:absolute;
     z-index : -1;
 }
-
+.mw-parser-output {
+    display : grid;
+}
 .mw-parser-output a {
     text-shadow : 2px 2px 3px rgba(0,0,0,0.555);
     padding : 0px !important;
@@ -63,8 +73,8 @@ html, body {
     list-style-image : url(https://en.wikipedia.org/w/skins/Vector/resources/common/images/bullet-icon.svg?d4515);
 }
 .mw-parser-output > ul > li {
-    padding : 5px;
-    margin : 5px;
+    padding : 15px;
+    margin : 20px;
 }
 .mw-body h1, .mw-body-content h1, .mw-body-content h2, .mw-body-content h3, .mw-body-content h4 {
     background : rgba(0,0,50,0.5);
@@ -77,25 +87,60 @@ html, body {
 .mw-heading1, h1, .mw-heading2, h2 {
     border-bottom : none !important;
 }
+.mw-body-content {
+    display : flex;
+    flex-wrap:wrap;
+}
 input {
     color : fieldtext;
 }
-.mw-parser-output li, ul > li {
-    background : rgba(255,255,255,0.5);
+figure[typeof~='mw:File/Thumb'], figure[typeof~='mw:File/Frame'] {
+    background:none !important;
+    border:none !important;
+}
+figure[typeof~='mw:File/Thumb'] > figcaption, figure[typeof~='mw:File/Frame'] > figcaption {
+    border : none !important;
+}
+.vector-toc-contents li {
+    margin : 20px !important;
+}
+.vector-pinnable-header-label {
+    padding : 15px;
+    margin : 20px !important;
+    color : yellow;
+}
+.vector-sticky-pinned-container:after {
+    background : none !important;
+}
+.hlist li {
+    margin : 20px !important;
+    flex-wrap : wrap !important;
+    display : flex !important;
+    float : left !important;
+}
+.mw-parser-output li, .mp-contains-float li {
+    background : rgba(0,0,255,0.46  );
     border-radius : 10px;
-    padding : 5px;
-    margin : 5px;
+    padding : 10px;
+    margin : 20px;
 }
 .references > li > span {
     border : 0px solid black;
     box-shadow : none;
 }
+.mp-contains-float li {
+    text-shadow : 2px 2px 4px rgba(0,0,0,0.751);
+}
 .mw-parser-output p {
+    background : rgba(100,255,100,0.4) !important;
+    box-shadow : 1px 1px 4px 3px rgba(0,0,0,0.751);
+    text-shadow : 2px 2px 4px rgba(0,0,0,0.751);
     color : black;
     opacity : 1;
-    z-index : 2;
+    z-index : -1;
     display : block;
     position: relative;
+    justify-self: start;
 }
 .mw-parser-output li > div {
     background : rgba(0,0,50,0.5);

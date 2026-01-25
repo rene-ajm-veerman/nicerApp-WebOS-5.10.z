@@ -75,7 +75,7 @@ na.backgrounds = na.background = na.bg = {
             search = 'LWandscape';
         };
         t.settings.backgroundSearchKey = search;
-
+debugger;
 
         var oldBSK = na.site.globals.backgroundSearchKey;
         if (oldBSK==='' || oldBSK=='Landscape' || oldBSK=='Portrait') {
@@ -265,6 +265,7 @@ na.backgrounds = na.background = na.bg = {
                         $(bgl).css({display:'none'});
                         bgl.onload = function (evt) {
                             $(this).fadeIn(na.bg.globals.fadingSpeed, 'swing', function () {
+                                $('img.bg_first',$(this).parent())[0].src = $('img.bg_last',$(this).parent())[0].src;
                                 $('img.bg_last',$(this).parent()).css({display:'none'});
                             })
 
