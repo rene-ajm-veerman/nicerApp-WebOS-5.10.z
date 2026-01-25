@@ -125,13 +125,13 @@ if (
     && $naWebOS->view[$afn]['endDateTime']
 ) {
     $findCommand = [
-        'selector' => [ 'millisecondsSinceEpoch' => [['$gt']=>$naWebOS->view[$afn]['beginDateTime']-1, $naWebOS->view[$afn]['endDateTime']+1]  ],
+        'selector' => [ 'millisecondsSinceEpoch' => [['$gt'=>$naWebOS->view[$afn]['beginDateTime']-1], ['$lt'=>$naWebOS->view[$afn]['endDateTime']+1]]  ],
         'fields' => &$fields,
         'sort' => ['millisecondsSinceEpoch'],
         'limit' => 20, // hardcoded (in couchdb!) max value
         'use_index' => '_design/aced963374ca4616ccb7836945188842be4e9145'
     ];
-    echo '<pre>'; var_dump($findCommand); die();
+    //echo '<pre>'; var_dump($findCommand); die();
     $call = $cdb->find($findCommand);
     $results = transformResults_findCommand ($call);
 } else if ($naWebOS->view[$afn]['beginDateTime']) {

@@ -11,14 +11,14 @@ $username = array_key_exists('cdb_loginName',$_COOKIE) ? $_COOKIE['cdb_loginName
 //echo '<pre>t342:';var_dump ($username);echo '</pre>';exit();
 //$username = str_replace(' ', '__', $username);
 //$username = str_replace('.', '_', $username);
-$username1a = $db->translate_plainUserName_to_couchdbUserName ($username);
-$username1 = $db->translate_couchdbUserName_to_plainUserName ($username1a);
+$username1 = $db->translate_couchdbUserName_to_plainUserName ($username);
+$username1a = preg_replace('/.*___/','',$db->translate_plainUserName_to_couchdbUserName ($username1));
 
 $cdb_domain = $naWebOS->domainFolderForDB;
 $tables = array (
     $cdb_domain.'___cms_tree',
     $cdb_domain.'___cms_tree___role___guests',
-    $cdb_domain.'___cms_tree___user___'.strtolower($username1)
+    $cdb_domain.'___cms_tree___user___'.strtolower($username1a)
     //$naWebOS->domainFolder.'___cms_tree__user__administrator',
     //$naWebOS->domainFolder.'___cms_tree__user__guest'
 );

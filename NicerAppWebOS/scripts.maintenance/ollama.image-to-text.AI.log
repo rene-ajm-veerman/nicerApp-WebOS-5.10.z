@@ -5255,3 +5255,295 @@ Final total in results: 4,360 images
   - moondream / detailed ... done
   - moondream / keywords ... done
 → Successfully saved merged file: wallpaper_descriptions_multi_prompts-Landscape.json
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Main file:   wallpaper_descriptions_multi_prompts-Landscape.json
+Batch files: [PosixPath('wallpaper_descriptions_multi_prompts-Landscape..b1.json'), PosixPath('wallpaper_descriptions_multi_prompts-Landscape..b2.json')]
+
+Loaded main file: 4,370 images already processed
+→ Created backup: wallpaper_descriptions_multi_prompts-Landscape.main_backup_before_merge.json
+From wallpaper_descriptions_multi_prompts-Landscape..b1.json: added 0 new images
+From wallpaper_descriptions_multi_prompts-Landscape..b2.json: added 0 new images
+
+Total new images added from batches: 0
+Final total in results: 4,370 images
+14132 images left to process
+
+[   1/14132] Best 54 256 KB Wallpaper on HipWallpaper Roxas Wallpaper 85KB.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/14132] 898431.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/14132] 240602.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/14132] Apple-Texture-Mac-Notebook-2880x1800.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/14132] 240549.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/14132] Cool Apple Wallpaper HD wallpapers55com   Best Wallpapers for PCs.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/14132] 240584.png
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/14132] Apple_2020_Event_Logo_MacOS_4K_HD_Wallpaper_1366x768.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/14132] 240568.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/14132] 796387.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+→ Successfully saved merged file: wallpaper_descriptions_multi_prompts-Landscape.json
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Main file:   wallpaper_descriptions_multi_prompts-Landscape.json
+Batch files: [PosixPath('wallpaper_descriptions_multi_prompts-Landscape..b1.json'), PosixPath('wallpaper_descriptions_multi_prompts-Landscape..b2.json')]
+
+Loaded main file: 4,380 images already processed
+→ Created backup: wallpaper_descriptions_multi_prompts-Landscape.main_backup_before_merge.json
+From wallpaper_descriptions_multi_prompts-Landscape..b1.json: added 0 new images
+From wallpaper_descriptions_multi_prompts-Landscape..b2.json: added 0 new images
+
+Total new images added from batches: 0
+Final total in results: 4,380 images
+14122 images left to process
+
+[   1/14122] 763856.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/14122] 222553.png
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/14122] 197179.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/14122] download-Wallpaper-amoled-dark.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/14122] the-honeycomb-background-abstraction.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/14122] darkness1.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/14122] _21_android-4k-wallpaper_47-Ultra-HD-3840x2160-Android-Wallpaper-on-WallpaperSafari.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/14122] Wallpaper-with-Android-logo.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... Another instance holds the lock. Exiting.
+done
+[   9/14122] Wallpaper-for-Android.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/14122] 16257263300_2a1b6429cc_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+→ Successfully saved merged file: wallpaper_descriptions_multi_prompts-Landscape.json
+Scanning folders under: /var/www/nicer.app-5.10.z/domains/nicer.app/siteMedia/backgrounds/Landscape
+Found 18502 total images
+Main file:   wallpaper_descriptions_multi_prompts-Landscape.json
+Batch files: [PosixPath('wallpaper_descriptions_multi_prompts-Landscape..b1.json'), PosixPath('wallpaper_descriptions_multi_prompts-Landscape..b2.json')]
+
+Loaded main file: 4,390 images already processed
+→ Created backup: wallpaper_descriptions_multi_prompts-Landscape.main_backup_before_merge.json
+From wallpaper_descriptions_multi_prompts-Landscape..b1.json: added 0 new images
+From wallpaper_descriptions_multi_prompts-Landscape..b2.json: added 0 new images
+
+Total new images added from batches: 0
+Final total in results: 4,390 images
+14112 images left to process
+
+[   1/14112] 50629756082_bc420980aa_k.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   2/14112] 50932502818_279c8e8cb1_k.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   3/14112] 16241303728_70b8ab60af_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   4/14112] 50207791211_18fe1e7ce2_k.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   5/14112] 18656060219_ea6254ec59_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   6/14112] 22058509834_9c5f36b8e9_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/14112] 22148684260_daf6f98074_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/14112] 21834993822_3f4efa3e1a_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... 
