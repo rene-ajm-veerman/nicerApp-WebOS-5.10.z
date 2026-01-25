@@ -2,10 +2,10 @@
 nicerapp.htmlMicroscope = nicerapp.hms = nicerapp.jsonViewer = nicerapp.jv = {
 	about : {
 		whatsThis : 'hm() and na.hms = na.jsonViewer = a way to send larg	e recursive data objects to the browser from PHP and view them in a collapsed-expansible view with many bells and whistles.',
-		copyright : '(C) 2010-2025 by rene.veerman.netherlands@gmail.com',
+		copyright : '(C) 2010-2026 by rene.veerman.netherlands@gmail.com',
 		license : 'http://nicerapp.com/license',
 		noWarranty : 'NO WARRANTY EXPRESSED OR IMPLIED. USE ONLY AT YOUR OWN RISK.',
-		version: '1.7.1',
+		version: '1.7.2',
 		dependencies: {
 			'jQuery.com': 'version>=1.4'
 		},
@@ -797,53 +797,64 @@ nicerapp.htmlMicroscope = nicerapp.hms = nicerapp.jsonViewer = nicerapp.jv = {
 			var css = na.colorGradients.generateCSS_for_jsonViewer (na.hms.options.current.theme, cmd.hmd);
 			na.hms.tools.insertCSS(cmd, cmd.hmd, css, na.hms.options.current.theme, 'cmd-data');
 
-			if (cmd.hmd.hms.header) {
+			if (cmd.options.header) {
 				// start generating the HTML needed for this dump:
 				var varID = '--ROOT--';
+				debugger;
 				var htmlLegend =
 					'<div class="hmLegend1">' + cmd.title + '</div>' +
 					'<div class="hmLegend2">' +
 					'<table class="hmLegend2"><tr style="width:100%;">' +
 						'<td>'+
-						'[ ' +
-						(cmd.trace
-							? '<a class="hmTrace" title="Show trace" href="#" onclick="return na.hms.ui.showTrace(\'' + cmd.id + '\');">trace</a>'
-							:  (cmd.trace
-								? 'trace failed to decode'
-								:  (cmd.dataOrigin && cmd.dataOrigin == 'js'
-										? ', <span class="hmTrace">' + 'trace <a target="_blank" href="http://getfirefox.com">sent</a> to ' + '<a target="_blank" href="#"href="http://getfirebug.com/">console</a>' + '</span>'
-										: ''
+						(cmd.options.header===true || typeof cmd.options.header=='undefined'
+						?
+							'[ ' +
+							(cmd.trace
+								? '<a class="hmTrace" title="Show trace" href="#" onclick="return na.hms.ui.showTrace(\'' + cmd.id + '\');">trace</a>'
+								:  (cmd.trace
+									? 'trace failed to decode'
+									:  (cmd.dataOrigin && cmd.dataOrigin == 'js'
+											? ', <span class="hmTrace">' + 'trace <a target="_blank" href="http://getfirefox.com">sent</a> to ' + '<a target="_blank" href="#"href="http://getfirebug.com/">console</a>' + '</span>'
+											: ''
+										)
 									)
-								)
+							) +
+							(cmd.dataOrigin
+								? ', <span class="cmd.hmdOrigin">generated in '
+									+ (cmd.dataOrigin == 'js'
+											? 'javascript'
+											: cmd.dataOrigin
+										)
+									+ '</span>, '
+									+ '<span class="hmDateTime hmTime">' + cmd.time + 's since ' +
+										(cmd.dataOrigin == 'js'
+											? 'page has loaded.'
+											: 'server receiving request'
+										)
+									+ 	'</span>'
+								: ''
+							) +
+							' ]' +
+							'<br/>'
+						: ''
 						) +
-						(cmd.dataOrigin
-							? ', <span class="cmd.hmdOrigin">generated in '
-								+ (cmd.dataOrigin == 'js'
-										? 'javascript'
-										: cmd.dataOrigin
-									)
-								+ '</span>, '
-								+ '<span class="hmDateTime hmTime">' + cmd.time + 's since ' +
-									(cmd.dataOrigin == 'js'
-										? 'page has loaded.'
-										: 'server receiving request'
-									)
-								+ 	'</span>'
+						(cmd.options.header===true
+							? ( cmd.hmd && cmd.hmd.hms && cmd.hmd.hms.topKeys > 0
+								? na.hms.tools.htmlArrayHeader(cmd.hmd, 'key', true)
+								: na.m.sizeHumanReadable(cmd.hmd.hms.byteSize)
+							)
 							: ''
-						) +
-						' ]' +
-						'<br/>' +
-
-						( cmd.hmd && cmd.hmd.hms && cmd.hmd.hms.topKeys > 0
-							? na.hms.tools.htmlArrayHeader(cmd.hmd, 'key', true)
-							: na.m.sizeHumanReadable(cmd.hmd.hms.byteSize)
-						) +
+						)
+						 +
 						'</td>' +
+						/*
 						'<td style="text-align:right">' +
 						'[ <span class="hmDateTime hmDate">' + cmd.date + '</span> ]<br/>' +
 						'[ ' + na.m.sizeHumanReadable(cmd.byteSize.transportData + cmd.byteSize.transportTrace) + ' during transport ]' + '<br/>' +
 						'</td>' +
+						*/
 						'</tr></table></div>';
+
 			}
 			var rd = 'This version was released / updated on ' + na.hms.about.lastUpdated;
 			var htmlFooter = 
@@ -962,7 +973,7 @@ nicerapp.htmlMicroscope = nicerapp.hms = nicerapp.jsonViewer = nicerapp.jv = {
 					?'<div id="' + cmd.scrollpaneID + '" class="vividScrollpane vividTheme__scroll_black" style="width:100%;height:100%;">' 
 					:''
 				)
-				+ ( cmd.hmd.hms.header
+				+ ( cmd.hmd.hms.header && (typeof cmd.options.header=='undefined' || cmd.options.header===true || cmd.options.header=='minimal')
 					? '<div id="' + cmd.hmd.hms.keyID + '_div" class="hm ' + theme + '">' +
 						'<table id="' + cmd.hmd.hms.keyID + '_table" cellpadding="0" cellspacing="2" class="jsonViewer hm' + theme + '" style="" ' + tableProps + '>' +
 						'<tbody>'+
@@ -1928,7 +1939,7 @@ nicerapp.htmlMicroscope = nicerapp.hms = nicerapp.jsonViewer = nicerapp.jv = {
 			if (typeof v == 'object' && typeof v.hms == 'object') {
 				s =
 					'<div id="'+id+'_progressbar"></div>'+ 
-					'[ Array, ' + 
+					'[ Array, ' +
 					'<a href="#"title="Expand" class="hmNavE" onclick="return na.hms.ui.expand(\'' + id + '\', 1);">' + v.hms.topKeys + ' top-level '
 					+ (v.hms.topKeys > 1 ? ' keys' : ' key') + '</a>,' + 
 					' ' + (v.hms.topKeys > 1 ? ' max ' : '') + 

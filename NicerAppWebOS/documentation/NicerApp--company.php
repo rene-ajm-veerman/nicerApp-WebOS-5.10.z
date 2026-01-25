@@ -54,8 +54,7 @@
         <h2>Rene AJM Veerman's personal diaries</h2>
             <?php echo $diaries->getDiary('Rene AJM Veerman');?>
             <?php echo $diaries->getDiary('aivd.nl.juniorJudge-Gavan.PURAD.Hoverswell');?>
-            <h3>I got kicked off X.com for a week(!) due to me making death threats against your favorite warmongering international head honcho politicians.</h3>
-            <p class="backdropped">I mean against people like @realDonaldTrump @Zelenskyy_ua, the Rothschilds, the UK 'Committee of 300', the US GOP AND Democrats (who are equally guilty of getting us into the deep shit with China Russia and Iran)</p>
+            <h3></h3>
             <iframe style="margin:40px;border:1px solid silver;background:rgba(0,0,255,0.555);width:calc(100% - 80px);height:1080px;" src="https://said.by/Rene/on/frontpage"></iframe>
         */
         ?>

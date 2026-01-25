@@ -54,10 +54,10 @@ class class_NicerAppWebOS_database_API {
 
         $db = null;
         if (strpos('couchdb', $ct)!==false) {
-            $db = new class_NicerAppWebOS_database_API_couchdb_3_2 ( clone $naWebOS, $username, $cRec );
+            $db = new class_NicerAppWebOS_database_API_couchdb_1_0_1 ( clone $naWebOS, $username, $cRec );
         }
         if (strpos('fsdb', $ct)!==false) {
-            $db = new class_NicerAppWebOS_database_API_fileSystemDB_version1 ( clone $naWebOS, $username, $cRec);
+            $db = new class_NicerAppWebOS_database_API_fileSystem_1_0_0 ( clone $naWebOS, $username, $cRec);
         }
         if (strpos('adodb', $ct)!==false) {
             $db = new class_NicerAppWebOS_database_API_adodb ( clone $naWebOS, $username, $cRec);

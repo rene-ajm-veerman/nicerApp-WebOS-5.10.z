@@ -63,12 +63,13 @@ var naLog = {
                         var dt = new Date(parseInt(dit.millisecondsSinceEpoch)),
                         dt = dt.format("yyyy-mm-dd HH:MM:ss.l");
                         var info3 = $.extend({}, dit.msgProcessed, dit.info);
+                        var ipinfo = JSON.parse(info3.ipinfo);
                         html +=
                             '<span id="naIPlog_msg__'+dit.millisecondsSinceEpoch+'"></span>'
                                 +'<script type="text/javascript" language="javascript">'
                                 +'setTimeout(function() {'
                                     +'var hms_tst_js = { info : '+JSON.stringify(info3)+'};'
-                                    +'hm (hms_tst_js, "<div class=\\"naIPlog_header\\">'+dit.msgProcessed.msg+' <span class=\\"naIPlog_address\\">'+dit.ip+'</span></div>", { htmlID : "naIPlog_msg__'+dit.millisecondsSinceEpoch+'", fastInit : true });'
+                                    +'hm (hms_tst_js, "<div class=\\"naIPlog_header\\">'+dit.msgProcessed.msg+' <span class=\\"naIPlog_address\\">'+dit.ip+'</span> <span class=\\"naIPlog_origin\\">'+ipinfo.city+', '+ipinfo.region+', '+ipinfo.country+'</span> <span class=\\"naIPlog_url\\">'+info3.documentLocation.href+'</span></div>", { htmlID : "naIPlog_msg__'+dit.millisecondsSinceEpoch+'", fastInit : true, header : \'minimal\' });'
                                 +'},150);'
                                 +'</script>';
                     }

@@ -4,7 +4,7 @@ require_once (realpath(dirname(__FILE__).'/../../../../..').'/NicerAppWebOS/func
 require_once ('CouchDB-specific/sag/src/Sag.php');
 require_once ('CouchDB-specific/Sag-support-functions.php');
 
-class class_NicerAppWebOS_database_API_couchdb_3_2 {
+class class_NicerAppWebOS_database_API_couchdb_1_0_1 {
     public $cn = 'class_NicerAppWebOS_database_API_couchdb_3_2';
     public $connectionType = 'couchdb';
     public $debug = false;

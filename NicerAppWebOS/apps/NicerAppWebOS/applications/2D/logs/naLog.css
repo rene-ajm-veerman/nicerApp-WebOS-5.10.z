@@ -119,7 +119,7 @@ div.naIPlog_header > div > div > div {
     color:gold !important;
     box-shadow : -2px -2px 3px 1px rgba(255,255,255,0.7), 2px 2px 5px 2px rgba(0,0,0,0.7);
 }
-.naIPlog_address {
+.naIPlog_address, .naIPlog_origin, .naIPlog_url {
     margin : 20px;
     padding : 5px;
     border-radius : 10px;
