@@ -404,6 +404,9 @@ class NicerAppWebOS {
             elseif ($this->nonEmptyStringField('app-wikipedia_org', $_GET))
                 return $this->getContent__view_wikipedia ($_GET['app-wikipedia_org']);
 
+            elseif ($this->nonEmptyStringField('app-wikipedia_org-search', $_GET))
+                return $this->getContent__view_wikipedia_search ($_GET);
+
             elseif ( $this->nonEmptyStringField('viewID',$_GET) )
                 return $this->getContent__view ($_GET['viewID']); // this handles the front page of a website too.
 
@@ -432,6 +435,36 @@ class NicerAppWebOS {
 
     public function getContent__view_wikipedia ($wiki_params=null) {
         $fncn = $this->cn.'::getContent__view_wikipedia()';
+        global $naWebOS;
+        // output frontpage.dialog.*.php
+        $folder = $this->basePath.'/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/3rd-party-site.wikipedia.org/';
+        $files = getFilePathList($folder, false, '/app.dialog.*\.php/', null, array('file'), 1, 1, true)['files'];
+        //{ echo $folder.'<br/>'.PHP_EOL; echo json_encode($files); echo PHP_EOL.PHP_EOL; };
+        $ret = [];
+        foreach ($files as $idx2 => $filepath) {
+            $fileRoot = $folder;
+            $filename = str_replace ($fileRoot, '', $filepath['realPath']);
+            $dialogID = str_replace ('app.dialog.', '', $filename);
+            $dialogID = str_replace ('.php', '', $dialogID);
+            $arr = array ( $dialogID => execPHP($filepath) );
+            //var_dump (file_exists($filepath)); echo PHP_EOL;
+            //var_dump ($dialogID); echo PHP_EOL;
+            //$arr = array ( $dialogID => $filepath );
+            $ret = array_merge ($ret, $arr);
+        }
+
+        if (
+            strpos($_SERVER['SCRIPT_NAME'], '/index.php')!==false
+            || strpos($_SERVER['SCRIPT_NAME'], '/ajax_get_content.php')!==false
+        ) $ret = array_merge ($ret, [
+            'head' => $this->getPageCSS(true,false)
+        ]);
+//echo '<pre>'; var_dump ($ret); exit();
+        return $ret;
+    }
+
+    public function getContent__view_wikipedia_search ($wiki_params=null) {
+        $fncn = $this->cn.'::getContent__view_wikipedia_search()';
         global $naWebOS;
         // output frontpage.dialog.*.php
         $folder = $this->basePath.'/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/3rd-party-site.wikipedia.org/';
