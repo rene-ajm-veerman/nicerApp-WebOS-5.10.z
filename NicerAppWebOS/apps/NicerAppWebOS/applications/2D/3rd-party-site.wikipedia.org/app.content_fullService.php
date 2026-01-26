@@ -99,6 +99,8 @@ foreach ($m[0] as $idx => $str) {
     $rf = mangleURL($replace);
     //var_dump ($rf);//die();
     if (strpos($rf,'#')===false) {
+        $rf = preg_replace('/https:\/\/nicer.app\/wiki\/.*?/','',$rf);
+        $rf = preg_replace('/https:\/\/said.by\/wiki\/.*?/','',$rf);
         $replaceFinal = 'javascript:window.top.na.site.loadContent(event, \'/wiki/'.$rf.'\');';
     } else {
         $replaceFinal = 'javascript:window.top.na.site.scrollContent(event, \''.$rf.'\');';

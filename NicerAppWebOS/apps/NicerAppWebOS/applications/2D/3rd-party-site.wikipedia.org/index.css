@@ -171,6 +171,8 @@ figure[typeof~='mw:File/Thumb'] > figcaption, figure[typeof~='mw:File/Frame'] > 
 }
 .mp-contains-float > div, .mp-box div { color : white !important; background : rgba(0,0,0,0.555); border-radius:20px;padding:10px;margin:10px; }
 .mw-footer li { padding : 15px !important; }
+.mw-parser-output .navbox { border:none !important;}
+.infobox { border:none !important; margin:10px !important;}
 
 #mp-topbanner, #mp-left, #mp-right, #mp-middle, #mp-lower {
     margin : 10px !important;
