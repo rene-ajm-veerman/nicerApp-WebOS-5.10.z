@@ -98,7 +98,7 @@ foreach ($m[0] as $idx => $str) {
     //echo 't33;'; var_dump ($replace); echo PHP_EOL;
     $rf = mangleURL($replace);
     //var_dump ($rf);//die();
-    if (strpos('#',$rf)!==false) {
+    if (strpos($rf,'#')===false) {
         $replaceFinal = 'javascript:window.top.na.site.loadContent(event, \'/wiki/'.$rf.'\');';
     } else {
         $replaceFinal = 'javascript:window.top.na.site.scrollContent(event, \''.$rf.'\');';

@@ -6052,4 +6052,48 @@ Final total in results: 4,440 images
   - moondream / detailed ... done
   - moondream / keywords ... done
 [   6/14062] 19877082419_f946310fdd_b.jpg
-  - llava-llama3 / detailed ... 
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   7/14062] 17222909949_093bf3215c_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   8/14062] 51199872192_853a8c4a50_k.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[   9/14062] 16845164281_2a2c20da44_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+[  10/14062] 17165307583_df296c9406_b.jpg
+  - llava-llama3 / detailed ... done
+  - llava-llama3 / keywords ... done
+  - llava:7b / detailed ... done
+  - llava:7b / keywords ... done
+  - bakllava / detailed ... done
+  - bakllava / keywords ... done
+  - moondream / detailed ... done
+  - moondream / keywords ... done
+→ Successfully saved merged file: wallpaper_descriptions_multi_prompts-Landscape.json

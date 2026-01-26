@@ -526,7 +526,6 @@ na.site = {
     },
 
     scrollContent : function (evt, tag) {
-        debugger;
         // Source - https://stackoverflow.com/a/4884928
         // Posted by David Tang, modified by community. See post 'Timeline' for change history
         // Retrieved 2026-01-26, License - CC BY-SA 2.5
