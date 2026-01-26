@@ -525,6 +525,23 @@ na.site = {
 
     },
 
+    scrollContent : function (evt, tag) {
+        debugger;
+        // Source - https://stackoverflow.com/a/4884928
+        // Posted by David Tang, modified by community. See post 'Timeline' for change history
+        // Retrieved 2026-01-26, License - CC BY-SA 2.5
+        var offset = $($(tag.replace(/.*#/,'#'))).offset(); // Contains .top and .left
+        offset.left -= 20;
+        offset.top -= 20;
+
+        $('#siteContent .vividScrollpane').animate({
+            scrollTop: offset.top,
+            scrollLeft: offset.left,
+            duration : 500,
+            easing : 'swing'
+        });
+    },
+
     onresize : function(settings) {
         $('#siteBackground, #siteBackground iframe, #siteBackground img, #siteBackground div').css({
             width : $(window).width(),

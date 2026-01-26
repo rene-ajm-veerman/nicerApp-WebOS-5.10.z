@@ -90,15 +90,19 @@ foreach ($m[0] as $idx => $str) {
 //$output2 = preg_replace('|<a(.*?)href="(.*?)"(.*?)</a>|U', '<a $1 href="http://192.168.178.29/wiki/$2"$3</a>', $output2);
 preg_match_all('/<a (.*?)href="(.*?)"(.*?)>/', $output2, $m, PREG_PATTERN_ORDER);
 //echo '<pre>';
-//var_dump ($m); die();
+//var_dump ($m); //die();
 foreach ($m[0] as $idx => $str) {
     //var_dump ('$idx='.$idx);
     //var_dump (htmlentities($str));
     $replace = $m[2][$idx];
-    //var_dump ($replace);
+    //echo 't33;'; var_dump ($replace); echo PHP_EOL;
     $rf = mangleURL($replace);
-    //var_dump ($rf);
-    $replaceFinal = 'javascript:window.top.na.site.loadContent(event, \'/wiki/'.$rf.'\');';
+    //var_dump ($rf);//die();
+    if (strpos('#',$rf)!==false) {
+        $replaceFinal = 'javascript:window.top.na.site.loadContent(event, \'/wiki/'.$rf.'\');';
+    } else {
+        $replaceFinal = 'javascript:window.top.na.site.scrollContent(event, \''.$rf.'\');';
+    };
     //var_dump ($replaceFinal);
     //var_dump (substr($replace,0,8)=='https://');
 
@@ -151,17 +155,21 @@ $output2 = preg_replace('/\.mw\-parser\-output \#mp\-left \{.*?\}/','',$output2)
 
 //echo '<pre>';
 //die();
-$output2 = str_replace('</body>', '<link type="text/css" rel="StyleSheet" href="https://'.$naWebOS->domainFolder.'/domainConfig/'.$naWebOS->domainFolder.'/index.css"/><link type="text/css" rel="StyleSheet" href="https://'.$naWebOS->domainFolder.'/domainConfig/'.$naWebOS->domainFolder.'/index.dark.css"/><link type="text/css" rel="StyleSheet" href="https://'.$naWebOS->domainFolder.'/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/3rd-party-site.wikipedia.org/index.css"/></body>', $output2);
+$output2 = str_replace('</body>', '<link type="text/css" rel="StyleSheet" href="https://'.$naWebOS->domainFolder.'/domainConfig/index.css"/><link type="text/css" rel="StyleSheet" href="https://'.$naWebOS->domainFolder.'/domainConfig/index.dark.css"/><link type="text/css" rel="StyleSheet" href="https://'.$naWebOS->domainFolder.'/NicerAppWebOS/apps/NicerAppWebOS/applications/2D/3rd-party-site.wikipedia.org/index.css"/></body>', $output2);
 
 
 echo $output2;
 
 function mangleURL ($replace, $mangleMe1=true) {
     global $wiki_url;
+    //echo $wiki_url; die();
+    //var_dump($_SERVER); die();
+    $wiki_url_1 = str_replace('https://','',$wiki_url);
+    $wiki_url_1 = preg_replace('/\/.*/','',$wiki_url_1);
     if (substr($replace,0,2)=='//' && $mangleMe1) $rf = str_replace('//','',$replace);
     elseif (substr($replace,0,2)=='//' && !$mangleMe1) $rf = $replace;//str_replace('//','',$replace);
     elseif (substr($replace,0,8)=='https://' && $mangleMe1) $rf = str_replace('https://','',$replace);
-    elseif (substr($replace,0,1)=='/' && $mangleMe1) $rf = str_replace('https://','',$wiki_url).substr($replace,1);
+    elseif (substr($replace,0,1)=='/' && $mangleMe1) $rf = 'https://'.$_SERVER['SERVER_NAME'].'/wiki/'.$wiki_url_1.$replace;
     elseif (substr($replace,0,1)=='/' && !$mangleMe1) $rf = '//'.parse_url($wiki_url, PHP_URL_HOST).$replace;
     elseif ($mangleMe1) $rf = '//'.parse_url($wiki_url, PHP_URL_HOST).'/'.$replace;
     else $rf = $replace;
