@@ -169,6 +169,8 @@ figure[typeof~='mw:File/Thumb'] > figcaption, figure[typeof~='mw:File/Frame'] > 
 .mw-parser-output {
     color : black;
 }
+.mp-contains-float > div, .mp-box div { color : white !important; background : rgba(0,0,0,0.555); border-radius:20px;padding:10px;margin:10px; }
+.mw-footer li { padding : 15px !important; }
 
 #mp-topbanner, #mp-left, #mp-right, #mp-middle, #mp-lower {
     margin : 10px !important;
