@@ -108,6 +108,8 @@ figure[typeof~='mw:File/Thumb'], figure[typeof~='mw:File/Frame'] {
 }
 figure[typeof~='mw:File/Thumb'] > figcaption, figure[typeof~='mw:File/Frame'] > figcaption {
     border : none !important;
+    color : white !important;
+    text-shadow : 1px 1px 3px rgba(0,0,0,0.751) !important;
 }
 .vector-toc-contents li {
     margin : 20px !important;

@@ -1,0 +1,9 @@
+{
+    "jsCodeFunction:::na.d3c.areDivsVisible('visible::#siteToolbarLeft,,invisible::#siteToolbarRight,#siteToolbarThemeEditor');" : "jsCodeParam_conditionsMet:::na.d3c.dv_tl",
+    "udbCodeFunction:::naFetchStore_jsonFile('{$domainPath}/siteData/uDB-2.y.z/');" : "jsCodeParam_conditionsMet:::na.d3c.dv_tl",
+    "udbCodeFunction:::naFetchStore_diary('nicer_app___Rene__AJM__Veerman')" : "# _users/_id",
+    "udbCodeFunction:::naFetchStore_dataFolder('dj3s9xmsl2')" : "# may be out of date : {$domainPath}/siteData/Groups/Guests/Media Albums/Backgrounds/Tiled/Grey",
+    "udbCodeFunction:::naFetchStore_commentsFor('=dataFolder==dj3s9xmsl2')" : "# may be out of date : {$domainPath}/siteData/Groups/Guests/Media Albums/Backgrounds/Tiled/Grey",
+    "udbCodeFunction:::naFetchStore_blogArticle('gir9wwlwm30sj3l')" : "# may be out of date : {$domainPath}/siteData//Users/Rene AJM Veerman/Blog/2026-01/frontpage",
+    "udbCodeFunction:::naFetchStore_commentsFor('=blogArticle==gir9wwlwm30sj3l')" : "# may be out of date : {$domainPath}/siteData//Users/Rene AJM Veerman/Blog/2026-01/frontpage",
+}

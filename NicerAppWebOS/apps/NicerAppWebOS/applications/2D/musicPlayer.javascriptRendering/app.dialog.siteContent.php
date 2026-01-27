@@ -30,17 +30,19 @@ if (false) {
 };
 if (
     $naLAN
-    /*|| ((array_key_exists('pw',$_GET)
+    || ((array_key_exists('pw',$_GET)
             && (
                 $_GET['pw']=='efv7750'
+                || $_GET['pw']=='50plzTolerate'
+                /*$_GET['pw']=='efv7750'
                 || $_GET['pw']=='xmas2025ai-d'
                 || $_GET['pw']=='pl-2025-10-24-15-03'
                 || $_GET['pw']=='AllahuaAckbar507788'
                 || $_GET['pw']=='alwaysXMASohNoes-50s'
-                || $_GET['pw']=='alwaysXMASzzz'
+                || $_GET['pw']=='alwaysXMASzzz'*/
             )
         )
-    )*/
+    )
 ) {
     if (is_array($view)) {
         if (!array_key_exists('rp', $view))
