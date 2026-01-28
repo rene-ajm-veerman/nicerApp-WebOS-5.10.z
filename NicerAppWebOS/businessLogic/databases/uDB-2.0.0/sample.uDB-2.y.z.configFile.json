@@ -1,9 +1,92 @@
 {
-    "jsCodeFunction:::na.d3c.areDivsVisible('visible::#siteToolbarLeft,,invisible::#siteToolbarRight,#siteToolbarThemeEditor');" : "jsCodeParam_conditionsMet:::na.d3c.dv_tl",
-    "udbCodeFunction:::naFetchStore_jsonFile('{$domainPath}/siteData/uDB-2.y.z/');" : "jsCodeParam_conditionsMet:::na.d3c.dv_tl",
-    "udbCodeFunction:::naFetchStore_diary('nicer_app___Rene__AJM__Veerman')" : "# _users/_id",
-    "udbCodeFunction:::naFetchStore_dataFolder('dj3s9xmsl2')" : "# may be out of date : {$domainPath}/siteData/Groups/Guests/Media Albums/Backgrounds/Tiled/Grey",
-    "udbCodeFunction:::naFetchStore_commentsFor('=dataFolder==dj3s9xmsl2')" : "# may be out of date : {$domainPath}/siteData/Groups/Guests/Media Albums/Backgrounds/Tiled/Grey",
-    "udbCodeFunction:::naFetchStore_blogArticle('gir9wwlwm30sj3l')" : "# may be out of date : {$domainPath}/siteData//Users/Rene AJM Veerman/Blog/2026-01/frontpage",
-    "udbCodeFunction:::naFetchStore_commentsFor('=blogArticle==gir9wwlwm30sj3l')" : "# may be out of date : {$domainPath}/siteData//Users/Rene AJM Veerman/Blog/2026-01/frontpage",
+    "na_uDB-2.0.0_thisFileIsAbout" : {
+        "what" : "na_uDB_humanReadable($this->configFile)"
+    },
+    "na_uDB_entries" : {
+        "machines" : [ {
+            "domain" : "{$naWebOS->domain}",
+            "dbs" : [
+                { "connectorName" : "CouchDB", "plainUserName" : "Rene AJM Veerman", "plainRoleName" : "Users" },
+                { "connectorName" : "filesystemDB", "plainUserName" : "Rene AJM Veerman", "plainRoleName" : "Users" }
+            ],
+            "PHP:class_NicerAppWebOS_uDB_2_0_0" : [ {
+                    "domains" : {
+                        "nicer.app" : [
+                            { "db" : { "connectorName" : "CouchDB", "plainUserName" : "Rene AJM Veerman", "plainRoleName" : "Users" } },
+                            { "db" : { "connectorName" : "filesystemDB", "plainUserName" : "Rene AJM Veerman", "plainRoleName" : "Users" } }
+                        ],
+                        "backup1.nicer.app" : [
+                            { "db" : { "connectorName" : "filesystemDB", "plainUserName" : "Rene AJM Veerman", "plainRoleName" : "Users" } }
+                        ],
+                        "nicerapp.drive.google.com" : [
+                            { "db" : { "connectorName" : "filesystemDB", "plainUserName" : "Rene AJM Veerman", "plainRoleName" : "Users" } }
+                        ]
+                    },
+                    "functions" : {
+                        "loadSave_dataFolder" : { "params" : {
+                            "folder" : {
+                                "path" : "{$path}/NicerAppWebOS/documentation",
+                                "content" : {}
+                            }
+                        } },
+                        "na_commentsFor" : [{ "content" : {} }]
+                    }
+                }, {
+                    "domains" : {
+                        "nicer.app" : [ ],
+                        "backup1.nicer.app" : [  ],
+                        "nicerapp.drive.google.com" : [ ]
+                    },
+                    "functions" : {
+                        "loadSave_jsonFiles" : { "params" : {
+                            "file" : {
+                                "path" : "{$domainPath}/siteData/uDB-2.y.z/manualMemos.html.json.php",
+                                "functions" : { "getContent" : { "params" : {}, "content" : {} } },
+                                "content" : {}
+                            }
+                        } },
+                        "na_commentsFor" : [{ "content" : {} }]
+                    }
+                }, {
+                    "domains" : { "nicer.app" : [{}], "backup1.nicer.app" : [{}], "nicerapp.drive.google.com" : [{}] },
+                    "functions" : {
+                        "loadSave_diaries" : { "params" : [
+                            { "name" : "Rene AJM Veerman", "content" : {} },
+                            { "name" : "NicerAppWebOS-5.y.z", "content" : {} }
+                        ] },
+                        "na_commentsFor" : []
+                    }
+                }, {
+                    "domains" : { "nicer.app" : [{}], "backup1.nicer.app" : [{}], "nicerapp.drive.google.com" : [{}] },
+                    "functions" : {
+                        "loadSave_cmsFolders" : [
+                            {
+                                "params" : {
+                                    "dbName" : "cms_documents___user___rene__ajm__veerman",
+                                    "id" : "d8sd"
+                                },
+                                "content":{}
+                            }
+                        ],
+                        "loadSave_commentsFor" : [{"content":{}}]
+                    },
+                    "comment" : "# {$domainPath}/siteData/Groups/Guests/Media Albums/Backgrounds/Tiled/Grey",
+                }, {
+                    "domains" : { "nicer.app" : [{}], "backup1.nicer.app" : [{}], "nicerapp.drive.google.com" : [{}] },
+                    "functions" : {
+                        "loadSave_cmsBlogArticles" : [
+                            {
+                                "params" : {
+                                    "dbName" : "cms_documents___user___rene__ajm__veerman",
+                                    "id" : "c0"
+                                },
+                                "content":{}
+                            }
+                        ],
+                        "loadSave_commentsFor" : [{"content":{}}]
+                    },
+                    "comment" : "# may be out of date : /Users/Guest/Blog/2026-01/frontpage",
+            } ]
+        } ]
+    }
 }
